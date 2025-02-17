@@ -1,0 +1,304 @@
+/* styles.css */
+
+/* Importación de fuentes de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Variables CSS */
+:root {
+	--black: #000000;
+	--esmeralda-primario: #00aec3;
+	--esmeralda-secundario: #007b83;
+}
+
+/* Estilos generales del body */
+body {
+	font-family: 'Open Sans', serif;
+	background-color: #fff;
+
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+/* Estilos de encabezados */
+h1 {
+	font-size: 3rem;
+	font-weight: 300;
+	color: var(--esmeralda-secundario);
+}
+
+h2 {
+	font-family: 'Poppins', serif;
+	font-size: 1.5rem;
+	font-weight: 300;
+	font-style: normal;
+	/* color: var(--esmeralda-primario); */
+}
+
+h3 {
+	font-size: 1.5rem;
+	font-weight: 300;
+	color: var(--esmeralda-secundario);
+}
+
+h4 {
+	font-size: 1.2rem;
+	font-weight: 300;
+	color: var(--esmeralda-secundario);
+}
+
+h5 {
+	font-size: 1rem;
+	font-weight: 300;
+	color: var(--esmeralda-secundario);
+}
+
+/* Estilos de párrafos */
+ul {
+	margin-left: 20px;
+}
+li {
+	font-weight: 300;
+	text-align: left;
+}
+
+p {
+	font-size: 1rem;
+	font-weight: 300;
+	color: var(--black);
+}
+
+.section {
+	/* Selecciona todos los elementos con la clase 'section' */
+	padding-left: 20%;
+	padding-right: 20%;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.logo {
+	width: 250px;
+	margin-bottom: 20px;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes slideIn {
+	from {
+		opacity: 0;
+		transform: translateY(-20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes scaleIn {
+	from {
+		opacity: 0;
+		transform: scale(0.9);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+/* Estilos del Footer */
+.footer {
+	text-align: center;
+	padding: 20px;
+	/* background-color: var(--esmeralda-secundario); */
+	color: white;
+}
+
+/* Estilos del Navbar */
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 15px 30px;
+	background-color: var(--esmeralda-primario);
+	color: white;
+	box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+	position: relative;
+}
+.navbar h1 {
+	font-size: 1.8rem;
+	/* font-weight: 700; */
+}
+.menu-toggle {
+	display: none;
+	background: none;
+	border: none;
+	font-size: 2rem;
+	color: var(--white);
+	cursor: pointer;
+}
+.nav-links {
+	list-style: none;
+	display: flex;
+	gap: 20px;
+	padding: 0;
+	margin: 0;
+}
+.nav-links a {
+	text-decoration: none;
+	color: var(--white);
+	font-weight: bold;
+	font-size: 1rem;
+	transition: color 0.3s ease-in-out;
+}
+.nav-links a:hover {
+	color: var(--esmeralda-secundario);
+}
+
+.service-item {
+	display: inline-flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 20px;
+
+	width: 40%;
+}
+
+@media (max-width: 768px) {
+	/* Estilos de secciones */
+	.section {
+		text-align: center;
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+
+	.menu-toggle {
+		display: block;
+	}
+	.nav-links {
+		display: none;
+		flex-direction: column;
+		position: absolute;
+		top: 80px;
+		right: 0;
+		background: var(--esmeralda-secundario);
+		width: 100%;
+		text-align: center;
+		padding: 20px 0;
+		box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+		border-radius: 0 0 10px 10px;
+		z-index: 1000;
+	}
+
+	.nav-links.open {
+		display: flex;
+		border-radius: 0 0 10px 10px;
+		top: 106.5px;
+	}
+	.nav-links li {
+		padding: 15px;
+	}
+
+	.service-item {
+		display: inline-flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 15px 0;
+
+		/* border: 1px solid #ccc; */
+		border-radius: 5px;
+		width: 100%;
+	}
+}
+
+/* Estilos de la sección Contact */
+.contact-section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	padding: 50px;
+}
+.contact-form {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	width: 100%;
+	max-width: 400px;
+}
+.contact-form input,
+.contact-form textarea {
+	padding: 10px;
+	border: 1px solid var(--esmeralda-secundario);
+	border-radius: 5px;
+	font-size: 1rem;
+	font-family: 'Roboto', sans-serif;
+}
+.contact-form button {
+	padding: 12px 24px;
+	font-size: 1rem;
+	font-weight: bold;
+	color: white;
+	/* background-color: var(--esmeralda-secundario); */
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+.contact-form button:hover {
+	/* background-color: var(--esmeralda-primario); */
+	transform: scale(1.05);
+}
+
+/* Animaciones */
+.fade-in {
+	opacity: 0;
+	animation: fadeIn 1.5s ease-in-out forwards;
+}
+.fade-in-delay {
+	opacity: 0;
+	animation: fadeIn 1.5s ease-in-out forwards;
+	animation-delay: 0.5s;
+}
+.slide-in {
+	opacity: 0;
+}
+
+/* styles.css */
+
+/*... otros estilos... */
+.cta-button {
+	/* Estilos básicos de botón */
+	display: inline-block;
+	padding: 10px 20px;
+	font-size: 1rem;
+	font-weight: bold;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+	border: none;
+	border-radius: 5px;
+	margin: 10px;
+
+	/* Colores */
+	color: white;
+	background-color: var(--esmeralda-primario);
+
+	/* Transiciones */
+	transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+.cta-button:hover {
+	background-color: var(--esmeralda-secundario);
+	transform: scale(1.05);
+}
