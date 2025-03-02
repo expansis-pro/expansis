@@ -1,20 +1,25 @@
 /* styles.css */
 
 /* Importación de fuentes de Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 /* Variables CSS */
 :root {
 	--black: #000000;
-	--esmeralda-primario: #00aec3;
-	--esmeralda-secundario: #007b83;
+	--white: #ffffff;
+	--gris: #cccccc;
+	--primario: #f27405;
+	--secundario: #f29d57;
+	--terciario: #f2d905;
 }
 
 /* Estilos generales del body */
 body {
-	font-family: 'Open Sans', serif;
 	background-color: #fff;
-
+	/* color: var(--black); */
+	font-family: 'Montserrat', serif;
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: normal;
 	margin: 0;
 	padding: 0;
 	text-align: center;
@@ -22,35 +27,43 @@ body {
 
 /* Estilos de encabezados */
 h1 {
-	font-size: 3rem;
-	font-weight: 300;
-	color: var(--esmeralda-secundario);
+	font-size: 2rem;
+
+	/* color: var(--black); */
+	font-family: 'Montserrat', serif;
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: normal;
 }
 
 h2 {
-	font-family: 'Poppins', serif;
+	/* font-family: 'Poppins', serif; */
 	font-size: 1.5rem;
-	font-weight: 300;
+
+	font-family: 'Montserrat', serif;
+	font-optical-sizing: auto;
+	font-weight: 400;
 	font-style: normal;
-	/* color: var(--esmeralda-primario); */
+
+	/* color: var(--primario); */
 }
 
 h3 {
 	font-size: 1.5rem;
-	font-weight: 300;
-	color: var(--esmeralda-secundario);
+	font-weight: 100;
+	/* color: var(--black); */
 }
 
 h4 {
 	font-size: 1.2rem;
 	font-weight: 300;
-	color: var(--esmeralda-secundario);
+	/* color: var(--secundario); */
 }
 
 h5 {
 	font-size: 1rem;
 	font-weight: 300;
-	color: var(--esmeralda-secundario);
+	/* color: var(--secundario); */
 }
 
 /* Estilos de párrafos */
@@ -64,14 +77,19 @@ li {
 
 p {
 	font-size: 1rem;
-	font-weight: 300;
-	color: var(--black);
+	font-weight: 400;
+	/* color: var(--black); */
 }
 
 .section {
 	/* Selecciona todos los elementos con la clase 'section' */
-	padding-left: 20%;
-	padding-right: 20%;
+	padding-left: 15%;
+	padding-right: 15%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	padding-bottom: 25px;
 }
 
 .container {
@@ -121,25 +139,45 @@ p {
 .footer {
 	text-align: center;
 	padding: 20px;
-	/* background-color: var(--esmeralda-secundario); */
-	color: white;
+	/* background-color: var(--secundario); */
+	/* color: var(--white); */
 }
 
 /* Estilos del Navbar */
 .navbar {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 15px 30px;
-	background-color: var(--esmeralda-primario);
-	color: white;
-	box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+	/* display: flex; */
+
+	/* padding: 15px 0; */
+	background-color: var(--white);
+
+	color: var(--black);
+}
+
+.navbar-padding {
 	position: relative;
+	border-bottom: 1px solid var(--black); /* Ajusta el grosor y el color de la línea */
+	justify-content: space-between;
+	margin: 0 auto; /* Centra la línea horizontalmente */
+	align-items: center;
+	display: flex;
+	padding: 15px 0;
+	width: 80%; /* Ajusta el porcentaje según el ancho deseado */
 }
-.navbar h1 {
+.navbar-padding.no-border-bottom {
+	border-bottom: none; /* Elimina la línea inferior */
+}
+
+.navbarH1 {
 	font-size: 1.8rem;
-	/* font-weight: 700; */
+	color: var(--black);
+	text-decoration: none;
 }
+.navbarH1:hover {
+	color: var(--primario);
+
+	transition: color 0.3s ease-in-out;
+}
+
 .menu-toggle {
 	display: none;
 	background: none;
@@ -157,13 +195,14 @@ p {
 }
 .nav-links a {
 	text-decoration: none;
-	color: var(--white);
-	font-weight: bold;
+	/* color: var(--white); */
+	color: var(--black);
+	/* font-weight: bold; */
 	font-size: 1rem;
 	transition: color 0.3s ease-in-out;
 }
 .nav-links a:hover {
-	color: var(--esmeralda-secundario);
+	color: var(--secundario);
 }
 
 .service-item {
@@ -171,8 +210,22 @@ p {
 	flex-direction: column;
 	align-items: center;
 	padding: 20px;
-
 	width: 40%;
+	transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+}
+
+.service-item:hover {
+	transform: translateY(-10px); /* Elevar el servicio ligeramente */
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Añadir sombra */
+}
+.service-item:hover i {
+	color: var(--primario); /* Cambia el color del ícono al color primario */
+	transition: color 0.7s;
+}
+
+.service-item:hover h3 {
+	font-weight: 400; /* Cambia el color del ícono al color primario */
+	transition: font-weight 0.7s;
 }
 
 @media (max-width: 768px) {
@@ -187,25 +240,37 @@ p {
 		display: block;
 	}
 	.nav-links {
-		display: none;
 		flex-direction: column;
 		position: absolute;
-		top: 80px;
+		top: 105.17px; /* Define la posición 'top' una sola vez */
 		right: 0;
-		background: var(--esmeralda-secundario);
+		background-color: var(--white);
 		width: 100%;
 		text-align: center;
-		padding: 20px 0;
-		box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+		padding: 0;
 		border-radius: 0 0 10px 10px;
 		z-index: 1000;
+		box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+
+		/* ANIMACION */
+		transition: max-height 0.7s ease-in-out, padding 0.7s ease-in-out; /* Agrupa las transiciones */
+		max-height: 0;
+		overflow: hidden;
+		visibility: hidden; /* Usa visibility: hidden en lugar de display: none */
+	}
+	.nav-links.open {
+		display: block;
+		max-height: 297.33px;
+		padding: 20px 0;
+		visibility: visible; /* Muestra el elemento cuando está abierto */
+	}
+	.nav-links.close {
+		display: block;
+		max-height: 0;
+		padding: 0;
+		visibility: visible; /* Muestra el elemento cuando está abierto */
 	}
 
-	.nav-links.open {
-		display: flex;
-		border-radius: 0 0 10px 10px;
-		top: 106.5px;
-	}
 	.nav-links li {
 		padding: 15px;
 	}
@@ -220,15 +285,28 @@ p {
 		border-radius: 5px;
 		width: 100%;
 	}
+
+	.navbar {
+		background-color: var(--secundario);
+		color: var(--white);
+	}
+
+	.navbar-padding {
+		border-bottom: none;
+	}
+
+	.navbarH1 {
+		color: var(--white);
+	}
 }
 
 /* Estilos de la sección Contact */
 .contact-section {
-	display: flex;
+	/* display: flex;
 	flex-direction: column;
 	align-items: center;
 	text-align: center;
-	padding: 50px;
+	padding: 10px; */
 }
 .contact-form {
 	display: flex;
@@ -240,24 +318,24 @@ p {
 .contact-form input,
 .contact-form textarea {
 	padding: 10px;
-	border: 1px solid var(--esmeralda-secundario);
+	border: 1px solid var(--secundario);
 	border-radius: 5px;
 	font-size: 1rem;
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Montserrat', serif;
 }
 .contact-form button {
 	padding: 12px 24px;
 	font-size: 1rem;
 	font-weight: bold;
 	color: white;
-	/* background-color: var(--esmeralda-secundario); */
+	/* background-color: var(--secundario); */
 	border: none;
 	border-radius: 5px;
 	cursor: pointer;
 	transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 .contact-form button:hover {
-	/* background-color: var(--esmeralda-primario); */
+	/* background-color: var(--primario); */
 	transform: scale(1.05);
 }
 
@@ -281,24 +359,102 @@ p {
 .cta-button {
 	/* Estilos básicos de botón */
 	display: inline-block;
-	padding: 10px 20px;
+	padding: 15px 25px;
 	font-size: 1rem;
 	font-weight: bold;
 	text-align: center;
 	text-decoration: none;
 	cursor: pointer;
 	border: none;
-	border-radius: 5px;
-	margin: 10px;
+	border-radius: 15px;
+	margin: 10px 0;
 
 	/* Colores */
 	color: white;
-	background-color: var(--esmeralda-primario);
+	background-color: var(--primario);
 
 	/* Transiciones */
 	transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 .cta-button:hover {
-	background-color: var(--esmeralda-secundario);
+	background-color: var(--secundario);
 	transform: scale(1.05);
+}
+
+.fas {
+	padding-top: 10px;
+}
+
+.home-section {
+	/* background-image: url('../public/img/bg-expansis-pro-1920x1080.jpg'); */
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	align-items: baseline;
+	/* color: white; */
+}
+@media (max-width: 768px) {
+	.home-section {
+		/* background-image: url('../public/img/bg-expansis-pro-300x533.jpg'); */
+	}
+}
+
+.background-container {
+	position: relative;
+	width: 100%;
+	height: 380px; /* O el tamaño que necesites */
+	overflow: hidden; /* Asegura que las imágenes no sobresalgan */
+}
+
+.background-container .background-image {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-position: center;
+
+	transition: opacity 2s ease; /* Aumenta la duración y cambia la función de temporización */
+}
+
+.background-container .background-image-1 {
+	background-image: url('../public/img/bg-expansis-pro-1920x1080.jpg');
+	opacity: 1;
+}
+
+.background-container .background-image-2 {
+	background-image: url('../public/img/bg-expansis-pro-300x533.jpg');
+	opacity: 0;
+}
+
+@media (max-width: 768px) {
+	.background-container .background-image-1 {
+		opacity: 0;
+	}
+
+	.background-container .background-image-2 {
+		opacity: 0.5;
+	}
+
+	.background-container .content {
+		align-items: center;
+		color: black;
+	}
+}
+
+@media (min-width: 769px) {
+	.background-container .content {
+		color: white; /* Ajusta el color del texto para que sea legible */
+	}
+}
+
+.background-container .content {
+	position: relative; /* Asegura que el contenido esté encima de los fondos */
+	z-index: 1;
+	display: flex;
+	flex-direction: column;
+	/* align-items: center; */
+	justify-content: center;
+	height: 100%; /* Asegura que el contenido ocupe todo el alto */
 }

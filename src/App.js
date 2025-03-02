@@ -9,20 +9,24 @@ import Services from './pages/Services';
 import Contact from './pages/Contact';
 import Testimonials from './pages/Testimonials';
 import './global.css';
+import ScrollToTop from './components/ScrollToTop'; // Importa el componente ScrollToTop
 
 function App() {
   return (
     <Router>
-      <Navbar />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/about' element={<About />} />
-        <Route path='/services' element={<Services />} />
-        <Route path='/contact' element={<Contact />} />
-        <Route path='/testimonials' element={<Testimonials />} />
-      </Routes>
-      <Footer />
+      <ScrollToTop> {/* Envuelve el contenido con ScrollToTop */}
+        <Navbar />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/services' element={<Services />} />
+          <Route path='/contact' element={<Contact />} />
+          <Route path='/testimonials' element={<Testimonials />} />
+        </Routes>
+        <Footer />
+      </ScrollToTop>
     </Router>
   );
 }
+
 export default App;
