@@ -1,19 +1,24 @@
 // src/pages/About.jsx
 import React from 'react';
-import { Link } from 'react-router-dom';
-
+import ImageTextCTA from '../components/ImageTextCTA';
+import aboutImageMobile from '../img/about-page_400x200.jpg';
+import aboutImageDesktop from '../img/about-page_630x630.jpg';
 
 const About = () => {
 	return (
-		<section className='section about'>
+		<section id="about" className='section about'>
 			<h1 className='fade-in'>Quiénes Somos</h1>
-			<p className='fade-in-delay'>En Expansis Pro, impulsamos el crecimiento de las empresas en el mundo digital. Somos un equipo de expertos apasionados por la tecnología y la innovación, que trabajan para conectar a las empresas con nuevas oportunidades y ayudarlas a alcanzar su máximo potencial.</p>
-			<p className='fade-in-delay'>Nos especializamos en desarrollo web, consultoría digital y marketing online, ofreciendo soluciones personalizadas que se adaptan a las necesidades de cada cliente.</p>
-			{/* <h1 className='fade-in-delay'>Nuestro Equipo</h1>
-			<p className='fade-in-delay'>Conoce a las personas detrás de Expansis Pro.</p> */}
-			<Link to='/services' className='cta-button fade-in-delay'>
-				Conoce nuestros servicios
-			</Link>
+			<ImageTextCTA
+				imageMobile={aboutImageMobile}
+				imageDesktop={aboutImageDesktop}
+				title="Sobre Nosotros"
+				text={[
+					'En Expansis Pro, impulsamos el crecimiento de las empresas en el mundo digital. Somos un equipo de expertos apasionados por la tecnología y la innovación, que trabajan para conectar a las empresas con nuevas oportunidades y ayudarlas a alcanzar su máximo potencial.',
+					'Nos especializamos en desarrollo web, consultoría digital y marketing online, ofreciendo soluciones personalizadas que se adaptan a las necesidades de cada cliente.'
+				]}
+				buttonText="Conoce nuestros servicios"
+				buttonLink="/services"
+			/>
 		</section>
 	);
 };

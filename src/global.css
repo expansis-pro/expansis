@@ -15,7 +15,6 @@
 /* Estilos generales del body */
 body {
 	background-color: #fff;
-	/* color: var(--black); */
 	font-family: 'Montserrat', serif;
 	font-optical-sizing: auto;
 	font-weight: 400;
@@ -28,8 +27,6 @@ body {
 /* Estilos de encabezados */
 h1 {
 	font-size: 2rem;
-
-	/* color: var(--black); */
 	font-family: 'Montserrat', serif;
 	font-optical-sizing: auto;
 	font-weight: 400;
@@ -37,33 +34,26 @@ h1 {
 }
 
 h2 {
-	/* font-family: 'Poppins', serif; */
 	font-size: 1.5rem;
-
 	font-family: 'Montserrat', serif;
 	font-optical-sizing: auto;
 	font-weight: 400;
 	font-style: normal;
-
-	/* color: var(--primario); */
 }
 
 h3 {
 	font-size: 1.5rem;
 	font-weight: 100;
-	/* color: var(--black); */
 }
 
 h4 {
 	font-size: 1.2rem;
 	font-weight: 300;
-	/* color: var(--secundario); */
 }
 
 h5 {
 	font-size: 1rem;
 	font-weight: 300;
-	/* color: var(--secundario); */
 }
 
 /* Estilos de párrafos */
@@ -78,13 +68,11 @@ li {
 p {
 	font-size: 1rem;
 	font-weight: 400;
-	/* color: var(--black); */
 }
 
 .section {
-	/* Selecciona todos los elementos con la clase 'section' */
-	padding-left: 15%;
-	padding-right: 15%;
+	padding-left: 20%;
+	padding-right: 20%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -139,17 +127,11 @@ p {
 .footer {
 	text-align: center;
 	padding: 20px;
-	/* background-color: var(--secundario); */
-	/* color: var(--white); */
 }
 
 /* Estilos del Navbar */
 .navbar {
-	/* display: flex; */
-
-	/* padding: 15px 0; */
 	background-color: var(--white);
-
 	color: var(--black);
 }
 
@@ -174,7 +156,6 @@ p {
 }
 .navbarH1:hover {
 	color: var(--primario);
-
 	transition: color 0.3s ease-in-out;
 }
 
@@ -195,9 +176,7 @@ p {
 }
 .nav-links a {
 	text-decoration: none;
-	/* color: var(--white); */
 	color: var(--black);
-	/* font-weight: bold; */
 	font-size: 1rem;
 	transition: color 0.3s ease-in-out;
 }
@@ -205,31 +184,39 @@ p {
 	color: var(--secundario);
 }
 
-.service-item {
-	display: inline-flex;
+.contact-form {
+	display: flex;
 	flex-direction: column;
-	align-items: center;
-	padding: 20px;
-	width: 40%;
-	transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+	gap: 15px;
+	width: 100%;
+	max-width: 400px;
 }
 
-.service-item:hover {
-	transform: translateY(-10px); /* Elevar el servicio ligeramente */
-	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Añadir sombra */
-}
-.service-item:hover i {
-	color: var(--primario); /* Cambia el color del ícono al color primario */
-	transition: color 0.7s;
+.contact-form input,
+.contact-form textarea {
+	padding: 10px;
+	border: 1px solid var(--secundario);
+	border-radius: 5px;
+	font-size: 1rem;
+	font-family: 'Montserrat', serif;
 }
 
-.service-item:hover h3 {
-	font-weight: 400; /* Cambia el color del ícono al color primario */
-	transition: font-weight 0.7s;
+.contact-form button {
+	padding: 12px 24px;
+	font-size: 1rem;
+	font-weight: bold;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.contact-form button:hover {
+	transform: scale(1.05);
 }
 
 @media (max-width: 768px) {
-	/* Estilos de secciones */
 	.section {
 		text-align: center;
 		padding-left: 10px;
@@ -300,53 +287,14 @@ p {
 	}
 }
 
-/* Estilos de la sección Contact */
-.contact-section {
-	/* display: flex;
-	flex-direction: column;
-	align-items: center;
-	text-align: center;
-	padding: 10px; */
-}
-.contact-form {
-	display: flex;
-	flex-direction: column;
-	gap: 15px;
-	width: 100%;
-	max-width: 400px;
-}
-.contact-form input,
-.contact-form textarea {
-	padding: 10px;
-	border: 1px solid var(--secundario);
-	border-radius: 5px;
-	font-size: 1rem;
-	font-family: 'Montserrat', serif;
-}
-.contact-form button {
-	padding: 12px 24px;
-	font-size: 1rem;
-	font-weight: bold;
-	color: white;
-	/* background-color: var(--secundario); */
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
-	transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
-}
-.contact-form button:hover {
-	/* background-color: var(--primario); */
-	transform: scale(1.05);
-}
-
 /* Animaciones */
 .fade-in {
 	opacity: 0;
-	animation: fadeIn 1.5s ease-in-out forwards;
+	animation: fadeIn 1s ease-in-out forwards;
 }
 .fade-in-delay {
 	opacity: 0;
-	animation: fadeIn 1.5s ease-in-out forwards;
+	animation: fadeIn 1s ease-in-out forwards;
 	animation-delay: 0.5s;
 }
 .slide-in {
@@ -392,6 +340,9 @@ p {
 	background-position: center;
 	align-items: baseline;
 	/* color: white; */
+
+	padding-left: 15%;
+	padding-right: 15%;
 }
 @media (max-width: 768px) {
 	.home-section {
@@ -418,28 +369,30 @@ p {
 	transition: opacity 2s ease; /* Aumenta la duración y cambia la función de temporización */
 }
 
-.background-container .background-image-1 {
-	background-image: url('../public/img/bg-expansis-pro-1920x1080.jpg');
+.background-container {
+	position: relative;
+	width: 100%;
+	height: 380px;
+	overflow: hidden;
+}
+
+.background-container::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-image: url('./img/bg-expansis-pro-1920x1080.jpg');
+	background-size: cover;
+	background-position: center;
+	transition: opacity 2s ease;
 	opacity: 1;
 }
 
-.background-container .background-image-2 {
-	background-image: url('../public/img/bg-expansis-pro-300x533.jpg');
-	opacity: 0;
-}
-
 @media (max-width: 768px) {
-	.background-container .background-image-1 {
-		opacity: 0;
-	}
-
-	.background-container .background-image-2 {
-		opacity: 0.5;
-	}
-
-	.background-container .content {
-		align-items: center;
-		color: black;
+	.background-container::before {
+		background-image: url('./img/bg-expansis-pro-300x533.jpg');
 	}
 }
 
@@ -457,4 +410,134 @@ p {
 	/* align-items: center; */
 	justify-content: center;
 	height: 100%; /* Asegura que el contenido ocupe todo el alto */
+}
+
+@media (min-width: 1920px) {
+	.background-container {
+		height: 600px; /* Ajusta el valor según tus necesidades */
+	}
+
+	.section {
+		padding-left: 30%;
+		padding-right: 30%;
+	}
+
+	.about-image {
+		width: 600px;
+		margin-right: 20px;
+	}
+}
+
+@keyframes fadeOut {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
+
+.fade-out {
+	animation: fadeOut 1s ease-in-out forwards;
+}
+
+.fade-out-quick {
+	animation: fadeOut 0.5s ease-in-out forwards;
+}
+
+.ticket-message {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+	height: 90wh;
+	font-size: 1.2rem;
+	color: var(--esmeralda-secundario); /* Ajusta el color según tus necesidades */
+}
+
+/* src/index.css (o donde tengas tus estilos) */
+.about-content {
+	display: flex;
+	align-items: flex-start; /* Alinea los elementos en la parte superior */
+}
+
+.about-image {
+	width: 300px;
+	margin-right: 20px; /* Espacio entre la imagen y el texto */
+	border-radius: 8px; /* Opcional: bordes redondeados */
+}
+
+.about-text {
+	flex: 1; /* Permite que el texto ocupe el espacio restante */
+	text-align: left;
+}
+
+@media (max-width: 480px) {
+	.about-content {
+		display: block;
+	}
+	.about-text {
+		text-align: center;
+	}
+
+	.cta-button {
+	}
+}
+
+/* ... (resto de tu CSS) ... */
+
+.services-list {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 20px;
+}
+
+.service-item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 15px;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	text-align: center; /* Centra el texto dentro de las tarjetas */
+}
+
+.service-item:hover {
+	transform: translateY(-10px);
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.service-item:hover i {
+	color: var(--primario);
+	transition: color 0.7s;
+}
+
+.service-item:hover h3 {
+	font-weight: 800;
+	transition: font-weight 0.7s;
+	color: var(--primario);
+}
+
+@media (max-width: 768px) {
+	.services-list {
+		grid-template-columns: 1fr;
+	}
+
+	.service-item {
+		width: 100%; /* Las tarjetas ocupan todo el ancho en móviles */
+		padding: 15px 0;
+	}
+}
+
+.service-item:hover {
+	transform: translateY(-10px); /* Elevar el servicio ligeramente */
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Añadir sombra */
+}
+.service-item:hover i {
+	color: var(--primario); /* Cambia el color del ícono al color primario */
+	transition: color 0.7s;
+}
+
+.service-item:hover h3 {
+	font-weight: 400; /* Cambia el color del ícono al color primario */
+	transition: font-weight 0.7s;
 }

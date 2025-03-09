@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import analytics from './analytics';
+// import analytics from './analytics';
 
 
 
@@ -18,4 +18,4 @@ root.render(
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 // reportWebVitals();
 
-analytics.page(); // Envía un evento de página vista al cargar la aplicación
+// analytics.page(); // Envía un evento de página vista al cargar la aplicación

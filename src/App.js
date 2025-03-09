@@ -13,6 +13,7 @@ import ScrollToTop from './components/ScrollToTop'; // Importa el componente Scr
 
 function App() {
   return (
+
     <Router>
       <ScrollToTop> {/* Envuelve el contenido con ScrollToTop */}
         <Navbar />
@@ -26,6 +27,7 @@ function App() {
         <Footer />
       </ScrollToTop>
     </Router>
+
   );
 }
 
