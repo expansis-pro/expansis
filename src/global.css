@@ -1,5 +1,9 @@
 /* styles.css */
 
+* {
+	box-sizing: border-box;
+}
+
 /* Importación de fuentes de Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 /* Variables CSS */
@@ -31,7 +35,7 @@ h1 {
 	font-optical-sizing: auto;
 	font-weight: 400;
 	font-style: normal;
-	margin-bottom: 0.5em;
+	margin: 0.5em 0;
 }
 
 h2 {
@@ -136,19 +140,22 @@ p {
 	background-color: var(--white);
 	color: var(--black);
 	cursor: pointer;
-}
-
-.navbar-padding {
-	position: relative;
-	justify-content: space-between;
-	margin: 0 auto; /* Centra la línea horizontalmente */
+	position: fixed;
+	justify-content: space-between; /* Distribuye el título y los enlaces */
 	align-items: center;
 	display: flex;
-	padding: 15px 0;
-	width: 80%; /* Ajusta el porcentaje según el ancho deseado */
+	/* padding: 15px 0; */
+	width: 100%;
+	z-index: 1000; /* Asegura que esté encima de otros elementos */
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Agregamos la sombra aquí */
 }
-.navbar-padding.no-border-bottom {
-	border-bottom: none; /* Elimina la línea inferior */
+
+.navbar-display-inline-items {
+	display: inline-flex;
+	width: 100%; /* Aseguramos que ocupe todo el ancho disponible*/
+	justify-content: space-between; /* Distribuye el contenido interno */
+	align-items: center;
+	padding: 0 15%; /* Agregamos padding horizontal */
 }
 
 .navbarH1 {
@@ -206,7 +213,7 @@ p {
 .background-container {
 	position: relative;
 	width: 100%;
-	height: 425px; /* Cambia a 100vh para ocupar toda la altura de la ventana */
+
 	overflow: hidden;
 
 	justify-content: center; /* Centra horizontalmente */
@@ -280,10 +287,11 @@ p {
 }
 
 .home-section {
+	margin-top: 75.17px;
 	display: flex;
-
+	padding: 80px 0;
 	align-items: center; /* Centra verticalmente */
-	height: 400px; /* O ajusta según tus necesidades */
+
 	/* width: 70%; */
 	/* padding-left: 15%; */
 }
@@ -392,57 +400,16 @@ p {
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-.service-item:hover i {
+.service-item:hover i,
+.service-item:hover h3 {
 	color: var(--primario);
 	transition: color 0.7s;
 }
 
-.service-item:hover h3 {
-	font-weight: 800;
-	transition: font-weight 0.7s;
-	color: var(--primario);
-}
-
-.service-item:hover {
-	transform: translateY(-10px); /* Elevar el servicio ligeramente */
-	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Añadir sombra */
-}
-.service-item:hover i {
-	color: var(--primario); /* Cambia el color del ícono al color primario */
-	transition: color 0.7s;
-}
-
-.service-item:hover h3 {
-	font-weight: 400; /* Cambia el color del ícono al color primario */
-	transition: font-weight 0.7s;
-}
-
-.navbar {
-	/* ... otros estilos del Navbar ... */
-
-	top: -80px;
-	transition: top 0.3s ease-in-out;
-}
-.navbarScroll {
-	/* ... otros estilos del Navbar ... */
-	/* position: sticky; */
-	top: -80px;
-	transition: top 0.3s ease-in-out;
-}
-
-.navbar.fixed {
-	display: block;
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	z-index: 1000; /* Un valor alto para asegurar que esté encima */
-	background-color: white; /* O el color de fondo deseado */
-	/* ... otros estilos ... */
-}
-
-.navbar-transition {
-	top: -100px; /* Ajusta este valor */
+.service-item i,
+.service-item h3 {
+	color: var(--black);
+	transition: color 1.7s;
 }
 
 .navbar.fixed.navbar-transition {
@@ -518,6 +485,7 @@ p {
 	.cta-button {
 		padding: 20px 0px !important;
 		font-size: 1.4rem;
+		max-width: 100%;
 	}
 
 	.background-container::before {
@@ -529,47 +497,8 @@ p {
 	}
 	.section {
 		text-align: center;
-		padding-left: 10px;
-		padding-right: 10px;
-	}
-
-	.menu-toggle {
-		display: block;
-	}
-	.nav-links {
-		flex-direction: column;
-		position: absolute;
-		top: 105.17px; /* Define la posición 'top' una sola vez */
-		right: 0;
-		background-color: var(--white);
-		width: 100%;
-		text-align: center;
-		padding: 0;
-		border-radius: 0 0 10px 10px;
-		z-index: 1000;
-		box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-
-		/* ANIMACION */
-		transition: max-height 0.7s ease-in-out, padding 0.7s ease-in-out; /* Agrupa las transiciones */
-		max-height: 0;
-		overflow: hidden;
-		visibility: hidden; /* Usa visibility: hidden en lugar de display: none */
-	}
-	.nav-links.open {
-		display: block;
-		max-height: 297.33px;
-		padding: 20px 0;
-		visibility: visible; /* Muestra el elemento cuando está abierto */
-	}
-	.nav-links.close {
-		display: block;
-		max-height: 0;
-		padding: 0;
-		visibility: visible; /* Muestra el elemento cuando está abierto */
-	}
-
-	.nav-links li {
-		padding: 15px;
+		padding-left: 4%;
+		padding-right: 4%;
 	}
 
 	.service-item {
@@ -581,19 +510,6 @@ p {
 		/* border: 1px solid #ccc; */
 		border-radius: 5px;
 		width: 100%;
-	}
-
-	.navbar {
-		background-color: var(--secundario);
-		color: var(--white);
-	}
-
-	.navbar-padding {
-		border-bottom: none;
-	}
-
-	.navbarH1 {
-		color: var(--white);
 	}
 
 	.home-content-container {
@@ -618,5 +534,53 @@ p {
 	.about-text {
 		text-align: center;
 		padding: 0;
+	}
+
+	.navbar-display-inline-items {
+		/* flex-direction: column; */
+		align-items: flex-start;
+		padding: 15px; /* Ajustamos el padding para móviles */
+	}
+
+	.menu-toggle {
+		display: block;
+		align-self: anchor-center;
+		color: var(--black); /* Aseguramos que el color sea visible */
+	}
+
+	.nav-links {
+		flex-direction: column;
+		position: absolute;
+		top: 105.17px; /* Ajusta según la altura del navbar en móviles */
+		right: 0;
+		background-color: var(--white);
+		width: 100%;
+		text-align: center;
+		padding: 0;
+		border-radius: 0 0 10px 10px;
+		z-index: 1000;
+		box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+		transition: max-height 0.7s ease-in-out, padding 0.7s ease-in-out;
+		max-height: 0;
+		overflow: hidden;
+		visibility: hidden;
+	}
+
+	.nav-links.open {
+		display: block;
+		max-height: 297.33px; /* Ajusta según el número de enlaces */
+		/* padding: 20px 0; */
+		visibility: visible;
+	}
+
+	.nav-links.close {
+		display: block;
+		max-height: 0;
+		padding: 0;
+		visibility: visible;
+	}
+
+	.nav-links li {
+		padding: 15px;
 	}
 }
