@@ -19,8 +19,8 @@ const Home = () => {
 				<div className="home-content-container">
 					<h1 className="home-title fade-in">Expansis Pro</h1>
 					<h2 className="home-subtitle fade-in">Aumenta tu presencia online.</h2>
-					<p className={`home-description fade-in-delay ${isMobile ? 'hide-mobile' : ''}`}>
-						Soluciones digitales para empresas y profesionales que buscan crecer.
+					<p className={`home-description fade-in-delay`}>
+						Soluciones digitales para empresas y profesionales que buscan crecer su marca.
 					</p>
 					<a onClick={() => scrollToSection('services')} className="cta-button fade-in-delay">
 						{isMobile ? 'Nuestros servicios' : 'Conoce nuestros servicios'}
