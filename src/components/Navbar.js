@@ -1,58 +1,91 @@
-// src/components/Navbar.jsx
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from 'react';
+import { scrollToSection } from '../utils/scrollUtils'; // Importar scrollToSection
 
 
-const Navbar = () => {
+const Navbar = ({ homeHeight }) => {
 	const [menuOpen, setMenuOpen] = useState(false);
-	const location = useLocation(); // Obtiene la ruta actual
+	const homeRef = useRef(null);
+	// const [isHome, setIsHome] = useState(true);
+	const [isFixed, setIsFixed] = useState(false);
+	const [isTransitioning, setIsTransitioning] = useState(false);
+
+
+	useEffect(() => {
+		const handleScroll = () => {
+
+			if (window.scrollY > (homeHeight)) {
+
+				setIsFixed(true); // Navbar fijo
+
+			} else {
+				setIsFixed(false); // Navbar no fijo en Home
+
+			}
+		};
+
+		window.addEventListener('scroll', handleScroll);
+
+		return () => {
+			window.removeEventListener('scroll', handleScroll);
+		};
+	}, [homeHeight]);
+
+
+
+	useEffect(() => {
+		if (isFixed) {
+			setIsTransitioning(true);
+		} else {
+			setIsTransitioning(false);
+		}
+	}, [isFixed]);
+
 
 	return (
-
-		<nav className='navbar'>
-			<div className={`navbar-padding ${location.pathname === '/' ? 'no-border-bottom' : ''}`}>
-
+		<nav className={`navbar ${isFixed ? 'fixed' : ''}`}>
+			<div className={`navbar-padding`}>
 				<h2>
-					<Link to='/' onClick={() => setMenuOpen(false)} className="navbarH1">
+					<a className=" navbarH1" onClick={() => scrollToSection('home')} ref={homeRef}>
 						Expansis Pro
-					</Link>
+					</a>
 				</h2>
-				<button className='menu-toggle' onClick={() => setMenuOpen(!menuOpen)}>
+				<button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
 					☰
 				</button>
-
 				<ul className={`nav-links ${menuOpen ? 'open' : 'close'}`}>
 					<li>
-						<Link to='/' onClick={() => setMenuOpen(false)}>
+						<a onClick={() => scrollToSection('home')} >
 							Inicio
-						</Link>
+						</a>
 					</li>
 					<li>
-						<Link to='/about' onClick={() => setMenuOpen(false)}>
-							Quiénes Somos
-						</Link>
+						<a onClick={() => scrollToSection('about')}>
+							¿Qué es?
+						</a>
 					</li>
 					<li>
-						<Link to='/services' onClick={() => setMenuOpen(false)}>
+						<a onClick={() => scrollToSection('services')}>
 							Servicios
-						</Link>
+						</a>
 					</li>
 					<li>
-						<Link to='/contact' onClick={() => setMenuOpen(false)}>
-							Contacto
-						</Link>
+						<a onClick={() => scrollToSection('aboutMe')}>
+							Sobre mi
+						</a>
 					</li>
-					{/* <li>
-					<Link to='/testimonials' onClick={() => setMenuOpen(false)}>
-						Testimonios
-					</Link>
-				</li> */}
+					<li>
+						<a onClick={() => scrollToSection('contact')}>
+							Contacto
+						</a>
+					</li>
+					<li>
+						<a onClick={() => scrollToSection('faqs')}>
+							Faq
+						</a>
+					</li>
 				</ul>
 			</div>
-		</nav>
-
-
-
+		</nav >
 	);
 };
 

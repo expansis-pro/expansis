@@ -1,15 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import Faqs from '../components/Faqs';
-import ServiceItem from '../components/ServiceItem'; // Importa el componente
 
+import ServiceItem from '../components/ServiceItem';
+import { scrollToSection } from '../utils/scrollUtils';
 
 const Services = () => {
 	return (
-		<section className='services section'>
-			<h1 className='fade-in'>Nuestros Servicios</h1>
-			{/* <p className='fade-in-delay'>En Expansis Pro, ofrecemos una amplia gama de servicios para ayudar a las empresas a alcanzar tus objetivos digitales:</p> */}
-			<div className='services-list'>
+		<section id="services" className="services section">
+			<h1 className="fade-in">Nuestros Servicios</h1>
+			<div className="services-list">
 				<ServiceItem
 					icon="fa-code"
 					title="Desarrollo web"
@@ -31,14 +29,15 @@ const Services = () => {
 					description="Mejoramos el posicionamiento de las webs en los motores de búsqueda, atrayendo tráfico orgánico y aumentando la visibilidad online."
 				/>
 			</div>
-			<Link to='/contact' className='cta-button contact-button fade-in-delay'>
+			{/* <a href="#contact" className="cta-button contact-button fade-in-delay">
 				Contáctanos
-			</Link>
+			</a> */}
 
-			{/* Sección de preguntas frecuentes */}
-			<Faqs></Faqs>
+			<a onClick={() => scrollToSection('contact')} className="cta-button">Contáctanos</a>
 
 		</section>
+
+
 	);
 };
 

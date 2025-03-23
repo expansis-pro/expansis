@@ -43,7 +43,7 @@ h2 {
 
 h3 {
 	font-size: 1.5rem;
-	font-weight: 100;
+	font-weight: 400;
 }
 
 h4 {
@@ -71,13 +71,14 @@ p {
 }
 
 .section {
-	padding-left: 20%;
-	padding-right: 20%;
+	padding-left: 15%;
+	padding-right: 15%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	text-align: center;
-	padding-bottom: 25px;
+	padding-bottom: 2%;
+	padding-top: 2%;
 }
 
 .container {
@@ -133,11 +134,11 @@ p {
 .navbar {
 	background-color: var(--white);
 	color: var(--black);
+	cursor: pointer;
 }
 
 .navbar-padding {
 	position: relative;
-	border-bottom: 1px solid var(--black); /* Ajusta el grosor y el color de la línea */
 	justify-content: space-between;
 	margin: 0 auto; /* Centra la línea horizontalmente */
 	align-items: center;
@@ -189,7 +190,7 @@ p {
 	flex-direction: column;
 	gap: 15px;
 	width: 100%;
-	max-width: 400px;
+	max-width: 600px;
 }
 
 .contact-form input,
@@ -201,15 +202,28 @@ p {
 	font-family: 'Montserrat', serif;
 }
 
-.contact-form button {
-	padding: 12px 24px;
-	font-size: 1rem;
-	font-weight: bold;
-	color: white;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
-	transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+.background-container {
+	position: relative;
+	width: 100%;
+	height: 425px; /* Cambia a 100vh para ocupar toda la altura de la ventana */
+	overflow: hidden;
+	display: flex; /* Añade Flexbox */
+	justify-content: center; /* Centra horizontalmente */
+	align-items: center; /* Centra verticalmente */
+}
+
+.background-container::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%; /* Cambia a 100% para cubrir todo el contenedor */
+	background-image: url('./img/bg-expansis-pro-1920x1080.jpg');
+	background-size: cover;
+	background-position: center;
+	transition: opacity 2s ease;
+	opacity: 1;
 }
 
 .contact-form button:hover {
@@ -217,6 +231,17 @@ p {
 }
 
 @media (max-width: 768px) {
+	.cta-button {
+		width: 80vw;
+	}
+
+	.background-container::before {
+		background-image: url('./img/bg-expansis-pro-300x533.jpg');
+		opacity: 40%;
+	}
+	.background-container {
+		height: 70vh;
+	}
 	.section {
 		text-align: center;
 		padding-left: 10px;
@@ -306,7 +331,7 @@ p {
 /*... otros estilos... */
 .cta-button {
 	/* Estilos básicos de botón */
-	display: inline-block;
+	display: block;
 	padding: 15px 25px;
 	font-size: 1rem;
 	font-weight: bold;
@@ -316,6 +341,7 @@ p {
 	border: none;
 	border-radius: 15px;
 	margin: 10px 0;
+	width: 25vw;
 
 	/* Colores */
 	color: white;
@@ -327,6 +353,10 @@ p {
 .cta-button:hover {
 	background-color: var(--secundario);
 	transform: scale(1.05);
+}
+
+.cta-button-W100 {
+	width: 100%;
 }
 
 .fas {
@@ -341,8 +371,8 @@ p {
 	align-items: baseline;
 	/* color: white; */
 
-	padding-left: 15%;
-	padding-right: 15%;
+	/* padding-left: 15%;
+	padding-right: 15%; */
 }
 @media (max-width: 768px) {
 	.home-section {
@@ -350,81 +380,48 @@ p {
 	}
 }
 
-.background-container {
-	position: relative;
-	width: 100%;
-	height: 380px; /* O el tamaño que necesites */
-	overflow: hidden; /* Asegura que las imágenes no sobresalgan */
-}
-
-.background-container .background-image {
+.background-image {
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 100%;
+
 	background-size: cover;
 	background-position: center;
 
 	transition: opacity 2s ease; /* Aumenta la duración y cambia la función de temporización */
 }
 
-.background-container {
-	position: relative;
-	width: 100%;
-	height: 380px;
-	overflow: hidden;
-}
-
-.background-container::before {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-image: url('./img/bg-expansis-pro-1920x1080.jpg');
-	background-size: cover;
-	background-position: center;
-	transition: opacity 2s ease;
-	opacity: 1;
-}
-
 @media (max-width: 768px) {
-	.background-container::before {
-		background-image: url('./img/bg-expansis-pro-300x533.jpg');
+	.content {
+		align-items: center;
 	}
 }
 
 @media (min-width: 769px) {
-	.background-container .content {
+	.content {
 		color: white; /* Ajusta el color del texto para que sea legible */
+		/* align-items: center; */
 	}
 }
 
-.background-container .content {
+.content {
 	position: relative; /* Asegura que el contenido esté encima de los fondos */
 	z-index: 1;
 	display: flex;
 	flex-direction: column;
 	/* align-items: center; */
 	justify-content: center;
-	height: 100%; /* Asegura que el contenido ocupe todo el alto */
 }
 
 @media (min-width: 1920px) {
-	.background-container {
-		height: 600px; /* Ajusta el valor según tus necesidades */
-	}
-
 	.section {
-		padding-left: 30%;
-		padding-right: 30%;
+		padding: 2% 25%;
 	}
 
 	.about-image {
 		width: 600px;
-		margin-right: 20px;
+		/* margin-right: 20px; */
 	}
 }
 
@@ -463,24 +460,23 @@ p {
 
 .about-image {
 	width: 300px;
-	margin-right: 20px; /* Espacio entre la imagen y el texto */
+
 	border-radius: 8px; /* Opcional: bordes redondeados */
 }
 
 .about-text {
 	flex: 1; /* Permite que el texto ocupe el espacio restante */
 	text-align: left;
+	padding: 10px 35px;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
 	.about-content {
 		display: block;
 	}
 	.about-text {
 		text-align: center;
-	}
-
-	.cta-button {
+		padding: 0;
 	}
 }
 
@@ -488,7 +484,7 @@ p {
 
 .services-list {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 	gap: 20px;
 }
 
@@ -540,4 +536,80 @@ p {
 .service-item:hover h3 {
 	font-weight: 400; /* Cambia el color del ícono al color primario */
 	transition: font-weight 0.7s;
+}
+
+/* ... tu CSS existente ... */
+
+@media (max-width: 768px) {
+	/* Ajusta 768 según tus necesidades */
+	.hide-mobile {
+		display: none;
+	}
+}
+
+.navbar {
+	/* ... otros estilos del Navbar ... */
+
+	top: -80px;
+	transition: top 0.3s ease-in-out;
+}
+.navbarScroll {
+	/* ... otros estilos del Navbar ... */
+	/* position: sticky; */
+	top: -80px;
+	transition: top 0.3s ease-in-out;
+}
+
+.navbar.fixed {
+	display: block;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1000; /* Un valor alto para asegurar que esté encima */
+	background-color: white; /* O el color de fondo deseado */
+	/* ... otros estilos ... */
+}
+
+.navbar-transition {
+	top: -100px; /* Ajusta este valor */
+}
+
+.navbar.fixed.navbar-transition {
+	top: 0px; /* Ajusta este valor */
+}
+
+.hidden {
+}
+.mision-vision-container {
+	display: flex; /* 1. Utiliza Flexbox para el diseño de columnas */
+	flex-wrap: wrap; /* 2. Permite que las columnas se envuelvan a pantallas más pequeñas */
+	justify-content: center; /* 3. Centra las columnas horizontalmente */
+	gap: 20px; /* 4. Agrega espacio entre las columnas */
+	padding: 20px; /* 5. Agrega relleno alrededor del contenedor */
+}
+
+/* Separador.css */
+
+.separador {
+	justify-content: center; /* Centramos horizontalmente */
+	width: 100%; /* El separador ocupa todo el ancho */
+	max-height: 200px;
+}
+
+.separador img {
+	height: auto; /* Altura automática para mantener la proporción */
+	display: block;
+	width: 100%;
+}
+
+/* Opcional: Estilos para diferentes tipos de separadores */
+/* Si necesitas estilos específicos para las imágenes en diferentes contextos, puedes agregarlos aquí */
+.separador--con-margen-extra {
+	margin: 50px auto; /* Más espacio arriba y abajo */
+}
+
+/* Ejemplo de estilo para una imagen de línea discontinua */
+.separador--discontinuo img {
+	/* Estilos específicos para la imagen discontinua, si es necesario */
 }

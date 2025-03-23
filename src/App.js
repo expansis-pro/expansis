@@ -1,33 +1,133 @@
-// src/App.jsx
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useState, useRef, useEffect, Suspense, lazy } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+
+
+
+
 import Home from './pages/Home';
-import About from './pages/About';
-import Services from './pages/Services';
-import Contact from './pages/Contact';
-import Testimonials from './pages/Testimonials';
+
+
+import Separador1 from './img/Separador1-1920x320px.jpg'
+import Separador2 from './img/Separador2-1920x320px.jpg'
+import Separador1Mob from './img/Separador1_Mobile-425x60px.jpg'
+import Separador2Mob from './img/Separador2_Mobile-425x60px.jpg'
+
+
 import './global.css';
-import ScrollToTop from './components/ScrollToTop'; // Importa el componente ScrollToTop
+
+// Importación diferida de componentes
+const About = lazy(() => import('./pages/About'));
+const AboutMe = lazy(() => import('./pages/AboutMe'));
+const Services = lazy(() => import('./pages/Services'));
+const Contact = lazy(() => import('./pages/Contact'));
+const MisionVision = lazy(() => import('./pages/MisionVision'));
+const Faqs = lazy(() => import('./pages/Faqs'));
+const Separador = lazy(() => import('./components/Separador'));
 
 function App() {
+
+  const homeRef = useRef(null)
+  const [homeHeight, setHomeHeight] = useState(0);
+  const aboutRef = useRef(null);
+  const aboutMeRef = useRef(null);
+  const misionvisionRef = useRef(null);
+  const servicesRef = useRef(null);
+  const contactRef = useRef(null);
+  const testimonialsRef = useRef(null);
+  const faqsRef = useRef(null);
+  const separadorRef = useRef(null);
+
+
+  useEffect(() => {
+    if (homeRef.current) {
+      setHomeHeight(homeRef.current.offsetHeight);
+    }
+  }, []);
+
+
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+
+        // console.log(entries)
+        entries.forEach((entry) => {
+
+          if (entry.isIntersecting) {
+            // Cargar contenido de la sección (si es necesario)
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    if (homeRef.current) observer.observe(homeRef.current);
+    if (aboutRef.current) observer.observe(aboutRef.current);
+    if (aboutMeRef.current) observer.observe(aboutMeRef.current);
+    if (misionvisionRef.current) observer.observe(misionvisionRef.current);
+    if (servicesRef.current) observer.observe(servicesRef.current);
+    if (contactRef.current) observer.observe(contactRef.current);
+    if (testimonialsRef.current) observer.observe(testimonialsRef.current);
+    if (faqsRef.current) observer.observe(faqsRef.current);
+    if (separadorRef.current) observer.observe(separadorRef.current);
+
+    return () => {
+      if (homeRef.current) observer.unobserve(homeRef.current);
+      if (aboutRef.current) observer.unobserve(aboutRef.current);
+      if (aboutMeRef.current) observer.unobserve(aboutMeRef.current);
+      if (misionvisionRef.current) observer.unobserve(misionvisionRef.current);
+      if (servicesRef.current) observer.unobserve(servicesRef.current);
+      if (contactRef.current) observer.unobserve(contactRef.current);
+      if (testimonialsRef.current) observer.unobserve(testimonialsRef.current);
+      if (faqsRef.current) observer.unobserve(faqsRef.current);
+      if (separadorRef.current) observer.unobserve(separadorRef.current);
+    };
+  }, []);
+
   return (
+    <div>
+      <Navbar />
 
-    <Router>
-      <ScrollToTop> {/* Envuelve el contenido con ScrollToTop */}
-        <Navbar />
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/services' element={<Services />} />
-          <Route path='/contact' element={<Contact />} />
-          <Route path='/testimonials' element={<Testimonials />} />
-        </Routes>
-        <Footer />
-      </ScrollToTop>
-    </Router>
+      <section id="home" ref={homeRef}>
+        <Home />
+      </section>
 
+      <section id="about" ref={aboutRef}>
+        <About />
+      </section>
+      <section id="services" ref={servicesRef}>
+        <Services />
+      </section>
+      <section id="misionvision" ref={aboutRef}>
+        <MisionVision />
+      </section>
+      <section id="separador">
+        <Separador
+          imageDesktop={Separador1} imageMobile={Separador1Mob}
+          alt="Separador 1" />
+      </section>
+
+
+
+      <section id="aboutMe" ref={aboutRef}>
+        <AboutMe />
+      </section>
+      <section id="contact" ref={contactRef}> {/* Sección Contact */}
+        <Contact />
+      </section>
+      <section id="separador">
+        <Separador
+          imageDesktop={Separador2} imageMobile={Separador2Mob}
+          alt="Separador 1" />
+      </section>
+      <section id="faqs" ref={faqsRef}>
+        <Faqs />
+      </section>
+
+
+
+      <Footer />
+    </div>
   );
 }
 
