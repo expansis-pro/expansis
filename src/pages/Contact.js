@@ -147,7 +147,7 @@ const Contact = () => {
 						onChange={handleCaptcha}
 						hl="es"
 					/>
-					<button type='submit' className='cta-button cta-button-w100'>
+					<button type='submit' className='cta-button'>
 						Enviar
 					</button>
 				</form>

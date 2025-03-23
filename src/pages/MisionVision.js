@@ -8,7 +8,7 @@ function MisionVision() {
         <ServiceItem
           icon="fa-font-awesome"
           title="Misión"
-          description="Potenciar el éxito de nuestros clientes a través de <strong>soluciones tecnológicas y digitales innovadoras y personalizadas.</strong>"
+          description="Potenciar el éxito de nuestros clientes a través de <strong>soluciones tecnológicas innovadoras y personalizadas.</strong>"
         />
         <ServiceItem
           icon="fa-heart"
