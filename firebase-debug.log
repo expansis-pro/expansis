@@ -1,0 +1,48 @@
+[debug] [2025-03-23T01:21:17.116Z] ----------------------------------------------------------------------
+[debug] [2025-03-23T01:21:17.120Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\gonza\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2025-03-23T01:21:17.121Z] CLI Version:   13.31.1
+[debug] [2025-03-23T01:21:17.121Z] Platform:      win32
+[debug] [2025-03-23T01:21:17.121Z] Node Version:  v20.15.0
+[debug] [2025-03-23T01:21:17.121Z] Time:          Sat Mar 22 2025 22:21:17 GMT-0300 (hora de verano de Chile)
+[debug] [2025-03-23T01:21:17.121Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-03-23T01:21:17.126Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2025-03-23T01:21:17.374Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-03-23T01:21:17.374Z] > authorizing via signed-in user (gonzalo@expansispro.com)
+[debug] [2025-03-23T01:21:17.375Z] [iam] checking project expansispro-react for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2025-03-23T01:21:17.376Z] Checked if tokens are valid: false, expires at: 1742530444164
+[debug] [2025-03-23T01:21:17.376Z] Checked if tokens are valid: false, expires at: 1742530444164
+[debug] [2025-03-23T01:21:17.376Z] > refreshing access token with scopes: []
+[debug] [2025-03-23T01:21:17.377Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-03-23T01:21:17.377Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-03-23T01:21:17.584Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 400
+[debug] [2025-03-23T01:21:17.584Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[error] Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[error] Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[debug] [2025-03-23T01:21:17.585Z] [iam] error while checking permissions, command may fail: Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[debug] [2025-03-23T01:21:17.585Z] Checked if tokens are valid: false, expires at: 1742530444164
+[debug] [2025-03-23T01:21:17.586Z] Checked if tokens are valid: false, expires at: 1742530444164
+[debug] [2025-03-23T01:21:17.586Z] > refreshing access token with scopes: []
+[debug] [2025-03-23T01:21:17.586Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-03-23T01:21:17.586Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-03-23T01:21:17.640Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 400
+[debug] [2025-03-23T01:21:17.640Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[error] Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[error] Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[debug] [2025-03-23T01:21:17.641Z] Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[error] 
+[error] Error: Assertion failed: resolving hosting target of a site with no site name or target name. This should have caused an error earlier
+[debug] [2025-03-23T01:21:17.771Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2025-03-23T01:21:17.771Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}

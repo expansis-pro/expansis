@@ -14,7 +14,7 @@ const ImageTextCTA = ({ imageMobile, imageDesktop, alt, text, buttonContent, but
                 ))}
 
                 {buttonLink && buttonContent ? (<div className="cta-button-container">
-                    <a onClick={() => scrollToSection(buttonLink)} className="cta-button cta-button-W100">{buttonContent}</a>
+                    <a onClick={() => scrollToSection(buttonLink)} className="cta-button cta-button-w100">{buttonContent}</a>
                 </div>) : null}
 
             </div>
