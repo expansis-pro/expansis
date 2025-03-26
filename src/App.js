@@ -24,6 +24,8 @@ const Contact = lazy(() => import('./pages/Contact'));
 const MisionVision = lazy(() => import('./pages/MisionVision'));
 const Faqs = lazy(() => import('./pages/Faqs'));
 const Separador = lazy(() => import('./components/Separador'));
+const Whatsapp = lazy(() => import('./components/Whatsapp'));
+
 
 function App() {
 
@@ -37,6 +39,7 @@ function App() {
   const testimonialsRef = useRef(null);
   const faqsRef = useRef(null);
   const separadorRef = useRef(null);
+  const whatsapptRef = useRef(null);
 
 
   useEffect(() => {
@@ -70,6 +73,7 @@ function App() {
     if (testimonialsRef.current) observer.observe(testimonialsRef.current);
     if (faqsRef.current) observer.observe(faqsRef.current);
     if (separadorRef.current) observer.observe(separadorRef.current);
+    if (whatsapptRef.current) observer.observe(whatsapptRef.current);
 
     return () => {
       if (homeRef.current) observer.unobserve(homeRef.current);
@@ -81,6 +85,7 @@ function App() {
       if (testimonialsRef.current) observer.unobserve(testimonialsRef.current);
       if (faqsRef.current) observer.unobserve(faqsRef.current);
       if (separadorRef.current) observer.unobserve(separadorRef.current);
+      if (whatsapptRef.current) observer.unobserve(whatsapptRef.current);
     };
   }, []);
 
@@ -114,6 +119,9 @@ function App() {
       </section>
       <section id="contact" ref={contactRef}> {/* Sección Contact */}
         <Contact />
+      </section>
+      <section id="whatsapp" ref={whatsapptRef}> {/* Sección Contact */}
+        <Whatsapp />
       </section>
       <section id="separador">
         <Separador
