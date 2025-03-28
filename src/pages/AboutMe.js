@@ -1,15 +1,15 @@
 // src/pages/About.jsx
 import React from 'react';
 import ImageTextCTA from '../components/ImageTextCTA';
-import aboutImageMobile from '../img/Profile_Img_Expansis400x400.jpg';
-import aboutImageDesktop from '../img/Profile_Img_Expansis400x400.jpg';
+import aboutImageMobile from '../img/Profile_Img_Expansis400x400.webp';
+import aboutImageDesktop from '../img/Profile_Img_Expansis400x400.webp';
 
 
 
 const About = () => {
     return (
         <section id="aboutMe" className='section about'>
-            <h1 className='fade-in'>Sobre Mí</h1>
+            <h2 className='fade-in'>Sobre Mí</h2>
             <ImageTextCTA
                 imageMobile={aboutImageMobile}
                 imageDesktop={aboutImageDesktop}

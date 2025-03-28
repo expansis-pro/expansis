@@ -17,8 +17,8 @@ const Home = () => {
 		<div className="background-container">
 			<section id="home" className="home-section content">
 				<div className="home-content-container">
-					<h1 className="home-title fade-in">Expansis Pro</h1>
-					<h2 className="home-subtitle fade-in">Aumenta tu presencia online.</h2>
+					<h2 className="home-title fade-in">Expansis Pro</h2>
+					<h3 className="home-subtitle fade-in">Aumenta tu presencia online.</h3>
 					<p className={`home-description fade-in-delay`}>
 						Soluciones digitales para empresas y profesionales que buscan crecer su marca.
 					</p>

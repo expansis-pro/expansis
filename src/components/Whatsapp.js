@@ -10,7 +10,7 @@ const Whatsapp = () => {
     const whatsappLink = `https://wa.me/${phoneNumber}?text=${message}`;
 
     return (
-        <div className="section whatsapp-section">
+        <section className="section whatsapp-section">
             <h2>... O conversemos por Whatsapp</h2>
             <a
                 href={whatsappLink}
@@ -22,7 +22,7 @@ const Whatsapp = () => {
                 <i className="fa-brands fa-whatsapp"></i> Iniciar chat
 
             </a>
-        </div>
+        </section>
     );
 };
 

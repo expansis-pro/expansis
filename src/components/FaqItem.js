@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
 
-const FaqItem = ({ question, answer }) => {
-    const [isOpen, setIsOpen] = useState(false);
+const FaqItem = ({ question, answer, index, isOpen, onToggle }) => {
+    // const [isOpen, setIsOpen] = useState(false);
 
     const handleClick = () => {
-        setIsOpen(!isOpen);
+        onToggle(index);
     };
 
     return (
         <div className="faq-item">
-            <h5 onClick={handleClick}>{question}</h5>
-            <div className={`faq-answer fade-in ${isOpen ? 'open' : ''}`}>
+            <div className="faq-question-container" onClick={handleClick}>
+                <h5>{question}</h5>
+                <span className="faq-icon">{isOpen ? '-' : '+'}</span>
+            </div>
+            <div className={`faq-answer ${isOpen ? 'open' : ''}`}>
                 {answer}
             </div>
         </div>

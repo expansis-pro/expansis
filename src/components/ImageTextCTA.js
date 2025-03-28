@@ -5,7 +5,7 @@ const ImageTextCTA = ({ imageMobile, imageDesktop, alt, text, buttonContent, but
     return (
         <div className="about-content">
             <picture>
-                <source media="(max-width: 480px)" srcSet={imageMobile} />
+                <source srcSet={imageMobile} />
                 <img src={imageDesktop} alt={alt} className="about-image fade-in-delay" />
             </picture>
             <div className="about-text fade-in-delay">

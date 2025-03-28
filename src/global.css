@@ -4,8 +4,12 @@
 	box-sizing: border-box;
 }
 
-/* Importación de fuentes de Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@font-face {
+	font-family: 'Montserrat';
+	src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap');
+	font-display: swap;
+}
+
 /* Variables CSS */
 :root {
 	--black: #000000;
@@ -39,7 +43,7 @@ h1 {
 }
 
 h2 {
-	font-size: 1.5rem;
+	font-size: 2.5rem;
 	font-family: 'Montserrat', serif;
 	font-optical-sizing: auto;
 	font-weight: 200;
@@ -193,6 +197,26 @@ p {
 	color: var(--secundario);
 }
 
+.background-container {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+	justify-content: center;
+	align-items: center;
+}
+
+.background-container::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-position: center;
+	transition: opacity 2s ease;
+}
+
 .contact-form {
 	display: flex;
 	flex-direction: column;
@@ -208,30 +232,6 @@ p {
 	border-radius: 5px;
 	font-size: 1rem;
 	font-family: 'Montserrat', serif;
-}
-
-.background-container {
-	position: relative;
-	width: 100%;
-
-	overflow: hidden;
-
-	justify-content: center; /* Centra horizontalmente */
-	align-items: center; /* Centra verticalmente */
-}
-
-.background-container::before {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%; /* Cambia a 100% para cubrir todo el contenedor */
-	background-image: url('./img/bg-expansis-pro-1920x1080.jpg');
-	background-size: cover;
-	background-position: center;
-	transition: opacity 2s ease;
-	opacity: 1;
 }
 
 .contact-form button:hover {
@@ -308,7 +308,7 @@ p {
 	flex: 1; /* Toma la mayor parte del espacio disponible */
 	/* Estilos para la imagen (opcional) */
 	/* Por ejemplo: */
-	/* background-image: url('tu-imagen.jpg'); */
+	/* background-image: url('tu-imagen.webp'); */
 	/* background-size: cover; */
 	/* background-position: center; */
 }
@@ -368,7 +368,7 @@ p {
 }
 
 .about-image {
-	width: 300px;
+	width: 100%;
 
 	border-radius: 8px; /* Opcional: bordes redondeados */
 }
@@ -388,10 +388,11 @@ p {
 }
 
 .service-item {
+	border-radius: 25px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding: 15px;
+	padding: 40px 15px;
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
 	text-align: center; /* Centra el texto dentro de las tarjetas */
 }
@@ -450,25 +451,15 @@ p {
 	/* Estilos específicos para la imagen discontinua, si es necesario */
 }
 
-@media (min-width: 769px) {
-	.content {
-		color: white; /* Ajusta el color del texto para que sea legible */
-		/* align-items: center; */
-	}
+.content {
+	color: white; /* Ajusta el color del texto para que sea legible */
+	/* align-items: center; */
 }
-
-@media (min-width: 1920px) {
-	.section {
-		padding: 2% 25%;
-	}
-
-	.about-image {
-		width: 600px;
-		/* margin-right: 20px; */
-	}
-}
-
 @media (max-width: 768px) {
+	h2 {
+		font-size: 2.5rem;
+	}
+
 	.services-list {
 		grid-template-columns: 1fr;
 	}
@@ -490,12 +481,12 @@ p {
 		max-width: 100%;
 	}
 
-	.background-container::before {
-		background-image: url('./img/bg-expansis-pro-300x533.jpg');
-		opacity: 40%;
-	}
 	.background-container {
-		height: 70vh;
+		/* height: 70vh; */
+	}
+	.background-container::before {
+		background-image: url('./img/bg-expansis-pro-300x533.webp'); /* Ruta relativa a la raíz */
+		opacity: 1; /* Opacidad ajustada */
 	}
 	.section {
 		text-align: center;
@@ -522,10 +513,6 @@ p {
 		padding: 0 10px;
 	}
 
-	.home-section {
-		/* background-image: url('../public/img/bg-expansis-pro-300x533.jpg'); */
-	}
-
 	.content {
 		align-items: center;
 	}
@@ -541,7 +528,6 @@ p {
 	.navbar-display-inline-items {
 		/* flex-direction: column; */
 		align-items: flex-start;
-		padding: 15px; /* Ajustamos el padding para móviles */
 	}
 
 	.menu-toggle {
@@ -586,6 +572,28 @@ p {
 		padding: 15px;
 	}
 }
+@media (min-width: 769px) {
+	.background-container::before {
+		background-image: url('./img/bg-expansis-pro-1920x1080.webp'); /* Ruta relativa a la raíz */
+		opacity: 1;
+	}
+}
+
+@media (min-width: 1920px) {
+	.section {
+		padding: 2% 25%;
+	}
+
+	.about-image {
+		width: 400px;
+		/* margin-right: 20px; */
+	}
+
+	.home-section {
+		/* background-image: url('../public/img/bg-expansis-pro-300x533.webp'); */
+		padding: 150px 0;
+	}
+}
 
 .cta-button-whatsapp {
 	background-color: #25d366;
@@ -601,5 +609,44 @@ p {
 }
 
 .whatsapp-section {
-	padding: 50px 0;
+	/* padding: 50px 0; */
+}
+
+/* Estilos para el FAQ */
+.faq-item {
+	border-bottom: 1px solid var(--gris);
+	padding: 10px 0;
+}
+
+.faq-question-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	cursor: pointer;
+}
+
+.faq-icon {
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+
+.faq-answer {
+	max-height: 0;
+	opacity: 0;
+	overflow: hidden;
+	transition: max-height 0.7s ease-out, opacity 0.7s ease-out; /* Transición para max-height y opacity */
+	padding-left: 20px;
+	text-align: start;
+	padding: 0px 55px 10px;
+}
+
+.faq-answer.open {
+	max-height: 500px; /* Altura máxima para la transición de apertura */
+	opacity: 1;
+}
+
+@media (max-width: 768px) {
+	.faq-answer {
+		padding: 0px;
+	}
 }

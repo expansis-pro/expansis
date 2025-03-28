@@ -101,7 +101,7 @@ const Contact = () => {
 
 	return (
 		<section className='contact-section section'>
-			<h1 className='fade-in'>Contáctanos</h1>
+			<h2 className='fade-in'>Contáctanos</h2>
 
 			{showForm && (
 				<form className='contact-form fade-in-delay' onSubmit={handleSubmit}>

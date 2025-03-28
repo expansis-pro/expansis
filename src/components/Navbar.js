@@ -34,11 +34,11 @@ const Navbar = () => {
 		<nav className="navbar" ref={navRef}>
 			<div className="navbar-display-inline-items">
 				<div className='nav-section1'>
-					<h2>
+					<h1>
 						<a className=" navbarH1" onClick={() => scrollToSection('home')} ref={navRef}>
 							Expansis Pro
 						</a>
-					</h2>
+					</h1>
 
 				</div>
 				<div className='nav-section2'>

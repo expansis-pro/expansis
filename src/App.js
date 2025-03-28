@@ -8,10 +8,10 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 
 
-import Separador1 from './img/Separador1-1920x320px.jpg'
-import Separador2 from './img/Separador2-1920x320px.jpg'
-import Separador1Mob from './img/Separador1_Mobile-425x60px.jpg'
-import Separador2Mob from './img/Separador2_Mobile-425x60px.jpg'
+import Separador1 from './img/Separador1-1920x320px.webp'
+import Separador2 from './img/Separador2-1920x320px.webp'
+import Separador1Mob from './img/Separador1_Mobile-425x60px.webp'
+import Separador2Mob from './img/Separador2_Mobile-425x60px.webp'
 
 
 import './global.css';

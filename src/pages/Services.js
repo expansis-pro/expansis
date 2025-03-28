@@ -6,7 +6,7 @@ import { scrollToSection } from '../utils/scrollUtils';
 const Services = () => {
 	return (
 		<section id="services" className="services section">
-			<h1 className="fade-in">Nuestros Servicios</h1>
+			<h2 className="fade-in">Nuestros Servicios</h2>
 			<div className="services-list">
 				<ServiceItem
 					icon="fa-code"

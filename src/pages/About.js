@@ -1,16 +1,16 @@
 // src/pages/About.jsx
 import React from 'react';
 import ImageTextCTA from '../components/ImageTextCTA';
-// import aboutImageMobile from '../img/about-page_400x200.jpg';
-import aboutImageDesktop from '../img/about-page_630x630.jpg';
-import aboutImageMobile from '../img/about-page_630x630.jpg';
+// import aboutImageMobile from '../img/about-page_400x200.webp';
+import aboutImageDesktop from '../img/about-page_630x630.webp';
+import aboutImageMobile from '../img/about-page_630x630.webp';
 
 
 
 const About = () => {
 	return (
 		<section id="about" className='section about'>
-			<h1 className='fade-in'>¿Qué es Expansis Pro?</h1>
+			<h2 className='fade-in'>¿Qué es Expansis Pro?</h2>
 			<ImageTextCTA
 				imageMobile={aboutImageMobile}
 				imageDesktop={aboutImageDesktop}
