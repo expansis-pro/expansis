@@ -52,7 +52,7 @@ const Faqs = () => {
             question: "¿En qué consiste el servicio de consultoría digital de Expansis Pro?",
             answer: (
                 <p>
-                    El servicio de consultoría digital de Expansis Pro consiste en asesorar a las empresas en su estrategia digital para alcanzar sus objetivos de negocio. Ayudamos a las empresas a definir sus objetivos digitales, identificar oportunidades, desarrollar una estrategia digital y optimizar sus procesos digitales. Nuestra consultoría se adapta a las necesidades específicas de cada empresa.
+                    El servicio de consultoría digital de Expansis Pro consiste en asesorar a las empresas y profesionales en su estrategia digital para alcanzar sus objetivos de negocio. Ayudamos a las empresas y profesionales a definir sus objetivos digitales, identificar oportunidades, desarrollar una estrategia digital y optimizar sus procesos digitales. Nuestra consultoría se adapta a las necesidades específicas de cada empresa.
                 </p>
             ),
         },

@@ -11,7 +11,7 @@ const Whatsapp = () => {
 
     return (
         <section className="section whatsapp-section">
-            <h2>... O conversemos por Whatsapp</h2>
+            <h2>Conversemos por Whatsapp</h2>
             <a
                 href={whatsappLink}
                 target="_blank" // Abre el enlace en una nueva pestaña

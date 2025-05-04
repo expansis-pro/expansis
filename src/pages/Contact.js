@@ -100,7 +100,7 @@ const Contact = () => {
 	};
 
 	return (
-		<section className='contact-section section'>
+		<section className='contact-section section background-color-b font-color-b'>
 			<h2 className='fade-in'>Contáctanos</h2>
 
 			{showForm && (
@@ -147,7 +147,7 @@ const Contact = () => {
 						onChange={handleCaptcha}
 						hl="es"
 					/>
-					<button type='submit' className='cta-button'>
+					<button type='submit' className='cta-button cta-button-b'>
 						Enviar
 					</button>
 				</form>

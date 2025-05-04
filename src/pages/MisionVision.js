@@ -7,7 +7,7 @@ function MisionVision() {
 
       <div className="section">
 
-        <h2 className="fade-in">Lineamiento</h2>
+
         <div className="services-list">
           <ServiceItem
             icon="fa-font-awesome"

@@ -22,7 +22,7 @@ const Home = () => {
 					<p className={`home-description fade-in-delay`}>
 						Soluciones digitales para empresas y profesionales que buscan crecer su marca.
 					</p>
-					<a onClick={() => scrollToSection('services')} className="cta-button fade-in-delay">
+					<a onClick={() => scrollToSection('services')} className="cta-button cta-button-a fade-in-delay">
 						{isMobile ? 'Nuestros servicios' : 'Conoce nuestros servicios'}
 					</a>
 				</div>

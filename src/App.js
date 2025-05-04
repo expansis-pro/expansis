@@ -96,21 +96,21 @@ function App() {
       <section id="home" ref={homeRef}>
         <Home />
       </section>
-
-      <section id="about" ref={aboutRef}>
-        <About />
-      </section>
       <section id="services" ref={servicesRef}>
         <Services />
       </section>
+      <section id="about" ref={aboutRef}>
+        <About />
+      </section>
+
       <section id="misionvision" ref={aboutRef}>
         <MisionVision />
       </section>
-      <section id="separador">
+      {/* <section id="separador">
         <Separador
           imageDesktop={Separador1} imageMobile={Separador1Mob}
           alt="Separador 1" />
-      </section>
+      </section> */}
 
 
 
@@ -123,11 +123,11 @@ function App() {
       <section id="whatsapp" ref={whatsapptRef}> {/* Sección Contact */}
         <Whatsapp />
       </section>
-      <section id="separador">
+      {/* <section id="separador">
         <Separador
           imageDesktop={Separador2} imageMobile={Separador2Mob}
           alt="Separador 1" />
-      </section>
+      </section> */}
       <section id="faqs" ref={faqsRef}>
         <Faqs />
       </section>

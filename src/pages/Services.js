@@ -33,7 +33,7 @@ const Services = () => {
 				Contáctanos
 			</a> */}
 
-			<a onClick={() => scrollToSection('contact')} className="cta-button">Contáctanos</a>
+			<a onClick={() => scrollToSection('contact')} className="cta-button cta-button-a">Contáctanos</a>
 
 		</section>
 
