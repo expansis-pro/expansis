@@ -112,14 +112,14 @@ function App() {
           alt="Separador 1" />
       </section> */}
 
-
+      <section id="contact" ref={contactRef}> {/* Sección Contact */}
+        <Contact />
+      </section>
 
       <section id="aboutMe" ref={aboutRef}>
         <AboutMe />
       </section>
-      <section id="contact" ref={contactRef}> {/* Sección Contact */}
-        <Contact />
-      </section>
+
       <section id="whatsapp" ref={whatsapptRef}> {/* Sección Contact */}
         <Whatsapp />
       </section>

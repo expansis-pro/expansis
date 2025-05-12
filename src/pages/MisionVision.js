@@ -12,7 +12,7 @@ function MisionVision() {
           <ServiceItem
             icon="fa-font-awesome"
             title="Misión"
-            description="Potenciar el éxito de nuestros clientes a través de <strong>soluciones tecnológicas innovadoras y personalizadas.</strong>"
+            description="Ser un motor de desarollo de marcas prosperas que permitan generar un bienestar social en la generacion de bienes y servicios."
           />
           <ServiceItem
             icon="fa-heart"

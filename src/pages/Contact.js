@@ -1,11 +1,10 @@
-// src/pages/Contact.jsx
 import React, { useEffect, useState } from "react";
 import emailjs from "emailjs-com";
 import ReCAPTCHA from "react-google-recaptcha";
 
 const TicketMessage = () => (
 	<div className='ticket-message fade-in'>
-		<i class='fa-solid fa-circle-check'></i>
+		<i className='fa-solid fa-circle-check'></i>
 		<p>¡Gracias por contactarnos! Te responderemos a la brevedad.</p>
 	</div>
 );
@@ -14,13 +13,22 @@ const Contact = () => {
 	const [formData, setFormData] = useState({
 		name: "",
 		email: "",
-		phone: "", // 📞 Nuevo estado para el teléfono
-		message: "",
+		phone: "",
+		subject: "", // Ahora para radio buttons
+		serviceType: [], // Ahora un array para checkboxes
+		message: "Hola, me interesan los servicios de Expansis Pro, por lo que solicito información al respecto.",
 	});
 	const [status, setStatus] = useState("");
 	const [captchaVerified, setCaptchaVerified] = useState(false);
 	const [formVisible, setFormVisible] = useState(true);
 	const [showForm, setShowForm] = useState(true);
+
+	const serviceOptions = [
+		{ value: "Desarrollo Web", label: "Desarrollo Web" },
+		{ value: "Consultoría Digital", label: "Consultoría Digital" },
+		{ value: "Marketing Digital", label: "Marketing Digital" },
+		{ value: "Posicionamiento Web", label: "Posicionamiento Web" },
+	];
 
 	useEffect(() => {
 		const form = document.querySelector(".contact-form");
@@ -30,22 +38,22 @@ const Contact = () => {
 	}, [formVisible]);
 
 	const handleChange = (e) => {
-		const { name, value } = e.target;
+		const { name, value, type, checked } = e.target;
 		if (name === "phone") {
-			// Filtra caracteres no numéricos
-			const filteredValue = value.replace(/[^0-9-]/g, "");
-			// Valida el formato del número de teléfono
-			// const isValid = /^{3}-{3}-{4}$/.test(filteredValue);
-			// if (!isValid) {
-			// 	alert(
-			// 		"Por favor, ingresa un número de teléfono con formato 123-456-7890"
-			// 	);
-			// }
+			const filteredValue = value.replace(/[^0-9+-]/g, "");
 			setFormData({ ...formData, [name]: filteredValue });
+		} else if (type === "radio" && name === "subject") {
+			setFormData({ ...formData, [name]: value });
+		} else if (type === "checkbox" && name === "serviceType") {
+			const updatedServices = checked
+				? [...formData.serviceType, value]
+				: formData.serviceType.filter((service) => service !== value);
+			setFormData({ ...formData, [name]: updatedServices });
 		} else {
 			setFormData({ ...formData, [name]: value });
 		}
 	};
+
 	const handleCaptcha = (value) => {
 		setCaptchaVerified(!!value);
 	};
@@ -53,38 +61,33 @@ const Contact = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
-
 		if (!captchaVerified) {
 			setStatus("Por favor verifica que no eres un robot.");
-
-
-
 			return;
 		}
-		// Agrega la clase 'fade-out' al formulario
-		const form = document.querySelector(".contact-form	");
+		const form = document.querySelector(".contact-form");
 		if (form) {
 			form.classList.add("fade-out");
 		}
 		emailjs
 			.send(
-				process.env.REACT_APP_EMAILJS_SERVICE_ID, // Reemplázalo con tu Service ID
-				process.env.REACT_APP_EMAILJS_TEMPLATE_ID, // Reemplázalo con tu Template ID
+				process.env.REACT_APP_EMAILJS_SERVICE_ID,
+				process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
 				{
-					to_email: "gonzalo@expansispro.com", // Asegura que el correo de destino está en tu plantilla de EmailJS
+					to_email: "gonzalo@expansispro.com",
 					name: formData.name,
-					phone: formData.phone, // 📞 Teléfono agregado al mensaje
+					phone: formData.phone,
 					email: formData.email,
+					subject: formData.subject, // Enviamos el valor del radio seleccionado
+					serviceType: formData.serviceType.join(", "), // Unimos los checkboxes seleccionados en un string
 					message: formData.message,
 				},
-				process.env.REACT_APP_EMAILJS_PUBLIC_KEY, // Reemplázalo con tu Public Key de EmailJS
+				process.env.REACT_APP_EMAILJS_PUBLIC_KEY
 			)
 			.then(
 				(response) => {
 					console.log("Mensaje enviado con éxito:", response);
-					// setStatus("¡Gracias por contactarnos! Te responderemos a la brevedad.");
-					setFormData({ name: "", email: "", phone: "", message: "" }); // 📞 Limpia el campo de teléfono
-
+					setFormData({ name: "", email: "", phone: "", subject: "", serviceType: [], message: "" });
 					setFormVisible(false);
 					setShowForm(false);
 					setTimeout(() => {
@@ -95,12 +98,12 @@ const Contact = () => {
 				(error) => {
 					console.error("Error al enviar mensaje:", error);
 					setStatus("Hubo un error al enviar el mensaje");
-				},
+				}
 			);
 	};
 
 	return (
-		<section className='contact-section section background-color-b font-color-b'>
+		<section className='contact-section section background-color font-color'>
 			<h2 className='fade-in'>Contáctanos</h2>
 
 			{showForm && (
@@ -122,7 +125,6 @@ const Contact = () => {
 						className='contact-input'
 						value={formData.email}
 						onChange={handleChange}
-
 						required
 					/>
 					<input
@@ -134,20 +136,68 @@ const Contact = () => {
 						value={formData.phone}
 						onChange={handleChange}
 					/>
+
+					<div className="contact-input-group">
+						<label>Asunto:</label>
+						<div>
+							<input
+								type="radio"
+								id="consulta"
+								name="subject"
+								value="Consulta"
+								checked={formData.subject === "Consulta"}
+								onChange={handleChange}
+								required
+							/>
+							<label htmlFor="consulta" className="radio-label">Consulta</label>
+
+							<input
+								type="radio"
+								id="ventas"
+								name="subject"
+								value="Ventas"
+								checked={formData.subject === "Ventas"}
+								onChange={handleChange}
+								required
+							/>
+							<label htmlFor="ventas" className="radio-label">Ventas</label>
+						</div>
+					</div>
+
+					<div className="contact-input-group">
+						<label>Servicios de Interés (Opcional):</label>
+						<div>
+							{serviceOptions.map((option) => (
+								<div key={option.value}>
+									<input
+										type="checkbox"
+										id={option.value}
+										name="serviceType"
+										value={option.value}
+										checked={formData.serviceType.includes(option.value)}
+										onChange={handleChange}
+									/>
+									<label htmlFor={option.value} className="checkbox-label">{option.label}</label>
+								</div>
+							))}
+						</div>
+					</div>
+
 					<textarea
 						name='message'
 						placeholder='Escribe tu mensaje aquí...'
 						className='contact-input'
 						value={formData.message}
 						onChange={handleChange}
+						rows='5'
 						required
 					></textarea>
 					<ReCAPTCHA
-						sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY} // Reemplázalo con tu clave de reCAPTCHA
+						sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
 						onChange={handleCaptcha}
 						hl="es"
 					/>
-					<button type='submit' className='cta-button cta-button-b'>
+					<button type='submit' className='cta-button cta-button-a'>
 						Enviar
 					</button>
 				</form>

@@ -159,7 +159,7 @@ p {
 	width: 100%; /* Aseguramos que ocupe todo el ancho disponible*/
 	justify-content: space-between; /* Distribuye el contenido interno */
 	align-items: center;
-	padding: 0 15%; /* Agregamos padding horizontal */
+	padding: 0 7%; /* Agregamos padding horizontal */
 }
 
 .navbarH1 {
@@ -417,16 +417,16 @@ p {
 	text-align: center; /* Centra el texto dentro de las tarjetas */
 }
 
-.service-item:hover {
+/* .service-item:hover {
 	transform: translateY(-10px);
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
+} */
 
-.service-item:hover i,
+/* .service-item:hover i,
 .service-item:hover h3 {
 	color: var(--primario);
 	transition: color 0.7s;
-}
+} */
 
 .service-item i,
 .service-item h3 {
@@ -636,6 +636,7 @@ p {
 .faq-item {
 	border-bottom: 1px solid var(--gris);
 	padding: 10px 0;
+	text-align: left;
 }
 
 .faq-question-container {
@@ -669,4 +670,45 @@ p {
 	.faq-answer {
 		padding: 0px;
 	}
+}
+
+.faq-item-anchortag {
+	text-decoration: underline;
+	color: var(--primario);
+	cursor: pointer;
+}
+
+/* Estilos para el formulario de contacto - Checkbox en línea */
+.contact-input-group {
+	margin-bottom: 5px; /* Espacio entre grupos de campos */
+}
+
+.contact-input-group label {
+	display: block; /* Asegura que la etiqueta ocupe una línea completa */
+	margin-bottom: 5px; /* Espacio entre la etiqueta y los inputs */
+	margin-top: 5px; /* Espacio entre la etiqueta y los inputs */
+	font-weight: bold; /* Opcional: hacer la etiqueta más visible */
+	text-align: left; /* Alinea la etiqueta a la izquierda */
+}
+
+.contact-input-group > div {
+	display: flex;
+	flex-wrap: wrap; /* Permite que los checkboxes se envuelvan si no hay suficiente espacio */
+	align-items: center; /* Alinea verticalmente los checkboxes y etiquetas */
+}
+
+.contact-input-group > div > div {
+	display: flex;
+	align-items: center;
+	margin-right: 15px; /* Espacio entre cada checkbox y su etiqueta */
+	margin-bottom: 5px; /* Espacio vertical entre filas si se envuelven */
+}
+
+.contact-input-group > div > div input[type='checkbox'] {
+	margin-right: 5px; /* Espacio entre el checkbox y la etiqueta */
+}
+
+.contact-input-group > div > div label.checkbox-label {
+	font-weight: normal; /* Restaura el peso de la fuente normal para la etiqueta del checkbox */
+	text-align: left; /* Asegura que el texto de la etiqueta esté alineado a la izquierda */
 }
