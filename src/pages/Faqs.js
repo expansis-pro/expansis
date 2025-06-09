@@ -1,123 +1,117 @@
+// src/pages/Faqs.js
 import React, { useState } from 'react';
 import FaqItem from '../components/FaqItem';
 
 const Faqs = () => {
+    // Lista de FAQs reescrita para generar confianza y resolver dudas de conversión.
     const faqsData = [
         {
-            question: "¿Qué es Expansis Pro y qué servicios ofrece?",
+            question: "¿Cuánto cuesta un sitio web y cómo se estructura el pago?",
             answer: (
-                <p>
-                    Expansis Pro impulsa el éxito digital de las empresas, ofreciendo desarrollo web, consultoría digital y marketing online. Proporcionamos soluciones personalizadas que permiten a tu negocio conectar con nuevas oportunidades y alcanzar su máximo potencial. Nos enfocamos en la tecnología y la innovación para brindar un servicio de alto valor, siendo un aliado estratégico en el crecimiento de las empresas.
-                </p>
-            ),
-        },
-        {
-            question: "¿Cuál es la misión y visión de Expansis Pro?",
-            answer: (
-                <div>
+                <div className="space-y-4">
                     <p>
-                        Misión: Potenciar el éxito de nuestros clientes a través de soluciones tecnológicas innovadoras y personalizadas.
+                        Entendemos que el precio es un factor clave. Para ser transparentes, nuestros proyectos suelen empezar en los siguientes rangos:
                     </p>
+                    <ul className="list-disc list-inside space-y-2">
+                        <li><strong>Landing Page de Alta Conversión:</strong> Desde $250.000 CLP.</li>
+                        <li><strong>Sitio Web Corporativo Profesional (hasta 5 págs):</strong> Generalmente entre $450.000 y $800.000 CLP.</li>
+                        <li><strong>Tienda Online (E-commerce):</strong> Proyectos iniciales desde $700.000 CLP.</li>
+                    </ul>
                     <p>
-                        Visión: Ser líderes en el mercado de soluciones digitales, reconocidos por nuestra excelencia, compromiso y capacidad de generar un impacto positivo en nuestros clientes.
+                        El pago se estructura en dos partes: un 50% para iniciar el proyecto y el 50% restante al finalizar, justo antes de la entrega y lanzamiento del sitio.
                     </p>
                 </div>
             ),
         },
         {
-            question: "¿Qué tipos de sitios web desarrolla Expansis Pro? (ej., corporativos, ecommerce, blogs)",
+            question: "¿Construyen los sitios con WordPress o usan otra plataforma?",
+            answer: (
+                <div className="space-y-4">
+                    <p>
+                        Es una pregunta muy importante. No utilizamos plantillas de WordPress. Construimos nuestros sitios web a medida utilizando tecnologías modernas como React, la misma tecnología que usan empresas como Facebook, Netflix y Airbnb.
+                    </p>
+                    <p>
+                        Elegimos este camino por cuatro razones clave que benefician directamente a tu negocio:
+                    </p>
+                    <ul className="list-disc list-inside space-y-2 font-medium text-gray-800">
+                        <li>
+                            <strong>Rendimiento Superior:</strong> Los sitios a medida son significativamente más rápidos y fluidos. Esto no solo mejora la experiencia de tus visitantes, sino que también es un factor crucial para un buen posicionamiento en Google.
+                        </li>
+                        <li>
+                            <strong>Seguridad Reforzada:</strong> Al no depender de un ecosistema de plugins de terceros (que son el principal punto de vulnerabilidad de WordPress), nuestros sitios son mucho más seguros contra ataques.
+                        </li>
+                        <li>
+                            <strong>Personalización Total:</strong> No estamos limitados por ninguna plantilla. Podemos diseñar y construir cualquier funcionalidad que tu negocio necesite, creando una experiencia única para tus clientes y asegurando que el sitio pueda crecer junto a tu empresa.
+                        </li>
+                        <li>
+                            <strong>Menor Mantenimiento:</strong> Te olvidas de las constantes y a veces problemáticas actualizaciones de plugins y temas. El mantenimiento es más sencillo y controlado.
+                        </li>
+                    </ul>
+                    <p>
+                        En resumen, mientras que WordPress puede ser útil para blogs sencillos, nosotros nos especializamos en crear activos digitales de alto rendimiento, diseñados para ser rápidos, seguros y perfectamente adaptados a tus objetivos.
+                    </p>
+                </div>
+            )
+        },
+        {
+            question: "¿Qué pasa si no me gusta la propuesta de diseño?",
             answer: (
                 <p>
-                    Expansis Pro desarrolla una amplia variedad de sitios web, adaptándonos a las necesidades específicas de cada cliente. Entre los tipos de sitios web que creamos se incluyen: sitios web corporativos, sitios web de ecommerce, blogs y sitios web a medida. Nos enfocamos en crear sitios web que no solo sean visualmente atractivos, sino también funcionales, fáciles de usar y optimizados para alcanzar tus objetivos de negocio.
+                    Tu satisfacción es nuestra prioridad. Nuestro proceso incluye una fase de diseño inicial donde te presentamos una maqueta visual (mockup). Sobre esta propuesta trabajamos juntos y realizamos hasta dos rondas de revisiones y ajustes importantes para asegurarnos de que el diseño se alinee perfectamente con tu visión antes de escribir una sola línea de código.
                 </p>
             ),
         },
         {
-            question: "¿Cómo puedo contactar a Expansis Pro para obtener más información o solicitar un presupuesto?",
+            question: "¿Cuánto tiempo se demoran en entregar el sitio web?",
             answer: (
                 <p>
-                    Puedes contactar a Expansis Pro de varias maneras: a través del formulario de contacto en nuestro sitio web, por WhatsApp, por correo electrónico a [insertar correo electrónico de Expansis Pro] o por teléfono al [insertar número de teléfono de Expansis Pro]. Estaremos encantados de atenderte, resolver tus dudas y proporcionarte un presupuesto personalizado sin compromiso.
+                    Un proyecto de sitio web corporativo estándar toma habitualmente entre 3 y 5 semanas desde que recibimos todo el material necesario (textos, logos, imágenes). Una Landing Page puede estar lista en 1 a 2 semanas. Los tiempos pueden variar según la complejidad del proyecto, pero siempre estableceremos un cronograma claro y detallado desde el inicio.
                 </p>
             ),
         },
         {
-            question: "¿Expansis Pro ofrece servicios de rediseño de sitios web existentes?",
+            question: "¿Seré dueño de mi sitio web una vez terminado el proyecto?",
             answer: (
                 <p>
-                    Sí, Expansis Pro ofrece servicios de rediseño de sitios web existentes. Nuestros servicios de rediseño incluyen: actualización del diseño visual, mejora de la experiencia de usuario (UX/UI), adaptación a dispositivos móviles (responsive design), optimización del rendimiento e implementación de nuevas funcionalidades. Un rediseño puede darle un nuevo impulso a tu presencia online y ayudarte a alcanzar tus metas de negocio.
+                    Absolutamente. Una vez completado el pago final, te entregamos el 100% de los archivos y el acceso completo a tu sitio web y hosting. No utilizamos plantillas restrictivas ni te atamos a contratos de permanencia. Creemos en empoderar a nuestros clientes, no en retenerlos.
                 </p>
             ),
         },
         {
-            question: "¿En qué consiste el servicio de consultoría digital de Expansis Pro?",
+            question: "¿Qué soporte ofrecen después de que el sitio está online?",
             answer: (
                 <p>
-                    El servicio de consultoría digital de Expansis Pro consiste en asesorar a las empresas y profesionales en su estrategia digital para alcanzar sus objetivos de negocio. Ayudamos a las empresas y profesionales a definir sus objetivos digitales, identificar oportunidades, desarrollar una estrategia digital y optimizar sus procesos digitales. Nuestra consultoría se adapta a las necesidades específicas de cada empresa.
-                </p>
-            ),
-        },
-        {
-            question: "¿Expansis Pro ayuda a definir la estrategia digital de una empresa desde cero?",
-            answer: (
-                <p>
-                    Sí, Expansis Pro ayuda a definir la estrategia digital de una empresa desde cero. Nuestro enfoque incluye: análisis inicial, definición de objetivos, investigación de mercado y competencia, desarrollo de la estrategia y planificación y cronograma. Te proporcionaremos una hoja de ruta clara y efectiva para construir tu presencia online y alcanzar el éxito digital.
-                </p>
-            ),
-        },
-        {
-            question: "¿Qué estrategias de marketing online implementa Expansis Pro? (ej., SEO, SEM, redes sociales, email marketing)",
-            answer: (
-                <p>
-                    Expansis Pro implementa una variedad de estrategias de marketing online, incluyendo: posicionamiento web (SEO), publicidad en motores de búsqueda (SEM), marketing en redes sociales, email marketing, marketing de contenidos y analítica web. Utilizamos un enfoque integral y personalizado, adaptando las estrategias a las necesidades y objetivos específicos de cada cliente.
-                </p>
-            ),
-        },
-        {
-            question: "¿Cómo puede el marketing online aumentar la visibilidad de mi empresa?",
-            answer: (
-                <p>
-                    El marketing online puede aumentar la visibilidad de tu empresa a través de la mejora del posicionamiento en buscadores, la presencia en redes sociales, la publicidad online, el marketing de contenidos y el email marketing. En resumen, el marketing online permite que tu empresa llegue a más personas, en el momento adecuado y con el mensaje correcto, aumentando así su visibilidad y alcance.
-                </p>
-            ),
-        },
-        {
-            question: "¿Cómo mejora Expansis Pro el posicionamiento web de un sitio?",
-            answer: (
-                <p>
-                    Expansis Pro mejora el posicionamiento web de un sitio a través de una combinación de estrategias y técnicas de SEO (Search Engine Optimization), incluyendo SEO On-Page, SEO Off-Page y SEO Técnico. Nuestro objetivo es mejorar la visibilidad orgánica de tu sitio web en los motores de búsqueda, atrayendo tráfico de calidad y aumentando tus conversiones.
-                </p>
-            ),
-        },
-        {
-            question: "¿Cuánto cuesta desarrollar un sitio web con Expansis Pro?",
-            answer: (
-                <p>
-                    El costo de desarrollar un sitio web con Expansis Pro varía dependiendo de varios factores, incluyendo: tipo de sitio web, funcionalidades requeridas, diseño personalizado, cantidad de contenido y complejidad del proyecto. Para obtener un presupuesto preciso y personalizado, te recomendamos que te pongas en contacto con nosotros y nos proporciones los detalles de tu proyecto.
+                    Todos nuestros proyectos incluyen 30 días de soporte gratuito post-lanzamiento para corregir cualquier error o problema técnico que pueda surgir. Adicionalmente, te ofrecemos planes de mantenimiento mensual opcionales para que no te preocupes de actualizaciones, seguridad y respaldos, permitiéndote enfocarte 100% en tu negocio.
                 </p>
             ),
         },
     ];
+
     const [openIndex, setOpenIndex] = useState(null);
 
     const handleToggle = (index) => {
-        if (openIndex === index) {
-            setOpenIndex(null);
-        } else {
-            setOpenIndex(index);
-        }
+        setOpenIndex(openIndex === index ? null : index);
     };
 
     return (
-        <section id="faqs" className="faqs section">
-            <h2 className="fade-in">Preguntas Frecuentes</h2>
-            {faqsData.map((faq, index) => (
-                <FaqItem key={index}
-                    index={index}
-                    question={faq.question}
-                    answer={faq.answer}
-                    isOpen={openIndex === index}
-                    onToggle={handleToggle} />
-            ))}
+        <section id="faqs" className="bg-white py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+            <div className="max-w-4xl mx-auto">
+                <h2 className="text-center text-3xl sm:text-4xl font-bold text-gray-900 mb-12 fade-in">
+                    Dudas Frecuentes
+                </h2>
+
+                <div className="space-y-4">
+                    {faqsData.map((faq, index) => (
+                        <FaqItem
+                            key={index}
+                            question={faq.question}
+                            answer={faq.answer}
+                            isOpen={openIndex === index}
+                            onToggle={() => handleToggle(index)}
+                        />
+                    ))}
+                </div>
+            </div>
         </section>
     );
 };

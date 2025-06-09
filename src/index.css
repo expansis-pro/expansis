@@ -1,0 +1,16 @@
+/* src/index.css */
+
+/* 1. Directivas de Tailwind CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 2. Importación de fuentes globales */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400&display=swap');
+
+/* 3. Estilos base para el body (opcional pero recomendado) */
+body {
+	font-family: 'Montserrat', sans-serif;
+	-webkit-font-smoothing: antialiased; /* Mejora el renderizado de fuentes en Mac */
+	-moz-osx-font-smoothing: grayscale; /* Mejora el renderizado de fuentes en Firefox */
+}
