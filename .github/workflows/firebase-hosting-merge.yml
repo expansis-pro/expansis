@@ -33,6 +33,6 @@ jobs:
         run: npm install -g firebase-tools
 
       - name: Deploy to Firebase Hosting
-        run: firebase deploy --only hosting --project expansispro-react --non-interactive
+        run: firebase deploy --only hosting:expansis --project expansispro-react --non-interactive
         env:
           FIREBASE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
