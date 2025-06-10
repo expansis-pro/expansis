@@ -1,5 +1,15 @@
 {
   "projects": {
     "default": "expansispro-react"
-  }
+  },
+  "targets": {
+    "expansispro-react": {
+      "hosting": {
+        "expansis": [
+          "expansispro-react"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }
