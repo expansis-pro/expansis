@@ -32,5 +32,12 @@ jobs:
       - name: Install Firebase CLI
         run: npm install -g firebase-tools
 
+      # --- CAMBIOS REALIZADOS AQUÍ ---
+
+      # Paso de depuración para verificar la autenticación
+      - name: 'Debug: Verify gcloud auth'
+        run: gcloud auth list
+
+      # Despliegue con la bandera de depuración para más información
       - name: Deploy to Firebase Hosting
-        run: firebase deploy --only hosting:expansis --project expansispro-react --non-interactive
+        run: firebase deploy --only hosting:expansis --project expansispro-react --non-interactive --debug
