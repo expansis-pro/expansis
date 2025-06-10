@@ -4,12 +4,11 @@ name: Deploy to Firebase Hosting on merge
 'on':
   push:
     branches:
-      - master # O la rama que uses como principal
+      - main
 
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
-    # Permisos necesarios para que la Acción se autentique con Google Cloud
     permissions:
       contents: 'read'
       id-token: 'write'
@@ -18,7 +17,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Paso de autenticación con Google Cloud usando Workload Identity Federation
       - id: 'auth'
         name: 'Authenticate to Google Cloud'
         uses: 'google-github-actions/auth@v2'
@@ -29,9 +27,12 @@ jobs:
       - name: 'Build Project'
         run: npm ci && npm run build
 
-      # Paso de despliegue a Firebase (ya no necesita el secreto)
-      - name: 'Deploy to Firebase'
-        uses: FirebaseExtended/action-hosting-deploy@v0.9.0
-        with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          projectId: 'expansispro-react'
+      # --- NUEVOS PASOS DE DESPLIEGUE ---
+
+      - name: Install Firebase CLI
+        run: npm install -g firebase-tools
+
+      - name: Deploy to Firebase Hosting
+        run: firebase deploy --only hosting --project expansispro-react --non-interactive
+        env:
+          FIREBASE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
