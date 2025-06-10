@@ -31,7 +31,7 @@ jobs:
 
       # Paso de despliegue a Firebase (ya no necesita el secreto)
       - name: 'Deploy to Firebase'
-        uses: FirebaseExtended/action-hosting-deploy@v0
+        uses: FirebaseExtended/action-hosting-deploy@v0.9.0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           projectId: 'expansispro-react'
