@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import emailjs from "emailjs-com";
 import ReCAPTCHA from "react-google-recaptcha";
 
-// Mensaje de éxito refactorizado con clases de Tailwind
+// El componente de mensaje de éxito está perfecto.
 const TicketMessage = () => (
 	<div className='text-center p-8 bg-green-50 text-green-800 rounded-lg shadow-md'>
 		<i className='fa-solid fa-circle-check text-4xl mb-4'></i>
@@ -34,41 +34,81 @@ const Contact = () => {
 		{ value: "Posicionamiento Web", label: "Posicionamiento Web" },
 	];
 
+	// --- LÓGICA IMPLEMENTADA ---
+	// Esta función ahora maneja los cambios de todos los inputs, incluyendo los checkboxes.
 	const handleChange = (e) => {
 		const { name, value, type, checked } = e.target;
-		// Tu lógica de handleChange es correcta, no necesita cambios.
-		// ... (la misma lógica que ya tenías)
+
+		if (type === "checkbox") {
+			// Lógica para manejar los checkboxes de serviceType
+			setFormData(prevData => {
+				const currentServices = prevData.serviceType;
+				if (checked) {
+					// Añadir el servicio si el checkbox está marcado
+					return { ...prevData, serviceType: [...currentServices, value] };
+				} else {
+					// Quitar el servicio si el checkbox se desmarca
+					return { ...prevData, serviceType: currentServices.filter(service => service !== value) };
+				}
+			});
+		} else {
+			// Lógica para todos los demás inputs (texto, email, radio)
+			setFormData(prevData => ({
+				...prevData,
+				[name]: value
+			}));
+		}
 	};
 
 	const handleCaptcha = (value) => {
 		setCaptchaVerified(!!value);
 	};
 
+	// --- LÓGICA IMPLEMENTADA ---
+	// Esta función ahora contiene la llamada a emailjs para enviar el formulario.
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		if (!captchaVerified) {
 			setStatus("Por favor, verifica que no eres un robot.");
 			return;
 		}
+
+		setStatus(""); // Limpiar el estado previo
 		setIsSubmitting(true);
-		// Tu lógica de envío con emailjs es correcta.
-		// ... (la misma lógica que ya tenías, al final en el `then` y `catch` pones `setIsSubmitting(false)`)
+
+		emailjs.sendForm(
+			process.env.REACT_APP_EMAILJS_SERVICE_ID, // Tu Service ID de EmailJS
+			process.env.REACT_APP_EMAILJS_TEMPLATE_ID, // Tu Template ID de EmailJS
+			e.target, // Referencia al formulario
+			process.env.REACT_APP_EMAILJS_USER_ID // Tu User ID (o Public Key) de EmailJS
+		)
+			.then((result) => {
+				console.log(result.text);
+				setStatus("Mensaje enviado con éxito.");
+				setShowForm(false); // Oculta el formulario y muestra el mensaje de éxito
+			}, (error) => {
+				console.log(error.text);
+				setStatus("Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.");
+			})
+			.finally(() => {
+				setIsSubmitting(false); // Re-habilita el botón de envío
+			});
 	};
 
-	// Clases base para los inputs para no repetirlas
+	// Clases base para los inputs (esto ya estaba correcto).
 	const inputClasses = "w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primario transition-colors";
 
 	return (
-		// Contenedor de la sección con un fondo de color primario y texto blanco.
 		<section id="contact" className='bg-primario text-white py-16 sm:py-20 px-4 sm:px-6 lg:px-8'>
 			<div className='max-w-3xl mx-auto text-center'>
 				<h2 className='text-3xl sm:text-4xl font-bold mb-4 fade-in'>Contáctanos</h2>
 				<p className="text-lg mb-10 fade-in">Déjanos un mensaje y te responderemos a la brevedad.</p>
 
 				{showForm ? (
-					// Usamos un div como contenedor del formulario para aplicar estilos de fondo, padding y sombra.
 					<div className="bg-white text-gray-800 p-8 sm:p-10 rounded-xl shadow-2xl">
 						<form onSubmit={handleSubmit} className="space-y-6">
+							{/* El resto de tu JSX del formulario es correcto y no necesita cambios. */}
+							{/* ... (input de nombre, email, teléfono, radio buttons, checkboxes, etc.) ... */}
 							{/* Campos de texto y email */}
 							<input type='text' name='name' placeholder='Nombre completo' className={inputClasses} value={formData.name} onChange={handleChange} required />
 							<input type='email' name='email' placeholder='Correo electrónico' className={inputClasses} value={formData.email} onChange={handleChange} required />
@@ -118,7 +158,6 @@ const Contact = () => {
 					<TicketMessage />
 				)}
 
-				{/* Mensaje de estado/error */}
 				{status && <p className='mt-4 text-center font-semibold text-red-200 bg-red-800/50 px-4 py-2 rounded-md'>{status}</p>}
 			</div>
 		</section>
