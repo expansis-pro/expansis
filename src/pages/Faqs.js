@@ -1,9 +1,10 @@
 // src/pages/Faqs.js
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import FaqItem from '../components/FaqItem';
 
 const Faqs = () => {
-    // Datos para la visualización con formato JSX
+    // ... (Tu data y lógica de estado no cambian, las omito por brevedad) ...
     const faqsForDisplay = [
         {
             question: "¿Cuánto cuesta un sitio web y cómo se estructura el pago?",
@@ -73,7 +74,6 @@ const Faqs = () => {
         }
     ];
 
-    // Datos en texto plano para el schema JSON-LD
     const faqsForSchema = [
         { q: "¿Cuánto cuesta un sitio web y cómo se estructura el pago?", a: "Entendemos que el precio es un factor clave. Para ser transparentes, nuestros proyectos suelen empezar en los siguientes rangos: Landing Page de Alta Conversión: Desde $250.000 CLP. Sitio Web Corporativo Profesional (hasta 5 págs): Generalmente entre $450.000 y $800.000 CLP. Tienda Online (E-commerce): Proyectos iniciales desde $700.000 CLP. El pago se estructura en dos partes: un 50% para iniciar el proyecto y el 50% restante al finalizar, justo antes de la entrega y lanzamiento del sitio." },
         { q: "¿Construyen los sitios con WordPress o usan otra plataforma?", a: "Es una pregunta muy importante. No utilizamos plantillas de WordPress. Construimos nuestros sitios web a medida utilizando tecnologías modernas como React. Elegimos este camino por cuatro razones clave: Rendimiento Superior, Seguridad Reforzada, Personalización Total y Menor Mantenimiento. Nos especializamos en crear activos digitales de alto rendimiento, diseñados para ser rápidos, seguros y perfectamente adaptados a tus objetivos." },
@@ -95,7 +95,6 @@ const Faqs = () => {
 
     const displayedFaqs = showAll ? faqsForDisplay : faqsForDisplay.slice(0, initialFaqsToShow);
 
-    // Generar el schema dinámicamente
     const faqSchema = {
         "@context": "https://schema.org",
         "@type": "FAQPage",
@@ -110,15 +109,20 @@ const Faqs = () => {
     };
 
     return (
-        <section id="faqs" className="bg-white py-66 sm:py-6 px-4 sm:px-6 lg:px-8">
+        <section id="faqs" className="bg-white py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
             <script type="application/ld+json">
                 {JSON.stringify(faqSchema)}
             </script>
 
             <div className="max-w-4xl mx-auto">
-                <h2 className="text-center text-2xl sm:text-3xl font-bold text-gray-900 mb-12 fade-in">
-                    Dudas Frecuentes
-                </h2>
+                <div className="text-center">
+                    <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 fade-in">
+                        Dudas Frecuentes
+                    </h2>
+                    <p className="text-lg text-gray-600 mb-12 fade-in">
+                        Si no encuentras tu respuesta, no dudes en escribirnos.
+                    </p>
+                </div>
 
                 <div className="space-y-4">
                     {displayedFaqs.map((faq, index) => (
@@ -132,16 +136,32 @@ const Faqs = () => {
                     ))}
                 </div>
 
-                {faqsForDisplay.length > initialFaqsToShow && (
-                    <div className="text-center mt-8">
-                        <button
-                            onClick={() => setShowAll(!showAll)}
-                            className="text-primario font-bold hover:underline"
+                {/* Contenedor principal de botones */}
+                <div className="text-center mt-8">
+
+                    {/* Botón "Ver más/menos" */}
+                    {faqsForDisplay.length > initialFaqsToShow && (
+                        <div className="mb-8">
+                            <button
+                                onClick={() => setShowAll(!showAll)}
+                                className="text-primario font-bold hover:underline"
+                            >
+                                {showAll ? 'Ver menos preguntas' : 'Ver más preguntas'}
+                            </button>
+                        </div>
+                    )}
+
+                    {/* Botón de "Contáctanos" */}
+                    <div>
+                        <Link
+                            to="/contacto"
+                            className="inline-block bg-primario text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-secundario transition-all duration-300 transform hover:scale-105"
                         >
-                            {showAll ? 'Ver menos preguntas' : 'Ver más preguntas'}
-                        </button>
+                            ¿Tienes otra duda? Contáctanos
+                        </Link>
                     </div>
-                )}
+
+                </div>
             </div>
         </section>
     );

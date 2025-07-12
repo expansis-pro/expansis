@@ -1,12 +1,12 @@
 // src/pages/Home.js
 
 import React from 'react';
-import { scrollToSection } from '../utils/scrollUtils';
+// 1. Importa Link de react-router-dom
+import { Link } from 'react-router-dom';
 import heroImage from '../img/Hero_img_Expansis_pro.webp';
 
 const Home = () => {
 	return (
-		// --- CAMBIO REALIZADO: Se aumentó el padding superior para que el contenido no quede detrás del navbar ---
 		<section id="home" className="bg-gray-50 flex items-center pt-24 pb-6 lg:pt-32 lg:pb-16">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
@@ -22,21 +22,20 @@ const Home = () => {
 					</p>
 
 					<div className="mt-8">
-						<button onClick={() => scrollToSection('services')}
+						{/* 2. Reemplazamos el <button> por el componente <Link> */}
+						<Link
+							to="/servicios" // 3. Añadimos la prop 'to' con la ruta de destino
 							className="w-full sm:w-auto inline-block bg-primario text-white font-bold text-lg py-3 px-8 rounded-lg shadow-lg hover:bg-secundario transition-all duration-300 transform hover:scale-105">
 							Conoce Nuestros Servicios
-						</button>
+						</Link>
 					</div>
 				</div>
 
-				{/* --- COLUMNA DE LA IMAGEN MODIFICADA --- */}
-				{/* El div ya no tiene restricciones de altura */}
+				{/* Columna de la Imagen */}
 				<div className="w-full">
 					<img
 						src={heroImage}
 						alt="Laptop mostrando un diseño web de Expansis Pro"
-						// --- CLASES MODIFICADAS ---
-						// Aplicamos la altura directamente a la imagen y usamos object-cover
 						className="w-full h-[450px] object-cover rounded-xl shadow-2xl"
 					/>
 				</div>

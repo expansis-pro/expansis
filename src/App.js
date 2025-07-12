@@ -1,57 +1,78 @@
+// src/App.js
 import React, { Suspense, lazy } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
+
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import PageTransition from './components/PageTransition';
 
-// Tu import de index.css es clave para que Tailwind funcione
-import './index.css';
-
-// La importación diferida de componentes es una excelente práctica. La mantenemos intacta.
 const Home = lazy(() => import('./pages/Home'));
-const About = lazy(() => import('./pages/About'));
-const AboutMe = lazy(() => import('./pages/AboutMe'));
 const Services = lazy(() => import('./pages/Services'));
-const Contact = lazy(() => import('./pages/Contact'));
-const MisionVision = lazy(() => import('./pages/MisionVision'));
+const QuienesSomos = lazy(() => import('./pages/QuienesSomos'));
 const Faqs = lazy(() => import('./pages/Faqs'));
-const Whatsapp = lazy(() => import('./pages/Whatsapp'));
-// Eliminamos las importaciones de imágenes de separadores si no se usan aquí directamente.
+const Contact = lazy(() => import('./pages/Contact'));
 
 function App() {
-  // Toda tu lógica de refs e intersection observer no necesita cambios.
-  // Es independiente de la capa de presentación (UI).
-
-  // Componente de carga para Suspense
-  const LoadingSpinner = () => (
-    <div className="flex justify-center items-center h-screen">
-      <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-primario"></div>
-    </div>
-  );
+  const location = useLocation();
 
   return (
-    // Reemplazamos el div por un <main> para mejor semántica.
-    // - `bg-white`: Establece un color de fondo base para toda la app.
-    // - `text-gray-800`: Establece un color de texto base.
-    <main className="bg-white text-gray-800">
+    // 1. Contenedor principal ahora usa Flexbox para controlar el layout vertical
+    <div className="flex flex-col min-h-screen">
       <Navbar />
-
-      {/* Suspense permite mostrar un fallback (como un spinner) mientras los componentes lazy se cargan */}
-      <Suspense fallback={<LoadingSpinner />}>
-        {/* Hemos eliminado las etiquetas <section> que envolvían cada componente.
-          Ahora, cada componente de página es responsable de su propia etiqueta <section> y su estilo.
-          Esto hace que el App.js esté mucho más limpio y los componentes sean más autónomos.
-        */}
-        <Home />
-        <Services />
-        <About />
-        <Contact />
-        <Whatsapp />
-        <MisionVision />
-        <AboutMe />
-        <Faqs />
-      </Suspense>
-
+      {/* 2. El contenido principal ahora crece para ocupar el espacio disponible */}
+      <main className="flex-grow">
+        <Suspense fallback={<div className="pt-20 text-center">Cargando...</div>}>
+          <AnimatePresence mode="wait">
+            <Routes location={location} key={location.pathname}>
+              {/* --- Tus rutas no cambian --- */}
+              <Route
+                path="/"
+                element={
+                  <PageTransition>
+                    <Home />
+                  </PageTransition>
+                }
+              />
+              <Route
+                path="/servicios"
+                element={
+                  <PageTransition>
+                    <Services />
+                  </PageTransition>
+                }
+              />
+              <Route
+                path="/quienes-somos"
+                element={
+                  <PageTransition>
+                    <QuienesSomos />
+                  </PageTransition>
+                }
+              />
+              <Route
+                path="/faq"
+                element={
+                  <PageTransition>
+                    <Faqs />
+                  </PageTransition>
+                }
+              />
+              <Route
+                path="/contacto"
+                element={
+                  <PageTransition>
+                    <Contact />
+                  </PageTransition>
+                }
+              />
+              <Route path="*" element={<div className="pt-20 text-center"><h2>404: Página no encontrada</h2></div>} />
+            </Routes>
+          </AnimatePresence>
+        </Suspense>
+      </main>
       <Footer />
-    </main>
+    </div>
   );
 }
 
