@@ -7,7 +7,7 @@ import Whatsapp from '../pages/Whatsapp';
 
 // Componente de mensaje de éxito, sin cambios.
 const TicketMessage = () => (
-	<div className='text-center p-8 bg-green-50 text-green-800 rounded-lg shadow-md max-w-md mx-auto'>
+	<div className='text-center p-6 bg-green-50 text-green-800 rounded-lg shadow-md max-w-md mx-auto'>
 		<i className='fa-solid fa-circle-check text-4xl mb-4'></i>
 		<p className="text-lg font-semibold">¡Gracias por contactarnos!</p>
 		<p>Te responderemos a la brevedad.</p>
@@ -128,13 +128,13 @@ const Contact = () => {
 	const labelClasses = "block text-sm font-medium text-gray-800 mb-2";
 
 	return (
-		<section id="contact" className='bg-gray-50 py-16 sm:py-20 px-4 sm:px-6 lg:px-8'>
+		<section id="contact" className='bg-gray-50 py-6 sm:py-6 px-4 sm:px-6 lg:px-8'>
 			<div className='max-w-3xl mx-auto text-center'>
 				<h2 className='text-3xl sm:text-4xl font-bold text-gray-900 mb-4 fade-in'>Contáctanos</h2>
 				<p className="text-lg text-gray-700 mb-10 fade-in">Déjanos un mensaje y te responderemos a la brevedad.</p>
 
 				{showForm ? (
-					<div className="bg-white text-gray-800 p-8 sm:p-10 rounded-xl shadow-2xl border-t-4 border-primario">
+					<div className="bg-white text-gray-800 p-6 sm:p-10 rounded-xl shadow-2xl border-t-4 border-primario">
 						<form onSubmit={handleSubmit} className="space-y-6 text-left">
 							<div>
 								<label htmlFor="name" className={labelClasses}>Nombre completo</label>

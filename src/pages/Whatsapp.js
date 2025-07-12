@@ -9,9 +9,9 @@ const Whatsapp = () => {
 
     return (
         // Contenedor de la sección, ahora transparente para mostrar el fondo global
-        <section id="whatsapp" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+        <section id="whatsapp" className="py-6 sm:py-6 ">
             {/* Contenedor tipo tarjeta para que el contenido destaque */}
-            <div className="max-w-4xl mx-auto text-center bg-white p-8 sm:p-12 rounded-xl shadow-2xl border-t-4 border-primario">
+            <div className="max-w-4xl mx-auto text-center bg-white p-6 sm:p-12 rounded-xl shadow-2xl border-t-4 border-primario">
 
                 {/* Título de la sección, ahora con texto oscuro */}
                 <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
@@ -26,10 +26,10 @@ const Whatsapp = () => {
                     href={whatsappLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    // --- CAMBIO REALIZADO: Botón devuelto al color verde de WhatsApp ---
-                    className="inline-flex items-center justify-center bg-[#25D366] hover:bg-[#128C7E] text-white font-bold text-lg sm:text-xl py-3 px-8 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105"
+                    // --- CAMBIO REALIZADO: Eliminar 'gap-x-5' ---
+                    className="block mx-auto max-w-xs sm:inline-flex items-center justify-center whitespace-nowrap bg-[#25D366] hover:bg-[#128C7E] text-white font-bold text-lg sm:text-xl py-3 px-8 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105"
                 >
-                    {/* Ícono de WhatsApp */}
+                    {/* Ícono de WhatsApp - Se añade 'mr-3' de nuevo para el espaciado */}
                     <i className="fa-brands fa-whatsapp text-2xl sm:text-3xl mr-3"></i>
 
                     {/* Texto del botón */}

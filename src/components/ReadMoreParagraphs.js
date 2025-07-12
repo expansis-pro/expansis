@@ -1,3 +1,4 @@
+// src/components/ReadMoreParagraphs.js
 import React, { useState } from 'react';
 
 const ReadMoreParagraphs = ({ paragraphs, maxLength = 300 }) => {
@@ -11,8 +12,9 @@ const ReadMoreParagraphs = ({ paragraphs, maxLength = 300 }) => {
     if (!needsTruncation) {
         return (
             <>
+                {/* CAMBIO REALIZADO: Añadir mb-6 last:mb-0 a cada p */}
                 {paragraphs.map((p, index) => (
-                    <p key={index} dangerouslySetInnerHTML={{ __html: p }} />
+                    <p key={index} className="mb-6 last:mb-0" dangerouslySetInnerHTML={{ __html: p }} />
                 ))}
             </>
         );
@@ -24,17 +26,20 @@ const ReadMoreParagraphs = ({ paragraphs, maxLength = 300 }) => {
             <div className="md:hidden">
                 {isExpanded ? (
                     // Si está expandido, muestra todos los párrafos
-                    paragraphs.map((p, index) => <p key={index} dangerouslySetInnerHTML={{ __html: p }} />)
+                    // CAMBIO REALIZADO: Añadir mb-6 last:mb-0 a cada p
+                    paragraphs.map((p, index) => <p key={index} className="mb-6 last:mb-0" dangerouslySetInnerHTML={{ __html: p }} />)
                 ) : (
                     // Si está colapsado, muestra solo el primer párrafo con "..."
-                    <p dangerouslySetInnerHTML={{ __html: paragraphs[0] + '...' }} />
+                    // CAMBIO REALIZADO: Añadir mb-6 last:mb-0 al p colapsado
+                    <p className="mb-6 last:mb-0" dangerouslySetInnerHTML={{ __html: paragraphs[0] + '...' }} />
                 )}
             </div>
 
             {/* Vista para Desktop (hidden md:block) - Muestra siempre todos los párrafos */}
             <div className="hidden md:block">
+                {/* CAMBIO REALIZADO: Añadir mb-6 last:mb-0 a cada p */}
                 {paragraphs.map((p, index) => (
-                    <p key={index} dangerouslySetInnerHTML={{ __html: p }} />
+                    <p key={index} className="mb-6 last:mb-0" dangerouslySetInnerHTML={{ __html: p }} />
                 ))}
             </div>
 

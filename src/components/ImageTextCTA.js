@@ -1,6 +1,8 @@
-// src/components/ImageTextCTA.js
 import React from 'react';
-import { scrollToSection } from '../utils/scrollUtils';
+// CAMBIO REALIZADO: Importar Link de react-router-dom
+import { Link } from 'react-router-dom'; // <--- AÑADIR ESTA LÍNEA
+// CAMBIO REALIZADO: Eliminar la importación de scrollToSection
+// import { scrollToSection } from '../utils/scrollUtils'; // <--- ELIMINAR ESTA LÍNEA
 import ReadMoreParagraphs from './ReadMoreParagraphs';
 
 const ImageTextCTA = ({ imageDesktop, alt, text, buttonContent, buttonLink, subtitle, title, imageSide = 'left', links = [] }) => {
@@ -10,7 +12,7 @@ const ImageTextCTA = ({ imageDesktop, alt, text, buttonContent, buttonLink, subt
 
     return (
         <section className="w-full flex justify-center items-center py-6 lg:py-6">
-            <div className="max-w-7xl w-full px-4 sm:px-6 lg:px-8">
+            <div className="max-w-6xl w-full px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-16">
 
                     {/* Columna de la Imagen */}
@@ -23,18 +25,19 @@ const ImageTextCTA = ({ imageDesktop, alt, text, buttonContent, buttonLink, subt
                         {title && <h2 className="text-2xl font-bold text-gray-800 mb-4">{title}</h2>}
                         {subtitle && <h3 className="text-xl font-semibold text-primario mb-2">{subtitle}</h3>}
 
-                        {/* --- CAMBIO REALIZADO: Se usa el nuevo componente para párrafos --- */}
-                        <div className="space-y-4 text-gray-600 text-base">
+                        <div className="space-y-8 text-gray-600 text-base">
                             <ReadMoreParagraphs paragraphs={text} />
                         </div>
 
                         {/* Botón (si se proporciona) */}
                         {buttonContent && (
                             <div className="mt-8">
-                                <button onClick={() => scrollToSection(buttonLink)}
+                                {/* CAMBIO REALIZADO: Reemplazar <button> por <Link> */}
+                                <Link
+                                    to={buttonLink} // Usar 'to' para la navegación de React Router
                                     className="inline-block bg-primario text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-secundario transition-all duration-300 transform hover:scale-105">
                                     {buttonContent}
-                                </button>
+                                </Link>
                             </div>
                         )}
 

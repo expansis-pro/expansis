@@ -56,12 +56,12 @@ const Services = () => {
 	];
 
 	return (
-		<section id="services" className="bg-gray-50 py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
-			<div className="max-w-7xl mx-auto text-center">
+		<section id="services" className="bg-gray-50 py-6 sm:py-6 px-4 sm:px-6 lg:px-8">
+			<div className="max-w-6xl mx-auto text-center">
 				<h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 fade-in">Nuestros Servicios</h2>
 				<p className="text-lg text-gray-600 mb-12 fade-in">Haz clic en una tarjeta para ver más detalles</p>
 
-				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 					{servicesData.map((service, index) => (
 						<ServiceItem
 							key={index}
@@ -76,7 +76,7 @@ const Services = () => {
 				{/* 2. Reemplazamos el <button> por el componente <Link> */}
 				<Link
 					to="/contacto" // 3. Le asignamos la ruta de destino
-					className="inline-block mt-16 bg-primario text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-secundario transition-all duration-300 transform hover:scale-105"
+					className="inline-block  bg-primario text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-secundario transition-all duration-300 transform hover:scale-105"
 				>
 					Contáctanos
 				</Link>

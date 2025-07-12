@@ -29,7 +29,7 @@ const Navbar = () => {
 
 	return (
 		<nav className="bg-white/80 backdrop-blur-sm fixed top-0 left-0 w-full z-50 shadow-md" ref={navRef}>
-			<div className="max-w-7xl mx-auto flex justify-between items-center p-4 px-4 sm:px-6 lg:px-8">
+			<div className="max-w-6xl mx-auto flex justify-between items-center p-4 px-4 sm:px-6 lg:px-8">
 
 				{/* Logo */}
 				<NavLink
@@ -49,7 +49,7 @@ const Navbar = () => {
 				<ul className="hidden md:flex items-center space-x-8">
 					<li><NavLink to="/" style={({ isActive }) => isActive ? activeLinkStyle : undefined} className="text-gray-700 hover:text-primario font-medium transition-colors">Inicio</NavLink></li>
 					<li><NavLink to="/servicios" style={({ isActive }) => isActive ? activeLinkStyle : undefined} className="text-gray-700 hover:text-primario font-medium transition-colors">Servicios</NavLink></li>
-					<li><NavLink to="/quienes-somos" style={({ isActive }) => isActive ? activeLinkStyle : undefined} className="text-gray-700 hover:text-primario font-medium transition-colors">Quiénes Somos</NavLink></li>
+					<li><NavLink to="/quienes-somos" style={({ isActive }) => isActive ? activeLinkStyle : undefined} className="text-gray-700 hover:text-primario font-medium transition-colors">Sobre Expansis</NavLink></li>
 					<li><NavLink to="/contacto" style={({ isActive }) => isActive ? activeLinkStyle : undefined} className="text-gray-700 hover:text-primario font-medium transition-colors">Contacto</NavLink></li>
 					<li><NavLink to="/faq" style={({ isActive }) => isActive ? activeLinkStyle : undefined} className="text-gray-700 hover:text-primario font-medium transition-colors">FAQ</NavLink></li>
 				</ul>
@@ -61,7 +61,7 @@ const Navbar = () => {
 					<ul className="flex flex-col items-center py-4">
 						<li><NavLink to="/" onClick={closeMobileMenu} className="block py-2 text-gray-700 hover:text-primario font-medium">Inicio</NavLink></li>
 						<li><NavLink to="/servicios" onClick={closeMobileMenu} className="block py-2 text-gray-700 hover:text-primario font-medium">Servicios</NavLink></li>
-						<li><NavLink to="/quienes-somos" onClick={closeMobileMenu} className="block py-2 text-gray-700 hover:text-primario font-medium">Quiénes Somos</NavLink></li>
+						<li><NavLink to="/quienes-somos" onClick={closeMobileMenu} className="block py-2 text-gray-700 hover:text-primario font-medium">Sobre Expansis</NavLink></li>
 						<li><NavLink to="/contacto" onClick={closeMobileMenu} className="block py-2 text-gray-700 hover:text-primario font-medium">Contacto</NavLink></li>
 						<li><NavLink to="/faq" onClick={closeMobileMenu} className="block py-2 text-gray-700 hover:text-primario font-medium">FAQ</NavLink></li>
 					</ul>
