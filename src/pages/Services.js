@@ -1,97 +1,78 @@
-// import React from 'react';
-
-// import ServiceItem from '../components/ServiceItem';
-// import { scrollToSection } from '../utils/scrollUtils';
-
-// const Services = () => {
-// 	return (
-// 		<section id="services" className="services section">
-// 			<h2 className="fade-in">Nuestros Servicios</h2>
-// 			<div className="services-list">
-// 				<ServiceItem
-// 					icon="fa-code"
-// 					title="Desarrollo web"
-// 					description="Creamos plataformas web atractivas y funcionales para impulsar tu negocio online. Buscamos la mejor experiencia de usuario, seguridad y escalabilidad para alcanzar tus objetivos."
-// 				/>
-// 				<ServiceItem
-// 					icon="fa-chart-line"
-// 					title="Consultoría digital"
-// 					description="Asesoramos a las empresas en su estrategia digital, ayudándolas a definir sus objetivos, identificar oportunidades, analizar el entorno y optimizar sus procesos."
-// 				/>
-// 				<ServiceItem
-// 					icon="fa-bullhorn"
-// 					title="Marketing online"
-// 					description="Implementamos estrategias de marketing digital para aumentar la visibilidad, mejorar el engagement, generar leads y convertir clientes potenciales en clientes fieles."
-// 				/>
-// 				<ServiceItem
-// 					icon="fa-search"
-// 					title="Posicionamiento web"
-// 					description="Mejoramos el posicionamiento de las webs en los motores de búsqueda, atrayendo tráfico orgánico y aumentando la visibilidad online."
-// 				/>
-// 			</div>
-// 			{/* <a href="#contact" className="cta-button contact-button fade-in-delay">
-// 				Contáctanos
-// 			</a> */}
-
-// 			<a onClick={() => scrollToSection('contact')} className="cta-button cta-button-a">Contáctanos</a>
-
-// 		</section>
-
-
-// 	);
-// };
-
-// export default Services;
-
-
 // src/pages/Services.js
-
 import React from 'react';
 import ServiceItem from '../components/ServiceItem';
 import { scrollToSection } from '../utils/scrollUtils';
 
 const Services = () => {
-	return (
-		// Contenedor principal de la sección:
-		// - Fondo gris claro para diferenciarla, padding vertical y horizontal.
-		<section id="services" className="bg-gray-50 py-66 sm:py-6 px-4 sm:px-6 lg:px-8">
-			<div className="max-w-7xl mx-auto text-center">
-				{/* Título de la sección:
-          - Tamaño de fuente responsive, negrita, color de texto y margen inferior.
-        */}
-				<h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-12 fade-in">Nuestros Servicios</h2>
 
-				{/* La rejilla (grid) de servicios:
-          - Se muestra como una columna en móviles (grid-cols-1).
-          - Dos columnas en tablets (md:grid-cols-2).
-          - Cuatro columnas en pantallas grandes (lg:grid-cols-4).
-          - 'gap-8' añade espacio entre las tarjetas.
-        */}
+	// Array con toda la información de los servicios, incluyendo los detalles para la cara trasera
+	const servicesData = [
+		{
+			icon: "fa-solid fa-code",
+			title: "Desarrollo Web",
+			description: "Creamos plataformas web atractivas y funcionales para impulsar tu negocio online.",
+			details: [
+				"Diseño de sitios web responsivos.",
+				"Desarrollo de E-commerce y carritos de compra.",
+				"Integración con pasarelas de pago.",
+				"Sistemas de gestión de contenido (CMS)."
+			]
+		},
+		{
+			icon: "fa-solid fa-chart-line",
+			title: "Consultoría Digital",
+			description: "Te asesoramos para definir objetivos, identificar oportunidades y optimizar tus procesos.",
+			details: [
+				"Análisis de presencia online actual.",
+				"Estrategia de transformación digital.",
+				"Investigación de mercado y competencia.",
+				"Optimización de la experiencia de usuario (UX)."
+			]
+		},
+		{
+			icon: "fa-solid fa-bullhorn",
+			title: "Marketing Online",
+			description: "Implementamos estrategias para aumentar tu visibilidad y generar clientes potenciales.",
+			details: [
+				"Gestión de campañas en redes sociales.",
+				"Publicidad en Google Ads (SEM).",
+				"Email marketing y automatización.",
+				"Creación de contenido de valor."
+			]
+		},
+		{
+			icon: "fa-solid fa-search",
+			title: "Posicionamiento Web",
+			description: "Mejoramos tu ranking en buscadores para atraer tráfico orgánico de calidad.",
+			details: [
+				"Auditoría SEO completa.",
+				"Optimización On-Page y Off-Page.",
+				"Estrategia de palabras clave (Keywords).",
+				"SEO local para negocios físicos."
+			]
+		}
+	];
+
+	return (
+		<section id="services" className="bg-gray-50 py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+			<div className="max-w-7xl mx-auto text-center">
+				<h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 fade-in">Nuestros Servicios</h2>
+				<p className="text-lg text-gray-600 mb-12 fade-in">Haz clic en una tarjeta para ver más detalles</p>
+
+				{/* Se mapea el array de datos para renderizar cada tarjeta de servicio */}
 				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-					<ServiceItem
-						icon="fa-solid fa-code"
-						title="Desarrollo web"
-						description="Creamos plataformas web atractivas y funcionales para impulsar tu negocio online. Buscamos la mejor experiencia de usuario, seguridad y escalabilidad para alcanzar tus objetivos."
-					/>
-					<ServiceItem
-						icon="fa-solid fa-chart-line"
-						title="Consultoría digital"
-						description="Asesoramos a las empresas en su estrategia digital, ayudándolas a definir sus objetivos, identificar oportunidades, analizar el entorno y optimizar sus procesos."
-					/>
-					<ServiceItem
-						icon="fa-solid fa-bullhorn"
-						title="Marketing online"
-						description="Implementamos estrategias de marketing digital para aumentar la visibilidad, mejorar el engagement, generar leads y convertir clientes potenciales en clientes fieles."
-					/>
-					<ServiceItem
-						icon="fa-solid fa-search"
-						title="Posicionamiento web"
-						description="Mejoramos el posicionamiento de las webs en los motores de búsqueda, atrayendo tráfico orgánico y aumentando la visibilidad online."
-					/>
+					{servicesData.map((service, index) => (
+						<ServiceItem
+							key={index}
+							icon={service.icon}
+							title={service.title}
+							description={service.description}
+							details={service.details}
+						/>
+					))}
 				</div>
 
-				{/* Botón CTA: Usamos el mismo estilo consistente que en Home.js */}
-				<button onClick={() => scrollToSection('contact')} className="inline-block mt-12 bg-primario text-white font-bold py-3 px-8 rounded shadow-lg hover:bg-secundario transition-transform transform hover:scale-105">
+				<button onClick={() => scrollToSection('contact')} className="inline-block mt-16 bg-primario text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-secundario transition-all duration-300 transform hover:scale-105">
 					Contáctanos
 				</button>
 			</div>

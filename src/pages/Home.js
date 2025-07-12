@@ -6,13 +6,14 @@ import heroImage from '../img/Hero_img_Expansis_pro.webp';
 
 const Home = () => {
 	return (
-		<section id="home" className="bg-gray-50 flex items-center py-6 sm:py-6 lg:py-16">
+		// --- CAMBIO REALIZADO: Se aumentó el padding superior para que el contenido no quede detrás del navbar ---
+		<section id="home" className="bg-gray-50 flex items-center pt-24 pb-6 lg:pt-32 lg:pb-16">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
 				{/* Columna de Texto */}
 				<div className="text-center lg:text-left">
 					<h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight">
-						<span className="block">Expansis Pro:</span>
+						<span className="block">Expansis Pro</span>
 						<span className="block text-primario mt-1">Tu Estrategia Digital al Siguiente Nivel</span>
 					</h1>
 

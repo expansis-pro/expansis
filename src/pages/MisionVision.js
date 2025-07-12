@@ -4,25 +4,52 @@ import React from 'react';
 import ServiceItem from '../components/ServiceItem';
 
 function MisionVision() {
+  // Datos para las tarjetas de Misión y Visión, incluyendo los detalles para la cara trasera.
+  const misionData = {
+    icon: "fa-solid fa-rocket",
+    title: "Misión",
+    description: "Ser un motor de desarrollo de marcas prósperas que permitan generar un bienestar social en la generación de bienes y servicios.",
+    details: [
+      "Impulsar el crecimiento de nuestros clientes.",
+      "Crear soluciones digitales innovadoras y efectivas.",
+      "Fomentar un ecosistema de bienestar social.",
+      "Compromiso con la calidad y la excelencia."
+    ]
+  };
+
+  const visionData = {
+    icon: "fa-solid fa-eye", // Icono actualizado para 'Visión'
+    title: "Visión",
+    description: "Ser líderes en el mercado de soluciones digitales, reconocidos por nuestra excelencia, compromiso y capacidad de generar un impacto positivo.",
+    details: [
+      "Ser referentes en el mercado de soluciones digitales.",
+      "Reconocidos por nuestra excelencia y compromiso.",
+      "Generar un impacto positivo y medible en nuestros clientes.",
+      "Innovar constantemente en nuestras estrategias."
+    ]
+  };
+
   return (
-    // Contenedor de la sección con un fondo gris claro y padding consistente.
-    <section id="misionvision" className="bg-gray-50 py-66 sm:py-6 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-5xl mx-auto">
-        {/* Usamos un grid para el layout.
-          - 1 columna en móviles (por defecto).
-          - 2 columnas en pantallas medianas y grandes (`md:grid-cols-2`).
-          - `gap-8` o `gap-12` para un buen espacio entre los dos elementos.
-        */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+    // Contenedor de la sección con padding consistente. Hereda el fondo global.
+    <section id="misionvision" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-5xl mx-auto text-center">
+        {/* Título y subtítulo añadidos para dar contexto a la sección */}
+        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 fade-in">Nuestra Filosofía</h2>
+        <p className="text-lg text-gray-600 mb-12 fade-in">Los pilares que guían cada uno de nuestros proyectos.</p>
+
+        {/* Grid para las tarjetas */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <ServiceItem
-            icon="fa-solid fa-rocket" // Icono actualizado para 'Misión'
-            title="Misión"
-            description="Ser un motor de desarollo de marcas prosperas que permitan generar un bienestar social en la generacion de bienes y servicios."
+            icon={misionData.icon}
+            title={misionData.title}
+            description={misionData.description}
+            details={misionData.details} // Se pasan los detalles para la cara trasera
           />
           <ServiceItem
-            icon="fa-solid fa-heart" // Icono para 'Visión'
-            title="Visión"
-            description="Ser líderes en el mercado de soluciones digitales, reconocidos por nuestra excelencia, compromiso y capacidad de <strong>generar un impacto positivo en nuestros clientes.</strong>"
+            icon={visionData.icon}
+            title={visionData.title}
+            description={visionData.description}
+            details={visionData.details} // Se pasan los detalles para la cara trasera
           />
         </div>
       </div>

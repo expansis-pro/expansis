@@ -3,17 +3,22 @@ import React from 'react';
 
 const FaqItem = ({ question, answer, isOpen, onToggle }) => {
     return (
-        // Contenedor de cada item del FAQ con un borde inferior.
+        // Contenedor con borde inferior para separar cada pregunta.
         <div className="border-b border-gray-200 py-4">
-            {/* Contenedor de la pregunta, que es clickeable. */}
+            {/* Botón que contiene la pregunta y el ícono. Es 100% clickeable. */}
             <button
                 onClick={onToggle}
-                className="w-full flex justify-between items-center text-left focus:outline-none"
+                // --- ACCESIBILIDAD: Atributos ARIA añadidos ---
+                aria-expanded={isOpen}
+                aria-controls={`faq-answer-${question.replace(/\s+/g, '-')}`} // ID único para la respuesta
+                className="w-full flex justify-between items-center text-left focus:outline-none focus:ring-2 focus:ring-primario focus:ring-offset-2 rounded-md"
             >
-                {/* Texto de la pregunta */}
-                <span className="text-lg font-medium text-gray-800">{question}</span>
+                {/* --- DISEÑO: Cambia de color si está abierto --- */}
+                <span className={`text-lg font-medium ${isOpen ? 'text-primario' : 'text-gray-800'}`}>
+                    {question}
+                </span>
 
-                {/* Ícono que rota basado en el estado 'isOpen'. */}
+                {/* --- DISEÑO: Ícono con transición suave --- */}
                 <span className="ml-6 flex-shrink-0">
                     <svg
                         className={`w-6 h-6 transform transition-transform duration-300 ${isOpen ? 'rotate-180' : 'rotate-0'}`}
@@ -27,20 +32,15 @@ const FaqItem = ({ question, answer, isOpen, onToggle }) => {
                 </span>
             </button>
 
-            {/* Contenedor de la respuesta:
-        - La magia de la animación ocurre aquí.
-        - `grid`: Permite que la altura se anime de 0 a su contenido.
-        - `transition-all duration-500 ease-in-out`: Define la animación.
-        - Si está cerrado (`!isOpen`), la altura es 0 (`grid-rows-[0fr] opacity-0`).
-        - Si está abierto (`isOpen`), la altura se ajusta al contenido (`grid-rows-[1fr] opacity-100`).
-      */}
+            {/* Contenedor de la respuesta con animación */}
             <div
+                id={`faq-answer-${question.replace(/\s+/g, '-')}`} // --- ACCESIBILIDAD: ID enlazado al botón ---
                 className={`grid overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? 'grid-rows-[1fr] opacity-100 mt-4' : 'grid-rows-[0fr] opacity-0'
                     }`}
             >
                 <div className="overflow-hidden">
-                    {/* El contenido de la respuesta con padding y estilos de texto. */}
-                    <div className="pt-2 pb-4 text-gray-600 text-left">
+                    {/* --- DISEÑO: Se añade más padding y un estilo de texto más suave --- */}
+                    <div className="pt-2 pb-4 text-gray-700 text-base leading-relaxed">
                         {answer}
                     </div>
                 </div>

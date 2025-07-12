@@ -44,8 +44,8 @@ function App() {
         <Services />
         <About />
         <AboutMe />
-        <Whatsapp />
         <Contact />
+        <Whatsapp />
         <Faqs />
         <MisionVision />
       </Suspense>

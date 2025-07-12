@@ -1,12 +1,12 @@
 // src/pages/Contact.js
-
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
 import ReCAPTCHA from "react-google-recaptcha";
-import axios from 'axios'; // Importamos Axios para hacer la petición
+import axios from 'axios';
 
+// Componente de mensaje de éxito, sin cambios.
 const TicketMessage = () => (
-	<div className='text-center p-8 bg-green-50 text-green-800 rounded-lg shadow-md'>
+	<div className='text-center p-8 bg-green-50 text-green-800 rounded-lg shadow-md max-w-md mx-auto'>
 		<i className='fa-solid fa-circle-check text-4xl mb-4'></i>
 		<p className="text-lg font-semibold">¡Gracias por contactarnos!</p>
 		<p>Te responderemos a la brevedad.</p>
@@ -14,6 +14,7 @@ const TicketMessage = () => (
 );
 
 const Contact = () => {
+	// El estado y las opciones se mantienen igual.
 	const [formData, setFormData] = useState({
 		name: "",
 		email: "",
@@ -27,16 +28,24 @@ const Contact = () => {
 	const [captchaVerified, setCaptchaVerified] = useState(false);
 	const [showForm, setShowForm] = useState(true);
 
+	const subjectOptions = [
+		"Solicitar Cotización",
+		"Agendar una Reunión",
+		"Consulta General",
+		"Soporte (clientes existentes)"
+	];
+
 	const serviceOptions = [
-		{ value: "Desarrollo Web", label: "Desarrollo Web" },
-		{ value: "Consultoría Digital", label: "Consultoría Digital" },
-		{ value: "Marketing Digital", label: "Marketing Digital" },
-		{ value: "Posicionamiento Web", label: "Posicionamiento Web" },
+		{ value: "Desarrollo Web y E-commerce", label: "Desarrollo Web y E-commerce" },
+		{ value: "Marketing Digital y SEO", label: "Marketing Digital y SEO" },
+		{ value: "Consultoría Estratégica", label: "Consultoría Estratégica" },
+		{ value: "Diseño de Marca (Branding)", label: "Diseño de Marca (Branding)" },
+		{ value: "Mantenimiento y Soporte Web", label: "Mantenimiento y Soporte Web" },
+		{ value: "Otro", label: "Otro" },
 	];
 
 	const handleChange = (e) => {
 		const { name, value, type, checked } = e.target;
-
 		if (type === "checkbox") {
 			setFormData(prevData => {
 				const currentServices = prevData.serviceType;
@@ -58,7 +67,6 @@ const Contact = () => {
 		setCaptchaVerified(!!value);
 	};
 
-	// --- FUNCIÓN MODIFICADA ---
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		if (!captchaVerified) {
@@ -71,21 +79,11 @@ const Contact = () => {
 
 		const dataForSheet = {
 			...formData,
-			serviceType: formData.serviceType.join(', '),
+			serviceType: formData.serviceType.join(', ') || 'No especificado',
 			timestamp: new Date().toLocaleString('es-CL'),
 		};
 
-		// --- LÍNEA MODIFICADA ---
-		// Usamos el nombre correcto para la variable de entorno
-		const sheetApiUrl = process.env.REACT_APP_SHETDB_API_URL;
-
-		// --- LÍNEAS DE DEPURACIÓN AÑADIDAS ---
-		// Esto nos mostrará en la consola la URL y los datos que estamos enviando.
-		console.log("Enviando a la URL:", sheetApiUrl);
-		console.log("Datos para Google Sheet:", dataForSheet);
-		// --- FIN DE LÍNEAS DE DEPURACIÓN ---
-
-		axios.post(sheetApiUrl, dataForSheet)
+		axios.post(process.env.REACT_APP_SHETDB_API_URL, dataForSheet)
 			.then(response => {
 				console.log("Datos enviados a Google Sheets con éxito:", response);
 			})
@@ -93,16 +91,26 @@ const Contact = () => {
 				console.error("Error al enviar datos a Google Sheets:", error);
 			});
 
-		// El resto del código de EmailJS sigue igual...
-		emailjs.sendForm(
+		const templateParams = {
+			name: formData.name,
+			email: formData.email,
+			phone: formData.phone || 'No especificado',
+			subject: formData.subject,
+			serviceType: formData.serviceType.join(', ') || 'No especificado',
+			message: formData.message,
+		};
+
+		emailjs.send(
 			process.env.REACT_APP_EMAILJS_SERVICE_ID,
 			process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
-			e.target,
+			templateParams,
 			process.env.REACT_APP_EMAILJS_USER_ID
 		)
 			.then((result) => {
 				console.log(result.text);
-				setStatus("Mensaje enviado con éxito.");
+				// --- CAMBIO REALIZADO ---
+				// Ya no establecemos un mensaje de estado, solo ocultamos el formulario.
+				// setStatus("Mensaje enviado con éxito."); // <-- LÍNEA ELIMINADA
 				setShowForm(false);
 			}, (error) => {
 				console.log(error.text);
@@ -113,39 +121,48 @@ const Contact = () => {
 			});
 	};
 
-	const inputClasses = "w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primario transition-colors";
+	const inputClasses = "w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primario transition-colors";
+	const fieldsetClasses = "border border-gray-200 rounded-lg p-4 space-y-3";
+	const legendClasses = "text-sm font-medium text-gray-800 px-2";
+	const labelClasses = "block text-sm font-medium text-gray-800 mb-2";
 
 	return (
-		<section id="contact" className='bg-primario text-white py-16 sm:py-20 px-4 sm:px-6 lg:px-8'>
+		<section id="contact" className='bg-gray-50 py-16 sm:py-20 px-4 sm:px-6 lg:px-8'>
 			<div className='max-w-3xl mx-auto text-center'>
-				<h2 className='text-3xl sm:text-4xl font-bold mb-4 fade-in'>Contáctanos</h2>
-				<p className="text-lg mb-10 fade-in">Déjanos un mensaje y te responderemos a la brevedad.</p>
+				<h2 className='text-3xl sm:text-4xl font-bold text-gray-900 mb-4 fade-in'>Contáctanos</h2>
+				<p className="text-lg text-gray-700 mb-10 fade-in">Déjanos un mensaje y te responderemos a la brevedad.</p>
 
 				{showForm ? (
-					<div className="bg-white text-gray-800 p-8 sm:p-10 rounded-xl shadow-2xl">
-						<form onSubmit={handleSubmit} className="space-y-6">
-							{/* El resto del formulario no necesita cambios */}
-							<input type='text' name='name' placeholder='Nombre completo' className={inputClasses} value={formData.name} onChange={handleChange} required />
-							<input type='email' name='email' placeholder='Correo electrónico' className={inputClasses} value={formData.email} onChange={handleChange} required />
-							<input type="tel" name="phone" placeholder="Teléfono (Opcional)" className={inputClasses} value={formData.phone} onChange={handleChange} />
-
-							<div className="text-left">
-								<label className="font-semibold text-gray-700">Asunto:</label>
-								<div className="mt-2 flex flex-col sm:flex-row sm:space-x-6 space-y-2 sm:space-y-0">
-									<label className="flex items-center space-x-2 cursor-pointer">
-										<input type="radio" name="subject" value="Consulta" checked={formData.subject === "Consulta"} onChange={handleChange} className="form-radio text-primario focus:ring-primario" required />
-										<span>Consulta</span>
-									</label>
-									<label className="flex items-center space-x-2 cursor-pointer">
-										<input type="radio" name="subject" value="Ventas" checked={formData.subject === "Ventas"} onChange={handleChange} className="form-radio text-primario focus:ring-primario" required />
-										<span>Ventas</span>
-									</label>
-								</div>
+					<div className="bg-white text-gray-800 p-8 sm:p-10 rounded-xl shadow-2xl border-t-4 border-primario">
+						<form onSubmit={handleSubmit} className="space-y-6 text-left">
+							<div>
+								<label htmlFor="name" className={labelClasses}>Nombre completo</label>
+								<input id="name" type='text' name='name' placeholder='Ej: Juan Pérez' className={inputClasses} value={formData.name} onChange={handleChange} required />
+							</div>
+							<div>
+								<label htmlFor="email" className={labelClasses}>Correo electrónico</label>
+								<input id="email" type='email' name='email' placeholder='Ej: juan.perez@email.com' className={inputClasses} value={formData.email} onChange={handleChange} required />
+							</div>
+							<div>
+								<label htmlFor="phone" className={labelClasses}>Teléfono (Opcional)</label>
+								<input id="phone" type="tel" name="phone" placeholder="Ej: +56 9 1234 5678" className={inputClasses} value={formData.phone} onChange={handleChange} />
 							</div>
 
-							<div className="text-left">
-								<label className="font-semibold text-gray-700">Servicios de Interés (Opcional):</label>
-								<div className="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2">
+							<fieldset className={fieldsetClasses}>
+								<legend className={legendClasses}>Asunto</legend>
+								<div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
+									{subjectOptions.map(option => (
+										<label key={option} className="flex items-center space-x-2 cursor-pointer">
+											<input type="radio" name="subject" value={option} checked={formData.subject === option} onChange={handleChange} className="form-radio text-primario focus:ring-primario" required />
+											<span>{option}</span>
+										</label>
+									))}
+								</div>
+							</fieldset>
+
+							<fieldset className={fieldsetClasses}>
+								<legend className={legendClasses}>Servicios de Interés (Opcional)</legend>
+								<div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
 									{serviceOptions.map(option => (
 										<label key={option.value} className="flex items-center space-x-2 cursor-pointer">
 											<input type="checkbox" name="serviceType" value={option.value} checked={formData.serviceType.includes(option.value)} onChange={handleChange} className="form-checkbox text-primario rounded focus:ring-primario" />
@@ -153,13 +170,16 @@ const Contact = () => {
 										</label>
 									))}
 								</div>
+							</fieldset>
+
+							<div>
+								<label htmlFor="message" className={labelClasses}>Mensaje</label>
+								<textarea id="message" name='message' placeholder='Escribe tu mensaje aquí...' className={`${inputClasses} h-32`} value={formData.message} onChange={handleChange} required></textarea>
 							</div>
 
-							<textarea name='message' placeholder='Escribe tu mensaje aquí...' className={`${inputClasses} h-32`} value={formData.message} onChange={handleChange} required></textarea>
-
-							<div className="flex flex-col items-center gap-6">
+							<div className="flex flex-col items-center gap-6 pt-4">
 								<ReCAPTCHA sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY} onChange={handleCaptcha} hl="es" />
-								<button type='submit' disabled={isSubmitting} className='w-full bg-secundario text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-primario transition-all duration-300 transform hover:scale-105 disabled:bg-gray-400 disabled:cursor-not-allowed'>
+								<button type='submit' disabled={isSubmitting} className='w-full bg-primario text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:brightness-95 transition-all duration-300 transform hover:scale-105 disabled:bg-gray-400 disabled:cursor-not-allowed'>
 									{isSubmitting ? 'Enviando...' : 'Enviar Mensaje'}
 								</button>
 							</div>
@@ -169,7 +189,10 @@ const Contact = () => {
 					<TicketMessage />
 				)}
 
-				{status && <p className='mt-4 text-center font-semibold text-red-200 bg-red-800/50 px-4 py-2 rounded-md'>{status}</p>}
+				{/* Esta lógica ahora solo mostrará el mensaje de ERROR, no el de éxito */}
+				{status && showForm && (
+					<p className='mt-6 text-center font-semibold text-red-600'>{status}</p>
+				)}
 			</div>
 		</section>
 	);

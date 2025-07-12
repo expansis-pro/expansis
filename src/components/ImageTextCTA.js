@@ -1,5 +1,4 @@
 // src/components/ImageTextCTA.js
-
 import React from 'react';
 import { scrollToSection } from '../utils/scrollUtils';
 
@@ -9,23 +8,20 @@ const ImageTextCTA = ({ imageDesktop, alt, text, buttonContent, buttonLink, subt
     const textOrderClass = imageSide === 'left' ? 'lg:order-2' : 'lg:order-1';
 
     return (
-        // --- 1. AÑADE ESTE CONTENEDOR EXTERNO ---
-        // Este 'section' se encarga de centrar todo el componente en la página.
         <section className="w-full flex justify-center items-center py-6 lg:py-6">
             <div className="max-w-7xl w-full px-4 sm:px-6 lg:px-8">
-                {/* Aquí comienza tu código original */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-16">
 
-                    {/* --- 2. MODIFICA ESTA LÍNEA --- */}
-                    {/* Columna de la Imagen: Quitamos mx-auto y max-w-md para que ocupe su columna por completo. */}
+                    {/* Columna de la Imagen */}
                     <div className={imageOrderClass}>
-                        <img src={imageDesktop} alt={alt} className="w-full h-auto object-cover rounded-lg shadow-xl" />
+                        <img src={imageDesktop} alt={alt} className="w-full h-auto object-cover rounded-lg shadow-xl mx-auto max-w-lg" />
                     </div>
 
                     {/* Columna del Texto y Botón (CTA) */}
                     <div className={`text-center lg:text-left ${textOrderClass}`}>
-                        {subtitle && <h3 className="text-xl font-semibold text-primario mb-2">{subtitle}</h3>}
+                        {/* --- CAMBIO REALIZADO: Títulos invertidos --- */}
                         {title && <h2 className="text-3xl font-bold text-gray-800 mb-4">{title}</h2>}
+                        {subtitle && <h3 className="text-xl font-semibold text-primario mb-2">{subtitle}</h3>}
 
                         <div className="space-y-4 text-gray-600 text-lg">
                             {text.map((paragraph, index) => (
@@ -43,7 +39,7 @@ const ImageTextCTA = ({ imageDesktop, alt, text, buttonContent, buttonLink, subt
                             </div>
                         )}
 
-                        {/* NUEVA SECCIÓN: Enlaces Adicionales */}
+                        {/* Enlaces Adicionales */}
                         {links.length > 0 && (
                             <div className="mt-8 pt-6 border-t border-gray-200">
                                 <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-x-8 gap-y-4">
@@ -64,7 +60,6 @@ const ImageTextCTA = ({ imageDesktop, alt, text, buttonContent, buttonLink, subt
                         )}
                     </div>
                 </div>
-                {/* Aquí termina tu código original */}
             </div>
         </section>
     );

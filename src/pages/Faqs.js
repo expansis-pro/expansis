@@ -84,7 +84,20 @@ const Faqs = () => {
                     Todos nuestros proyectos incluyen 30 días de soporte gratuito post-lanzamiento para corregir cualquier error o problema técnico que pueda surgir. Adicionalmente, te ofrecemos planes de mantenimiento mensual opcionales para que no te preocupes de actualizaciones, seguridad y respaldos, permitiéndote enfocarte 100% en tu negocio.
                 </p>
             ),
-        },
+        }, {
+            question: "¿Qué necesito entregarles para empezar el proyecto?",
+            answer: (
+                <p>Para iniciar, generalmente necesitamos tu logo en alta calidad, los textos e imágenes que te gustaría incluir, y acceso a tu proveedor de hosting y dominio si ya los tienes. ¡Si no, te asesoramos en cada paso!
+                </p>
+            ),
+
+        }, {
+            question: "¿El servicio incluye el hosting (alojamiento) y el dominio?",
+            answer: (
+                <p>El hosting y el dominio son servicios que debes contratar por separado, ya que es fundamental que seas el dueño de estos activos. Sin embargo, te guiamos y recomendamos las mejores opciones del mercado, e incluso podemos gestionar la configuración inicial por ti si lo necesitas.
+                </p>
+            ),
+        }
     ];
 
     const [openIndex, setOpenIndex] = useState(null);
@@ -93,8 +106,35 @@ const Faqs = () => {
         setOpenIndex(openIndex === index ? null : index);
     };
 
+    // --- SEO: Datos Estructurados para FAQPage ---
+    const faqSchema = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": faqsData.map(faq => ({
+            "@type": "Question",
+            "name": faq.question,
+            "acceptedAnswer": {
+                "@type": "Answer",
+                // Nota: Schema.org prefiere texto plano. React renderiza el JSX a HTML.
+                // Para una implementación perfecta, la respuesta debería ser texto o HTML simple.
+                // Esta implementación es un excelente primer paso.
+                "text": typeof faq.answer === 'string'
+                    ? faq.answer
+                    : "Visita nuestra web para ver la respuesta detallada." // Fallback simple
+            }
+        }))
+    };
+
+
     return (
         <section id="faqs" className="bg-white py-66 sm:py-6 px-4 sm:px-6 lg:px-8">
+
+            {/* --- SEO: Script de Datos Estructurados --- */}
+            <script type="application/ld+json">
+                {JSON.stringify(faqSchema)}
+            </script>
+
+
             <div className="max-w-4xl mx-auto">
                 <h2 className="text-center text-3xl sm:text-4xl font-bold text-gray-900 mb-12 fade-in">
                     Dudas Frecuentes

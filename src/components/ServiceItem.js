@@ -1,55 +1,51 @@
-// src/components/ServiceItem.jsx
-// import React from 'react';
-
-
-// const ServiceItem = ({ icon, title, description }) => {
-//     return (
-//         <div className='service-item fade-in-delay'>
-//             <i className={`service-item-logo fas ${icon} fa-2xl`}></i>
-//             <div className='service-item-text'>
-
-//                 <h3 className="">{title}</h3>
-//                 <p dangerouslySetInnerHTML={{ __html: description }}></p>
-//             </div>
-
-//         </div>
-//     );
-// };
-
-// export default ServiceItem;
-
-
 // src/components/ServiceItem.js
+import React, { useState } from 'react';
 
-import React from 'react';
+const ServiceItem = ({ icon, title, description, details }) => {
+    // Estado para controlar si la tarjeta está girada o no
+    const [isFlipped, setIsFlipped] = useState(false);
 
-// Usamos dangerouslySetInnerHTML para que las etiquetas <strong> de la descripción funcionen.
-// Si no necesitas HTML en la descripción, puedes cambiarlo por <p>{description}</p>
-const ServiceItem = ({ icon, title, description }) => {
+    // Maneja el clic en la tarjeta para girarla
+    const handleFlip = () => {
+        setIsFlipped(!isFlipped);
+    };
+
     return (
-        // La "tarjeta" del servicio:
-        // - Fondo blanco, padding, bordes redondeados y sombra.
-        // - Efectos de transición en el hover: la sombra se hace más grande y la tarjeta se eleva ligeramente.
-        // - El texto se alinea a la izquierda.
-        <div className="bg-white p-8 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 ease-in-out text-left">
-            <div className="flex flex-col items-start">
-                {/* Icono:
-          - Color primario, tamaño de fuente grande y margen inferior.
-        */}
-                <i className={`${icon} text-primario text-4xl mb-4`}></i>
+        // Contenedor principal que crea el efecto de perspectiva 3D
+        <div
+            className="group h-80 w-full cursor-pointer [perspective:1000px]"
+            onClick={handleFlip}
+        >
+            {/* Contenedor interno que aplica la transición y el giro */}
+            <div
+                className={`relative h-full w-full rounded-xl shadow-2xl transition-all duration-500 [transform-style:preserve-3d] ${isFlipped ? '[transform:rotateY(180deg)]' : ''
+                    }`}
+            >
+                {/* Cara Frontal de la Tarjeta */}
+                <div className="absolute inset-0 [backface-visibility:hidden]">
+                    {/* --- CAMBIO REALIZADO: Se aplica el mismo estilo de borde que el formulario de contacto --- */}
+                    <div className="flex h-full flex-col items-center justify-center rounded-xl bg-white p-6 text-center border-t-4 border-primario">
+                        <i className={`${icon} text-5xl text-primario`}></i>
+                        <h3 className="mt-4 text-2xl font-bold text-gray-800">{title}</h3>
+                        <p className="mt-2 text-gray-600">{description}</p>
+                        <p className="mt-4 text-sm font-semibold text-primario group-hover:underline">
+                            Haz clic para saber más
+                        </p>
+                    </div>
+                </div>
 
-                {/* Título:
-          - Tamaño de fuente, negrita y margen inferior.
-        */}
-                <h3 className="text-xl font-bold text-gray-800 mb-2">{title}</h3>
-
-                {/* Descripción:
-          - Color de texto gris y tamaño de fuente base.
-        */}
-                <p
-                    className="text-gray-600"
-                    dangerouslySetInnerHTML={{ __html: description }}
-                ></p>
+                {/* Cara Trasera de la Tarjeta */}
+                <div className="absolute inset-0 rounded-xl bg-gray-800 p-6 text-center text-white [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                    <div className="flex h-full flex-col items-center justify-center">
+                        <h3 className="text-2xl font-bold">{title}</h3>
+                        <ul className="mt-4 list-disc list-inside space-y-2 text-left">
+                            {/* Mapea los detalles para crear una lista */}
+                            {details && details.map((detail, index) => (
+                                <li key={index}>{detail}</li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     );
