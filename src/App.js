@@ -43,11 +43,11 @@ function App() {
         <Home />
         <Services />
         <About />
-        <AboutMe />
         <Contact />
         <Whatsapp />
-        <Faqs />
         <MisionVision />
+        <AboutMe />
+        <Faqs />
       </Suspense>
 
       <Footer />
