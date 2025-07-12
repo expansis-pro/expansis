@@ -3,6 +3,7 @@ import React from 'react';
 // 1. Importamos el componente Link
 import { Link } from 'react-router-dom';
 
+
 // Importamos los componentes que queremos mostrar
 import About from './About';
 import MisionVision from './MisionVision';
@@ -40,6 +41,7 @@ const QuienesSomos = () => {
                         Contáctanos
                     </Link>
                 </div>
+
             </section>
         </>
     );

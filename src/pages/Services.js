@@ -3,6 +3,7 @@ import React from 'react';
 // 1. Importa Link y elimina la importación de scrollToSection
 import { Link } from 'react-router-dom';
 import ServiceItem from '../components/ServiceItem';
+import Whatsapp from './Whatsapp';
 
 const Services = () => {
 
@@ -80,6 +81,7 @@ const Services = () => {
 					Contáctanos
 				</Link>
 			</div>
+			<Whatsapp />
 		</section>
 	);
 };

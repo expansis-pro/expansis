@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import emailjs from "emailjs-com";
 import ReCAPTCHA from "react-google-recaptcha";
 import axios from 'axios';
+import Whatsapp from '../pages/Whatsapp';
 
 // Componente de mensaje de éxito, sin cambios.
 const TicketMessage = () => (
@@ -193,7 +194,10 @@ const Contact = () => {
 				{status && showForm && (
 					<p className='mt-6 text-center font-semibold text-red-600'>{status}</p>
 				)}
+
+
 			</div>
+			<Whatsapp />
 		</section>
 	);
 };
