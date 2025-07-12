@@ -1,6 +1,7 @@
 // src/components/ImageTextCTA.js
 import React from 'react';
 import { scrollToSection } from '../utils/scrollUtils';
+import ReadMoreParagraphs from './ReadMoreParagraphs';
 
 const ImageTextCTA = ({ imageDesktop, alt, text, buttonContent, buttonLink, subtitle, title, imageSide = 'left', links = [] }) => {
 
@@ -19,14 +20,12 @@ const ImageTextCTA = ({ imageDesktop, alt, text, buttonContent, buttonLink, subt
 
                     {/* Columna del Texto y Botón (CTA) */}
                     <div className={`text-center lg:text-left ${textOrderClass}`}>
-                        {/* --- CAMBIO REALIZADO: Títulos invertidos --- */}
-                        {title && <h2 className="text-3xl font-bold text-gray-800 mb-4">{title}</h2>}
+                        {title && <h2 className="text-2xl font-bold text-gray-800 mb-4">{title}</h2>}
                         {subtitle && <h3 className="text-xl font-semibold text-primario mb-2">{subtitle}</h3>}
 
-                        <div className="space-y-4 text-gray-600 text-lg">
-                            {text.map((paragraph, index) => (
-                                <p key={index} dangerouslySetInnerHTML={{ __html: paragraph }}></p>
-                            ))}
+                        {/* --- CAMBIO REALIZADO: Se usa el nuevo componente para párrafos --- */}
+                        <div className="space-y-4 text-gray-600 text-base">
+                            <ReadMoreParagraphs paragraphs={text} />
                         </div>
 
                         {/* Botón (si se proporciona) */}

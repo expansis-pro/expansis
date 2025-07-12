@@ -1,24 +1,20 @@
 // src/components/FaqItem.js
 import React from 'react';
+// --- CAMBIO: Se elimina la importación de ReadMore ---
 
 const FaqItem = ({ question, answer, isOpen, onToggle }) => {
     return (
-        // Contenedor con borde inferior para separar cada pregunta.
         <div className="border-b border-gray-200 py-4">
-            {/* Botón que contiene la pregunta y el ícono. Es 100% clickeable. */}
             <button
                 onClick={onToggle}
-                // --- ACCESIBILIDAD: Atributos ARIA añadidos ---
                 aria-expanded={isOpen}
-                aria-controls={`faq-answer-${question.replace(/\s+/g, '-')}`} // ID único para la respuesta
+                aria-controls={`faq-answer-${question.replace(/\s+/g, '-')}`}
                 className="w-full flex justify-between items-center text-left focus:outline-none focus:ring-2 focus:ring-primario focus:ring-offset-2 rounded-md"
             >
-                {/* --- DISEÑO: Cambia de color si está abierto --- */}
                 <span className={`text-lg font-medium ${isOpen ? 'text-primario' : 'text-gray-800'}`}>
                     {question}
                 </span>
 
-                {/* --- DISEÑO: Ícono con transición suave --- */}
                 <span className="ml-6 flex-shrink-0">
                     <svg
                         className={`w-6 h-6 transform transition-transform duration-300 ${isOpen ? 'rotate-180' : 'rotate-0'}`}
@@ -32,14 +28,12 @@ const FaqItem = ({ question, answer, isOpen, onToggle }) => {
                 </span>
             </button>
 
-            {/* Contenedor de la respuesta con animación */}
             <div
-                id={`faq-answer-${question.replace(/\s+/g, '-')}`} // --- ACCESIBILIDAD: ID enlazado al botón ---
-                className={`grid overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? 'grid-rows-[1fr] opacity-100 mt-4' : 'grid-rows-[0fr] opacity-0'
-                    }`}
+                id={`faq-answer-${question.replace(/\s+/g, '-')}`}
+                className={`grid overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? 'grid-rows-[1fr] opacity-100 mt-4' : 'grid-rows-[0fr] opacity-0'}`}
             >
                 <div className="overflow-hidden">
-                    {/* --- DISEÑO: Se añade más padding y un estilo de texto más suave --- */}
+                    {/* --- CAMBIO: Se renderiza la respuesta directamente --- */}
                     <div className="pt-2 pb-4 text-gray-700 text-base leading-relaxed">
                         {answer}
                     </div>

@@ -5,7 +5,6 @@ import aboutImageDesktop from '../img/Profile_Img_Expansis400x400.webp';
 
 const AboutMe = () => {
 
-    // 1. Definimos los enlaces que queremos mostrar
     const personalLinks = [
         {
             href: 'https://gonzalobos.com/',
@@ -27,14 +26,14 @@ const AboutMe = () => {
                     alt="Foto de perfil de Gonzalo"
                     subtitle="Hola, Soy Gonzalo"
                     title="Sobre Mí"
+                    // --- CAMBIO REALIZADO: Se añadieron etiquetas <strong> para resaltar texto ---
                     text={[
-                        'Soy Ingeniero Comercial de la Universidad Adolfo Ibáñez, Fotógrafo Publicitario de Arcos con amplios conocimientos de desarrollo web.',
-                        'Llevo más de 4 años de experiencia en el mundo digital, especializado en comercio electrónico y guiar a empresas en su transformación digital.',
-                        'Mi expertise integral abarca el desarrollo web, optimización UX/UI para mejorar la experiencia del usuario, estrategias de marketing digital, posicionamiento SEO para aumentar la visibilidad, y el análisis de datos para la toma de decisiones informadas.',
-                        'Esta combinación única me permite ser un soporte vital en tu estrategia digital, aportando una visión completa y soluciones prácticas.'
+                        'Soy <strong>Ingeniero Comercial</strong> de la Universidad Adolfo Ibáñez, <strong>Fotógrafo Publicitario</strong> de Arcos con amplios conocimientos de <strong>desarrollo web</strong>.',
+                        'Llevo más de <strong>4 años de experiencia</strong> en el mundo digital, especializado en <strong>comercio electrónico</strong> y guiar a empresas en su <strong>transformación digital</strong>.',
+                        'Mi <strong>expertise integral</strong> abarca el <strong>desarrollo web</strong>, <strong>optimización UX/UI</strong> para mejorar la experiencia del usuario, <strong>estrategias de marketing digital</strong>, <strong>posicionamiento SEO</strong> para aumentar la visibilidad, y el <strong>análisis de datos</strong> para la toma de decisiones informadas.',
+                        'Esta combinación única me permite ser un <strong>soporte vital en tu estrategia digital</strong>, aportando una <strong>visión completa y soluciones prácticas</strong>.'
                     ]}
                     imageSide="right"
-                    // 2. Pasamos los enlaces al componente a través de la nueva prop 'links'
                     links={personalLinks}
                 />
             </div>
