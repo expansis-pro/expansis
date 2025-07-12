@@ -9,7 +9,7 @@ const Whatsapp = () => {
 
     return (
         // Contenedor de la sección con un fondo verde distintivo y padding.
-        <section id="whatsapp" className="bg-[#25D366] text-white py-12 sm:py-16">
+        <section id="whatsapp" className="bg-[#25D366] text-white py-62 sm:py-6">
             <div className="max-w-4xl mx-auto text-center px-4">
 
                 {/* Título de la sección */}

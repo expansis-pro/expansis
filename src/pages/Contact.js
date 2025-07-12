@@ -3,8 +3,8 @@
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
 import ReCAPTCHA from "react-google-recaptcha";
+import axios from 'axios'; // Importamos Axios para hacer la petición
 
-// El componente de mensaje de éxito está perfecto.
 const TicketMessage = () => (
 	<div className='text-center p-8 bg-green-50 text-green-800 rounded-lg shadow-md'>
 		<i className='fa-solid fa-circle-check text-4xl mb-4'></i>
@@ -34,25 +34,19 @@ const Contact = () => {
 		{ value: "Posicionamiento Web", label: "Posicionamiento Web" },
 	];
 
-	// --- LÓGICA IMPLEMENTADA ---
-	// Esta función ahora maneja los cambios de todos los inputs, incluyendo los checkboxes.
 	const handleChange = (e) => {
 		const { name, value, type, checked } = e.target;
 
 		if (type === "checkbox") {
-			// Lógica para manejar los checkboxes de serviceType
 			setFormData(prevData => {
 				const currentServices = prevData.serviceType;
 				if (checked) {
-					// Añadir el servicio si el checkbox está marcado
 					return { ...prevData, serviceType: [...currentServices, value] };
 				} else {
-					// Quitar el servicio si el checkbox se desmarca
 					return { ...prevData, serviceType: currentServices.filter(service => service !== value) };
 				}
 			});
 		} else {
-			// Lógica para todos los demás inputs (texto, email, radio)
 			setFormData(prevData => ({
 				...prevData,
 				[name]: value
@@ -64,8 +58,7 @@ const Contact = () => {
 		setCaptchaVerified(!!value);
 	};
 
-	// --- LÓGICA IMPLEMENTADA ---
-	// Esta función ahora contiene la llamada a emailjs para enviar el formulario.
+	// --- FUNCIÓN MODIFICADA ---
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		if (!captchaVerified) {
@@ -73,29 +66,53 @@ const Contact = () => {
 			return;
 		}
 
-		setStatus(""); // Limpiar el estado previo
+		setStatus("");
 		setIsSubmitting(true);
 
+		const dataForSheet = {
+			...formData,
+			serviceType: formData.serviceType.join(', '),
+			timestamp: new Date().toLocaleString('es-CL'),
+		};
+
+		// --- LÍNEA MODIFICADA ---
+		// Usamos el nombre correcto para la variable de entorno
+		const sheetApiUrl = process.env.REACT_APP_SHETDB_API_URL;
+
+		// --- LÍNEAS DE DEPURACIÓN AÑADIDAS ---
+		// Esto nos mostrará en la consola la URL y los datos que estamos enviando.
+		console.log("Enviando a la URL:", sheetApiUrl);
+		console.log("Datos para Google Sheet:", dataForSheet);
+		// --- FIN DE LÍNEAS DE DEPURACIÓN ---
+
+		axios.post(sheetApiUrl, dataForSheet)
+			.then(response => {
+				console.log("Datos enviados a Google Sheets con éxito:", response);
+			})
+			.catch(error => {
+				console.error("Error al enviar datos a Google Sheets:", error);
+			});
+
+		// El resto del código de EmailJS sigue igual...
 		emailjs.sendForm(
-			process.env.REACT_APP_EMAILJS_SERVICE_ID, // Tu Service ID de EmailJS
-			process.env.REACT_APP_EMAILJS_TEMPLATE_ID, // Tu Template ID de EmailJS
-			e.target, // Referencia al formulario
-			process.env.REACT_APP_EMAILJS_USER_ID // Tu User ID (o Public Key) de EmailJS
+			process.env.REACT_APP_EMAILJS_SERVICE_ID,
+			process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+			e.target,
+			process.env.REACT_APP_EMAILJS_USER_ID
 		)
 			.then((result) => {
 				console.log(result.text);
 				setStatus("Mensaje enviado con éxito.");
-				setShowForm(false); // Oculta el formulario y muestra el mensaje de éxito
+				setShowForm(false);
 			}, (error) => {
 				console.log(error.text);
 				setStatus("Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.");
 			})
 			.finally(() => {
-				setIsSubmitting(false); // Re-habilita el botón de envío
+				setIsSubmitting(false);
 			});
 	};
 
-	// Clases base para los inputs (esto ya estaba correcto).
 	const inputClasses = "w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primario transition-colors";
 
 	return (
@@ -107,14 +124,11 @@ const Contact = () => {
 				{showForm ? (
 					<div className="bg-white text-gray-800 p-8 sm:p-10 rounded-xl shadow-2xl">
 						<form onSubmit={handleSubmit} className="space-y-6">
-							{/* El resto de tu JSX del formulario es correcto y no necesita cambios. */}
-							{/* ... (input de nombre, email, teléfono, radio buttons, checkboxes, etc.) ... */}
-							{/* Campos de texto y email */}
+							{/* El resto del formulario no necesita cambios */}
 							<input type='text' name='name' placeholder='Nombre completo' className={inputClasses} value={formData.name} onChange={handleChange} required />
 							<input type='email' name='email' placeholder='Correo electrónico' className={inputClasses} value={formData.email} onChange={handleChange} required />
 							<input type="tel" name="phone" placeholder="Teléfono (Opcional)" className={inputClasses} value={formData.phone} onChange={handleChange} />
 
-							{/* Grupo de Radio Buttons para "Asunto" */}
 							<div className="text-left">
 								<label className="font-semibold text-gray-700">Asunto:</label>
 								<div className="mt-2 flex flex-col sm:flex-row sm:space-x-6 space-y-2 sm:space-y-0">
@@ -129,7 +143,6 @@ const Contact = () => {
 								</div>
 							</div>
 
-							{/* Grupo de Checkboxes para "Servicios de Interés" */}
 							<div className="text-left">
 								<label className="font-semibold text-gray-700">Servicios de Interés (Opcional):</label>
 								<div className="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2">
@@ -142,10 +155,8 @@ const Contact = () => {
 								</div>
 							</div>
 
-							{/* Área de texto para el mensaje */}
 							<textarea name='message' placeholder='Escribe tu mensaje aquí...' className={`${inputClasses} h-32`} value={formData.message} onChange={handleChange} required></textarea>
 
-							{/* ReCAPTCHA y Botón de envío */}
 							<div className="flex flex-col items-center gap-6">
 								<ReCAPTCHA sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY} onChange={handleCaptcha} hl="es" />
 								<button type='submit' disabled={isSubmitting} className='w-full bg-secundario text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-primario transition-all duration-300 transform hover:scale-105 disabled:bg-gray-400 disabled:cursor-not-allowed'>

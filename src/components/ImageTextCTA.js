@@ -11,7 +11,7 @@ const ImageTextCTA = ({ imageDesktop, alt, text, buttonContent, buttonLink, subt
     return (
         // --- 1. AÑADE ESTE CONTENEDOR EXTERNO ---
         // Este 'section' se encarga de centrar todo el componente en la página.
-        <section className="w-full flex justify-center items-center py-12 lg:py-20">
+        <section className="w-full flex justify-center items-center py-6 lg:py-6">
             <div className="max-w-7xl w-full px-4 sm:px-6 lg:px-8">
                 {/* Aquí comienza tu código original */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-16">

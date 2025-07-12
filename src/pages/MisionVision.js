@@ -6,7 +6,7 @@ import ServiceItem from '../components/ServiceItem';
 function MisionVision() {
   return (
     // Contenedor de la sección con un fondo gris claro y padding consistente.
-    <section id="misionvision" className="bg-gray-50 py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+    <section id="misionvision" className="bg-gray-50 py-66 sm:py-6 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto">
         {/* Usamos un grid para el layout.
           - 1 columna en móviles (por defecto).

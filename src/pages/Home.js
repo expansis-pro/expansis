@@ -6,7 +6,7 @@ import heroImage from '../img/Hero_img_Expansis_pro.webp';
 
 const Home = () => {
 	return (
-		<section id="home" className="bg-gray-50 flex items-center py-12 sm:py-16 lg:py-20">
+		<section id="home" className="bg-gray-50 flex items-center py-6 sm:py-6 lg:py-16">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
 				{/* Columna de Texto */}

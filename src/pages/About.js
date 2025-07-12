@@ -7,7 +7,7 @@ import aboutImageMobile from '../img/about-page_630x630.webp';
 const About = () => {
 	return (
 		// Contenedor de la sección con padding vertical y horizontal.
-		<section id="about" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+		<section id="about" className="py-66 sm:py-6 px-4 sm:px-6 lg:px-8">
 			<div className="max-w-7xl mx-auto text-center">
 				{/* Título de la sección, con estilos de tipografía y margen inferior. */}
 				<h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-12 fade-in">

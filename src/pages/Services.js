@@ -54,7 +54,7 @@ const Services = () => {
 	return (
 		// Contenedor principal de la sección:
 		// - Fondo gris claro para diferenciarla, padding vertical y horizontal.
-		<section id="services" className="bg-gray-50 py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+		<section id="services" className="bg-gray-50 py-66 sm:py-6 px-4 sm:px-6 lg:px-8">
 			<div className="max-w-7xl mx-auto text-center">
 				{/* Título de la sección:
           - Tamaño de fuente responsive, negrita, color de texto y margen inferior.

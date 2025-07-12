@@ -94,7 +94,7 @@ const Faqs = () => {
     };
 
     return (
-        <section id="faqs" className="bg-white py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+        <section id="faqs" className="bg-white py-66 sm:py-6 px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto">
                 <h2 className="text-center text-3xl sm:text-4xl font-bold text-gray-900 mb-12 fade-in">
                     Dudas Frecuentes

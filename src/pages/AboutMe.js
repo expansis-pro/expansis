@@ -20,7 +20,7 @@ const AboutMe = () => {
     ];
 
     return (
-        <section id="aboutMe" className="bg-gray-50 py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+        <section id="aboutMe" className="bg-gray-50 py-66 sm:py-6 px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
                 <ImageTextCTA
                     imageDesktop={aboutImageDesktop}
