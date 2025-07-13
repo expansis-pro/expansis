@@ -26,7 +26,7 @@ function App() {
 
       <div className="flex flex-col min-h-screen">
         <Navbar />
-        <main className="flex-grow pt-[64px]">
+        <main className="flex-grow pt-[64px] px-4 sm:px-0 lg:px-8">
           <Suspense fallback={<LoadingPage />}>
             <AnimatePresence mode="wait">
               <Routes location={location} key={location.pathname}>

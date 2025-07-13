@@ -6,8 +6,8 @@ import heroImage from '../img/Hero_img_Expansis_pro.webp';
 import EmbededSocial from '../components/EmbededSocial';
 
 import ImageTextCTA from '../components/ImageTextCTA';
-import aboutImageDesktop from '../img/about-page_630x630.webp';
-import aboutImageMobile from '../img/about-page_630x630.webp';
+import aboutImageDesktop from '../img/img-expansis-quienes-somos-630x630.webp';
+import aboutImageMobile from '../img/img-expansis-quienes-somos-400x200.webp';
 
 
 const Home = () => {

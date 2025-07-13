@@ -12,7 +12,7 @@ const ImageTextCTA = ({ imageDesktop, alt, text, buttonContent, buttonLink, subt
 
     return (
         <section className="w-full flex justify-center items-center py-6 lg:py-6">
-            <div className="max-w-6xl w-full px-4 sm:px-6 lg:px-8">
+            <div className="w-full ">
                 <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-16">
 
                     {/* Columna de la Imagen */}

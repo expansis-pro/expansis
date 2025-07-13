@@ -6,7 +6,7 @@ import aboutImageMobile from '../img/about-page_630x630.webp';
 
 const About = () => {
 	return (
-		<section id="about" className="py-6 sm:py-6 px-4 sm:px-6 lg:px-8">
+		<section id="about" className="py-6 sm:py-6 ">
 			<div className="max-w-6xl mx-auto text-center">
 				<ImageTextCTA
 					imageMobile={aboutImageMobile}

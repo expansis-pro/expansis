@@ -17,7 +17,7 @@ const QuienesSomos = () => {
             <meta name="description" content="Conoce la misión, visión y al equipo detrás de Expansis Pro. Soluciones digitales con un enfoque integral y personalizado." />
             <link rel="canonical" href="https://expansispro.com/quienes-somos" />
 
-            <section id="quienes-somos" className="bg-gray-50 py-6 sm:py-6 px-4 sm:px-6 lg:px-8">
+            <section id="quienes-somos" className="bg-gray-50 py-6 sm:py-6">
                 <div className="max-w-6xl mx-auto text-center">
                     <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 fade-in">
                         Sobre Expansis

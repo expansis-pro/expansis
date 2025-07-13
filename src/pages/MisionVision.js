@@ -31,7 +31,7 @@ function MisionVision() {
 
   return (
     // Contenedor de la sección con padding consistente. Hereda el fondo global.
-    <section id="misionvision" className="py-6 sm:py-6 px-4 sm:px-6 lg:px-8">
+    <section id="misionvision" className="py-6 sm:py-6">
       <div className="max-w-5xl mx-auto text-center">
         {/* Título y subtítulo añadidos para dar contexto a la sección */}
         <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 fade-in">Nuestra Filosofía</h2>
