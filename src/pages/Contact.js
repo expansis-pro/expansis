@@ -1,9 +1,9 @@
-// src/pages/Contact.js
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
 import ReCAPTCHA from "react-google-recaptcha";
 import axios from 'axios';
 import Whatsapp from '../pages/Whatsapp';
+// import analytics from '../analytics'; // ELIMINAR: Ya no usaremos la librería analytics directamente aquí
 
 // Componente de mensaje de éxito, sin cambios.
 const TicketMessage = () => (
@@ -66,6 +66,20 @@ const Contact = () => {
 
 	const handleCaptcha = (value) => {
 		setCaptchaVerified(!!value);
+		// Rastrea la verificación del captcha usando gtag()
+		if (typeof window.gtag === 'function') { // Verifica que gtag esté disponible
+			if (value) {
+				window.gtag('event', 'captcha_verificado', {
+					event_category: 'Formulario Contacto',
+					event_label: 'ReCAPTCHA Exitoso'
+				});
+			} else {
+				window.gtag('event', 'captcha_no_verificado', {
+					event_category: 'Formulario Contacto',
+					event_label: 'ReCAPTCHA Fallido'
+				});
+			}
+		}
 	};
 
 	const handleSubmit = (e) => {
@@ -109,13 +123,27 @@ const Contact = () => {
 		)
 			.then((result) => {
 				console.log(result.text);
-				// --- CAMBIO REALIZADO ---
-				// Ya no establecemos un mensaje de estado, solo ocultamos el formulario.
-				// setStatus("Mensaje enviado con éxito."); // <-- LÍNEA ELIMINADA
+				// --- CAMBIO REALIZADO: AÑADIR SEGUIMIENTO DE ENVÍO EXITOSO CON gtag() ---
+				if (typeof window.gtag === 'function') { // Verifica que gtag esté disponible
+					window.gtag('event', 'form_enviado', { // Nombre del evento en snake_case para GA4
+						event_category: 'Contacto',
+						event_label: 'Formulario Principal Exitoso',
+						subject: formData.subject,
+						services: formData.serviceType.join(', ')
+					});
+				}
 				setShowForm(false);
 			}, (error) => {
 				console.log(error.text);
 				setStatus("Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.");
+				// Rastrea el error de envío del formulario con gtag()
+				if (typeof window.gtag === 'function') { // Verifica que gtag esté disponible
+					window.gtag('event', 'form_fallido', {
+						event_category: 'Contacto',
+						event_label: 'Error al Enviar Correo',
+						error_message: error.text // Usar snake_case para los parámetros
+					});
+				}
 			})
 			.finally(() => {
 				setIsSubmitting(false);
@@ -190,12 +218,9 @@ const Contact = () => {
 					<TicketMessage />
 				)}
 
-				{/* Esta lógica ahora solo mostrará el mensaje de ERROR, no el de éxito */}
 				{status && showForm && (
 					<p className='mt-6 text-center font-semibold text-red-600'>{status}</p>
 				)}
-
-
 			</div>
 			<Whatsapp />
 		</section>

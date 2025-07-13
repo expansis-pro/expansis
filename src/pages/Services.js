@@ -4,6 +4,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ServiceItem from '../components/ServiceItem';
 import Whatsapp from './Whatsapp';
+import MoveToUrlButton from '../components/MoveToUrlButton';
 
 const Services = () => {
 
@@ -73,14 +74,8 @@ const Services = () => {
 					))}
 				</div>
 
-				{/* 2. Reemplazamos el <button> por el componente <Link> */}
-				<Link
-					to="/contacto" // 3. Le asignamos la ruta de destino
-					className="inline-block  bg-primario text-white font-bold py-3 px-8 mt-8 rounded-lg shadow-lg hover:bg-secundario transition-all duration-300 transform hover:scale-105"
-				>
-					Contáctanos
-				</Link>
 			</div>
+			<MoveToUrlButton name="Contáctanos" url="/contacto" />
 			<Whatsapp />
 		</section>
 	);

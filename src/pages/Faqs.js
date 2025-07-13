@@ -1,7 +1,8 @@
-// src/pages/Faqs.js
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+// ELIMINAR: Ya no necesitamos Link directamente aquí, MoveToUrlButton lo manejará
+// import { Link } from 'react-router-dom';
 import FaqItem from '../components/FaqItem';
+import MoveToUrlButton from '../components/MoveToUrlButton'; // Importa el nuevo componente
 
 const Faqs = () => {
     // ... (Tu data y lógica de estado no cambian, las omito por brevedad) ...
@@ -90,7 +91,30 @@ const Faqs = () => {
     const initialFaqsToShow = 4;
 
     const handleToggle = (index) => {
-        setOpenIndex(openIndex === index ? null : index);
+        const newOpenIndex = openIndex === index ? null : index;
+        setOpenIndex(newOpenIndex);
+
+        // Seguimiento de la expansión/colapso de la FAQ
+        if (typeof window.gtag === 'function') {
+            window.gtag('event', 'faq_interaccion', {
+                event_category: 'FAQ',
+                event_label: `FAQ: ${faqsForDisplay[index].question}`,
+                action: newOpenIndex !== null ? 'Expandir' : 'Colapsar'
+            });
+        }
+    };
+
+    const handleShowAllToggle = () => {
+        const newState = !showAll;
+        setShowAll(newState);
+
+        // Seguimiento del botón "Ver más/menos preguntas"
+        if (typeof window.gtag === 'function') {
+            window.gtag('event', 'faq_ver_mas_menos', {
+                event_category: 'FAQ',
+                event_label: newState ? 'Ver mas preguntas' : 'Ver menos preguntas'
+            });
+        }
     };
 
     const displayedFaqs = showAll ? faqsForDisplay : faqsForDisplay.slice(0, initialFaqsToShow);
@@ -131,7 +155,7 @@ const Faqs = () => {
                             question={faq.question}
                             answer={faq.answer}
                             isOpen={openIndex === index}
-                            onToggle={() => handleToggle(index)}
+                            onToggle={() => handleToggle(index)} // Asegúrate de que FaqItem use esta prop
                         />
                     ))}
                 </div>
@@ -143,7 +167,7 @@ const Faqs = () => {
                     {faqsForDisplay.length > initialFaqsToShow && (
                         <div className="mb-8">
                             <button
-                                onClick={() => setShowAll(!showAll)}
+                                onClick={handleShowAllToggle} // Asigna la nueva función de seguimiento
                                 className="text-primario font-bold hover:underline"
                             >
                                 {showAll ? 'Ver menos preguntas' : 'Ver más preguntas'}
@@ -153,12 +177,12 @@ const Faqs = () => {
 
                     {/* Botón de "Contáctanos" */}
                     <div>
-                        <Link
-                            to="/contacto"
-                            className="inline-block bg-primario text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-secundario transition-all duration-300 transform hover:scale-105"
-                        >
-                            ¿Tienes otra duda? Contáctanos
-                        </Link>
+                        <MoveToUrlButton
+                            name="¿Tienes otra duda? Contáctanos"
+                            url="/contacto"
+                            category="FAQ"
+                            label="Boton Contactanos desde FAQ"
+                        />
                     </div>
 
                 </div>

@@ -1,11 +1,12 @@
 import React from 'react';
-// CAMBIO REALIZADO: Importar Link de react-router-dom
-import { Link } from 'react-router-dom'; // <--- AÑADIR ESTA LÍNEA
-// CAMBIO REALIZADO: Eliminar la importación de scrollToSection
-// import { scrollToSection } from '../utils/scrollUtils'; // <--- ELIMINAR ESTA LÍNEA
+import MoveToUrlButton from './MoveToUrlButton';
 import ReadMoreParagraphs from './ReadMoreParagraphs';
 
 const ImageTextCTA = ({ imageDesktop, alt, text, buttonContent, buttonLink, subtitle, title, imageSide = 'left', links = [] }) => {
+
+    // --- INICIO DE CÓDIGO DE DEPURACIÓN ---
+    console.log('ImageTextCTA Props:', { buttonContent, buttonLink, title, subtitle });
+    // --- FIN DE CÓDIGO DE DEPURACIÓN ---
 
     const imageOrderClass = imageSide === 'left' ? 'lg:order-1' : 'lg:order-2';
     const textOrderClass = imageSide === 'left' ? 'lg:order-2' : 'lg:order-1';
@@ -32,12 +33,11 @@ const ImageTextCTA = ({ imageDesktop, alt, text, buttonContent, buttonLink, subt
                         {/* Botón (si se proporciona) */}
                         {buttonContent && (
                             <div className="mt-8">
-                                {/* CAMBIO REALIZADO: Reemplazar <button> por <Link> */}
-                                <Link
-                                    to={buttonLink} // Usar 'to' para la navegación de React Router
-                                    className="inline-block bg-primario text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-secundario transition-all duration-300 transform hover:scale-105">
-                                    {buttonContent}
-                                </Link>
+                                <MoveToUrlButton
+                                    name={buttonContent} // El texto del botón
+                                    url={buttonLink}     // La URL de destino
+                                    category="ImageTextCTA" // Categoría para el seguimiento
+                                />
                             </div>
                         )}
 

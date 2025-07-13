@@ -1,15 +1,25 @@
-// src/pages/QuienesSomos.js
 import React from 'react';
-// 1. Importamos el componente Link
 import { Link } from 'react-router-dom';
-
 
 // Importamos los componentes que queremos mostrar
 import About from './About';
 import MisionVision from './MisionVision';
 import AboutMe from './AboutMe';
+import MoveToUrlButton from '../components/MoveToUrlButton';
 
 const QuienesSomos = () => {
+
+    // Función para manejar el clic en el botón "Contáctanos"
+    const handleContactButtonClick = () => {
+        // Verifica que gtag esté disponible antes de enviar el evento
+        if (typeof window.gtag === 'function') {
+            window.gtag('event', 'click_cta', { // Nombre del evento en snake_case para GA4
+                event_category: 'Quienes Somos', // Categoría del evento
+                event_label: 'Boton Contactanos' // Etiqueta del evento
+            });
+        }
+    };
+
     return (
         <>
             {/* Metadatos para el SEO */}
@@ -22,7 +32,6 @@ const QuienesSomos = () => {
                     <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 fade-in">
                         Sobre Expansis
                     </h2>
-                    {/* CAMBIO REALIZADO: Reducir 'mb-12' a 'mb-8' */}
                     <p className="text-lg text-gray-600 mb-8 fade-in">
                         Conoce nuestra historia, valores y al equipo que lo hace posible.
                     </p>
@@ -33,15 +42,8 @@ const QuienesSomos = () => {
                 <MisionVision />
                 <AboutMe />
 
-                {/* 2. Añadimos el botón de "Contáctanos" al final */}
-                <div className="max-w-6xl mx-auto text-center ">
-                    <Link
-                        to="/contacto"
-                        className="inline-block bg-primario text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-secundario transition-all duration-300 transform hover:scale-105"
-                    >
-                        Contáctanos
-                    </Link>
-                </div>
+                <MoveToUrlButton name="Contáctanos" url="/contacto" />
+
 
             </section>
         </>

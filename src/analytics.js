@@ -2,7 +2,7 @@ import Analytics from 'analytics'
 import googleAnalytics from '@analytics/google-analytics'
 
 const analytics = Analytics({
-    app: 'Expansis Pro',  // Reemplaza con el nombre de tu aplicación
+    app: 'Expansis Pro',
     plugins: [
         {
             name: 'google-analytics',
