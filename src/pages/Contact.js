@@ -150,19 +150,19 @@ const Contact = () => {
 			});
 	};
 
-	const inputClasses = "w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primario transition-colors";
+	const inputClasses = "w-full px-4 py-3  border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primario transition-colors";
 	const fieldsetClasses = "border border-gray-200 rounded-lg p-4 space-y-3";
 	const legendClasses = "text-sm font-medium text-gray-800 px-2";
 	const labelClasses = "block text-sm font-medium text-gray-800 mb-2";
 
 	return (
-		<section id="contact" className='bg-gray-50 py-6 sm:py-6'>
+		<section id="contact" className=' py-6 sm:py-6'>
 			<div className='max-w-3xl mx-auto text-center'>
 				<h2 className='text-3xl sm:text-4xl font-bold text-gray-900 mb-4 fade-in'>Contáctanos</h2>
 				<p className="text-lg text-gray-700 mb-10 fade-in">Déjanos un mensaje y te responderemos a la brevedad.</p>
 
 				{showForm ? (
-					<div className="bg-white text-gray-800 rounded-xl shadow-2xl border-t-4 border-primario px-6 py-8">
+					<div className=" text-gray-800 rounded-xl shadow-2xl border-t-4 border-primario px-6 py-8">
 						<form onSubmit={handleSubmit} className="space-y-6 text-left">
 							<div>
 								<label htmlFor="name" className={labelClasses}>Nombre completo</label>

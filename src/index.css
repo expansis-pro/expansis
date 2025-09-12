@@ -8,9 +8,18 @@
 /* 2. Importación de fuentes globales */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400&display=swap');
 
-/* 3. Estilos base para el body (opcional pero recomendado) */
+/* 3. Estilos base para el body */
 body {
 	font-family: 'Montserrat', sans-serif;
-	-webkit-font-smoothing: antialiased; /* Mejora el renderizado de fuentes en Mac */
-	-moz-osx-font-smoothing: grayscale; /* Mejora el renderizado de fuentes en Firefox */
+	font-weight: 300; /* Establece el peso de fuente base a ligero */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* 4. Estilos base para los títulos (NUEVO) */
+@layer base {
+	h1,
+	h2 {
+		@apply text-2xl sm:text-3xl font-bold text-gray-900 mb-4;
+	}
 }

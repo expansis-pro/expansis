@@ -12,7 +12,6 @@ import LoadingPage from './pages/LoadingPage';
 import NotFound from './pages/NotFound';
 
 const Home = lazy(() => import('./pages/Home'));
-const Services = lazy(() => import('./pages/Services'));
 const QuienesSomos = lazy(() => import('./pages/QuienesSomos'));
 const Faqs = lazy(() => import('./pages/Faqs'));
 const Contact = lazy(() => import('./pages/Contact'));
@@ -26,7 +25,8 @@ function App() {
 
       <div className="flex flex-col min-h-screen">
         <Navbar />
-        <main className="flex-grow pt-[64px] px-4 sm:px-0 lg:px-8">
+        {/* --- CAMBIO: Se añadió padding horizontal (px-4 sm:px-6 lg:px-8) --- */}
+        <main className="flex-grow pt-[64px] bg-gray-50 px-4 sm:px-6 lg:px-8">
           <Suspense fallback={<LoadingPage />}>
             <AnimatePresence mode="wait">
               <Routes location={location} key={location.pathname}>
@@ -35,14 +35,6 @@ function App() {
                   element={
                     <PageTransition>
                       <Home />
-                    </PageTransition>
-                  }
-                />
-                <Route
-                  path="/servicios"
-                  element={
-                    <PageTransition>
-                      <Services />
                     </PageTransition>
                   }
                 />
@@ -76,8 +68,7 @@ function App() {
           </Suspense>
         </main>
         <Footer />
-        {/* CAMBIO REALIZADO: Eliminar el '>' extra aquí */}
-      </div>{/* <--- ESTABA ASÍ: </div>> - SE QUITÓ EL ÚLTIMO '>' */}
+      </div>
     </>
   );
 }

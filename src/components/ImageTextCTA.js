@@ -1,12 +1,9 @@
 import React from 'react';
-import MoveToUrlButton from './MoveToUrlButton';
+import { Link } from 'react-router-dom'; // Asegúrate de tener Link para el botón si lo usas
+import CtaButton from './CtaButton'; // Usamos el nuevo botón para consistencia
 import ReadMoreParagraphs from './ReadMoreParagraphs';
 
 const ImageTextCTA = ({ imageDesktop, alt, text, buttonContent, buttonLink, subtitle, title, imageSide = 'left', links = [] }) => {
-
-    // --- INICIO DE CÓDIGO DE DEPURACIÓN ---
-    console.log('ImageTextCTA Props:', { buttonContent, buttonLink, title, subtitle });
-    // --- FIN DE CÓDIGO DE DEPURACIÓN ---
 
     const imageOrderClass = imageSide === 'left' ? 'lg:order-1' : 'lg:order-2';
     const textOrderClass = imageSide === 'left' ? 'lg:order-2' : 'lg:order-1';
@@ -18,7 +15,8 @@ const ImageTextCTA = ({ imageDesktop, alt, text, buttonContent, buttonLink, subt
 
                     {/* Columna de la Imagen */}
                     <div className={imageOrderClass}>
-                        <img src={imageDesktop} alt={alt} className="w-full h-auto object-cover rounded-lg shadow-xl mx-auto max-w-lg" />
+                        {/* --- CAMBIO: Se redujo el ancho máximo de la imagen --- */}
+                        <img src={imageDesktop} alt={alt} className="w-full h-auto object-cover rounded-lg shadow-xl mx-auto max-w-md" />
                     </div>
 
                     {/* Columna del Texto y Botón (CTA) */}
@@ -33,11 +31,12 @@ const ImageTextCTA = ({ imageDesktop, alt, text, buttonContent, buttonLink, subt
                         {/* Botón (si se proporciona) */}
                         {buttonContent && (
                             <div className="mt-8">
-                                <MoveToUrlButton
-                                    name={buttonContent} // El texto del botón
-                                    url={buttonLink}     // La URL de destino
-                                    category="ImageTextCTA" // Categoría para el seguimiento
-                                />
+                                <CtaButton
+                                    to={buttonLink}
+                                    category="ImageTextCTA"
+                                >
+                                    {buttonContent}
+                                </CtaButton>
                             </div>
                         )}
 

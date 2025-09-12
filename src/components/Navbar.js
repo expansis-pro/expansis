@@ -84,7 +84,7 @@ const Navbar = () => {
 				{/* --- CAMBIO: Lista de Enlaces de Escritorio (Estructura Limpia) --- */}
 				<ul className="hidden md:flex items-center space-x-8">
 					<li><NavLink to="/" style={({ isActive }) => isActive ? activeLinkStyle : undefined} className="text-gray-700 hover:text-primario font-medium transition-colors" onClick={() => handleNavLinkClick('Inicio')}>Inicio</NavLink></li>
-					<li><NavLink to="/servicios" style={({ isActive }) => isActive ? activeLinkStyle : undefined} className="text-gray-700 hover:text-primario font-medium transition-colors" onClick={() => handleNavLinkClick('Servicios')}>Servicios</NavLink></li>
+					{/* <li><NavLink to="/servicios" style={({ isActive }) => isActive ? activeLinkStyle : undefined} className="text-gray-700 hover:text-primario font-medium transition-colors" onClick={() => handleNavLinkClick('Servicios')}>Servicios</NavLink></li> */}
 					<li><NavLink to="/quienes-somos" style={({ isActive }) => isActive ? activeLinkStyle : undefined} className="text-gray-700 hover:text-primario font-medium transition-colors" onClick={() => handleNavLinkClick('Sobre Expansis')}>Sobre Expansis</NavLink></li>
 					<li><NavLink to="/contacto" style={({ isActive }) => isActive ? activeLinkStyle : undefined} className="text-gray-700 hover:text-primario font-medium transition-colors" onClick={() => handleNavLinkClick('Contacto')}>Contacto</NavLink></li>
 					<li><NavLink to="/faq" style={({ isActive }) => isActive ? activeLinkStyle : undefined} className="text-gray-700 hover:text-primario font-medium transition-colors" onClick={() => handleNavLinkClick('FAQ')}>FAQ</NavLink></li>
@@ -96,7 +96,7 @@ const Navbar = () => {
 				<div className="md:hidden bg-white">
 					<ul className="flex flex-col items-center py-4">
 						<li><NavLink to="/" onClick={() => closeMobileMenu('Inicio')} className="block py-2 text-gray-700 hover:text-primario font-medium">Inicio</NavLink></li>
-						<li><NavLink to="/servicios" onClick={() => closeMobileMenu('Servicios')} className="block py-2 text-gray-700 hover:text-primario font-medium">Servicios</NavLink></li>
+						{/* <li><NavLink to="/servicios" onClick={() => closeMobileMenu('Servicios')} className="block py-2 text-gray-700 hover:text-primario font-medium">Servicios</NavLink></li> */}
 						<li><NavLink to="/quienes-somos" onClick={() => closeMobileMenu('Sobre Expansis')} className="block py-2 text-gray-700 hover:text-primario font-medium">Sobre Expansis</NavLink></li>
 						<li><NavLink to="/contacto" onClick={() => closeMobileMenu('Contacto')} className="block py-2 text-gray-700 hover:text-primario font-medium">Contacto</NavLink></li>
 						<li><NavLink to="/faq" onClick={() => closeMobileMenu('FAQ')} className="block py-2 text-gray-700 hover:text-primario font-medium">FAQ</NavLink></li>
