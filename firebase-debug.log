@@ -1,0 +1,34 @@
+[debug] [2025-09-12T23:24:31.284Z] ----------------------------------------------------------------------
+[debug] [2025-09-12T23:24:31.289Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\gonza\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2025-09-12T23:24:31.289Z] CLI Version:   14.11.2
+[debug] [2025-09-12T23:24:31.289Z] Platform:      win32
+[debug] [2025-09-12T23:24:31.289Z] Node Version:  v22.16.0
+[debug] [2025-09-12T23:24:31.290Z] Time:          Fri Sep 12 2025 20:24:31 GMT-0300 (hora de verano de Chile)
+[debug] [2025-09-12T23:24:31.290Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-09-12T23:24:31.539Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-09-12T23:24:31.540Z] > authorizing via signed-in user (gonzalo.lobos.ramirez@gmail.com)
+[debug] [2025-09-12T23:24:31.540Z] [iam] checking project expansispro-react for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2025-09-12T23:24:31.542Z] Checked if tokens are valid: true, expires at: 1757723054935
+[debug] [2025-09-12T23:24:31.542Z] Checked if tokens are valid: true, expires at: 1757723054935
+[debug] [2025-09-12T23:24:31.543Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/expansispro-react:testIamPermissions [none]
+[debug] [2025-09-12T23:24:31.543Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/expansispro-react:testIamPermissions x-goog-quota-user=projects/expansispro-react
+[debug] [2025-09-12T23:24:31.543Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/expansispro-react:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-09-12T23:24:32.541Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/expansispro-react:testIamPermissions 200
+[debug] [2025-09-12T23:24:32.541Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/expansispro-react:testIamPermissions {}
+[debug] [2025-09-12T23:24:32.541Z] [iam] error while checking permissions, command may fail: Authorization failed. This account is missing the following required permissions on project expansispro-react:
+
+  firebase.projects.get
+  firebasehosting.sites.update
+[debug] [2025-09-12T23:24:32.542Z] Checked if tokens are valid: true, expires at: 1757723054935
+[debug] [2025-09-12T23:24:32.542Z] Checked if tokens are valid: true, expires at: 1757723054935
+[debug] [2025-09-12T23:24:32.542Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/expansispro-react [none]
+[debug] [2025-09-12T23:24:32.819Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/expansispro-react 403
+[debug] [2025-09-12T23:24:32.819Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/expansispro-react {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2025-09-12T23:24:32.820Z] Request to https://firebase.googleapis.com/v1beta1/projects/expansispro-react had HTTP Error: 403, The caller does not have permission
+[debug] [2025-09-12T23:24:32.858Z] FirebaseError: Request to https://firebase.googleapis.com/v1beta1/projects/expansispro-react had HTTP Error: 403, The caller does not have permission
+    at responseToError (C:\Users\gonza\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:52:12)
+    at RetryOperation._fn (C:\Users\gonza\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:312:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+[error] 
+[error] Error: Failed to get Firebase project expansispro-react. Please make sure the project exists and your account has permission to access it.

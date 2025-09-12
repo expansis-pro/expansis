@@ -73,7 +73,7 @@ const Footer = () => {
 					<ul className="space-y-2">
 						<li className="flex items-center justify-center md:justify-start">
 							<i className="fa-solid fa-envelope mr-2"></i>
-							<a href="mailto:contacto@expansispro.com" className="hover:text-white transition-colors">contacto@expansispro.com</a>
+							<a href="mailto:gonzalo@expansispro.com" className="hover:text-white transition-colors">gonzalo@expansispro.com</a>
 						</li>
 						<li className="flex items-center justify-center md:justify-start">
 							<i className="fa-brands fa-whatsapp mr-2"></i>
