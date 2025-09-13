@@ -24,29 +24,30 @@ function MisionVision() {
       "Ser reconocidos por nuestra estrategia y creatividad.",
       "Forjar relaciones a largo plazo basadas en la confianza.",
       "Convertirnos en un catalizador de historias de éxito.",
-      "Innovar constantemente para ofrecer soluciones de vanguardia."
+      "Innovar para ofrecer soluciones de vanguardia."
     ]
   };
 
   return (
     <section id="misionvision" className="py-6 sm:py-6">
-      {/* --- CAMBIO: Se ajustó el ancho máximo a max-w-6xl --- */}
-      <div className="max-w-6xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto text-center">
         <h2>Nuestra Filosofía</h2>
-        <p className="text-lg text-gray-600 mb-12 fade-in">Los pilares que guían cada uno de nuestros proyectos.</p>
+        {/* --- CAMBIO REALIZADO --- */}
+        <p className="text-lg text-primario font-semibold mb-12 fade-in">Los Pilares Que Guían Cada Uno De Nuestros Proyectos.</p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <ServiceItem
-            icon={misionData.icon}
-            title={misionData.title}
-            description={misionData.description}
-            details={misionData.details}
-          />
+
           <ServiceItem
             icon={visionData.icon}
             title={visionData.title}
             description={visionData.description}
             details={visionData.details}
+          />
+          <ServiceItem
+            icon={misionData.icon}
+            title={misionData.title}
+            description={misionData.description}
+            details={misionData.details}
           />
         </div>
       </div>

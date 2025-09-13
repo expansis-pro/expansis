@@ -141,9 +141,9 @@ const Faqs = () => {
             <div className="max-w-4xl mx-auto">
                 <div className="text-center">
                     <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 fade-in">
-                        Dudas Frecuentes
+                        Preguntas Frecuentes
                     </h2>
-                    <p className="text-lg text-gray-600 mb-12 fade-in">
+                    <p className="text-lg text-primario font-semibold mb-12 fade-in">
                         Si no encuentras tu respuesta, no dudes en escribirnos.
                     </p>
                 </div>

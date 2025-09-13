@@ -17,7 +17,8 @@ const Footer = () => {
 
 	return (
 		<footer className="bg-gray-800 text-gray-400 py-12 px-4 sm:px-6 lg:px-8">
-			<div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+			{/* --- CAMBIO: Se eliminó text-center y se dejó solo text-left --- */}
+			<div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
 
 				{/* Columna 1: Marca y Copyright */}
 				<div className="space-y-4">
@@ -71,32 +72,31 @@ const Footer = () => {
 				<div>
 					<h4 className="text-white font-semibold mb-4">Contacto</h4>
 					<ul className="space-y-2">
-						<li className="flex items-center justify-center md:justify-start">
+						{/* --- CAMBIO: Se eliminó justify-center --- */}
+						<li className="flex items-center justify-start">
 							<i className="fa-solid fa-envelope mr-2"></i>
 							<a href="mailto:gonzalo@expansispro.com" className="hover:text-white transition-colors">gonzalo@expansispro.com</a>
 						</li>
-						<li className="flex items-center justify-center md:justify-start">
+						{/* --- CAMBIO: Se eliminó justify-center --- */}
+						<li className="flex items-center justify-start">
 							<i className="fa-brands fa-whatsapp mr-2"></i>
 							<a href="https://wa.me/56965961086" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">+56 9 6596 1086</a>
 						</li>
+						{/* --- CAMBIO: Se eliminó justify-center --- */}
+						<li className="flex items-center justify-start">
+							<i className="fa-brands fa-instagram mr-2"></i>
+							<a
+								href="https://www.instagram.com/expansispro/"
+								target="_blank"
+								rel="noopener noreferrer"
+								onClick={() => handleFooterLinkClick('Link Instagram', 'https://www.instagram.com/expansispro/')}
+								className="hover:text-white transition-colors"
+							>
+								Síguenos en Instagram
+							</a>
+						</li>
 					</ul>
-					<div className="mt-6 flex items-center justify-center md:justify-start">
-						{/* --- CAMBIO: Se añadió texto al enlace de Instagram --- */}
-						<a
-							href="https://www.instagram.com/expansispro/"
-							target="_blank"
-							rel="noopener noreferrer"
-							aria-label="Instagram"
-							onClick={() => handleFooterLinkClick('Link Instagram', 'https://www.instagram.com/expansispro/')}
-							className="inline-flex items-center gap-2 hover:text-white transition-colors"
-						>
-							<i className="fa-brands fa-instagram text-2xl"></i>
-							<span>Síguenos en Instagram</span>
-						</a>
-						{/* --- Se eliminó el enlace de LinkedIn --- */}
-					</div>
 				</div>
-
 			</div>
 		</footer>
 	);

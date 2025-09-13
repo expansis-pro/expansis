@@ -23,8 +23,8 @@ const QuienesSomos = () => {
                     <h2 className="fade-in">
                         Sobre Expansis
                     </h2>
-                    <p className="text-lg text-gray-600 mb-8 fade-in">
-                        Conoce nuestra historia, valores y al equipo que lo hace posible.
+                    <p className="text-lg text-primario font-semibold mb-12 fade-in">
+                        Conoce Nuestra Historia, Valores y al Equipo Que Lo Hace Posible.
                     </p>
                 </div>
 

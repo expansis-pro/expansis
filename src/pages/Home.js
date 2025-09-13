@@ -1,13 +1,12 @@
 // src/pages/Home.js
-
 import React from 'react';
 import heroImage from '../img/Hero_img_Expansis_pro.webp';
 import ServiceItem from '../components/ServiceItem';
 import { servicesData } from '../data/servicesData';
 import CallToAction from '../components/CallToAction';
 import SocialProof from '../components/SocialProof';
-import CtaButton from '../components/CtaButton'; // <-- 1. IMPORTAMOS EL NUEVO BOTÓN
-import ImageTextCTA from '../components/ImageTextCTA'; // <-- Importamos el componente
+import CtaButton from '../components/CtaButton';
+import ImageTextCTA from '../components/ImageTextCTA';
 import aboutMeImage from '../img/quienes-somos_teaser.webp';
 
 const Home = () => {
@@ -15,17 +14,16 @@ const Home = () => {
 		<>
 			<section id="home" className=" flex items-center pt-2 pb-6 lg:pb-6">
 				<div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-					<div className="text-center lg:text-left">
-						<h1>
-							<span className="block">Expansis Pro</span>
-							<span className="block text-primario mt-1">Tu Canal Digital Para Vender Más</span>
+					<div className="text-left">
+						<h1 className="text-2xl sm:text-3xl md:text-4xl text-primario">
+							Expandimos Tu Canal Digital
 						</h1>
-						<p className="mt-4 text-base sm:text-lg text-gray-600 max-w-xl mx-auto lg:mx-0 font-light">
-							Impulsamos la expansión de tu negocio en el mundo online, construyendo un canal digital de ventas a tu medida para que consigas más clientes y aumentes tus ingresos.
+						{/* --- CAMBIO REALIZADO: Texto justificado --- */}
+						<p className="mt-4 text-base sm:text-lg text-gray-600 max-w-xl mx-auto lg:mx-0 font-light text-justify">
+							Construimos un canal digital de ventas a tu medida para que consigas más clientes y aumentes tus ingresos.
 						</p>
 
-						{/* --- 2. USAMOS EL NUEVO COMPONENTE CON VARIANTES Y SCROLL --- */}
-						<div className="mt-8 flex flex-col sm:flex-row sm:justify-center lg:justify-start gap-4">
+						<div className="mt-8 flex flex-col sm:flex-row sm:justify-start gap-4">
 							<CtaButton
 								scrollTo="services-home"
 								variant="primary"
@@ -74,8 +72,6 @@ const Home = () => {
 				</div>
 			</section>
 
-
-			{/* --- NUEVA SECCIÓN "QUIÉNES SOMOS" --- */}
 			<section id="about-teaser" className=" py-6 sm:py-6">
 				<div className="max-w-6xl mx-auto">
 					<ImageTextCTA

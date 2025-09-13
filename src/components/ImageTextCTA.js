@@ -1,6 +1,7 @@
+// src/components/ImageTextCTA.js
 import React from 'react';
-import { Link } from 'react-router-dom'; // Asegúrate de tener Link para el botón si lo usas
-import CtaButton from './CtaButton'; // Usamos el nuevo botón para consistencia
+import { Link } from 'react-router-dom';
+import CtaButton from './CtaButton';
 import ReadMoreParagraphs from './ReadMoreParagraphs';
 
 const ImageTextCTA = ({ imageDesktop, alt, text, buttonContent, buttonLink, subtitle, title, imageSide = 'left', links = [] }) => {
@@ -13,22 +14,19 @@ const ImageTextCTA = ({ imageDesktop, alt, text, buttonContent, buttonLink, subt
             <div className="w-full ">
                 <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-16">
 
-                    {/* Columna de la Imagen */}
                     <div className={imageOrderClass}>
-                        {/* --- CAMBIO: Se redujo el ancho máximo de la imagen --- */}
                         <img src={imageDesktop} alt={alt} className="w-full h-auto object-cover rounded-lg shadow-xl mx-auto max-w-md" />
                     </div>
 
-                    {/* Columna del Texto y Botón (CTA) */}
-                    <div className={`text-center lg:text-left ${textOrderClass}`}>
+                    <div className={`text-left ${textOrderClass}`}>
                         {title && <h2 className="text-2xl font-bold text-gray-800 mb-4">{title}</h2>}
                         {subtitle && <h3 className="text-xl font-semibold text-primario mb-2">{subtitle}</h3>}
 
-                        <div className="space-y-8 text-gray-600 text-base">
+                        {/* --- CAMBIO REALIZADO: Texto justificado --- */}
+                        <div className="space-y-8 text-gray-600 text-base text-justify">
                             <ReadMoreParagraphs paragraphs={text} />
                         </div>
 
-                        {/* Botón (si se proporciona) */}
                         {buttonContent && (
                             <div className="mt-8">
                                 <CtaButton
@@ -40,10 +38,9 @@ const ImageTextCTA = ({ imageDesktop, alt, text, buttonContent, buttonLink, subt
                             </div>
                         )}
 
-                        {/* Enlaces Adicionales */}
                         {links.length > 0 && (
                             <div className="mt-8 pt-6 border-t border-gray-200">
-                                <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-x-8 gap-y-4">
+                                <div className="flex flex-col sm:flex-row items-center justify-start gap-x-8 gap-y-4">
                                     {links.map((link) => (
                                         <a
                                             key={link.href}

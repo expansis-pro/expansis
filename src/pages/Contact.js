@@ -159,7 +159,7 @@ const Contact = () => {
 		<section id="contact" className=' py-6 sm:py-6'>
 			<div className='max-w-3xl mx-auto text-center'>
 				<h2 className='text-3xl sm:text-4xl font-bold text-gray-900 mb-4 fade-in'>Contáctanos</h2>
-				<p className="text-lg text-gray-700 mb-10 fade-in">Déjanos un mensaje y te responderemos a la brevedad.</p>
+				<p className="text-lg text-primario font-semibold mb-12 fade-in">Déjanos un mensaje y te responderemos a la brevedad.</p>
 
 				{showForm ? (
 					<div className=" text-gray-800 rounded-xl shadow-2xl border-t-4 border-primario px-6 py-8">
