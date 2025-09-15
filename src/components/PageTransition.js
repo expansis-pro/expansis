@@ -2,25 +2,24 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+// --- CAMBIO: Variantes de animación más suaves (fade) ---
 const pageVariants = {
     initial: {
-        opacity: 0,
-        x: "-100vw" // Inicia fuera de la pantalla a la izquierda
+        opacity: 0
     },
     in: {
-        opacity: 1,
-        x: 0 // Se desliza hasta su posición final
+        opacity: 1
     },
     out: {
-        opacity: 0,
-        x: "100vw" // Sale de la pantalla hacia la derecha
+        opacity: 0
     }
 };
 
+// --- CAMBIO: Transición ajustada para el fade ---
 const pageTransition = {
     type: "tween",
-    ease: "anticipate",
-    duration: 0.5
+    ease: "easeInOut",
+    duration: 0.3
 };
 
 const PageTransition = ({ children }) => {

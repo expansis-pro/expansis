@@ -23,3 +23,16 @@ body {
 		@apply text-2xl sm:text-3xl font-bold text-gray-900 mb-4;
 	}
 }
+
+/* ... (tu código existente) ... */
+
+/* --- AÑADIR AL FINAL DEL ARCHIVO --- */
+/* Ocultar la barra de scroll en el carrusel */
+.no-scrollbar::-webkit-scrollbar {
+	display: none;
+}
+
+.no-scrollbar {
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+}

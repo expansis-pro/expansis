@@ -12,7 +12,9 @@ import LoadingPage from './pages/LoadingPage';
 import NotFound from './pages/NotFound';
 
 const Home = lazy(() => import('./pages/Home'));
+const ServicePage = lazy(() => import('./pages/ServicePage'));
 const QuienesSomos = lazy(() => import('./pages/QuienesSomos'));
+const Services = lazy(() => import('./pages/Services'));
 const Faqs = lazy(() => import('./pages/Faqs'));
 const Contact = lazy(() => import('./pages/Contact'));
 
@@ -35,6 +37,23 @@ function App() {
                   element={
                     <PageTransition>
                       <Home />
+                    </PageTransition>
+                  }
+                />
+                <Route
+                  path="/servicios"
+                  element={
+                    <PageTransition>
+                      <Services />
+                    </PageTransition>
+                  }
+                />
+
+                <Route
+                  path="/servicios/:slug"
+                  element={
+                    <PageTransition>
+                      <ServicePage />
                     </PageTransition>
                   }
                 />

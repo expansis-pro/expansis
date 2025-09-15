@@ -1,34 +1,46 @@
-// src/pages/Services.js
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useRef } from 'react'; // <-- Importar useRef
+import { servicesData } from '../data/servicesData';
 import ServiceItem from '../components/ServiceItem';
-import Whatsapp from './Whatsapp';
-import MoveToUrlButton from '../components/MoveToUrlButton';
-import { servicesData } from '../data/servicesData'; // <-- IMPORTAMOS LOS DATOS
+import CallToAction from '../components/CallToAction';
+import CardCarousel from '../components/CardCarousel';
 
 const Services = () => {
+	const servicesScrollRef = useRef(null); // <-- Ref para el contenedor del carrusel
+
+	// --- Lógica para el desplazamiento con las flechas ---
+	const scroll = (scrollOffset) => {
+		if (servicesScrollRef.current) {
+			servicesScrollRef.current.scrollBy({ left: scrollOffset, behavior: 'smooth' });
+		}
+	};
+
 	return (
-		<section id="services" className=" py-6 sm:py-6 ">
-			<div className="max-w-6xl mx-auto text-center">
-				<h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 fade-in">Nuestros Servicios</h2>
-				<p className="text-lg text-gray-600 mb-12 fade-in">Haz clic en una tarjeta para ver más detalles</p>
+		<>
+			<section id="services-page" className="py-6 sm:py-6 text-center">
+				<div className="max-w-6xl mx-auto">
+					<h1 className="text-4xl font-bold text-gray-900 mb-4">
+						Nuestros Servicios
+					</h1>
+					<p className="text-lg text-gray-600 mb-12 max-w-3xl mx-auto">
+						Ofrecemos soluciones digitales integrales, diseñadas a medida para potenciar tu negocio y asegurar que tu expansión en el mundo online sea un éxito.
+					</p>
 
-				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-					{servicesData.map((service, index) => (
-						<ServiceItem
-							key={index}
-							icon={service.icon}
-							title={service.title}
-							description={service.description}
-							details={service.details}
-						/>
-					))}
+					{/* --- CÓDIGO SIMPLIFICADO --- */}
+					<CardCarousel>
+						{servicesData.map((service, index) => (
+							<ServiceItem
+								key={index}
+								icon={service.icon}
+								title={service.title}
+								description={service.description}
+								slug={service.slug}
+							/>
+						))}
+					</CardCarousel>
 				</div>
-
-			</div>
-			<MoveToUrlButton name="Contáctanos" url="/contacto" />
-			<Whatsapp />
-		</section>
+			</section>
+			<CallToAction />
+		</>
 	);
 };
 

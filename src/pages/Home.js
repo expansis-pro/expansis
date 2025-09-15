@@ -1,5 +1,6 @@
 // src/pages/Home.js
-import React from 'react';
+
+import React, { useRef } from 'react'; // <-- Importar useRef
 import heroImage from '../img/Hero_img_Expansis_pro.webp';
 import ServiceItem from '../components/ServiceItem';
 import { servicesData } from '../data/servicesData';
@@ -8,19 +9,29 @@ import SocialProof from '../components/SocialProof';
 import CtaButton from '../components/CtaButton';
 import ImageTextCTA from '../components/ImageTextCTA';
 import aboutMeImage from '../img/quienes-somos_teaser.webp';
-
+import CardCarousel from '../components/CardCarousel';
 const Home = () => {
+
+	const servicesScrollRef = useRef(null); // <-- Ref para el contenedor
+
+	// --- Funciones para el desplazamiento ---
+	const scroll = (scrollOffset) => {
+		if (servicesScrollRef.current) {
+			servicesScrollRef.current.scrollBy({ left: scrollOffset, behavior: 'smooth' });
+		}
+	};
+
 	return (
 		<>
 			<section id="home" className=" flex items-center pt-2 pb-6 lg:pb-6">
 				<div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 					<div className="text-left">
 						<h1 className="text-2xl sm:text-3xl md:text-4xl text-primario">
-							Expandimos Tu Canal Digital
+							Tu Socio Estratégico Para La Expansión Digital.
 						</h1>
 						{/* --- CAMBIO REALIZADO: Texto justificado --- */}
 						<p className="mt-4 text-base sm:text-lg text-gray-600 max-w-xl mx-auto lg:mx-0 font-light text-justify">
-							Construimos un canal digital de ventas a tu medida para que consigas más clientes y aumentes tus ingresos.
+							Desarrollamos tu canal digital para que consigas más clientes y aumentes tus ingresos.
 						</p>
 
 						<div className="mt-8 flex flex-col sm:flex-row sm:justify-start gap-4">
@@ -52,23 +63,25 @@ const Home = () => {
 				</div>
 			</section>
 
-			<section id="services-home" className=" py-6 sm:py-6 ">
+			<section id="services-home" className="py-6 sm:py-6">
 				<div className="max-w-6xl mx-auto text-center">
 					<h2>Nuestros Servicios</h2>
-					<p className="text-lg text-gray-600 mb-12 fade-in">
+					<p className="text-lg text-gray-600 mb-6 fade-in">
 						Soluciones integrales para potenciar tu negocio en el mundo digital.
 					</p>
-					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+					{/* --- CAMBIO: Contenedor relativo para los botones --- */}
+					<CardCarousel>
 						{servicesData.map((service, index) => (
 							<ServiceItem
 								key={index}
 								icon={service.icon}
 								title={service.title}
 								description={service.description}
-								details={service.details}
+								slug={service.slug}
 							/>
 						))}
-					</div>
+					</CardCarousel>
 				</div>
 			</section>
 

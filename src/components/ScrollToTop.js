@@ -5,10 +5,14 @@ const ScrollToTop = () => {
     const { pathname } = useLocation();
 
     useEffect(() => {
-        window.scrollTo(0, 0); // Desplaza al inicio de la página
-    }, [pathname]); // Se ejecuta cada vez que la ruta cambia
+        // --- CAMBIO REALIZADO: Se añadió el comportamiento "smooth" ---
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        });
+    }, [pathname]);
 
-    return null; // Este componente no renderiza nada visible
+    return null;
 };
 
 export default ScrollToTop;
