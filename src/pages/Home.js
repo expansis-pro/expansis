@@ -27,7 +27,7 @@ const Home = () => {
 				<div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 					<div className="text-left">
 						<h1 className="text-2xl sm:text-3xl md:text-4xl text-primario">
-							Tu Socio Estratégico Para La Expansión Digital.
+							Tu Socio Estratégico Para La Expansión Digital
 						</h1>
 						{/* --- CAMBIO REALIZADO: Texto justificado --- */}
 						<p className="mt-4 text-base sm:text-lg text-gray-600 max-w-xl mx-auto lg:mx-0 font-light text-justify">

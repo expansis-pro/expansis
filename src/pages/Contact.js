@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import emailjs from "emailjs-com";
 import ReCAPTCHA from "react-google-recaptcha";
 import axios from 'axios';
-import Whatsapp from '../pages/Whatsapp';
-// import analytics from '../analytics'; // ELIMINAR: Ya no usaremos la librería analytics directamente aquí
+// --- 👇 CORRECCIÓN #1: RUTA DE IMPORTACIÓN ---
+// Como Contact.js y Whatsapp.js están en la misma carpeta, la ruta correcta es './'
+import Whatsapp from './Whatsapp';
 
-// Componente de mensaje de éxito, sin cambios.
 const TicketMessage = () => (
 	<div className='text-center p-6 bg-green-50 text-green-800 rounded-lg shadow-md max-w-md mx-auto'>
 		<i className='fa-solid fa-circle-check text-4xl mb-4'></i>
@@ -15,7 +15,6 @@ const TicketMessage = () => (
 );
 
 const Contact = () => {
-	// El estado y las opciones se mantienen igual.
 	const [formData, setFormData] = useState({
 		name: "",
 		email: "",
@@ -23,31 +22,42 @@ const Contact = () => {
 		subject: "",
 		serviceType: [],
 		message: "Hola, me interesan los servicios de Expansis Pro, por lo que solicito información al respecto.",
+		newsletterOptIn: false,
 	});
 	const [status, setStatus] = useState("");
 	const [isSubmitting, setIsSubmitting] = useState(false);
 	const [captchaVerified, setCaptchaVerified] = useState(false);
 	const [showForm, setShowForm] = useState(true);
 
+	const formInteractionStarted = useRef(false);
+
 	const subjectOptions = [
-		"Solicitar Cotización",
-		"Agendar una Reunión",
-		"Consulta General",
-		"Soporte (clientes existentes)"
+		"Solicitar Cotización", "Agendar una Reunión", "Consulta General", "Soporte (clientes existentes)"
 	];
 
 	const serviceOptions = [
-		{ value: "Desarrollo Web y E-commerce", label: "Desarrollo Web y E-commerce" },
-		{ value: "Marketing Digital y SEO", label: "Marketing Digital y SEO" },
-		{ value: "Consultoría Estratégica", label: "Consultoría Estratégica" },
-		{ value: "Diseño de Marca (Branding)", label: "Diseño de Marca (Branding)" },
-		{ value: "Mantenimiento y Soporte Web", label: "Mantenimiento y Soporte Web" },
+		{ value: "Desarrollo Web", label: "Desarrollo Web" },
+		{ value: "Consultoría Digital", label: "Consultoría Digital" },
+		{ value: "Marketing Online", label: "Marketing Online" },
 		{ value: "Otro", label: "Otro" },
 	];
 
+	const handleFormStart = () => {
+		if (formInteractionStarted.current) return;
+		formInteractionStarted.current = true;
+		if (typeof window.gtag === 'function') {
+			window.gtag('event', 'form_start', {
+				event_category: 'Contacto',
+				event_label: 'Inicio de Interaccion con Formulario'
+			});
+		}
+	};
+
+	// --- 👇 CORRECCIÓN #2: LÓGICA DE 'handleChange' ---
 	const handleChange = (e) => {
 		const { name, value, type, checked } = e.target;
-		if (type === "checkbox") {
+
+		if (name === "serviceType") {
 			setFormData(prevData => {
 				const currentServices = prevData.serviceType;
 				if (checked) {
@@ -59,25 +69,18 @@ const Contact = () => {
 		} else {
 			setFormData(prevData => ({
 				...prevData,
-				[name]: value
+				[name]: type === 'checkbox' ? checked : value
 			}));
 		}
 	};
 
 	const handleCaptcha = (value) => {
 		setCaptchaVerified(!!value);
-		// Rastrea la verificación del captcha usando gtag()
-		if (typeof window.gtag === 'function') { // Verifica que gtag esté disponible
+		if (typeof window.gtag === 'function') {
 			if (value) {
-				window.gtag('event', 'captcha_verificado', {
-					event_category: 'Formulario Contacto',
-					event_label: 'ReCAPTCHA Exitoso'
-				});
+				window.gtag('event', 'captcha_verificado', { event_category: 'Formulario Contacto', event_label: 'ReCAPTCHA Exitoso' });
 			} else {
-				window.gtag('event', 'captcha_no_verificado', {
-					event_category: 'Formulario Contacto',
-					event_label: 'ReCAPTCHA Fallido'
-				});
+				window.gtag('event', 'captcha_no_verificado', { event_category: 'Formulario Contacto', event_label: 'ReCAPTCHA Fallido' });
 			}
 		}
 	};
@@ -95,24 +98,19 @@ const Contact = () => {
 		const dataForSheet = {
 			...formData,
 			serviceType: formData.serviceType.join(', ') || 'No especificado',
+			newsletterOptIn: formData.newsletterOptIn ? 'Sí' : 'No',
 			timestamp: new Date().toLocaleString('es-CL'),
 		};
 
 		axios.post(process.env.REACT_APP_SHETDB_API_URL, dataForSheet)
-			.then(response => {
-				console.log("Datos enviados a Google Sheets con éxito:", response);
-			})
-			.catch(error => {
-				console.error("Error al enviar datos a Google Sheets:", error);
-			});
+			.then(response => { console.log("Datos enviados a Google Sheets con éxito:", response); })
+			.catch(error => { console.error("Error al enviar datos a Google Sheets:", error); });
 
 		const templateParams = {
-			name: formData.name,
-			email: formData.email,
+			...formData,
 			phone: formData.phone || 'No especificado',
-			subject: formData.subject,
 			serviceType: formData.serviceType.join(', ') || 'No especificado',
-			message: formData.message,
+			newsletterOptIn: formData.newsletterOptIn ? 'Sí' : 'No',
 		};
 
 		emailjs.send(
@@ -123,9 +121,8 @@ const Contact = () => {
 		)
 			.then((result) => {
 				console.log(result.text);
-				// --- CAMBIO REALIZADO: AÑADIR SEGUIMIENTO DE ENVÍO EXITOSO CON gtag() ---
-				if (typeof window.gtag === 'function') { // Verifica que gtag esté disponible
-					window.gtag('event', 'form_enviado', { // Nombre del evento en snake_case para GA4
+				if (typeof window.gtag === 'function') {
+					window.gtag('event', 'form_enviado', {
 						event_category: 'Contacto',
 						event_label: 'Formulario Principal Exitoso',
 						subject: formData.subject,
@@ -136,12 +133,11 @@ const Contact = () => {
 			}, (error) => {
 				console.log(error.text);
 				setStatus("Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.");
-				// Rastrea el error de envío del formulario con gtag()
-				if (typeof window.gtag === 'function') { // Verifica que gtag esté disponible
+				if (typeof window.gtag === 'function') {
 					window.gtag('event', 'form_fallido', {
 						event_category: 'Contacto',
 						event_label: 'Error al Enviar Correo',
-						error_message: error.text // Usar snake_case para los parámetros
+						error_message: error.text
 					});
 				}
 			})
@@ -163,7 +159,7 @@ const Contact = () => {
 
 				{showForm ? (
 					<div className=" text-gray-800 rounded-xl shadow-2xl border-t-4 border-primario px-6 py-8">
-						<form onSubmit={handleSubmit} className="space-y-6 text-left">
+						<form onSubmit={handleSubmit} onFocus={handleFormStart} className="space-y-6 text-left">
 							<div>
 								<label htmlFor="name" className={labelClasses}>Nombre completo</label>
 								<input id="name" type='text' name='name' placeholder='Ej: Juan Pérez' className={inputClasses} value={formData.name} onChange={handleChange} required />
@@ -204,6 +200,21 @@ const Contact = () => {
 							<div>
 								<label htmlFor="message" className={labelClasses}>Mensaje</label>
 								<textarea id="message" name='message' placeholder='Escribe tu mensaje aquí...' className={`${inputClasses} h-32`} value={formData.message} onChange={handleChange} required></textarea>
+							</div>
+
+							<div className="pt-2">
+								<label className="flex items-center space-x-3 cursor-pointer">
+									<input
+										type="checkbox"
+										name="newsletterOptIn"
+										checked={formData.newsletterOptIn}
+										onChange={handleChange}
+										className="form-checkbox h-5 w-5 text-primario rounded focus:ring-primario"
+									/>
+									<span className="text-sm text-gray-600">
+										Deseo recibir Novedades y Promociones en mi correo.
+									</span>
+								</label>
 							</div>
 
 							<div className="flex flex-col items-center gap-6 pt-4">

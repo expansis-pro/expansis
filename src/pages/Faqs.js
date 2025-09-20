@@ -42,12 +42,12 @@ const Faqs = () => {
     };
 
     return (
-        <section id="faqs" className="py-6 sm:py-6 px-4 sm:px-6 lg:px-8">
+        <section id="faqs" className="py-6 sm:py-6">
             <script type="application/ld+json">
                 {JSON.stringify(faqSchema)}
             </script>
 
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center">
                     <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 fade-in">
                         Preguntas Frecuentes
@@ -77,17 +77,20 @@ const Faqs = () => {
                                 initial={{ opacity: 0, height: 0 }}
                                 animate={{ opacity: 1, height: 'auto' }}
                                 exit={{ opacity: 0, height: 0 }}
-                                className="space-y-4 overflow-hidden"
+                                className=""
                             >
-                                {faqsForDisplay.slice(initialFaqsToShow).map((faq, index) => (
-                                    <FaqItem
-                                        key={index + initialFaqsToShow}
-                                        question={faq.question}
-                                        answer={faq.answer}
-                                        isOpen={openIndex === (index + initialFaqsToShow)}
-                                        onToggle={() => handleToggle(index + initialFaqsToShow)}
-                                    />
-                                ))}
+                                <div className="space-y-4 pt-4">
+
+                                    {faqsForDisplay.slice(initialFaqsToShow).map((faq, index) => (
+                                        <FaqItem
+                                            key={index + initialFaqsToShow}
+                                            question={faq.question}
+                                            answer={faq.answer}
+                                            isOpen={openIndex === (index + initialFaqsToShow)}
+                                            onToggle={() => handleToggle(index + initialFaqsToShow)}
+                                        />
+                                    ))}
+                                </div>
                             </motion.div>
                         )}
                     </AnimatePresence>

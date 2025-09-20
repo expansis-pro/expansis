@@ -4,22 +4,18 @@ export const servicesData = [
         icon: "fa-solid fa-code",
         title: "Desarrollo Web",
         description: "Creamos plataformas web atractivas y funcionales para impulsar tu negocio online.",
-        // --- TEXTO ACTUALIZADO ---
         longDescription: "Juntos, convertiremos tu visión en un sitio web de alto impacto. Crearemos para ti una plataforma rápida, segura y a medida con tecnología React, garantizando una experiencia de usuario óptima que transforme visitantes en clientes.",
         phases: [
             {
                 title: "Fase 1: Estrategia y Diseño",
-                // --- TEXTO ACTUALIZADO ---
                 description: "Definiremos los objetivos, investigaremos a tu competencia y crearemos un diseño visual (mockup) centrado en la conversión."
             },
             {
                 title: "Fase 2: Desarrollo y Construcción",
-                // --- TEXTO ACTUALIZADO ---
                 description: "Escribiremos el código de tu sitio web, asegurándonos de que sea rápido, responsivo y seguro en todos los dispositivos."
             },
             {
                 title: "Fase 3: Lanzamiento y Soporte",
-                // --- TEXTO ACTUALIZADO ---
                 description: "Realizaremos las pruebas finales, lanzaremos el sitio y te ofreceremos 30 días de soporte post-lanzamiento para tu tranquilidad."
             }
         ],
@@ -35,16 +31,6 @@ export const servicesData = [
                 "Integración con WhatsApp Business"
             ]
         },
-        faqQuestions: [
-            "¿Qué incluye el valor inicial de Desarrollo Web?",
-            "¿Usan plantillas de WordPress o cómo construyen los sitios?",
-            "¿Qué pasa si no me gusta la propuesta de diseño?",
-            "¿Cuánto tiempo se demoran en entregar el sitio web?",
-            "¿Seré dueño de mi sitio web una vez terminado el proyecto?",
-            "¿Qué soporte ofrecen después de que el sitio está online?",
-            "¿Qué necesito entregarles para empezar el proyecto?",
-            "¿El servicio incluye el hosting (alojamiento) y el dominio?"
-        ],
         details: [
             "Diseño de sitios web responsivos.",
             "Desarrollo de E-commerce y carritos de compra.",
@@ -57,22 +43,18 @@ export const servicesData = [
         icon: "fa-solid fa-chart-line",
         title: "Consultoría Digital",
         description: "Te asesoramos para definir objetivos, identificar oportunidades y optimizar tus procesos.",
-        // --- TEXTO ACTUALIZADO ---
         longDescription: "Analizaremos tu presencia online actual para desarrollar una estrategia de transformación digital. Investigaremos tu mercado y competencia para optimizar la experiencia de usuario (UX) y entregarte una hoja de ruta clara para potenciar tus resultados.",
         phases: [
             {
                 title: "Fase 1: Diagnóstico",
-                // --- TEXTO ACTUALIZADO ---
                 description: "Evaluaremos tu ecosistema digital actual e identificaremos las áreas de mejora y las oportunidades clave para tu negocio."
             },
             {
                 title: "Fase 2: Plan Estratégico",
-                // --- TEXTO ACTUALIZADO ---
                 description: "Desarrollaremos una hoja de ruta clara con acciones concretas y priorizadas para que alcances tus objetivos."
             },
             {
                 title: "Fase 3: Implementación y Medición",
-                // --- TEXTO ACTUALIZADO ---
                 description: "Te acompañaremos en la ejecución del plan y mediremos el impacto de cada acción para asegurar el éxito de la estrategia."
             }
         ],
@@ -85,9 +67,6 @@ export const servicesData = [
                 "Informe de resultados"
             ]
         },
-        faqQuestions: [
-            "¿Qué incluye el valor inicial de la Consultoría Digital?"
-        ],
         details: [
             "Análisis de presencia online actual.",
             "Estrategia de transformación digital.",
@@ -100,22 +79,18 @@ export const servicesData = [
         icon: "fa-solid fa-bullhorn",
         title: "Marketing Online",
         description: "Implementamos estrategias para aumentar tu visibilidad y generar clientes potenciales.",
-        // --- TEXTO ACTUALIZADO ---
         longDescription: "Diseñaremos e implementaremos campañas de marketing digital enfocadas en resultados. Nos enfocaremos en la gestión de tu inversión publicitaria en Meta (Facebook, Instagram) y Google Ads para crear estrategias que aumenten tu visibilidad y atraigan nuevos clientes.",
         phases: [
             {
                 title: "Fase 1: Definición de Audiencia",
-                // --- TEXTO ACTUALIZADO ---
                 description: "Junto a ti, identificaremos a tu cliente ideal y los canales más efectivos para llegar a él y conectar con sus necesidades."
             },
             {
                 title: "Fase 2: Creación de Campañas",
-                // --- TEXTO ACTUALIZADO ---
                 description: "Diseñaremos y lanzaremos campañas publicitarias creativas y persuasivas en las plataformas que hayamos seleccionado."
             },
             {
                 title: "Fase 3: Optimización Continua",
-                // --- TEXTO ACTUALIZADO ---
                 description: "Monitorearemos los resultados en tiempo real y optimizaremos las campañas continuamente para maximizar el retorno de tu inversión."
             }
         ],
@@ -128,10 +103,6 @@ export const servicesData = [
                 "Reportes mensuales"
             ]
         },
-        faqQuestions: [
-            "¿Qué incluye la inversión mensual en Marketing Online?",
-            "¿Cómo se gestiona el material gráfico (diseño) para las campañas?"
-        ],
         details: [
             "Gestión de campañas en redes sociales.",
             "Publicidad en Meta y Google Ads (SEM).",

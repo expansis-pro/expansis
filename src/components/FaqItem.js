@@ -1,15 +1,16 @@
 // src/components/FaqItem.js
 import React from 'react';
-// --- CAMBIO: Se elimina la importación de ReadMore ---
 
 const FaqItem = ({ question, answer, isOpen, onToggle }) => {
     return (
-        <div className="border-b border-gray-200 py-4">
+        <div className="border-b border-gray-200">
             <button
                 onClick={onToggle}
                 aria-expanded={isOpen}
                 aria-controls={`faq-answer-${question.replace(/\s+/g, '-')}`}
-                className="w-full flex justify-between items-center text-left focus:outline-none focus:ring-2 focus:ring-primario focus:ring-offset-2 rounded-md"
+                // 👇 EL CAMBIO CLAVE ESTÁ AQUÍ:
+                // Se reemplaza "py-4" por "p-4" para añadir padding en todos los lados.
+                className="w-full flex justify-between items-center text-left focus:outline-none focus:ring-2 focus:ring-primario focus:ring-offset-2 rounded-md p-4"
             >
                 <span className={`text-lg font-medium ${isOpen ? 'text-primario' : 'text-gray-800'}`}>
                     {question}
@@ -30,10 +31,10 @@ const FaqItem = ({ question, answer, isOpen, onToggle }) => {
 
             <div
                 id={`faq-answer-${question.replace(/\s+/g, '-')}`}
-                className={`grid overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? 'grid-rows-[1fr] opacity-100 mt-4' : 'grid-rows-[0fr] opacity-0'}`}
+                className={`grid overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
             >
-                <div className="overflow-hidden">
-                    {/* --- CAMBIO: Se renderiza la respuesta directamente --- */}
+                {/* Se mantiene el padding horizontal aquí para alinear el texto de la respuesta */}
+                <div className="overflow-hidden px-4">
                     <div className="pt-2 pb-4 text-gray-700 text-base leading-relaxed">
                         {answer}
                     </div>
