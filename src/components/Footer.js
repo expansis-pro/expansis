@@ -25,7 +25,7 @@ const Footer = () => {
 					<h3 className="text-2xl font-bold text-white">Expansis Pro</h3>
 					<p className="text-sm">Tu socio estratégico para la expansión digital.</p>
 					<div className="text-xs text-gray-500">
-						<p>© {currentYear} Expansis Pro. Todos los derechos reservados.</p>
+						<p>© {currentYear} Expansis Pro. ¡Despliegue Automático OK! Todos los derechos reservados.</p>
 						<p>
 							Diseñado y desarrollado por{" "}
 							<a
