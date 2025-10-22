@@ -15,7 +15,7 @@ const ImageTextCTA = ({ imageDesktop, alt, text, buttonContent, buttonLink, subt
                 <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-16">
 
                     <div className={imageOrderClass}>
-                        <img src={imageDesktop} alt={alt} className="w-full h-auto object-cover rounded-lg shadow-xl mx-auto max-w-md" />
+                        <img src={imageDesktop} alt={alt} className="w-auto h-auto object-cover rounded-lg shadow-xl mx-auto max-w-md" />
                     </div>
 
                     <div className={`text-left ${textOrderClass}`}>
