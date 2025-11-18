@@ -15,6 +15,28 @@ const Footer = () => {
 		}
 	};
 
+	// 👇 AGREGADO: Función específica para el clic de WhatsApp en el footer
+	const handleFooterWhatsappClick = () => {
+		const whatsappLink = "https://wa.me/56965961086";
+
+		// 1. GA4
+		if (typeof window.gtag === 'function') {
+			window.gtag('event', 'click_whatsapp', {
+				'send_to': 'G-82V0SGG463',
+				event_category: 'Footer',
+				event_label: 'Enlace WhatsApp Footer',
+				link_url: whatsappLink
+			});
+		}
+
+		// 2. Google Ads
+		if (typeof window.gtag === 'function') {
+			window.gtag('event', 'conversion', {
+				'send_to': 'AW-16965295721/wff8CPWU1sIbEOm815k_'
+			});
+		}
+	};
+
 	return (
 		<footer className="bg-gray-800 text-gray-400 py-12 px-4 sm:px-6 lg:px-8">
 			{/* Se mantiene el grid, pero ahora los hijos tienen un orden específico para móvil */}
@@ -80,7 +102,15 @@ const Footer = () => {
 						</li>
 						<li className="flex items-center justify-start">
 							<i className="fa-brands fa-whatsapp mr-2"></i>
-							<a href="https://wa.me/56965961086" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">+56 9 6596 1086</a>
+							<a
+								href="https://wa.me/56965961086"
+								target="_blank"
+								rel="noopener noreferrer"
+								onClick={handleFooterWhatsappClick} // 👈 AGREGADO: Evento onClick
+								className="hover:text-white transition-colors"
+							>
+								+56 9 6596 1086
+							</a>
 						</li>
 						<li className="flex items-center justify-start">
 							<i className="fa-brands fa-instagram mr-2"></i>

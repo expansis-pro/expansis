@@ -128,6 +128,7 @@ const Contact = () => {
 
 				if (typeof window.gtag === 'function') {
 					window.gtag('event', 'form_enviado', {
+						'send_to': 'G-82V0SGG463', // <--- ESPECIFICAR DESTINO
 						event_category: 'Contacto',
 						event_label: 'Formulario Principal Exitoso',
 						subject: formData.subject,
@@ -136,14 +137,9 @@ const Contact = () => {
 				}
 
 				if (typeof window.gtag === 'function') {
-
-					// Primero, define los datos del usuario
-					window.gtag('set', 'user_data', userData);
-
-					// Luego, envía el evento de conversión de Google Ads
+					window.gtag('set', 'user_data', userData); // Setear datos
 					window.gtag('event', 'conversion', {
-						'send_to': 'AW-TU_ID_DE_CONVERSION/TU_LABEL_FORMULARIO'
-						// ↑↑↑ ¡IMPORTANTE! Reemplaza esto con tu etiqueta de conversión de Google Ads
+						'send_to': 'AW-16965295721/mRlTCNr00sIbEOm815k_' // <--- ETIQUETA DEL FORMULARIO
 					});
 				}
 

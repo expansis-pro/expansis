@@ -7,6 +7,26 @@ const CallToAction = ({ title, description }) => { // <-- Acepta props
     const message = encodeURIComponent("¡Hola! ¡Quiero descubrir cómo Expansis Pro puede ayudarme!");
     const whatsappLink = `https://wa.me/${phoneNumber}?text=${message}`;
 
+    // 👇 AGREGADO: Función para manejar el clic en WhatsApp
+    const handleWhatsappClick = () => {
+        // 1. Evento para GA4
+        if (typeof window.gtag === 'function') {
+            window.gtag('event', 'click_whatsapp', {
+                'send_to': 'G-82V0SGG463', // <--- IMPORTANTE: Destino específico
+                event_category: 'CallToAction',
+                event_label: 'Boton Chatea por WhatsApp (CTA)',
+                link_url: whatsappLink
+            });
+        }
+
+        // 2. Evento para Google Ads
+        if (typeof window.gtag === 'function') {
+            window.gtag('event', 'conversion', {
+                'send_to': 'AW-16965295721/wff8CPWU1sIbEOm815k_' // <--- Conversión de WhatsApp
+            });
+        }
+    };
+
     return (
         <section id="call-to-action" className=" py-6 sm:py-6">
             <div className="max-w-4xl mx-auto text-center p-6 sm:p-12 rounded-xl shadow-2xl border-t-4 border-primario">
@@ -30,6 +50,7 @@ const CallToAction = ({ title, description }) => { // <-- Acepta props
                         href={whatsappLink}
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={handleWhatsappClick} // 👈 AGREGADO: Evento onClick
                         className="inline-block w-full sm:w-auto bg-[#25D366] hover:bg-[#128C7E] text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105 text-center"
                     >
                         <i className="fa-brands fa-whatsapp mr-2"></i>
