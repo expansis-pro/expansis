@@ -16,6 +16,17 @@ const Whatsapp = () => {
                 link_url: whatsappLink // URL del enlace de WhatsApp
             });
         }
+
+
+        if (typeof window.gtag === 'function') {
+            window.gtag('event', 'conversion', {
+                'send_to': 'AW-TU_ID_DE_CONVERSION/TU_LABEL_WHATSAPP'
+                // ↑↑↑ ¡IMPORTANTE! Reemplaza esto con tu otra etiqueta de conversión
+            });
+        }
+
+
+
     };
 
     return (

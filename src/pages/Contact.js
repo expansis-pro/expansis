@@ -121,6 +121,11 @@ const Contact = () => {
 		)
 			.then((result) => {
 				console.log(result.text);
+				const userData = {
+					"email": formData.email,
+					"phone_number": formData.phone
+				};
+
 				if (typeof window.gtag === 'function') {
 					window.gtag('event', 'form_enviado', {
 						event_category: 'Contacto',
@@ -129,6 +134,19 @@ const Contact = () => {
 						services: formData.serviceType.join(', ')
 					});
 				}
+
+				if (typeof window.gtag === 'function') {
+
+					// Primero, define los datos del usuario
+					window.gtag('set', 'user_data', userData);
+
+					// Luego, envía el evento de conversión de Google Ads
+					window.gtag('event', 'conversion', {
+						'send_to': 'AW-TU_ID_DE_CONVERSION/TU_LABEL_FORMULARIO'
+						// ↑↑↑ ¡IMPORTANTE! Reemplaza esto con tu etiqueta de conversión de Google Ads
+					});
+				}
+
 				setShowForm(false);
 			}, (error) => {
 				console.log(error.text);
