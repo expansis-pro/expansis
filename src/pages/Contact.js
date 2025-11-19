@@ -127,19 +127,21 @@ const Contact = () => {
 				};
 
 				if (typeof window.gtag === 'function') {
+					// Seteamos los datos de usuario UNA vez para ambos eventos
+					window.gtag('set', 'user_data', userData);
+
+					// 2. Evento para Analytics (Solo métricas, NO importar como conversión en Ads)
 					window.gtag('event', 'form_enviado', {
-						'send_to': 'G-82V0SGG463', // <--- ESPECIFICAR DESTINO
+						'send_to': 'G-82V0SGG463',
 						event_category: 'Contacto',
 						event_label: 'Formulario Principal Exitoso',
 						subject: formData.subject,
 						services: formData.serviceType.join(', ')
 					});
-				}
 
-				if (typeof window.gtag === 'function') {
-					window.gtag('set', 'user_data', userData); // Setear datos
+					// 3. Evento para Google Ads (Esta es tu conversión REAL)
 					window.gtag('event', 'conversion', {
-						'send_to': 'AW-16965295721/mRlTCNr00sIbEOm815k_' // <--- ETIQUETA DEL FORMULARIO
+						'send_to': 'AW-16965295721/mRlTCNr00sIbEOm815k_'
 					});
 				}
 
