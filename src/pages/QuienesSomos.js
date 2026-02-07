@@ -1,43 +1,47 @@
 // src/pages/QuienesSomos.js
-
-import React from 'react';
-
-// Importamos los componentes que queremos mostrar
+import React, { useEffect } from 'react';
+import SecondaryHero from '../components/SecondaryHero';
 import WhatIsExpansisPro from '../components/WhatIsExpansisPro';
-import OurStory from '../components/OurStory'; // <-- NUEVO
+import OurStory from '../components/OurStory';
 import MisionVision from './MisionVision';
 import AboutMe from './AboutMe';
 import CallToAction from '../components/CallToAction';
 
 const QuienesSomos = () => {
+    // Aseguramos que la página cargue en el inicio para el efecto del Nav transparente
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     return (
-        <>
-            {/* Metadatos para el SEO */}
+        <main className="bg-white min-h-screen">
+            {/* Metadatos SEO */}
             <title>Sobre Expansis - Expansis Pro</title>
             <meta name="description" content="Conoce la misión, visión y al equipo detrás de Expansis Pro. Soluciones digitales con un enfoque integral y personalizado." />
             <link rel="canonical" href="https://expansispro.com/quienes-somos" />
 
-            <section id="quienes-somos" className="py-6 sm:py-6">
-                <div className="max-w-6xl mx-auto text-center ">
-                    <h2 className="fade-in">
-                        Sobre Expansis
-                    </h2>
-                    <p className="text-lg text-primario font-semibold mb-12 fade-in">
-                        Conoce Nuestra Historia, Valores y al Equipo Que Lo Hace Posible.
-                    </p>
-                </div>
+            {/* --- HERO SECUNDARIO --- 
+                Sustituye al section id="quienes-somos" anterior para eliminar la franja blanca.
+            */}
+            <SecondaryHero
+                title="Sobre Expansis"
+                subtitle="Conoce Nuestra Historia, Valores y al Equipo Que Lo Hace Posible."
+                icon="fa-solid fa-users"
+            />
 
-                {/* Contenido de la página */}
+            {/* Contenido de la página con espaciado consistente */}
+            <div className="space-y-0">
                 <WhatIsExpansisPro />
                 <MisionVision />
-                <OurStory /> {/* <-- COMPONENTE AÑADIDO */}
+                <OurStory />
                 <AboutMe />
+            </div>
 
-                <CallToAction />
-
-            </section>
-        </>
+            <CallToAction
+                title="¿Compartimos una visión?"
+                description="Si buscas un socio estratégico comprometido con tu crecimiento, hablemos."
+            />
+        </main>
     );
 };
 

@@ -1,38 +1,42 @@
 /* src/index.css */
-
-/* 1. Directivas de Tailwind CSS */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* 2. Importación de fuentes globales */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap');
 
-/* 3. Estilos base para el body */
-body {
-	font-family: 'Montserrat', sans-serif;
-	font-weight: 300; /* Establece el peso de fuente base a ligero */
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
-
-/* 4. Estilos base para los títulos (NUEVO) */
 @layer base {
-	h1,
+	body {
+		/* Usamos ghostWhite (#F8FAFC) y texto gris oscuro para legibilidad */
+		@apply font-sans font-light text-gray-800 bg-ghostWhite;
+	}
+
+	/* h1: Definición base moderada. El tamaño gigante lo daremos en el componente Home */
+	h1 {
+		@apply text-3xl sm:text-4xl leading-tight;
+	}
+
+	/* h2: Títulos de sección estándar [cite: 86] */
 	h2 {
-		@apply text-2xl sm:text-3xl font-bold text-gray-900 mb-4;
+		@apply text-2xl sm:text-3xl text-gray-900 mb-6;
+	}
+
+	/* h3: Títulos de tarjetas (Cards de servicio)  */
+	h3 {
+		@apply text-xl mb-2;
+	}
+
+	button,
+	a {
+		font-weight: 400 !important; /* Fuerza el peso normal del rediseño */
 	}
 }
 
-/* ... (tu código existente) ... */
-
-/* --- AÑADIR AL FINAL DEL ARCHIVO --- */
-/* Ocultar la barra de scroll en el carrusel */
+/* Utilidades adicionales */
 .no-scrollbar::-webkit-scrollbar {
 	display: none;
 }
-
 .no-scrollbar {
-	-ms-overflow-style: none; /* IE and Edge */
-	scrollbar-width: none; /* Firefox */
+	-ms-overflow-style: none;
+	scrollbar-width: none;
 }

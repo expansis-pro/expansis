@@ -1,59 +1,63 @@
 // src/components/ImageTextCTA.js
 import React from 'react';
-import { Link } from 'react-router-dom';
 import CtaButton from './CtaButton';
 import ReadMoreParagraphs from './ReadMoreParagraphs';
 
-const ImageTextCTA = ({ imageDesktop, alt, text, buttonContent, buttonLink, subtitle, title, imageSide = 'left', links = [] }) => {
+const ImageTextCTA = ({
+    imageDesktop,
+    alt,
+    text,
+    buttonContent,
+    buttonLink,
+    buttonVariant = 'secondary', // Prop nueva con 'secondary' por defecto
+    subtitle,
+    title,
+    imageSide = 'left'
+}) => {
 
-    const imageOrderClass = imageSide === 'left' ? 'lg:order-1' : 'lg:order-2';
-    const textOrderClass = imageSide === 'left' ? 'lg:order-2' : 'lg:order-1';
+    const imageContainerClasses = "relative w-full max-w-md mx-auto aspect-square bg-[#E2E8F0] rounded-[60px_10px_60px_10px] overflow-hidden flex items-center justify-center";
+    const imageClasses = "w-full h-full object-cover";
 
     return (
-        <section className="w-full flex justify-center items-center py-6 lg:py-6">
-            <div className="w-full ">
-                <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-16">
+        <section className="w-full py-12 lg:py-20 bg-white">
+            <div className="max-w-6xl mx-auto px-4">
+                <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-24">
 
-                    <div className={imageOrderClass}>
-                        <img src={imageDesktop} alt={alt} className="w-auto h-auto object-cover rounded-lg shadow-xl mx-auto max-w-md" />
+                    {/* Contenedor de Imagen */}
+                    <div className={`${imageSide === 'left' ? 'lg:order-1' : 'lg:order-2'}`}>
+                        <div className={imageContainerClasses}>
+                            <img src={imageDesktop} alt={alt} className={imageClasses} />
+                        </div>
                     </div>
 
-                    <div className={`text-left ${textOrderClass}`}>
-                        {title && <h2 className="text-2xl font-bold text-gray-800 mb-4">{title}</h2>}
-                        {subtitle && <h3 className="text-xl font-semibold text-primario mb-2">{subtitle}</h3>}
+                    {/* Contenedor de Texto */}
+                    <div className={`text-left ${imageSide === 'left' ? 'lg:order-2' : 'lg:order-1'}`}>
+                        {subtitle && (
+                            <span className="block text-primario uppercase tracking-wider mb-3 font-semibold text-sm">
+                                {subtitle}
+                            </span>
+                        )}
+                        {title && <h2 className="text-deepBlue mb-6 leading-tight">{title}</h2>}
 
-                        {/* --- CAMBIO REALIZADO: Texto justificado --- */}
-                        <div className="space-y-8 text-gray-600 text-base text-justify">
+                        <div className="space-y-6 text-gray-600 leading-relaxed text-justify font-light">
                             <ReadMoreParagraphs paragraphs={text} />
                         </div>
 
+                        {/* Lógica de Botón Dinámica */}
                         {buttonContent && (
-                            <div className="mt-8">
+                            <div className="mt-10 flex justify-start">
                                 <CtaButton
                                     to={buttonLink}
-                                    category="ImageTextCTA"
+                                    variant={buttonVariant}
+                                    // Si es primario, usa el naranja. Si es secundario, usa el borde azul de Figma.
+                                    className={
+                                        buttonVariant === 'primary'
+                                            ? "bg-primario text-ghostWhite px-10 py-3 rounded-lg"
+                                            : "border-2 border-deepBlue text-deepBlue bg-white hover:bg-deepBlue hover:text-white px-10 py-3 rounded-lg"
+                                    }
                                 >
                                     {buttonContent}
                                 </CtaButton>
-                            </div>
-                        )}
-
-                        {links.length > 0 && (
-                            <div className="mt-8 pt-6 border-t border-gray-200">
-                                <div className="flex flex-col sm:flex-row items-center justify-start gap-x-8 gap-y-4">
-                                    {links.map((link) => (
-                                        <a
-                                            key={link.href}
-                                            href={link.href}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="inline-flex items-center gap-2 text-gray-700 hover:text-primario font-semibold transition-colors"
-                                        >
-                                            <i className={link.icon}></i>
-                                            <span>{link.text}</span>
-                                        </a>
-                                    ))}
-                                </div>
                             </div>
                         )}
                     </div>

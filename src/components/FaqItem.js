@@ -3,23 +3,25 @@ import React from 'react';
 
 const FaqItem = ({ question, answer, isOpen, onToggle }) => {
     return (
-        <div className="border-b border-gray-200">
+        <div
+            className={`transition-all duration-300 rounded-2xl mb-4 border ${isOpen
+                    ? 'border-primario bg-ghostWhite shadow-sm'
+                    : 'border-gray-200 bg-white hover:border-gray-300'
+                }`}
+        >
             <button
                 onClick={onToggle}
                 aria-expanded={isOpen}
-                aria-controls={`faq-answer-${question.replace(/\s+/g, '-')}`}
-                // 👇 EL CAMBIO CLAVE ESTÁ AQUÍ:
-                // Se reemplaza "py-4" por "p-4" para añadir padding en todos los lados.
-                className="w-full flex justify-between items-center text-left focus:outline-none focus:ring-2 focus:ring-primario focus:ring-offset-2 rounded-md p-4"
+                className="w-full flex justify-between items-center text-left p-5 focus:outline-none"
             >
-                <span className={`text-lg font-medium ${isOpen ? 'text-primario' : 'text-gray-800'}`}>
+                <span className={`text-lg font-medium transition-colors duration-300 ${isOpen ? 'text-primario' : 'text-deepBlue'
+                    }`}>
                     {question}
                 </span>
 
-                <span className="ml-6 flex-shrink-0">
+                <span className={`flex-shrink-0 ml-4 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}>
                     <svg
-                        className={`w-6 h-6 transform transition-transform duration-300 ${isOpen ? 'rotate-180' : 'rotate-0'}`}
-                        xmlns="http://www.w3.org/2000/svg"
+                        className={`w-6 h-6 ${isOpen ? 'text-primario' : 'text-gray-400'}`}
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -30,13 +32,14 @@ const FaqItem = ({ question, answer, isOpen, onToggle }) => {
             </button>
 
             <div
-                id={`faq-answer-${question.replace(/\s+/g, '-')}`}
-                className={`grid overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
+                className={`grid transition-all duration-500 ease-in-out ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
+                    }`}
             >
-                {/* Se mantiene el padding horizontal aquí para alinear el texto de la respuesta */}
-                <div className="overflow-hidden px-4">
-                    <div className="pt-2 pb-4 text-gray-700 text-base leading-relaxed">
-                        {answer}
+                <div className="overflow-hidden">
+                    <div className="px-5 pb-6 text-gray-600 font-light leading-relaxed">
+                        <div className="pt-4 border-t border-gray-100">
+                            {answer}
+                        </div>
                     </div>
                 </div>
             </div>

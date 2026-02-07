@@ -1,28 +1,40 @@
-// src/pages/About.jsx
-import React from 'react';
-import ImageTextCTA from '../components/ImageTextCTA';
-import aboutImageDesktop from '../img/about-page_630x630.webp';
-import aboutImageMobile from '../img/about-page_630x630.webp';
+// src/pages/About.js
+import React, { useEffect } from 'react';
+import SecondaryHero from '../components/SecondaryHero';
+import OurStory from '../components/OurStory';
+import CallToAction from '../components/CallToAction';
 
 const About = () => {
+	// Garantiza que al navegar a esta página, el scroll suba al inicio
+	// Esto es vital para que el Navbar empiece siendo transparente sobre el azul
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
+
 	return (
-		<section id="about" className="py-6 sm:py-6 ">
-			<div className="max-w-6xl mx-auto text-center">
-				<ImageTextCTA
-					imageMobile={aboutImageMobile}
-					imageDesktop={aboutImageDesktop}
-					alt="Carrito de Compras"
-					title="¿Por qué Expansis Pro?"
-					// --- CAMBIO REALIZADO: Texto restaurado a múltiples párrafos ---
-					text={[
-						'Expansis Pro impulsa el éxito digital de las empresas. Nuestros servicios ofrecen <strong>desarrollo web, consultoría digital y marketing online</strong>. Entregamos soluciones personalizadas que permiten a tu marca conectar con nuevas oportunidades y alcanzar su máximo potencial.',
-						'Expansis Pro se enfoca en la <strong>tecnología y la innovación</strong> para brindar un servicio de alto valor, con la visión de ser un aliado estratégico en el crecimiento de las empresas.'
-					]}
-				// buttonContent='Contáctanos' // ELIMINADO: Se quita el contenido del botón
-				// buttonLink='contact'     // ELIMINADO: Se quita el enlace del botón
-				/>
-			</div>
-		</section>
+		<main className="bg-white min-h-screen">
+			{/* HERO SECUNDARIO: 
+                Ahora usa el componente reutilizable que configuramos 
+                con pt-32 para que el texto no quede debajo del Nav.
+            */}
+			<SecondaryHero
+				title="Sobre Expansis"
+				subtitle="Conoce nuestra historia, valores y al equipo que lo hace posible."
+				icon="fa-solid fa-users"
+			/>
+
+			{/* Cuerpo de la página: Historia y propósito */}
+			<OurStory />
+
+			{/* CTA: Personalizado para la página About.
+                Recuerda que el fondo azul oscuro de este componente 
+                creará un excelente cierre antes del Footer.
+            */}
+			<CallToAction
+				title="¿Compartimos una visión?"
+				description="Si buscas un socio estratégico que entienda tu negocio y no solo un proveedor, hablemos."
+			/>
+		</main>
 	);
 };
 

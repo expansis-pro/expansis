@@ -1,49 +1,31 @@
 // src/components/CtaButton.js
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { scrollToSection } from '../utils/scrollUtils'; // Importamos la utilidad de scroll
+import { scrollToSection } from '../utils/scrollUtils';
 
-const CtaButton = ({ children, to, scrollTo, variant = 'primary', category = 'General', label }) => {
+const CtaButton = ({ children, to, scrollTo, variant = 'primary', className = "" }) => {
+    // 1. Estilos base compartidos (sin colores ni bordes fijos)
+    const baseClasses = "inline-block transition-all duration-300 transform hover:scale-105 text-center cursor-pointer";
 
-    // Define estilos base y específicos para cada variante
-    const baseClasses = "inline-block w-full sm:w-auto font-bold py-3 px-8 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105 text-center";
-    const primaryClasses = "bg-primario text-white hover:bg-secundario";
-    const secondaryClasses = "bg-transparent border-2 border-primario text-primario hover:bg-primario hover:text-white";
+    // 2. Si NO hay className externo, usamos estos por defecto
+    const defaultVariantClasses = variant === 'primary'
+        ? "bg-primario text-ghostWhite px-8 py-3 rounded-lg shadow-lg"
+        : "border-2 border-deepBlue text-deepBlue px-8 py-3 rounded-lg bg-white";
 
-    const finalClasses = `${baseClasses} ${variant === 'primary' ? primaryClasses : secondaryClasses}`;
+    // 3. Prioridad: baseClasses + (className externo O defaultVariantClasses)
+    const finalClasses = `${baseClasses} ${className || defaultVariantClasses}`;
 
-    // Función para el seguimiento de clics
-    const handleAnalyticsClick = () => {
-        if (typeof window.gtag === 'function') {
-            window.gtag('event', 'click_cta', {
-                event_category: category,
-                event_label: label || children,
-            });
-        }
-    };
-
-    // Si se proporciona la prop "scrollTo", renderiza un botón con la función de scroll
     if (scrollTo) {
         return (
-            <button
-                className={finalClasses}
-                onClick={() => {
-                    scrollToSection(scrollTo);
-                    handleAnalyticsClick();
-                }}
-            >
+            <button className={finalClasses} onClick={() => scrollToSection(scrollTo)}>
                 {children}
             </button>
         );
     }
 
-    // De lo contrario, renderiza un Link para navegar a otra página
+    // Aseguramos que siempre haya un destino para el Link
     return (
-        <Link
-            to={to}
-            className={finalClasses}
-            onClick={handleAnalyticsClick}
-        >
+        <Link to={to || "/"} className={finalClasses}>
             {children}
         </Link>
     );

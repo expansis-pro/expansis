@@ -7,20 +7,11 @@ const Whatsapp = () => {
 
     // Función para manejar el clic en el botón de WhatsApp
     const handleWhatsappClick = () => {
-        // 1. Evento EXCLUSIVO para Google Analytics 4
-        if (typeof window.gtag === 'function') {
-            window.gtag('event', 'click_whatsapp', {
-                'send_to': 'G-82V0SGG463', // <--- AGREGAR ESTA LÍNEA
-                event_category: 'Contacto',
-                event_label: 'Boton Conversemos WhatsApp',
-                link_url: whatsappLink
-            });
-        }
 
-        // 2. Evento EXCLUSIVO para Google Ads
+
         if (typeof window.gtag === 'function') {
             window.gtag('event', 'conversion', {
-                'send_to': 'AW-16965295721/wff8CPWU1sIbEOm815k_' // <--- VERIFICAR ESTE CÓDIGO
+                'send_to': 'AW-16965295721/wff8CPWU1sIbEOm815k_'
             });
         }
     };

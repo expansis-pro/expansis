@@ -28,7 +28,7 @@ function App() {
       <div className="flex flex-col min-h-screen">
         <Navbar />
         {/* --- CAMBIO: Se añadió padding horizontal (px-4 sm:px-6 lg:px-8) --- */}
-        <main className="flex-grow pt-[64px] bg-gray-50 px-4 sm:px-6 lg:px-8">
+        <main className="flex-grow bg-gray-50">
           <Suspense fallback={<LoadingPage />}>
             <AnimatePresence mode="wait">
               <Routes location={location} key={location.pathname}>
@@ -87,7 +87,7 @@ function App() {
           </Suspense>
         </main>
         <Footer />
-      </div>
+      </div >
     </>
   );
 }
