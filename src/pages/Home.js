@@ -1,10 +1,8 @@
-// src/pages/Home.js
 import React from 'react';
 import { motion } from 'framer-motion';
 import { servicesData } from '../data/servicesData';
 import ServiceItem from '../components/ServiceItem';
 import CallToAction from '../components/CallToAction';
-import SocialProof from '../components/SocialProof';
 import CtaButton from '../components/CtaButton';
 import ImageTextCTA from '../components/ImageTextCTA';
 import aboutMeImage from '../img/quienes-somos_teaser.webp';
@@ -13,25 +11,42 @@ import CardCarousel from '../components/CardCarousel';
 const Home = () => {
 	return (
 		<>
-			{/* HERO SECTION: Estilos de tamaño gestionados por index.css [cite: 83, 84] */}
-			<section id="home" className="bg-deepBlue min-h-[500px] flex items-center justify-center text-center">
-				<div className="max-w-4xl mx-auto px-4 py-20">
+			{/* --- HERO SECTION CON VIDEO --- */}
+			<section id="home" className="relative h-[85vh] min-h-[600px] flex items-center justify-start md:justify-center overflow-hidden bg-deepBlue px-6">
+
+				{/* 1. EL VIDEO (Fondo) */}
+				<video
+					autoPlay
+					loop
+					muted
+					playsInline
+					poster="/assets/hero-poster.webp"
+					className="absolute inset-0 z-0 w-full h-full object-cover opacity-40 brightness-[0.7]"
+				>
+					<source src="/assets/hero-expansis.mp4" type="video/mp4" />
+				</video>
+
+				{/* 2. OVERLAY (Gradiente para legibilidad) */}
+				<div className="absolute inset-0 z-10 bg-gradient-to-b from-deepBlue/20 via-deepBlue/40 to-deepBlue"></div>
+
+				{/* 3. CONTENIDO (Usa las Clases Maestras de index.css) */}
+				<div className="relative z-20 max-w-4xl md:mx-auto">
 					<motion.div
-						initial={{ opacity: 0, y: 20 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.6 }}
+						initial={{ opacity: 0, x: -30 }} // Entrada lateral para mobile
+						animate={{ opacity: 1, x: 0 }}
+						transition={{ duration: 0.8, ease: "easeOut" }}
+						className="hero-wrapper" // <--- CLASE MAESTRA: Izquierda en mobile / Centro en Desktop
 					>
-						{/* El h1 ya tiene el tamaño lg:text-6xl y font-light por CSS base */}
-						<h1 className="text-ghostWhite">
-							Tu socio estratégico para la Expansión Digital
+						<h1 className="text-ghostWhite drop-shadow-lg">
+							Arquitectura digital para <br />
+							<span className="text-primario italic font-bold">negocios con trayectoria</span>
 						</h1>
 
-						{/* El p hereda font-light del body; solo dejamos márgenes y color específico */}
-						<p className="mb-10 text-gray-300">
-							Mas clientes. Más ingresos. Tu canal digital a medida.
+						<p className="hero-paragraph">
+							En Expansis Pro transformamos tu experiencia empresarial en plataformas digitales robustas.
 						</p>
 
-						<div className="flex flex-col sm:flex-row justify-center gap-4">
+						<div className="hero-actions">
 							<CtaButton
 								scrollTo="services-home"
 								variant="primary"
@@ -45,13 +60,13 @@ const Home = () => {
 				</div>
 			</section>
 
-			{/* SECCIÓN DE SERVICIOS [cite: 86] */}
-			<section id="services-home" className="py-16">
+			{/* --- SECCIÓN DE SERVICIOS --- */}
+			<section id="services-home" className="py-20 bg-white">
 				<div className="max-w-6xl mx-auto text-center px-4">
-					{/* El h2 ya tiene tamaño y color por CSS base */}
 					<h2>Nuestros Servicios</h2>
 
-					<p className="text-gray-600 mb-12">
+					{/* CAMBIO: Texto agrandado (lg -> xl) y con interlineado relajado */}
+					<p className="text-gray-600 mb-12 max-w-3xl mx-auto text-lg md:text-xl font-light leading-relaxed">
 						Soluciones integrales para potenciar tu negocio en el mundo digital.
 					</p>
 
@@ -63,8 +78,8 @@ const Home = () => {
 				</div>
 			</section>
 
-			{/* SECCIÓN IMAGE TEXT CTA (Detrás de la Estrategia) [cite: 96, 99] */}
-			<section id="about-teaser" className="bg-white">
+			{/* SECCIÓN IMAGE TEXT CTA */}
+			<section id="about-teaser">
 				<ImageTextCTA
 					imageDesktop={aboutMeImage}
 					alt="Gonzalo Lobos trabajando en estrategia digital"
@@ -81,8 +96,8 @@ const Home = () => {
 				/>
 			</section>
 
+			{/* Este componente ya debe tener el rounded-none que aplicamos antes */}
 			<CallToAction />
-
 		</>
 	);
 };

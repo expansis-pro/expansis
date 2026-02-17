@@ -11,24 +11,49 @@
 		@apply font-sans font-light text-gray-800 bg-ghostWhite;
 	}
 
-	/* h1: Definición base moderada. El tamaño gigante lo daremos en el componente Home */
+	/* h1: Base fluida. El tamaño 6xl se aplica en el Hero */
 	h1 {
-		@apply text-3xl sm:text-4xl leading-tight;
+		@apply text-4xl sm:text-5xl md:text-5xl leading-tight;
 	}
 
-	/* h2: Títulos de sección estándar [cite: 86] */
 	h2 {
-		@apply text-2xl sm:text-3xl text-gray-900 mb-6;
+		@apply text-3xl sm:text-4xl text-gray-900 mb-6;
 	}
 
-	/* h3: Títulos de tarjetas (Cards de servicio)  */
 	h3 {
 		@apply text-xl mb-2;
 	}
 
 	button,
 	a {
-		font-weight: 400 !important; /* Fuerza el peso normal del rediseño */
+		font-weight: 400 !important;
+	}
+}
+
+/* --- CAPA DE COMPONENTES: Aquí abstraemos la lógica responsiva --- */
+@layer components {
+	/* Maneja el alineado: Izquierda en mobile, Centro en Desktop */
+	.hero-wrapper {
+		@apply flex flex-col items-start text-left md:items-center md:text-center w-full;
+	}
+
+	/* El párrafo del hero: Controlamos el ancho y el centrado en desktop */
+	.hero-paragraph {
+		@apply mb-10 text-ghostWhite/90 text-lg md:text-xl font-light max-w-2xl md:mx-auto;
+	}
+
+	/* El contenedor de botones: Se apilan en mobile, se alinean en desktop */
+	.hero-actions {
+		@apply flex flex-col sm:flex-row justify-start md:justify-center gap-4 w-full;
+	}
+	/* En tu index.css bajo @layer components */
+	.section-subtitle {
+		@apply text-gray-600 text-lg md:text-xl font-light max-w-3xl mx-auto leading-relaxed;
+	}
+	.service-card {
+		@apply bg-white p-8 h-full flex flex-col items-start text-left 
+           shadow-sm border border-gray-100 transition-all hover:shadow-md 
+           rounded-2xl overflow-hidden; /* <--- Redondeo aquí */
 	}
 }
 
