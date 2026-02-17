@@ -6,11 +6,6 @@ import CardCarousel from '../components/CardCarousel';
 function MisionVision() {
   const philosophyScrollRef = useRef(null);
 
-  const scroll = (scrollOffset) => {
-    if (philosophyScrollRef.current) {
-      philosophyScrollRef.current.scrollBy({ left: scrollOffset, behavior: 'smooth' });
-    }
-  };
 
   const misionData = {
     slug: "mision",

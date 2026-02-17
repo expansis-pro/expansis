@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import SecondaryHero from '../components/SecondaryHero';
 import ContactForm from '../components/ContactForm';
-import SocialProof from '../components/SocialProof';
+
 
 const Contact = () => {
 	useEffect(() => {

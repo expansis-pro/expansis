@@ -73,7 +73,7 @@ function EmbededSocial() {
         // CAMBIO REALIZADO: Contenedor para el título y el widget con max-w-6xl mx-auto
         <div className="max-w-6xl mx-auto text-center">
             {/* CAMBIO REALIZADO: Título movido aquí */}
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-8">Síguenos en Instagram</h2>
+            <h2 className="text-3xl sm:text-4xl  text-gray-900 mb-8">Síguenos en Instagram</h2>
             <div ref={iframeContainerRef} className="w-full" style={{ minHeight: '400px' }}>
                 {/* El iframe se incrustará aquí dinámicamente */}
             </div>

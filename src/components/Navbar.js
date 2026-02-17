@@ -11,13 +11,18 @@ const Navbar = () => {
 	const navRef = useRef(null);
 	const servicesNavRef = useRef(null);
 
-	// Variantes de animación para el dropdown
+	// Variantes de animación para el dropdown Desktop
 	const desktopDropdownVariants = {
 		open: { opacity: 1, y: 0, transition: { duration: 0.2 } },
 		closed: { opacity: 0, y: -10, transition: { duration: 0.2 } },
 	};
 
-	// Lógica para detectar el scroll y cambiar el fondo
+	// Variantes para el Menú Mobile (Nuevo)
+	const mobileMenuVariants = {
+		closed: { opacity: 0, height: 0, transition: { duration: 0.3, ease: "easeInOut" } },
+		open: { opacity: 1, height: "auto", transition: { duration: 0.3, ease: "easeInOut" } }
+	};
+
 	useEffect(() => {
 		const handleScroll = () => {
 			setScrolled(window.scrollY > 50);
@@ -26,7 +31,6 @@ const Navbar = () => {
 		return () => window.removeEventListener('scroll', handleScroll);
 	}, []);
 
-	// Cerrar menús al hacer clic fuera
 	useEffect(() => {
 		function handleClickOutside(event) {
 			if (navRef.current && !navRef.current.contains(event.target)) {
@@ -40,7 +44,6 @@ const Navbar = () => {
 		return () => document.removeEventListener("mousedown", handleClickOutside);
 	}, []);
 
-	// --- FUNCIONES DE CLIC (Restauradas) ---
 	const handleLogoClick = () => {
 		if (typeof window.gtag === 'function') {
 			window.gtag('event', 'click_navegacion', {
@@ -61,29 +64,35 @@ const Navbar = () => {
 			});
 		}
 		setServicesMenuOpen(false);
-		setMenuOpen(false);
+		setMenuOpen(false); // IMPORTANTE: Esto cierra el menú mobile al hacer clic
 	};
 
-	const navClasses = `fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? "bg-deepBlue shadow-lg py-2" : "bg-transparent py-4"
+	const navClasses = `fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled || menuOpen ? "bg-deepBlue shadow-lg py-2" : "bg-transparent py-4"
 		}`;
 
 	return (
 		<nav className={navClasses} ref={navRef}>
 			<div className="max-w-6xl mx-auto flex justify-between items-center px-4 sm:px-6 lg:px-8">
 
-				{/* --- LOGO: Ahora con font-semibold para menos peso visual --- */}
+				{/* LOGO */}
 				<NavLink
 					to="/"
-					className="text-2xl text-ghostWhite hover:text-primario transition-colors"
+					className="text-2xl font-semibold text-ghostWhite hover:text-primario transition-colors"
 					onClick={handleLogoClick}
 				>
 					Expansis Pro
 				</NavLink>
 
-				<button className="md:hidden text-ghostWhite text-2xl" onClick={() => setMenuOpen(!menuOpen)}>
+				{/* BOTÓN HAMBURGUESA */}
+				<button
+					className="md:hidden text-ghostWhite text-3xl focus:outline-none"
+					onClick={() => setMenuOpen(!menuOpen)}
+					aria-label="Toggle menu"
+				>
 					{menuOpen ? '✕' : '☰'}
 				</button>
 
+				{/* MENU DESKTOP */}
 				<ul className="hidden md:flex items-center space-x-8">
 					<li>
 						<NavLink
@@ -135,6 +144,46 @@ const Navbar = () => {
 					<li><NavLink to="/faq" className="text-ghostWhite hover:text-primario font-medium transition-colors" onClick={() => handleNavLinkClick('FAQ')}>FAQ</NavLink></li>
 				</ul>
 			</div>
+
+			{/* --- MENÚ MOBILE (BLOQUE AÑADIDO) --- */}
+			<AnimatePresence>
+				{menuOpen && (
+					<motion.div
+						variants={mobileMenuVariants}
+						initial="closed"
+						animate="open"
+						exit="closed"
+						className="md:hidden bg-deepBlue border-t border-gray-800 overflow-hidden"
+					>
+						<ul className="flex flex-col p-4 space-y-4">
+							<li>
+								<NavLink to="/" className="text-ghostWhite block text-lg" onClick={() => handleNavLinkClick('Inicio')}>
+									Inicio
+								</NavLink>
+							</li>
+							{/* En mobile, listamos los servicios directamente para mejor UX */}
+							<li className="border-b border-gray-800 pb-2">
+								<span className="text-gray-400 text-sm uppercase ">Servicios</span>
+								<div className="mt-2 ml-4 flex flex-col space-y-2">
+									{servicesData.map(service => (
+										<NavLink
+											key={service.slug}
+											to={`/servicios/${service.slug}`}
+											onClick={() => handleNavLinkClick(`Servicio Mobile: ${service.title}`)}
+											className="text-ghostWhite/80 text-base"
+										>
+											{service.title}
+										</NavLink>
+									))}
+								</div>
+							</li>
+							<li><NavLink to="/quienes-somos" className="text-ghostWhite block text-lg" onClick={() => handleNavLinkClick('Sobre Expansis')}>Sobre Expansis</NavLink></li>
+							<li><NavLink to="/contacto" className="text-ghostWhite block text-lg" onClick={() => handleNavLinkClick('Contacto')}>Contacto</NavLink></li>
+							<li><NavLink to="/faq" className="text-ghostWhite block text-lg" onClick={() => handleNavLinkClick('FAQ')}>FAQ</NavLink></li>
+						</ul>
+					</motion.div>
+				)}
+			</AnimatePresence>
 		</nav>
 	);
 };

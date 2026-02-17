@@ -30,7 +30,7 @@ const MoveToUrlButton = ({ url = '/', name = 'Botón', category = 'General', lab
         <div className="max-w-6xl mx-auto text-center py-6">
             <Link
                 to={url} // Usa la prop 'url' para la URL de destino
-                className="inline-block bg-primario text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-secundario transition-all duration-300 transform hover:scale-105"
+                className="inline-block bg-primario text-white  py-3 px-8 rounded-lg shadow-lg hover:bg-secundario transition-all duration-300 transform hover:scale-105"
                 onClick={handleButtonClick} // Añade el manejador de clic aquí
             >
                 {name} {/* Usa la prop 'name' para el texto del botón */}

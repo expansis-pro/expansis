@@ -1,7 +1,7 @@
 // src/pages/ServicePage.js
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+
 import { servicesData } from '../data/servicesData';
 import { faqData } from '../data/faqData';
 import NotFound from './NotFound';
@@ -61,7 +61,7 @@ const ServicePage = () => {
                     <div className="grid grid-cols-1 gap-6">
                         {service.phases.map((phase, index) => (
                             <div key={index} className="p-8 rounded-2xl shadow-sm border border-gray-100 bg-ghostWhite flex items-start gap-6">
-                                <span className="flex-shrink-0 w-10 h-10 bg-primario text-ghostWhite rounded-full flex items-center justify-center font-bold">
+                                <span className="flex-shrink-0 w-10 h-10 bg-primario text-ghostWhite rounded-full flex items-center justify-center ">
                                     {index + 1}
                                 </span>
                                 <div>
@@ -81,7 +81,7 @@ const ServicePage = () => {
                         <div className="absolute top-0 right-0 w-32 h-32 bg-primario/10 rounded-full -mr-16 -mt-16 blur-2xl"></div>
 
                         <p className="text-sm uppercase tracking-widest text-primario font-semibold mb-2">Valor Inicial</p>
-                        <p className="text-5xl sm:text-6xl font-bold my-4">{service.pricing.from}</p>
+                        <p className="text-5xl sm:text-6xl  my-4">{service.pricing.from}</p>
 
                         <ul className="mt-10 space-y-4 inline-block text-left">
                             {service.pricing.features.map((feature, index) => (

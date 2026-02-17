@@ -90,7 +90,7 @@ const Faqs = () => {
                         {faqsForDisplay.length > initialFaqsToShow && (
                             <button
                                 onClick={handleShowAllToggle}
-                                className="group flex items-center gap-2 text-primario font-bold hover:text-deepBlue transition-colors"
+                                className="group flex items-center gap-2 text-primario  hover:text-deepBlue transition-colors"
                             >
                                 {showAll ? 'Ver menos preguntas' : 'Ver más preguntas'}
                                 <i className={`fa-solid fa-chevron-down transition-transform duration-300 ${showAll ? 'rotate-180' : ''}`}></i>

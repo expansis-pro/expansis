@@ -32,7 +32,7 @@ const ReadMore = ({ text, maxLength = 300 }) => {
             {/* Botón "Ver más / Ver menos": Solo visible en móvil. */}
             <button
                 onClick={toggleExpansion}
-                className="text-primario font-bold hover:underline md:hidden mt-2"
+                className="text-primario  hover:underline md:hidden mt-2"
             >
                 {isExpanded ? 'Ver menos' : 'Ver más'}
             </button>
