@@ -4,6 +4,20 @@ import CtaButton from './CtaButton';
 const ServiceItem = ({ icon, title, description, slug }) => {
     const isLink = slug !== "mision" && slug !== "vision";
 
+    // --- LÓGICA DE WHATSAPP ---
+    const phoneNumber = "56965961086";
+    // Usamos el 'title' del servicio para que el mensaje sea único
+    const message = encodeURIComponent(`¡Hola! Me interesa el servicio de *${title}*. ¿Me podrías dar más información?`);
+    const whatsappLink = `https://wa.me/${phoneNumber}?text=${message}`;
+
+    const handleWhatsappClick = () => {
+        if (typeof window.gtag === 'function') {
+            window.gtag('event', 'conversion', {
+                'send_to': 'AW-16965295721/wff8CPWU1sIbEOm815k_'
+            });
+        }
+    };
+
     return (
         <div className="flex flex-col p-8 bg-deepBlue shadow-xl w-[280px] md:w-80 min-h-[360px] my-4 snap-center text-left border border-gray-800 flex-shrink-0 rounded-2xl overflow-hidden transition-all hover:border-gray-700">
 
@@ -23,21 +37,18 @@ const ServiceItem = ({ icon, title, description, slug }) => {
                 {description}
             </p>
 
-            {/* Botón Ensanchado */}
+            {/* Botón Ensanchado hacia WhatsApp */}
             {isLink && (
                 <div className="mt-auto w-full">
-                    <CtaButton
-                        to={`/servicios/${slug}`}
-                        variant="primary"
-                        /* CAMBIOS:
-                           1. Quitamos 'sm:w-auto' para que no se encoja en escritorio.
-                           2. Mantenemos 'w-full' para que ocupe todo el ancho disponible.
-                           3. 'block' en lugar de 'inline-block' para asegurar el comportamiento de bloque.
-                        */
+                    <a
+                        href={whatsappLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={handleWhatsappClick}
                         className="w-full block bg-primario text-ghostWhite py-3 rounded-xl border-none shadow-md hover:brightness-110 transition-all text-center font-bold"
                     >
-                        Saber Más
-                    </CtaButton>
+                        Consultar por WhatsApp
+                    </a>
                 </div>
             )}
         </div>

@@ -1,9 +1,16 @@
 import React from 'react';
 import CtaButton from './CtaButton';
 
-const CallToAction = ({ title, description }) => {
+// Añadimos 'source' a las props, con un valor por defecto
+const CallToAction = ({ title, description, source = "CTA Principal" }) => {
     const phoneNumber = "56965961086";
-    const message = encodeURIComponent("¡Hola! ¡Quiero descubrir cómo Expansis Pro puede ayudarme!");
+
+    // El mensaje ahora incluye la variable 'source'
+    // Usamos asteriscos (*) para que en WhatsApp la palabra salga en negrita
+    const message = encodeURIComponent(
+        `¡Hola! Vengo de la sección *${source}* y quiero descubrir cómo Expansis Pro puede ayudarme.`
+    );
+
     const whatsappLink = `https://wa.me/${phoneNumber}?text=${message}`;
 
     const handleWhatsappClick = () => {
@@ -16,11 +23,6 @@ const CallToAction = ({ title, description }) => {
 
     return (
         <section id="call-to-action" className="py-12 md:py-20 bg-white">
-            {/* CAMBIOS CLAVE:
-               1. mx-6: Crea el margen lateral en mobile para que se vea como "cajita".
-               2. rounded-[2.5rem]: Aplica la redondez en todos los dispositivos.
-               3. md:mx-auto: Centra la caja en pantallas grandes.
-            */}
             <div className="mx-6 md:max-w-6xl md:mx-auto bg-deepBlue text-ghostWhite p-10 md:p-20 rounded-[2.5rem] shadow-2xl text-center">
 
                 <h2 className="text-ghostWhite mb-6">

@@ -97,7 +97,10 @@ const Home = () => {
 			</section>
 
 			{/* Este componente ya debe tener el rounded-none que aplicamos antes */}
-			<CallToAction />
+			<CallToAction
+				source="Home - Final de Página"
+				title="¿Listo para dar el salto?"
+			/>
 		</>
 	);
 };
