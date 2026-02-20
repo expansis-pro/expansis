@@ -13,8 +13,6 @@ const Home = () => {
 		<>
 			{/* --- HERO SECTION CON VIDEO --- */}
 			<section id="home" className="relative h-[85vh] min-h-[600px] flex items-center justify-start md:justify-center overflow-hidden bg-deepBlue px-6">
-
-				{/* 1. EL VIDEO (Fondo) */}
 				<video
 					autoPlay
 					loop
@@ -26,16 +24,14 @@ const Home = () => {
 					<source src="/assets/hero-expansis.mp4" type="video/mp4" />
 				</video>
 
-				{/* 2. OVERLAY (Gradiente para legibilidad) */}
 				<div className="absolute inset-0 z-10 bg-gradient-to-b from-deepBlue/20 via-deepBlue/40 to-deepBlue"></div>
 
-				{/* 3. CONTENIDO (Usa las Clases Maestras de index.css) */}
 				<div className="relative z-20 max-w-4xl md:mx-auto">
 					<motion.div
-						initial={{ opacity: 0, x: -30 }} // Entrada lateral para mobile
+						initial={{ opacity: 0, x: -30 }}
 						animate={{ opacity: 1, x: 0 }}
 						transition={{ duration: 0.8, ease: "easeOut" }}
-						className="hero-wrapper" // <--- CLASE MAESTRA: Izquierda en mobile / Centro en Desktop
+						className="hero-wrapper"
 					>
 						<h1 className="text-ghostWhite drop-shadow-lg">
 							Arquitectura digital para <br />
@@ -60,13 +56,14 @@ const Home = () => {
 				</div>
 			</section>
 
-			{/* --- SECCIÓN DE SERVICIOS --- */}
-			<section id="services-home" className="py-20 bg-white">
+			{/* --- SECCIÓN DE SERVICIOS (Ajustada) --- */}
+			{/* CAMBIO: py-12 para mobile (48px) y md:py-16 para desktop (64px) */}
+			<section id="services-home" className="py-8 md:py-8 bg-white">
 				<div className="max-w-6xl mx-auto text-center px-4">
-					<h2>Nuestros Servicios</h2>
+					<h2 className="mb-4 md:mb-6">Nuestros Servicios</h2>
 
-					{/* CAMBIO: Texto agrandado (lg -> xl) y con interlineado relajado */}
-					<p className="text-gray-600 mb-12 max-w-3xl mx-auto text-lg md:text-xl font-light leading-relaxed">
+					{/* CAMBIO: Reducimos mb-12 a mb-6 en mobile para que el carrusel esté más cerca */}
+					<p className="text-gray-600 mb-6 md:mb-12 max-w-3xl mx-auto text-lg md:text-xl font-light leading-relaxed">
 						Soluciones integrales para potenciar tu negocio en el mundo digital.
 					</p>
 
@@ -96,11 +93,16 @@ const Home = () => {
 				/>
 			</section>
 
-			{/* Este componente ya debe tener el rounded-none que aplicamos antes */}
-			<CallToAction
-				source="Home - Final de Página"
-				title="¿Listo para dar el salto?"
-			/>
+			{/* --- SECCIÓN DE CIERRE (CTA) --- */}
+			<section className="bg-white pb-16 md:pb-24 px-4">
+				<div className="max-w-4xl mx-auto">
+					<CallToAction
+						source="Home - Final de Página"
+						title="¿Listo para dar el salto?"
+						description="Hablemos de tu proyecto. Elige la opción que más te acomode."
+					/>
+				</div>
+			</section>
 		</>
 	);
 };

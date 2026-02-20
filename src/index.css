@@ -82,4 +82,17 @@
            hover:bg-ghostWhite hover:text-deepBlue hover:border-ghostWhite
            text-center font-bold inline-flex items-center justify-center gap-3;
 	}
+	/* BOTÓN PARA FONDOS CLAROS (como el "Conoce nuestra historia") */
+	.btn-outline {
+		@apply border-2 border-deepBlue text-deepBlue bg-transparent 
+           py-4 px-10 rounded-xl transition-all duration-300 transform 
+           hover:bg-deepBlue hover:text-ghostWhite 
+           text-center font-bold inline-flex items-center justify-center gap-3;
+	}
+
+	/* CLASE MAESTRA DE ESPACIADO VERTICAL */
+	.section-padding {
+		/* py-12 (48px) en mobile | md:py-20 (80px) en desktop */
+		@apply py-12 md:py-20;
+	}
 }
