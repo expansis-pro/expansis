@@ -20,7 +20,7 @@ export const servicesData = [
             }
         ],
         pricing: {
-            from: "$300.000 CLP",
+            from: "$350.000 CLP", // +50.000
             features: [
                 "Diseño UI/UX 100% personalizado a tu marca",
                 "Tecnología moderna (React) para máxima velocidad",
@@ -59,7 +59,7 @@ export const servicesData = [
             }
         ],
         pricing: {
-            from: "$200.000 CLP",
+            from: "$250.000 CLP", // +50.000
             features: [
                 "Análisis de competencia",
                 "Estrategia de contenidos",
@@ -95,7 +95,7 @@ export const servicesData = [
             }
         ],
         pricing: {
-            from: "$150.000 CLP / mes",
+            from: "$200.000 CLP / mes", // +50.000
             features: [
                 "Gestión de Redes Sociales",
                 "Campañas en Meta y Google Ads",

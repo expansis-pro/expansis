@@ -65,3 +65,21 @@
 	-ms-overflow-style: none;
 	scrollbar-width: none;
 }
+
+@layer components {
+	/* BOTÓN PRIMARIO (Naranja Expansis) */
+	.btn-primary {
+		@apply bg-primario text-ghostWhite py-4 px-10 rounded-xl 
+           transition-all duration-300 transform 
+           hover:scale-105 hover:brightness-110 
+           text-center font-bold shadow-lg inline-flex items-center justify-center gap-3;
+	}
+
+	/* BOTÓN SECUNDARIO (Outline/Ghost) */
+	.btn-secondary {
+		@apply border-2 border-ghostWhite/20 text-ghostWhite bg-transparent 
+           py-4 px-10 rounded-xl transition-all duration-300 transform 
+           hover:bg-ghostWhite hover:text-deepBlue hover:border-ghostWhite
+           text-center font-bold inline-flex items-center justify-center gap-3;
+	}
+}

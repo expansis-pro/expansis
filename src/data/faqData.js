@@ -1,24 +1,54 @@
-// src/data/faqData.js
 import React from 'react';
 
 export const faqData = [
     {
-        question: "¿Qué incluye el valor inicial de Desarrollo Web?",
-        answerJSX: (<p className="text-justify">El valor inicial (desde $300.000 CLP) cubre el desarrollo completo de una página web profesional tipo 'One Page' o Landing Page. Esto incluye un diseño 100% personalizado, desarrollo con tecnología React para máxima velocidad, optimización SEO base e integraciones clave como Google Analytics 4 y WhatsApp Business.</p>),
-        answerText: "El valor inicial (desde $300.000 CLP) cubre el desarrollo completo de una página web profesional tipo 'One Page' o Landing Page...",
+        question: "¿Qué cubre exactamente el valor inicial de Desarrollo Web?",
+        answerJSX: (
+            <p className="text-justify">
+                El valor inicial (desde <strong>$350.000 CLP</strong>) representa nuestra <strong>Configuración Base Profesional</strong>.
+                Cubre la estructura esencial de una Landing Page de alto rendimiento: diseño único (no plantillas),
+                optimización de velocidad y conexión con WhatsApp. Proyectos que requieran múltiples secciones,
+                sistemas de pagos o bases de datos se cotizan como módulos adicionales para que solo pagues por lo que realmente necesitas.
+            </p>
+        ),
+        answerText: "El valor base (desde $350.000 CLP) cubre la estructura esencial. Funcionalidades complejas se cotizan por separado.",
         tags: ["desarrollo-web"]
     },
     {
         question: "¿Qué incluye el valor inicial de la Consultoría Digital?",
-        answerJSX: (<p className="text-justify">El valor inicial (desde $200.000 CLP) cubre la fase de diagnóstico completo. Te entregamos un informe de auditoría profesional con los hallazgos sobre tu sitio web, redes y competencia, junto con una primera capa de recomendaciones estratégicas priorizadas para que sepas exactamente por dónde empezar a mejorar.</p>),
-        answerText: "El valor inicial (desde $200.000 CLP) cubre la fase de diagnóstico completo...",
+        answerJSX: (
+            <p className="text-justify">
+                El valor inicial (desde <strong>$250.000 CLP</strong>) cubre la fase de diagnóstico completo.
+                Te entregamos un informe de auditoría profesional con los hallazgos sobre tu sitio web, redes y competencia,
+                junto con una primera capa de recomendaciones estratégicas priorizadas para que sepas exactamente por dónde empezar a mejorar.
+            </p>
+        ),
+        answerText: "El valor inicial (desde $250.000 CLP) cubre la fase de diagnóstico completo y recomendaciones estratégicas.",
         tags: ["consultoria-digital"]
     },
     {
         question: "¿Qué incluye la inversión mensual en Marketing Online?",
-        answerJSX: (<p className="text-justify">El valor mensual (desde $150.000 CLP) corresponde a nuestros honorarios por la gestión estratégica y operativa de tus campañas en un canal principal (ej. Meta o Google Ads). Cubre todo el ciclo: desde la planificación y creación de anuncios hasta el monitoreo diario, la optimización y un reporte mensual de resultados para que veas el impacto de tu inversión.</p>),
-        answerText: "El valor mensual (desde $150.000 CLP) corresponde a nuestros honorarios por la gestión estratégica y operativa de tus campañas...",
+        answerJSX: (
+            <p className="text-justify">
+                El valor mensual (desde <strong>$200.000 CLP</strong>) corresponde a nuestros honorarios por la gestión estratégica y operativa de tus campañas en un canal principal (ej. Meta o Google Ads).
+                Cubre todo el ciclo: desde la planificación y creación de anuncios hasta el monitoreo diario, la optimización y un reporte mensual de resultados para que veas el impacto de tu inversión.
+            </p>
+        ),
+        answerText: "El valor mensual (desde $200.000 CLP) corresponde a la gestión estratégica y operativa de campañas en un canal principal.",
         tags: ["marketing-online"]
+    },
+    {
+        question: "¿Por qué los precios son 'desde'?",
+        answerJSX: (
+            <p className="text-justify">
+                Porque en Expansis Pro no vendemos paquetes cerrados y rígidos. Cada negocio tiene necesidades distintas.
+                El valor inicial te asegura una <strong>base de calidad premium</strong>, y a partir de ahí,
+                podemos añadir funcionalidades y escalar el proyecto según tus objetivos específicos,
+                evitando que pagues por herramientas o servicios que no vas a utilizar.
+            </p>
+        ),
+        answerText: "Los precios son desde porque cada solución es personalizada y escalable según las necesidades del cliente.",
+        tags: ["general"]
     },
     {
         question: "¿Cómo se gestiona el material gráfico (diseño) para las campañas?",
@@ -40,7 +70,7 @@ export const faqData = [
                 <p>Adicionalmente, ofrecemos la <strong>integración opcional de un panel de contenidos (Headless CMS)</strong>. Esto te da lo mejor de ambos mundos: un sitio de alto rendimiento con la capacidad de que tú mismo edites los contenidos de forma sencilla.</p>
             </div>
         ),
-        answerText: "No utilizamos plantillas de WordPress. Construimos nuestros sitios web a medida con tecnologías modernas como React por cuatro razones clave: Rendimiento Superior, Seguridad Reforzada, Personalización Total y Menor Mantenimiento...",
+        answerText: "No utilizamos plantillas de WordPress. Construimos nuestros sitios web a medida con tecnologías modernas como React por cuatro razones clave: Rendimiento Superior, Seguridad Reforzada, Personalización Total y Menor Mantenimiento.",
         tags: ["desarrollo-web"]
     },
     {
@@ -79,7 +109,6 @@ export const faqData = [
         answerText: "No, el hosting y dominio se contratan por separado para que seas el dueño, pero te asesoramos en todo el proceso.",
         tags: ["desarrollo-web", "general"]
     },
-    // Añade este nuevo objeto al array en src/data/faqData.js
     {
         question: "¿Qué pasa después de los 30 días de soporte gratuito?",
         answerJSX: (
@@ -91,7 +120,7 @@ export const faqData = [
                 <p>Si prefieres no tener un plan mensual, puedes solicitar cambios o nuevas funcionalidades cuando lo necesites. Estos trabajos se cotizan de forma separada, generalmente con una tarifa por hora, previa estimación y aprobación de tu parte.</p>
             </div>
         ),
-        answerText: "Después de los 30 días de soporte gratuito, ofrezco dos modalidades: un Plan de Mantenimiento mensual opcional para cubrir seguridad, backups y cambios menores, o Solicitudes a Medida que se cotizan por hora para nuevas funcionalidades.",
+        answerText: "Después de los 30 días de soporte gratuito, ofrezco dos modalidades: un Plan de Mantenimiento mensual opcional o Solicitudes a Medida que se cotizan por hora.",
         tags: ["desarrollo-web"]
     }
 ];

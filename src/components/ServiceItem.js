@@ -1,12 +1,11 @@
 import React from 'react';
-import CtaButton from './CtaButton';
+import { Link } from 'react-router-dom';
 
 const ServiceItem = ({ icon, title, description, slug }) => {
     const isLink = slug !== "mision" && slug !== "vision";
 
     // --- LÓGICA DE WHATSAPP ---
     const phoneNumber = "56965961086";
-    // Usamos el 'title' del servicio para que el mensaje sea único
     const message = encodeURIComponent(`¡Hola! Me interesa el servicio de *${title}*. ¿Me podrías dar más información?`);
     const whatsappLink = `https://wa.me/${phoneNumber}?text=${message}`;
 
@@ -19,7 +18,8 @@ const ServiceItem = ({ icon, title, description, slug }) => {
     };
 
     return (
-        <div className="flex flex-col p-8 bg-deepBlue shadow-xl w-[280px] md:w-80 min-h-[360px] my-4 snap-center text-left border border-gray-800 flex-shrink-0 rounded-2xl overflow-hidden transition-all hover:border-gray-700">
+        /* Contenedor principal con altura mínima para consistencia visual */
+        <div className="flex flex-col p-8 bg-deepBlue shadow-xl w-[280px] md:w-80 min-h-[440px] my-4 snap-center text-left border border-gray-800 flex-shrink-0 rounded-2xl overflow-hidden transition-all hover:border-gray-700">
 
             {/* Header: Título e Icono */}
             <div className="flex justify-between items-start mb-6 gap-4">
@@ -37,18 +37,29 @@ const ServiceItem = ({ icon, title, description, slug }) => {
                 {description}
             </p>
 
-            {/* Botón Ensanchado hacia WhatsApp */}
+            {/* --- BLOQUE DE ACCIÓN ESTANDARIZADO --- */}
             {isLink && (
-                <div className="mt-auto w-full">
+                <div className="mt-auto flex flex-col gap-3 w-full">
+
+                    {/* 1. Botón Principal: Usa la clase .btn-primary */}
                     <a
                         href={whatsappLink}
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={handleWhatsappClick}
-                        className="w-full block bg-primario text-ghostWhite py-3 rounded-xl border-none shadow-md hover:brightness-110 transition-all text-center font-bold"
+                        className="btn-primary w-full text-sm py-3"
                     >
-                        Consultar por WhatsApp
+                        <i className="fa-brands fa-whatsapp text-lg"></i>
+                        Contactar por WhatsApp
                     </a>
+
+                    {/* 2. Botón Secundario: Usa la clase .btn-secondary */}
+                    <Link
+                        to={`/servicios/${slug}`}
+                        className="btn-secondary w-full"
+                    >
+                        Ver detalles del servicio
+                    </Link>
                 </div>
             )}
         </div>
