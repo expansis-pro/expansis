@@ -2,6 +2,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { servicesData } from '../data/servicesData';
+import { sendWhatsAppMessage } from '../utils/trackingUtils';
+
 
 const Footer = () => {
 	const currentYear = new Date().getFullYear();
@@ -16,13 +18,6 @@ const Footer = () => {
 		}
 	};
 
-	const handleFooterWhatsappClick = () => {
-		if (typeof window.gtag === 'function') {
-			window.gtag('event', 'conversion', {
-				'send_to': 'AW-16965295721/wff8CPWU1sIbEOm815k_'
-			});
-		}
-	};
 
 	return (
 		<footer className="bg-deepBlue text-ghostWhite/60 py-16 px-4 sm:px-6 lg:px-8 border-t border-gray-800">
@@ -88,15 +83,12 @@ const Footer = () => {
 						</li>
 						<li className="flex items-center group">
 							<i className="fa-brands fa-whatsapp mr-3 text-primario"></i>
-							<a
-								href="https://wa.me/56965961086"
-								target="_blank"
-								rel="noopener noreferrer"
-								onClick={handleFooterWhatsappClick}
+							<button
+								onClick={() => sendWhatsAppMessage("Información General")}
 								className="hover:text-ghostWhite transition-colors"
 							>
 								+56 9 6596 1086
-							</a>
+							</button>
 						</li>
 						<li className="flex items-center group">
 							<i className="fa-brands fa-instagram mr-3 text-primario"></i>

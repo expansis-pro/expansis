@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import SecondaryHero from '../components/SecondaryHero';
 import ContactForm from '../components/ContactForm';
-
+import { sendWhatsAppMessage } from '../utils/trackingUtils';
 
 const Contact = () => {
 	useEffect(() => {
@@ -10,7 +10,7 @@ const Contact = () => {
 	}, []);
 
 	// --- LÓGICA DE CORREO ---
-	const email = "info@expansispro.com";
+	const email = "gonzalo@expansispro.com";
 	const subject = encodeURIComponent("Consulta sobre Proyecto Digital - Expansis Pro");
 	const body = encodeURIComponent("Hola equipo de Expansis Pro,\n\nMe pongo en contacto con ustedes porque estoy interesado en potenciar mi negocio digital.\n\nMis datos son:\n- Nombre:\n- Empresa:\n- Teléfono:\n\nQuedo atento a su respuesta.");
 
@@ -44,9 +44,12 @@ const Contact = () => {
 									</div>
 									<div>
 										<p className="text-xs text-gray-400 uppercase tracking-widest font-semibold">WhatsApp</p>
-										<a href="https://wa.me/56965961086" target="_blank" rel="noopener noreferrer" className="text-deepBlue text-lg hover:text-primario transition-colors font-medium">
+										<button
+											onClick={() => sendWhatsAppMessage("Información General")}
+											className="text-deepBlue text-lg hover:text-primario transition-colors font-medium text-left block"
+										>
 											+56 9 6596 1086
-										</a>
+										</button>
 									</div>
 								</li>
 								<li className="flex items-center gap-4">

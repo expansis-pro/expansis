@@ -1,30 +1,16 @@
 import React from 'react';
 import CtaButton from './CtaButton';
+// 1. Importamos la utilidad
+import { sendWhatsAppMessage } from '../utils/trackingUtils';
 
-const CallToAction = ({ title, description, source = "CTA Principal" }) => {
-    const phoneNumber = "56965961086";
+// Añadimos serviceName a las props (con "Información General" por defecto)
+const CallToAction = ({ title, description, serviceName = "Información General" }) => {
 
-    const message = encodeURIComponent(
-        `¡Hola! Vengo de la sección *${source}* y quiero descubrir cómo Expansis Pro puede ayudarme.`
-    );
-
-    const whatsappLink = `https://wa.me/${phoneNumber}?text=${message}`;
-
-    const handleWhatsappClick = () => {
-        if (typeof window.gtag === 'function') {
-            window.gtag('event', 'conversion', {
-                'send_to': 'AW-16965295721/wff8CPWU1sIbEOm815k_'
-            });
-        }
-    };
+    // 2. Eliminamos toda la lógica de construcción de links y tracking local
+    // ya que ahora la gestiona whatsappUtils.js
 
     return (
         <section id="call-to-action" className="py-12 md:py-20 bg-white">
-            {/* CAMBIOS:
-               1. mx-4: Más espacio para el contenido en mobile.
-               2. px-6 py-12: Padding interno equilibrado (menos a los lados, suficiente arriba/abajo).
-               3. rounded-[2rem]: Un radio un poco más contenido para que no "muerda" el texto en las esquinas.
-            */}
             <div className="md:max-w-6xl md:mx-auto bg-deepBlue text-ghostWhite px-6 py-12 md:p-20 rounded-[2rem] md:rounded-[3rem] shadow-2xl text-center">
 
                 <h2 className="text-ghostWhite mb-6">
@@ -36,16 +22,14 @@ const CallToAction = ({ title, description, source = "CTA Principal" }) => {
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                    <a
-                        href={whatsappLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={handleWhatsappClick}
+                    {/* 3. Reemplazamos el <a> por un <button> que llama a la utilidad */}
+                    <button
+                        onClick={() => sendWhatsAppMessage(serviceName)}
                         className="btn-primary w-full sm:w-auto"
                     >
                         <i className="fa-brands fa-whatsapp text-2xl"></i>
                         Hablemos por WhatsApp
-                    </a>
+                    </button>
 
                     <CtaButton
                         to="/contacto"
