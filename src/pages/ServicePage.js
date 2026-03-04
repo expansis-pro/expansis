@@ -68,7 +68,7 @@ const ServicePage = () => {
                         className="btn-primary"
                     >
                         <i className="fa-brands fa-whatsapp text-2xl"></i>
-                        Cotizar {service.title} ahora
+                        Cotizar {service.title}
                     </button>
                 </div>
             </div>

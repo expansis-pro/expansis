@@ -58,7 +58,7 @@ const Home = () => {
 
 			{/* --- SECCIÓN DE SERVICIOS (Ajustada) --- */}
 			{/* CAMBIO: py-12 para mobile (48px) y md:py-16 para desktop (64px) */}
-			<section id="services-home" className="py-8 md:py-8 bg-white">
+			<section id="services-home" className="py-8 bg-white">
 				<div className="max-w-6xl mx-auto text-center px-4">
 					<h2 className="mb-4 md:mb-6">Nuestros Servicios</h2>
 
@@ -94,7 +94,7 @@ const Home = () => {
 			</section>
 
 			{/* --- SECCIÓN DE CIERRE (CTA) --- */}
-			<section className="bg-white pb-16 md:pb-24 px-4">
+			<section className="bg-white pb-8 px-4">
 				<div className="max-w-4xl mx-auto">
 					<CallToAction
 						source="Home - Final de Página"

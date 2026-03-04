@@ -33,14 +33,14 @@ const ServiceItem = ({ icon, title, description, slug }) => {
                         className="btn-primary w-full text-sm py-3 flex items-center justify-center gap-2"
                     >
                         <i className="fa-brands fa-whatsapp text-lg"></i>
-                        Contactar por WhatsApp
+                        Conversemos
                     </button>
 
                     <Link
                         to={`/servicios/${slug}`}
                         className="btn-secondary w-full text-center"
                     >
-                        Ver detalles del servicio
+                        Ver más
                     </Link>
                 </div>
             )}

@@ -21,7 +21,7 @@ const SecondaryHero = ({ title, subtitle, icon }) => {
                         {title}
                     </h1>
                     {subtitle && (
-                        <p className="text-gray-300 font-light mt-4 max-w-2xl mx-auto">
+                        <p className="text-justify text-gray-300 font-light mt-4 max-w-2xl mx-auto">
                             {subtitle}
                         </p>
                     )}
