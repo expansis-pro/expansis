@@ -4,10 +4,19 @@ import { Link } from 'react-router-dom';
 import { sendWhatsAppMessage } from '../utils/trackingUtils';
 
 const ServiceItem = ({ icon, title, description, slug }) => {
-    const isLink = slug !== "mision" && slug !== "vision";
+    const isPhilosophy = slug === "mision" || slug === "vision";
+    const isLink = !isPhilosophy;
+
 
     return (
-        <div className="flex flex-col p-8 bg-deepBlue shadow-xl w-[280px] md:w-80 min-h-[440px] my-4 snap-center text-left border border-gray-800 flex-shrink-0 rounded-2xl overflow-hidden transition-all hover:border-gray-700">
+        <div className={`
+            flex flex-col bg-deepBlue shadow-xl border border-gray-800 rounded-2xl overflow-hidden transition-all duration-500 group
+            /* Control de Ancho y Alto: Relativo para Filosofía, Fijo para Servicios */
+            ${isPhilosophy
+                ? 'w-full md:flex-1 min-h-[320px] p-10 md:p-14'
+                : 'w-[280px] md:w-80 min-h-[440px] p-8 flex-shrink-0'
+            }
+        `}>
 
             {/* Header: Título e Icono */}
             <div className="flex justify-between items-start mb-6 gap-4">
@@ -20,7 +29,7 @@ const ServiceItem = ({ icon, title, description, slug }) => {
             </div>
 
             {/* Descripción */}
-            <p className="text-ghostWhite/80 text-base font-light leading-relaxed mb-8 flex-grow">
+            <p className={`text-ghostWhite/80 font-light leading-relaxed ${isPhilosophy ? 'text-lg' : 'text-base mb-8 flex-grow'}`}>
                 {description}
             </p>
 

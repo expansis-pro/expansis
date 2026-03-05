@@ -5,7 +5,7 @@ import ServiceItem from '../components/ServiceItem';
 import CallToAction from '../components/CallToAction';
 import CtaButton from '../components/CtaButton';
 import ImageTextCTA from '../components/ImageTextCTA';
-import aboutMeImage from '../img/quienes-somos_teaser.webp';
+
 import CardCarousel from '../components/CardCarousel';
 
 const Home = () => {
@@ -34,12 +34,12 @@ const Home = () => {
 						className="hero-wrapper"
 					>
 						<h1 className="text-ghostWhite drop-shadow-lg">
-							Arquitectura digital para <br />
-							<span className="text-primario italic font-bold">negocios con trayectoria</span>
+							Tu negocio es sólido.<br />
+							<span className="text-primario italic font-bold">Tu web también debería serlo.</span>
 						</h1>
 
 						<p className="hero-paragraph">
-							En Expansis Pro transformamos tu experiencia empresarial en plataformas digitales robustas.
+							En Expansis Pro creamos sitios web profesionales y robustos para empresas y marcas que necesitan transmitir confianza real.
 						</p>
 
 						<div className="hero-actions">
@@ -58,7 +58,7 @@ const Home = () => {
 
 			{/* --- SECCIÓN DE SERVICIOS (Ajustada) --- */}
 			{/* CAMBIO: py-12 para mobile (48px) y md:py-16 para desktop (64px) */}
-			<section id="services-home" className="py-8 bg-white">
+			<section id="services-home" className="pt-12 bg-white">
 				<div className="max-w-6xl mx-auto text-center px-4">
 					<h2 className="mb-4 md:mb-6">Nuestros Servicios</h2>
 
@@ -78,7 +78,7 @@ const Home = () => {
 			{/* SECCIÓN IMAGE TEXT CTA */}
 			<section id="about-teaser">
 				<ImageTextCTA
-					imageDesktop={aboutMeImage}
+					imageDesktop="/images/1920x1080_expansisPro_aboutus.webp"
 					alt="Gonzalo Lobos trabajando en estrategia digital"
 					subtitle="DETRÁS DE LA ESTRATEGIA"
 					title="Un Aliado, no un Proveedor"

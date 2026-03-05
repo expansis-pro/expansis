@@ -42,7 +42,7 @@ const CardCarousel = ({ children }) => {
         <div className="relative">
             <div
                 ref={scrollRef}
-                className="flex overflow-x-auto space-x-6 px-4 py-4 md:flex-wrap md:justify-center md:gap-6 md:space-x-0 no-scrollbar snap-x snap-mandatory scroll-smooth"
+                className="flex overflow-x-auto space-x-6 px-4 py-12 md:flex-wrap md:justify-center md:gap-6 md:space-x-0 no-scrollbar snap-x snap-mandatory scroll-smooth"
             >
                 {children}
             </div>

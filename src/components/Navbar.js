@@ -138,7 +138,15 @@ const Navbar = () => {
 							)}
 						</AnimatePresence>
 					</li>
-
+					<li>
+						<NavLink
+							to="/proyectos"
+							className={({ isActive }) => `font-medium transition-colors ${isActive ? 'text-primario' : 'text-ghostWhite hover:text-primario'}`}
+							onClick={() => handleNavLinkClick('Proyectos')}
+						>
+							Proyectos
+						</NavLink>
+					</li>
 					<li><NavLink to="/quienes-somos" className="text-ghostWhite hover:text-primario font-medium transition-colors" onClick={() => handleNavLinkClick('Sobre Expansis')}>Sobre Expansis</NavLink></li>
 					<li><NavLink to="/contacto" className="text-ghostWhite hover:text-primario font-medium transition-colors" onClick={() => handleNavLinkClick('Contacto')}>Contacto</NavLink></li>
 					<li><NavLink to="/faq" className="text-ghostWhite hover:text-primario font-medium transition-colors" onClick={() => handleNavLinkClick('FAQ')}>FAQ</NavLink></li>
@@ -176,6 +184,10 @@ const Navbar = () => {
 										</NavLink>
 									))}
 								</div>
+							</li><li>
+								<NavLink to="/proyectos" className="text-ghostWhite block text-lg" onClick={() => handleNavLinkClick('Proyectos')}>
+									Proyectos
+								</NavLink>
 							</li>
 							<li><NavLink to="/quienes-somos" className="text-ghostWhite block text-lg" onClick={() => handleNavLinkClick('Sobre Expansis')}>Sobre Expansis</NavLink></li>
 							<li><NavLink to="/contacto" className="text-ghostWhite block text-lg" onClick={() => handleNavLinkClick('Contacto')}>Contacto</NavLink></li>

@@ -21,16 +21,15 @@ function MisionVision() {
   };
 
   return (
-    <section id="misionvision" className="py-6 sm:py-6">
-      <div className="max-w-6xl mx-auto text-center">
-        <h2>Nuestra Filosofía</h2>
-        <p className="text-lg text-primario font-semibold mb-12 fade-in">Los Pilares Que Guían Cada Uno De Nuestros Proyectos.</p>
+    <section className="section-padding bg-white">
+      <div className="max-w-6xl mx-auto px-4">
+        <h2 className="text-center text-4xl font-bold mb-16 text-deepBlue">Nuestra Filosofía</h2>
 
-        {/* --- CÓDIGO SIMPLIFICADO --- */}
-        <CardCarousel>
+        {/* Este contenedor controla el ancho de las cards */}
+        <div className="flex flex-col md:flex-row items-stretch gap-6">
           <ServiceItem {...misionData} />
           <ServiceItem {...visionData} />
-        </CardCarousel>
+        </div>
       </div>
     </section>
   );

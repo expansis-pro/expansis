@@ -15,7 +15,7 @@ const ImageTextCTA = ({
     imageSide = 'left'
 }) => {
 
-    const imageContainerClasses = "relative w-full max-w-[340px] mx-auto aspect-[4/5] bg-[#E2E8F0] rounded-[60px_10px_60px_10px] overflow-hidden flex items-center justify-center shadow-2xl border border-gray-100";
+    const imageContainerClasses = "relative w-full   bg-[#E2E8F0] rounded-[60px_10px_60px_10px] overflow-hidden flex items-center justify-center shadow-2xl ";
     const imageClasses = "w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700";
 
     return (

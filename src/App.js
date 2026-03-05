@@ -17,6 +17,7 @@ const QuienesSomos = lazy(() => import('./pages/QuienesSomos'));
 const Services = lazy(() => import('./pages/Services'));
 const Faqs = lazy(() => import('./pages/Faqs'));
 const Contact = lazy(() => import('./pages/Contact'));
+const ProjectsPage = lazy(() => import('./pages/ProjectsPage'));
 
 function App() {
   const location = useLocation();
@@ -80,7 +81,7 @@ function App() {
                       <Contact />
                     </PageTransition>
                   }
-                />
+                /><Route path="/proyectos" element={<ProjectsPage />} />
                 <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
               </Routes>
             </AnimatePresence>
