@@ -116,7 +116,7 @@ export const faqData = [
         answerJSX: (
             <div className="text-justify space-y-3">
                 <p>
-                    En Expansis Pro nos comprometemos a un ciclo de ejecución de <strong>6 semanas calendario</strong>, contando desde nuestra primera <strong>Reunión de Diagnóstico</strong>.
+                    En Expansis Pro trabajamos bajo un modelo de <strong>Arquitectura Coherente</strong>, donde cada fase tiene un sentido estratégico para asegurar que tu plataforma refleje la realidad de tu negocio.
                 </p><p>
                     Para cumplir con esta meta de alta eficiencia, el cronograma se divide así:
                 </p>
@@ -124,7 +124,7 @@ export const faqData = [
                     <li><strong>Semana 1:</strong> Diagnóstico profundo, descubrimiento y definición de arquitectura.</li>
                     <li><strong>Semana 2-3:</strong> Diseño de interfaz y definición de identidad visual (equipo creativo).</li>
                     <li><strong>Semana 4-5:</strong> Desarrollo de la arquitectura técnica, bases de datos y carga de contenido.</li>
-                    <li><strong>Semana 6:</strong> Pruebas de estrés, optimización SEO y lanzamiento oficial.</li>
+                    <li><strong>Semana 6:</strong> Pruebas de rendimiento y optimización final para que tu salida al mercado sea impecable.</li>
                 </ul>
                 <p className="text-sm italic border-l-2 border-primario pl-3">
                     <strong>Nota de compromiso:</strong> El cumplimiento de este plazo está sujeto a que la entrega de materiales base y las <strong>validaciones/devoluciones por parte del cliente se realicen en tiempo y forma</strong> según las fechas estipuladas en el plan de trabajo.
