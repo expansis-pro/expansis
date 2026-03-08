@@ -87,7 +87,10 @@ const ServicePage = () => {
                                 </span>
                                 <div>
                                     <h3 className="text-deepBlue text-xl font-bold mb-2">{phase.title}</h3>
-                                    <p className="text-gray-600 font-light leading-relaxed">{phase.description}</p>
+                                    <p
+                                        className="text-gray-600 font-light leading-relaxed"
+                                        dangerouslySetInnerHTML={{ __html: phase.description }}
+                                    />
                                 </div>
                             </div>
                         ))}
@@ -130,21 +133,28 @@ const ServicePage = () => {
                                     ))}
                                 </ul>
 
-                                <div className="mt-10 p-6 bg-white/5 rounded-2xl border border-white/5">
-                                    <p className="text-xs uppercase tracking-widest text-primario font-bold mb-3">Escalabilidad Disponible</p>
-                                    <p className="text-white/70 text-sm font-light">
-                                        ¿Necesitas más potencia? Podemos integrar: <strong>E-commerce, Paneles autogestionables, SEO avanzado, o Integraciones con CRMs.</strong>
-                                    </p>
-                                </div>
+                                {/* Sección de Escalabilidad Dinámica */}
+                                {service.pricing.scalability && (
+                                    <div className="mt-10 p-6 bg-white/5 rounded-2xl border border-white/5">
+                                        <p className="text-xs uppercase tracking-widest text-primario font-bold mb-3">
+                                            {service.pricing.scalability.title}
+                                        </p>
+                                        <p
+                                            className="text-white/70 text-sm font-light"
+                                            dangerouslySetInnerHTML={{ __html: service.pricing.scalability.description }}
+                                        />
+                                    </div>
+                                )}
                             </div>
 
                             {/* BOTÓN 2: CONTACTO DESDE PRECIOS */}
                             <div className="mt-12 w-full max-w-xs">
                                 <button
                                     onClick={() => sendWhatsAppMessage(service.title)}
-                                    className="btn-primary w-full text-center block"
+                                    className="btn-primary w-full flex items-center justify-center gap-3 transition-transform hover:scale-105"
                                 >
-                                    Cotizar Proyecto a Medida
+                                    <i className="fa-brands fa-whatsapp text-2xl"></i>
+                                    Cotizar Proyecto
                                 </button>
                             </div>
                         </div>

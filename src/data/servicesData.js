@@ -3,33 +3,39 @@ export const servicesData = [
         slug: "desarrollo-web",
         icon: "fa-solid fa-code",
         title: "Desarrollo Web",
-        description: "Creamos plataformas web atractivas y funcionales para impulsar tu negocio online.",
-        longDescription: "Juntos, convertiremos tu visión en un sitio web de alto impacto. Crearemos para ti una plataforma rápida, segura y a medida con tecnología React, garantizando una experiencia de usuario óptima que transforme visitantes en clientes.",
+        description: "Construimos tu activo digital más importante mediante un proceso de Arquitectura Coherente.",
+        longDescription: "Tu sitio web es la materialización de un proceso estratégico. Te acompañaremos en el descubrimiento de tu relato de marca, definiremos tu lenguaje visual y diseñaremos una experiencia de usuario orientada a que logres tus objetivos comerciales. El resultado es una arquitectura web en React: rápida, segura y alineada al 100% con la autoridad de tu negocio.",
         phases: [
             {
-                title: "Fase 1: Estrategia y Diseño",
-                description: "Definiremos los objetivos, investigaremos a tu competencia y crearemos un diseño visual (mockup) centrado en la conversión."
+                title: "Fase 1: Descubrimiento",
+                description: "Iniciamos con un entendimiento profundo de tu negocio, análisis de competencia y el descubrimiento del relato necesario. Definimos la razón estratégica del proyecto y el target para asegurar que los cimientos de tu arquitectura digital sean sólidos."
             },
             {
-                title: "Fase 2: Desarrollo y Construcción",
-                description: "Escribiremos el código de tu sitio web, asegurándonos de que sea rápido, responsivo y seguro en todos los dispositivos."
+                title: "Fase 2: Coherencia Visual y UX",
+                description: "Establecemos tus <strong>Cimientos Visuales</strong> definiendo elementos de identidad y un sistema de estilo para dar vida a una <strong>interfaz visual de alta fidelidad</strong>. Nos enfocamos en una experiencia de usuario que proyecte autoridad real, validando la estética y la navegación estratégica antes de iniciar la construcción técnica."
             },
             {
-                title: "Fase 3: Lanzamiento y Soporte",
-                description: "Realizaremos las pruebas finales, lanzaremos el sitio y te ofreceremos 30 días de soporte post-lanzamiento para tu tranquilidad."
+                title: "Fase 3: Construcción Técnica Integrada",
+                description: "Traducimos la estrategia a ingeniería de software utilizando tecnología React. Construimos una plataforma rápida, segura y escalable, integrando el contenido y las funcionalidades necesarias bajo un código limpio y profesional."
+            }, {
+                title: "Fase 4: Validación y Lanzamiento",
+                description: "Realizamos auditorías de rendimiento y optimización SEO base para Google. Lanzamos tu activo digital al mercado con 30 días de soporte proactivo, garantizando que tu salida sea impecable y coherente con tu operación real."
             }
         ],
         pricing: {
             from: "$420.000 CLP", // +50.000
             features: [
-                "Diseño UI/UX 100% personalizado a tu marca",
                 "Tecnología moderna (React) para máxima velocidad",
+                "Diseño UI/UX 100% personalizado a tu marca",
+                "Diseño responsivo para todos los dispositivos",
                 "Optimización SEO base para Google",
-                "Panel para que autoadministres tu contenido (opcional)",
-                "Adaptable a todos los dispositivos (Responsivo)",
+                "Integración con WhatsApp Business",
                 "Integración con Google Analytics 4",
-                "Integración con WhatsApp Business"
-            ]
+                "Ingeniería en React para rendimiento y seguridad superior",
+            ], scalability: {
+                title: "Escalabilidad Disponible",
+                description: "¿Necesitas más potencia? Podemos integrar: <strong>E-commerce, Paneles autogestionables, SEO avanzado o Integraciones con CRMs.</strong>"
+            }
         },
         details: [
             "Diseño de sitios web responsivos.",
@@ -65,7 +71,10 @@ export const servicesData = [
                 "Estrategia de contenidos",
                 "Optimización de embudos de venta",
                 "Informe de resultados"
-            ]
+            ], scalability: {
+                title: "Escalabilidad Disponible",
+                description: "Lleva tu estrategia al siguiente nivel con: <strong>Acompañamiento directivo mensual, Dashboards de métricas en tiempo real o Auditorías de procesos internos.</strong>"
+            }
         },
         details: [
             "Análisis de presencia online actual.",
@@ -101,7 +110,10 @@ export const servicesData = [
                 "Campañas en Meta y Google Ads",
                 "Email Marketing",
                 "Reportes mensuales"
-            ]
+            ], scalability: {
+                title: "Escalabilidad Disponible",
+                description: "Amplía tu impacto mediante: <strong>Publicidad en canales B2B (LinkedIn), Producción de contenido audiovisual o Gestión de embudos de fidelización.</strong>"
+            }
         },
         details: [
             "Gestión de campañas en redes sociales.",

@@ -2,50 +2,100 @@ import React from 'react';
 
 export const faqData = [
     {
-        question: "¿Qué cubre exactamente el valor inicial de Desarrollo Web?",
+        question: "¿Qué incluye el servicio de Desarrollo Web?",
         answerJSX: (
             <p className="text-justify">
-                El valor inicial del servicio de Desarrollo Web representa nuestra <strong>Configuración Base Profesional</strong>.
-                Cubre la estructura esencial de una Landing Page de alto rendimiento: diseño único (no plantillas),
-                optimización de velocidad y conexión con WhatsApp. Proyectos que requieran múltiples secciones,
-                sistemas de pagos o bases de datos se cotizan como módulos adicionales para que solo pagues por lo que realmente necesitas.
+                Nuestra <strong>Configuración Base Profesional</strong> es el cimiento de tu presencia digital. Cubre el
+                <strong> desarrollo de una Landing Page de alto rendimiento</strong> con diseño único (sin plantillas),
+                <strong>optimización de velocidad (WPO)</strong> y conversión directa a WhatsApp. Si buscas
+                <strong> diseño web a medida</strong> con múltiples secciones, sistemas de pago o bases de datos,
+                cotizamos módulos adicionales para que tu inversión sea coherente y escalable.
             </p>
         ),
-        answerText: "El valor base del servicio de Desarrollo Web cubre la estructura esencial. Funcionalidades complejas se cotizan por separado.",
-        tags: ["desarrollo-web"]
+        answerText: "El servicio de desarrollo web incluye una landing page de alto rendimiento, optimización de velocidad y diseño a medida sin plantillas.",
+        tags: ["desarrollo-web", "seo"]
     },
     {
-        question: "¿Qué incluye el valor inicial de la Consultoría Digital?",
+        question: "¿Qué es el servicio de Consultoría Digital Estratégica?",
         answerJSX: (
-            <p className="text-justify">
-                El valor inicial del servicio de Consultoría Digital cubre la fase de diagnóstico completo.
-                Te entregamos un informe de auditoría profesional con los hallazgos sobre tu sitio web, redes y competencia,
-                junto con una primera capa de recomendaciones estratégicas priorizadas para que sepas exactamente por dónde empezar a mejorar.
-            </p>
+            <div className="text-justify space-y-3">
+                <p>
+                    Es nuestro servicio de <strong>diagnóstico y arquitectura</strong>. En él, analizamos tu infraestructura digital bajo un enfoque integrador: aplicamos principios de psicología organizacional, marketing estratégico y diseño orientado a negocios <strong>para garantizar que una presencia online potente y coherente a tu negocio</strong>.
+                </p>
+                <p>
+                    El proceso incluye una <strong>auditoría profesional de tus canales digitales</strong> (web, redes y competencia) y culmina con la entrega de una <strong>hoja de ruta estratégica priorizada</strong>. Si tu marca carece de identidad, aquí definimos tus <strong>Cimientos Visuales</strong> para garantizar una comunicación coherente y profesional desde la base.
+                </p>
+            </div>
         ),
-        answerText: "El valor inicial del servicio de Consultoría Digital cubre la fase de diagnóstico completo y recomendaciones estratégicas.",
-        tags: ["consultoria-digital"]
+        answerText: "La Consultoría Digital Estratégica es un servicio de diagnóstico basado en psicología organizacional que incluye auditoría de canales, hoja de ruta estratégica e identidad visual.",
+        tags: ["consultoria-digital", "estrategia"]
+    }, {
+        question: "¿Para quién es la Consultoría Digital y qué incluye exactamente?",
+        answerJSX: (
+            <div className="text-justify space-y-4">
+                <p>
+                    Nuestra <strong>consultoría digital estratégica</strong> está diseñada para aportar claridad y sentido en dos escenarios clave:
+                </p>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="bg-ghostWhite/50 p-4 rounded-xl border-l-4 border-gray-300">
+                        <h4 className="font-bold text-deepBlue mb-2">1. Proyectos con Trayectoria</h4>
+                        <p className="text-sm text-gray-600">
+                            Auditamos tus canales actuales para detectar fugas de confianza y fricciones técnicas. El objetivo es
+                            <strong> optimizar tu ecosistema online</strong> y asegurar que tu marca proyecte la autoridad real que ya tienes.
+                        </p>
+                    </div>
+                    <div className="bg-primario/5 p-4 rounded-xl border-l-4 border-primario">
+                        <h4 className="font-bold text-deepBlue mb-2">2. Proyectos por Impulsar</h4>
+                        <p className="text-sm text-gray-600">
+                            Si estás partiendo de cero, diseñamos tu <strong>arquitectura digital</strong> desde los cimientos. Definimos tu
+                            identidad visual y estratégica para que tu salida al mercado sea sólida, profesional y coherente desde el día uno.
+                        </p>
+                    </div>
+                </div>
+
+                <p>
+                    Te acompañaremos en este proceso para validar que cada canal (web, redes, ads) sea coherente entre sí.
+                    Te entregamos un informe de auditoría y una <strong>hoja de ruta estratégica priorizada</strong> con los pasos exactos
+                    para mejorar tu posicionamiento y conversión, sin importar en qué etapa se encuentre tu negocio.
+                </p>
+            </div>
+        ),
+        answerText: "La consultoría digital estratégica se adapta a negocios nuevos y existentes que buscan optimización o proyectos nuevos que necesitan un impulso en sus canales digitales. Incluye informe de auditoría y hoja de ruta estratégica para mejorar posicionamiento y conversión.",
+        tags: ["consultoria-digital", "estrategia", "procesos"]
     },
+
     {
         question: "¿Qué incluye la inversión mensual en Marketing Online?",
         answerJSX: (
-            <p className="text-justify">
-                El valor mensual del servicio de Marketing Online corresponde a nuestros honorarios por la gestión estratégica y operativa de tus campañas en un canal principal (ej. Meta o Google Ads).
-                Cubre todo el ciclo: desde la planificación y creación de anuncios hasta el monitoreo diario, la optimización y un reporte mensual de resultados para que veas el impacto de tu inversión.
-            </p>
+            <div className="text-justify space-y-3">
+                <p>
+                    Para que una <strong>campaña de publicidad digital</strong> sea rentable, el diseño debe responder a una
+                    estrategia de conversión. Gestionamos el ciclo completo:
+                </p>
+                <ul className="list-disc pl-5 space-y-1">
+                    <li><strong>Briefing Estratégico:</strong> Definimos formatos (Reels, Ads, Banners) según tu embudo.</li>
+                    <li><strong>Dirección Creativa:</strong> Coordinamos con nuestro equipo de diseño para que cada pieza respete tu identidad.</li>
+                    <li><strong>Optimización de Performance:</strong> Ajustamos las creatividades según los datos de clics y leads.</li>
+                </ul>
+            </div>
         ),
-        answerText: "El valor mensual del servicio de Marketing Online corresponde a la gestión estratégica y operativa de campañas en un canal principal.",
-        tags: ["marketing-online"]
+        answerText: "Gestionamos el ciclo creativo de tus campañas (Ads, Reels, Banners) basándonos en datos de performance y conversión.",
+        tags: ["marketing-online", "performance"]
     },
     {
-        question: "¿Por qué los precios son 'desde'?",
+        question: "¿Por qué los precios de Expansis Pro son 'desde'?",
         answerJSX: (
-            <p className="text-justify">
-                Nuestros precios son "desde" porque cada negocio tiene necesidades distintas y por lo tanto, las propuestas seran adaptadas a tu necesidades. En Expansis Pro ofrecemos un acompañamiento activopara que cada la propuesta de servicio se adapte a tus necesitades. El valor inicial te asegura una <strong>infreasetructura de alta calidad</strong>, y a partir de esta base podemos añadir más funcionalidades y escalar el proyecto según tus objetivos específicos evitando que pagues por herramientas o servicios que no vas a utilizar.
-            </p>
+
+            <div className="text-justify space-y-3">
+                <p>En Expansis Pro, nos especializamos en diseño y desarrollo web profesional bajo un modelo de presupuestos modulares. Entendemos que la transformación digital para empresas y marcas personales requiere de una arquitectura digital coherente y personalizada.
+                </p>
+                <p>Nuestra inversión inicial garantiza una infraestructura web de alta calidad, estableciendo un cimiento sólido y optimizado. A partir de esta base, creamos páginas web escalables donde podemos integrar nuevas funcionalidades según tus objetivos de negocio. Este enfoque de consultoría estratégica te permite optimizar tu inversión digital, evitando gastos innecesarios en herramientas que tu operación aún no requiere y asegurando un crecimiento sostenible en internet.
+                </p>
+            </div>
         ),
         answerText: "Los precios son desde porque cada solución es personalizada y escalable según las necesidades del cliente.",
-        tags: ["general"]
+        tags: ["general", , "tarifas"]
     },
     {
         question: "¿Cómo se gestiona el material gráfico (diseño) para las campañas?",
@@ -89,21 +139,22 @@ export const faqData = [
         tags: ["marketing-online", "general"]
     },
     {
-        question: "¿Usan plantillas de WordPress o cómo construyen los sitios?",
+        question: "¿Por qué desarrollan con React y no usan plantillas de WordPress?",
         answerJSX: (
             <div className="space-y-4 text-justify">
-                <p>Es una pregunta muy importante. <strong>No utilizamos plantillas de WordPress</strong>. Construimos nuestros sitios web a medida utilizando tecnologías modernas como React por cuatro razones clave:</p>
-                <ul className="list-disc list-inside space-y-2 font-medium text-gray-800">
-                    <li><strong>Rendimiento Superior:</strong> Sitios más rápidos y fluidos que mejoran la experiencia y el posicionamiento en Google.</li>
-                    <li><strong>Seguridad Reforzada:</strong> Al no depender de plugins de terceros, nuestros sitios son mucho más seguros contra ataques.</li>
-                    <li><strong>Personalización Total:</strong> No estamos limitados por plantillas. Podemos construir cualquier funcionalidad que tu negocio necesite.</li>
-                    <li><strong>Menor Mantenimiento:</strong> Te olvidas de las constantes y problemáticas actualizaciones de plugins y temas.</li>
+                <p>
+                    Buscamos <strong>rendimiento y seguridad superior</strong>. Al no usar plantillas de terceros,
+                    construimos <strong>sitios web con React</strong> que son:
+                </p>
+                <ul className="list-disc list-inside space-y-1 font-medium text-gray-800">
+                    <li><strong>Más rápidos:</strong> Factor clave para el posicionamiento orgánico en Google.</li>
+                    <li><strong>Inmunes a vulnerabilidades:</strong> Sin plugins que caducan o se hackean.</li>
+                    <li><strong>Escalables:</strong> Podemos programar cualquier funcionalidad sin límites técnicos.</li>
                 </ul>
-                <p>Adicionalmente, ofrecemos la <strong>integración opcional de un panel de contenidos (Headless CMS)</strong>. Esto te da lo mejor de ambos mundos: un sitio de alto rendimiento con la capacidad de que tú mismo edites los contenidos de forma sencilla.</p>
             </div>
         ),
-        answerText: "No utilizamos plantillas de WordPress. Construimos nuestros sitios web a medida con tecnologías modernas como React por cuatro razones clave: Rendimiento Superior, Seguridad Reforzada, Personalización Total y Menor Mantenimiento.",
-        tags: ["desarrollo-web"]
+        answerText: "Usamos React para garantizar velocidad (SEO), seguridad y personalización total, eliminando los riesgos de las plantillas tradicionales.",
+        tags: ["desarrollo-web", "tecnologia"]
     },
     {
         question: "¿Qué pasa si no me gusta la propuesta de diseño?",
@@ -121,18 +172,18 @@ export const faqData = [
                     Para cumplir con esta meta de alta eficiencia, el cronograma se divide así:
                 </p>
                 <ul className="list-disc pl-5 space-y-1 text-sm md:text-base">
-                    <li><strong>Semana 1:</strong> Diagnóstico profundo, descubrimiento y definición de arquitectura.</li>
-                    <li><strong>Semana 2-3:</strong> Diseño de interfaz y definición de identidad visual (equipo creativo).</li>
-                    <li><strong>Semana 4-5:</strong> Desarrollo de la arquitectura técnica, bases de datos y carga de contenido.</li>
-                    <li><strong>Semana 6:</strong> Pruebas de rendimiento y optimización final para que tu salida al mercado sea impecable.</li>
+                    <li><strong>S1:</strong> Descubrimiento (Cimientos estratégicos).</li>
+                    <li><strong>S2-3:</strong> Coherencia Visual (Diseño de interfaz y marca).</li>
+                    <li><strong>S4-5:</strong> Construcción Integrada (Desarrollo técnico y contenido).</li>
+                    <li><strong>S6:</strong> Validación y Lanzamiento (Optimización final).</li>
                 </ul>
                 <p className="text-sm italic border-l-2 border-primario pl-3">
                     <strong>Nota de compromiso:</strong> El cumplimiento de este plazo está sujeto a que la entrega de materiales base y las <strong>validaciones/devoluciones por parte del cliente se realicen en tiempo y forma</strong> según las fechas estipuladas en el plan de trabajo.
                 </p>
             </div>
         ),
-        answerText: "Entrega en 5 semanas desde el Diagnóstico. El cumplimiento depende de la entrega oportuna de materiales y de que las validaciones del cliente se realicen en tiempo y forma.",
-        tags: ["desarrollo-web", "procesos"]
+        answerText: "Entregamos proyectos en 6 semanas divididas en: Diagnóstico, Diseño Visual, Desarrollo Técnico y Lanzamiento.",
+        tags: ["desarrollo-web", , "seo"]
     },
     {
         question: "¿Seré dueño de mi sitio web una vez terminado el proyecto?",
