@@ -5,46 +5,43 @@ export const faqData = [
         question: "¿Qué cubre exactamente el valor inicial de Desarrollo Web?",
         answerJSX: (
             <p className="text-justify">
-                El valor inicial (desde <strong>$350.000 CLP</strong>) representa nuestra <strong>Configuración Base Profesional</strong>.
+                El valor inicial del servicio de Desarrollo Web representa nuestra <strong>Configuración Base Profesional</strong>.
                 Cubre la estructura esencial de una Landing Page de alto rendimiento: diseño único (no plantillas),
                 optimización de velocidad y conexión con WhatsApp. Proyectos que requieran múltiples secciones,
                 sistemas de pagos o bases de datos se cotizan como módulos adicionales para que solo pagues por lo que realmente necesitas.
             </p>
         ),
-        answerText: "El valor base (desde $350.000 CLP) cubre la estructura esencial. Funcionalidades complejas se cotizan por separado.",
+        answerText: "El valor base del servicio de Desarrollo Web cubre la estructura esencial. Funcionalidades complejas se cotizan por separado.",
         tags: ["desarrollo-web"]
     },
     {
         question: "¿Qué incluye el valor inicial de la Consultoría Digital?",
         answerJSX: (
             <p className="text-justify">
-                El valor inicial (desde <strong>$250.000 CLP</strong>) cubre la fase de diagnóstico completo.
+                El valor inicial del servicio de Consultoría Digital cubre la fase de diagnóstico completo.
                 Te entregamos un informe de auditoría profesional con los hallazgos sobre tu sitio web, redes y competencia,
                 junto con una primera capa de recomendaciones estratégicas priorizadas para que sepas exactamente por dónde empezar a mejorar.
             </p>
         ),
-        answerText: "El valor inicial (desde $250.000 CLP) cubre la fase de diagnóstico completo y recomendaciones estratégicas.",
+        answerText: "El valor inicial del servicio de Consultoría Digital cubre la fase de diagnóstico completo y recomendaciones estratégicas.",
         tags: ["consultoria-digital"]
     },
     {
         question: "¿Qué incluye la inversión mensual en Marketing Online?",
         answerJSX: (
             <p className="text-justify">
-                El valor mensual (desde <strong>$200.000 CLP</strong>) corresponde a nuestros honorarios por la gestión estratégica y operativa de tus campañas en un canal principal (ej. Meta o Google Ads).
+                El valor mensual del servicio de Marketing Online corresponde a nuestros honorarios por la gestión estratégica y operativa de tus campañas en un canal principal (ej. Meta o Google Ads).
                 Cubre todo el ciclo: desde la planificación y creación de anuncios hasta el monitoreo diario, la optimización y un reporte mensual de resultados para que veas el impacto de tu inversión.
             </p>
         ),
-        answerText: "El valor mensual (desde $200.000 CLP) corresponde a la gestión estratégica y operativa de campañas en un canal principal.",
+        answerText: "El valor mensual del servicio de Marketing Online corresponde a la gestión estratégica y operativa de campañas en un canal principal.",
         tags: ["marketing-online"]
     },
     {
         question: "¿Por qué los precios son 'desde'?",
         answerJSX: (
             <p className="text-justify">
-                Porque en Expansis Pro no vendemos paquetes cerrados y rígidos. Cada negocio tiene necesidades distintas.
-                El valor inicial te asegura una <strong>base de calidad premium</strong>, y a partir de ahí,
-                podemos añadir funcionalidades y escalar el proyecto según tus objetivos específicos,
-                evitando que pagues por herramientas o servicios que no vas a utilizar.
+                Nuestros precios son "desde" porque cada negocio tiene necesidades distintas y por lo tanto, las propuestas seran adaptadas a tu necesidades. En Expansis Pro ofrecemos un acompañamiento activopara que cada la propuesta de servicio se adapte a tus necesitades. El valor inicial te asegura una <strong>infreasetructura de alta calidad</strong>, y a partir de esta base podemos añadir más funcionalidades y escalar el proyecto según tus objetivos específicos evitando que pagues por herramientas o servicios que no vas a utilizar.
             </p>
         ),
         answerText: "Los precios son desde porque cada solución es personalizada y escalable según las necesidades del cliente.",
@@ -52,7 +49,42 @@ export const faqData = [
     },
     {
         question: "¿Cómo se gestiona el material gráfico (diseño) para las campañas?",
-        answerJSX: (<p className="text-justify">Para asegurar que tus campañas sean visualmente atractivas, colaboramos con una diseñadora gráfica profesional. Nosotros nos encargamos de la dirección creativa y la coordinación completa. El costo del diseño se cotiza por separado y se incluye en nuestra facturación mensual para simplificar tu gestión. Así, te aseguras un resultado profesional sin tener que coordinar a diferentes proveedores.</p>),
+        answerJSX: (
+            <div className="text-justify space-y-3">
+                <p>
+                    Para que una campaña sea rentable, el diseño debe responder a una estrategia de conversión. Por eso, nosotros <strong>gestionamos el ciclo completo de producción creativa</strong>:
+                </p>
+                <ul className="list-disc pl-5 space-y-2">
+                    <li>
+                        <strong>Definición Estratégica:</strong> Analizamos qué mensajes y formatos (estáticos, reels, banners) necesita tu embudo de ventas para captar la atención.
+                    </li>
+                    <li>
+                        <strong>Briefing al Equipo de Diseño:</strong> Traducimos la estrategia en requerimientos técnicos específicos para nuestra diseñadora, asegurando que cada pieza respete tu identidad y los estándares de cada plataforma.
+                    </li>
+                    <li>
+                        <strong>Control de Calidad y Optimización:</strong> Supervisamos cada entrega y, lo más importante, <strong>ajustamos las piezas según los resultados</strong>. Si un anuncio no rinde, solicitamos variaciones para mejorar el CTR y el costo por lead.
+                    </li>
+                </ul>
+                <p className="text-sm italic border-l-2 border-primario pl-3">
+                    Tú no tienes que preocuparte por medidas técnicas ni por dar feedback estético constante; nosotros nos encargamos de que el material esté listo, sea profesional y, sobre todo, venda.
+                </p>
+            </div>
+        ),
+        answerText: "Gestionamos el ciclo completo de diseño para campañas: desde la definición estratégica y el briefing al equipo creativo, hasta la optimización de piezas según los resultados de conversión. Todo centralizado en nuestra gestión.",
+        tags: ["marketing-online", "performance", "gestión"]
+    }, {
+        question: "¿Que pasa si no tengo logo o colores definidos de mi marca?",
+        answerJSX: (<div className="text-justify space-y-3">
+            <p>
+                <strong>No necesitas tener nada listo para empezar.</strong> Es muy común que negocios con gran trayectoria no tengan una identidad digital definida; nosotros nos encargamos de construir esa base.
+            </p>
+            <p>
+                <strong>Dependiendo de las necesidades de tu proyecto</strong>, nuestro equipo de diseño se integra desde la fase de descubrimiento para definir colores, tipografías y el estilo visual que proyecte tu autoridad. Nosotros lideramos la dirección creativa para asegurar que la estética sea coherente con la robustez técnica de la plataforma.
+            </p>
+            <p className="text-sm italic border-l-2 border-primario pl-3 font-medium">
+                Todo se centraliza en una sola gestión y facturación mensual. Así, tú obtienes un resultado profesional de punta a punta sin la fricción de coordinar a diferentes proveedores.
+            </p>
+        </div>),
         answerText: "Colaboramos con una diseñadora gráfica profesional. El costo se cotiza por separado y se incluye en la facturación mensual para simplificar la gestión.",
         tags: ["marketing-online", "general"]
     },
@@ -80,10 +112,27 @@ export const faqData = [
         tags: ["desarrollo-web"]
     },
     {
-        question: "¿Cuánto tiempo se demoran en entregar el sitio web?",
-        answerJSX: (<p className="text-justify">Un proyecto de sitio web corporativo estándar toma habitualmente entre 3 y 5 semanas desde que recibimos todo el material necesario (textos, logos, imágenes). Una Landing Page puede estar lista en 1 a 2 semanas. Los tiempos pueden variar según la complejidad del proyecto, pero siempre estableceremos un cronograma claro y detallado desde el inicio.</p>),
-        answerText: "Un sitio web corporativo estándar toma entre 3 y 5 semanas. Una Landing Page de 1 a 2 semanas, dependiendo de la complejidad.",
-        tags: ["desarrollo-web"]
+        question: "¿Cuánto tiempo toma la entrega del sitio web?",
+        answerJSX: (
+            <div className="text-justify space-y-3">
+                <p>
+                    En Expansis Pro nos comprometemos a un ciclo de ejecución de <strong>6 semanas calendario</strong>, contando desde nuestra primera <strong>Reunión de Diagnóstico</strong>.
+                </p><p>
+                    Para cumplir con esta meta de alta eficiencia, el cronograma se divide así:
+                </p>
+                <ul className="list-disc pl-5 space-y-1 text-sm md:text-base">
+                    <li><strong>Semana 1:</strong> Diagnóstico profundo, descubrimiento y definición de arquitectura.</li>
+                    <li><strong>Semana 2-3:</strong> Diseño de interfaz y definición de identidad visual (equipo creativo).</li>
+                    <li><strong>Semana 4-5:</strong> Desarrollo de la arquitectura técnica, bases de datos y carga de contenido.</li>
+                    <li><strong>Semana 6:</strong> Pruebas de estrés, optimización SEO y lanzamiento oficial.</li>
+                </ul>
+                <p className="text-sm italic border-l-2 border-primario pl-3">
+                    <strong>Nota de compromiso:</strong> El cumplimiento de este plazo está sujeto a que la entrega de materiales base y las <strong>validaciones/devoluciones por parte del cliente se realicen en tiempo y forma</strong> según las fechas estipuladas en el plan de trabajo.
+                </p>
+            </div>
+        ),
+        answerText: "Entrega en 5 semanas desde el Diagnóstico. El cumplimiento depende de la entrega oportuna de materiales y de que las validaciones del cliente se realicen en tiempo y forma.",
+        tags: ["desarrollo-web", "procesos"]
     },
     {
         question: "¿Seré dueño de mi sitio web una vez terminado el proyecto?",
@@ -99,15 +148,26 @@ export const faqData = [
     },
     {
         question: "¿Qué necesito entregarles para empezar el proyecto?",
-        answerJSX: (<p className="text-justify">Para iniciar, generalmente necesitamos tu logo en alta calidad, los textos e imágenes que te gustaría incluir, y acceso a tu proveedor de hosting y dominio si ya los tienes. ¡Si no, te asesoramos en cada paso!</p>),
-        answerText: "Para iniciar, necesitamos tu logo, textos, imágenes y accesos a tu hosting y dominio (si los tienes).",
-        tags: ["general"]
-    },
-    {
-        question: "¿El servicio incluye el hosting (alojamiento) y el dominio?",
-        answerJSX: (<p className="text-justify">El hosting y el dominio son servicios que debes contratar por separado, ya que es fundamental que seas el dueño de estos activos. Sin embargo, te guiamos y recomendamos las mejores opciones del mercado, e incluso podemos gestionar la configuración inicial por ti si lo necesitas.</p>),
-        answerText: "No, el hosting y dominio se contratan por separado para que seas el dueño, pero te asesoramos en todo el proceso.",
-        tags: ["desarrollo-web", "general"]
+        answerJSX: (<div className="text-justify space-y-4">
+            <p>
+                En Expansis Pro nos adaptamos a tu realidad actual. Tienes dos caminos para iniciar tu arquitectura digital:
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm md:text-base">
+                <div className="bg-ghostWhite/50 p-4 rounded-xl border-l-4 border-gray-300">
+                    <h4 className="font-bold text-deepBlue mb-2">Opción A: Tú nos entregas</h4>
+                    <p className="text-gray-600">Si ya cuentas con logo en alta calidad, brandbook, textos definitivos e imágenes profesionales, los integramos directamente siguiendo tu línea de marca.</p>
+                </div>
+                <div className="bg-primario/5 p-4 rounded-xl border-l-4 border-primario">
+                    <h4 className="font-bold text-deepBlue mb-2">Opción B: Nosotros lo creamos</h4>
+                    <p className="text-gray-600">Si estás partiendo de cero, nuestro equipo se encarga de crear tu identidad visual, redactar textos estratégicos y seleccionar recursos gráficos de alto impacto.</p>
+                </div>
+            </div>
+            <p className="text-sm italic text-gray-500">
+                *Independiente del camino, solo necesitaremos los accesos a tu dominio y hosting (si ya los tienes). Si no, te asesoramos en la compra y configuración desde el primer minuto.
+            </p>
+        </div>),
+        answerText: "Puedes entregarnos tu material (logo, textos, imágenes) o nosotros podemos crearlo todo desde cero a través de nuestro equipo de diseño y estrategia. También te asesoramos con el hosting y dominio.",
+        tags: ["general", "procesos"]
     },
     {
         question: "¿Qué pasa después de los 30 días de soporte gratuito?",
@@ -120,7 +180,7 @@ export const faqData = [
                 <p>Si prefieres no tener un plan mensual, puedes solicitar cambios o nuevas funcionalidades cuando lo necesites. Estos trabajos se cotizan de forma separada, generalmente con una tarifa por hora, previa estimación y aprobación de tu parte.</p>
             </div>
         ),
-        answerText: "Después de los 30 días de soporte gratuito, ofrezco dos modalidades: un Plan de Mantenimiento mensual opcional o Solicitudes a Medida que se cotizan por hora.",
+        answerText: "Después de los 30 días de soporte gratuito, ofrecemos dos modalidades: un Plan de Mantenimiento mensual opcional o Solicitudes a Medida que se cotizan por hora.",
         tags: ["desarrollo-web"]
     }
 ];

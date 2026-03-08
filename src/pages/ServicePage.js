@@ -109,7 +109,7 @@ const ServicePage = () => {
                                 <p className="text-5xl md:text-7xl font-bold text-white">
                                     {service.pricing.from}
                                 </p>
-                                <p className="text-primario text-sm font-medium mt-2">Configuración Base Esencial</p>
+                                <p className="text-primario text-sm font-medium mt-2">IVA Incluido - Configuración Base Esencial</p>
                             </div>
 
                             <div className="w-full max-w-xs h-[1px] bg-white/10 my-8"></div>

@@ -34,8 +34,8 @@ const Home = () => {
 						className="hero-wrapper"
 					>
 						<h1 className="text-ghostWhite drop-shadow-lg">
-							Tu negocio es sólido.<br />
-							<span className="text-primario italic font-bold">Tu web también debería serlo.</span>
+							Tu negocio es sólido<br />
+							<span className="text-primario italic font-bold">Tu web también debería serlo</span>
 						</h1>
 
 						<p className="hero-paragraph">

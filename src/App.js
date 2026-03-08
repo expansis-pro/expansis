@@ -88,7 +88,7 @@ function App() {
           </Suspense>
         </main>
         <Footer />
-      </div >
+      </div>
     </>
   );
 }
