@@ -87,7 +87,7 @@ const Footer = () => {
 								onClick={() => sendWhatsAppMessage("Información General")}
 								className="hover:text-ghostWhite transition-colors"
 							>
-								+56 9 6596 1086
+								+56 988318443
 							</button>
 						</li>
 						<li className="flex items-center group">

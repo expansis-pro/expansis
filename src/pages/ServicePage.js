@@ -18,7 +18,7 @@ const ServicePage = () => {
     }
 
     // --- LÓGICA DE RASTREO Y CONTACTO ---
-    const phoneNumber = "56965961086";
+    const phoneNumber = "56988318443";
 
 
 

@@ -1,6 +1,6 @@
 // src/utils/whatsappUtils.js
 export const sendWhatsAppMessage = (servicio = "Información General") => {
-    const phoneNumber = "56965961086";
+    const phoneNumber = "56988318443";
     const frasesContexto = {
         "Desarrollo Web": "potenciar mi negocio con un *Desarrollo Web* a medida",
         "Marketing Digital": "mejorar mi visibilidad online con *Marketing Digital*",
