@@ -29,18 +29,8 @@ const Footer = () => {
 					<p className="text-sm font-light">Tu socio estratégico para la expansión digital.</p>
 					<div className="text-xs text-gray-500 pt-4">
 						<p>© {currentYear} Expansis Pro.</p>
-						<p>
-							Diseñado por{" "}
-							<a
-								target="_blank"
-								rel="noopener noreferrer"
-								href="https://gonzalobos.com/"
-								onClick={() => handleFooterLinkClick('Link Copyright Gonzalo Lobos', 'https://gonzalobos.com/')}
-								className="hover:text-primario transition-colors"
-							>
-								Gonzalo Lobos
-							</a>
-						</p>
+						<p>Todos los derechos reservados.</p>
+
 					</div>
 				</div>
 

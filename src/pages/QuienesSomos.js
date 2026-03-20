@@ -4,7 +4,7 @@ import SecondaryHero from '../components/SecondaryHero';
 import WhatIsExpansisPro from '../components/WhatIsExpansisPro';
 import OurStory from '../components/OurStory';
 import MisionVision from './MisionVision';
-import AboutMe from './AboutMe';
+
 import CallToAction from '../components/CallToAction';
 
 const QuienesSomos = () => {
@@ -34,7 +34,7 @@ const QuienesSomos = () => {
                 <WhatIsExpansisPro />
                 <MisionVision />
                 <OurStory />
-                <AboutMe />
+
             </div>
 
             <CallToAction

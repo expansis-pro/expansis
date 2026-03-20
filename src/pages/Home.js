@@ -79,7 +79,7 @@ const Home = () => {
 			<section id="about-teaser">
 				<ImageTextCTA
 					imageDesktop="/images/1920x1080_expansisPro_aboutus.webp"
-					alt="Gonzalo Lobos trabajando en estrategia digital"
+					alt="Trabajando en estrategia digital"
 					subtitle="DETRÁS DE LA ESTRATEGIA"
 					title="Un Aliado, no un Proveedor"
 					text={[

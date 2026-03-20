@@ -10,7 +10,7 @@ const Contact = () => {
 	}, []);
 
 	// --- LÓGICA DE CORREO ---
-	const email = "gonzalo@expansispro.com";
+	const email = "info@expansispro.com";
 	const subject = encodeURIComponent("Consulta sobre Proyecto Digital - Expansis Pro");
 	const body = encodeURIComponent("Hola equipo de Expansis Pro,\n\nMe pongo en contacto con ustedes porque estoy interesado en potenciar mi negocio digital.\n\nMis datos son:\n- Nombre:\n- Empresa:\n- Teléfono:\n\nQuedo atento a su respuesta.");
 
@@ -69,7 +69,8 @@ const Contact = () => {
 
 						<div className="p-6 bg-ghostWhite rounded-2xl border border-gray-100 inline-block">
 							<p className="text-deepBlue font-semibold mb-1">Horario de Atención</p>
-							<p className="text-gray-600 font-light text-sm">Lunes a Viernes: 09:00 - 18:30 hrs.</p>
+							<p className="text-gray-600 font-light text-sm">Lunes a Viernes: 18:00 - 22:00 hrs.</p>
+							<p className="text-gray-600 font-light text-sm">Sábado y Domingo: 10:00 - 22:00 hrs.</p>
 						</div>
 					</div>
 
