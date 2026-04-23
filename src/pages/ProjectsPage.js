@@ -67,9 +67,10 @@ const ProjectsPage = () => {
                                         Sector: {project.sector}
                                     </p>
 
-                                    <p className="text-gray-600 font-light leading-relaxed mb-8">
-                                        {project.description}
-                                    </p>
+                                    <p
+                                        className="text-gray-600  leading-relaxed mb-8"
+                                        dangerouslySetInnerHTML={{ __html: project.description }}
+                                    />
 
                                     {/* Bloque de Resultados */}
                                     {project.results && (
@@ -79,7 +80,8 @@ const ProjectsPage = () => {
                                                 {project.results.map((res, i) => (
                                                     <li key={i} className="text-sm text-gray-600 flex items-start gap-2 leading-snug">
                                                         <i className="fa-solid fa-circle-check text-green-500 mt-1 text-[12px]"></i>
-                                                        {res}
+                                                        {/* CAMBIO 2: RESULTADOS */}
+                                                        <span dangerouslySetInnerHTML={{ __html: res }} />
                                                     </li>
                                                 ))}
                                             </ul>
