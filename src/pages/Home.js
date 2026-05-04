@@ -19,6 +19,7 @@ const Home = () => {
 					muted
 					playsInline
 					poster="/assets/hero-poster.webp"
+					fetchPriority="high"
 					className="absolute inset-0 z-0 w-full h-full object-cover opacity-40 brightness-[0.7]"
 				>
 					<source src="/assets/hero-expansis.mp4" type="video/mp4" />

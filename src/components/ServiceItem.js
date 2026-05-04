@@ -20,7 +20,7 @@ const ServiceItem = ({ icon, title, description, slug }) => {
 
             {/* Header: Título e Icono */}
             <div className="flex justify-between items-start mb-6 gap-4">
-                <h3 className="text-ghostWhite text-2xl leading-tight flex-1 font-bold">
+                <h3 className="text-left text-ghostWhite text-2xl leading-tight flex-1 font-bold">
                     {title}
                 </h3>
                 <div className="w-12 h-12 bg-primario rounded-full flex items-center justify-center flex-shrink-0 shadow-lg shadow-primario/20">
@@ -29,7 +29,7 @@ const ServiceItem = ({ icon, title, description, slug }) => {
             </div>
 
             {/* Descripción */}
-            <p className={`text-ghostWhite/80 font-light leading-relaxed ${isPhilosophy ? 'text-lg' : 'text-base mb-8 flex-grow'}`}>
+            <p className={`text-left text-ghostWhite/80 font-light leading-relaxed ${isPhilosophy ? 'text-lg' : 'text-base mb-8 flex-grow'}`}>
                 {description}
             </p>
 

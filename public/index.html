@@ -3,7 +3,7 @@
 
 <head>
 
-  <!-- Script de Google Analytics 4 (gtag.js) - Carga directa para prueba -->
+  <!-- Google Tag Manager -->
   <script>(function (w, d, s, l, i) {
       w[l] = w[l] || []; w[l].push({
         'gtm.start':
@@ -12,6 +12,7 @@
         j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
           'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
     })(window, document, 'script', 'dataLayer', 'GTM-TQ3BF3B6');</script>
+  <!-- End Google Tag Manager -->
   <!-- FIN Script de Google Analytics 4 -->
 
   <meta charset="utf-8" />
@@ -48,7 +49,7 @@
   <noscript>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap">
   </noscript>
-
+  <link rel="preload" as="image" href="/assets/hero-poster.webp" fetchpriority="high">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -81,8 +82,10 @@
 </head>
 
 <body>
+  <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TQ3BF3B6" height="0" width="0"
       style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
   <div id="root"></div>
 </body>
 

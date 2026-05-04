@@ -27,7 +27,13 @@ const ImageTextCTA = ({
                     {/* Contenedor de Imagen */}
                     <div className={`${imageSide === 'left' ? 'lg:order-1' : 'lg:order-2'} flex justify-center`}>
                         <div className={imageContainerClasses}>
-                            <img src={imageDesktop} alt={alt} className={imageClasses} />
+                            <img
+                                src={imageDesktop}
+                                alt={alt}
+                                className={imageClasses}
+                                loading="lazy"      // <--- ESTO activa el Lazy Loading nativo
+                                decoding="async"    // <--- Ayuda a que el navegador no se bloquee al procesar la imagen
+                            />
                         </div>
                     </div>
 
