@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import ProjectSection from '../components/ProjectSection';
 
 import { servicesData } from '../data/servicesData';
 import { faqData } from '../data/faqData';
 import NotFound from './NotFound';
+import PhaseItem from '../components/PhaseItem';
 import CallToAction from '../components/CallToAction';
 import FaqItem from '../components/FaqItem';
 import SecondaryHero from '../components/SecondaryHero'; import { sendWhatsAppMessage } from '../utils/trackingUtils';
@@ -12,6 +14,7 @@ const ServicePage = () => {
     const { slug } = useParams();
     const service = servicesData.find(s => s.slug === slug);
     const [openFaqIndex, setOpenFaqIndex] = useState(null);
+    const [openPhaseIndex, setOpenPhaseIndex] = useState(0); // Empezamos con la Fase 1 abierta
 
     if (!service) {
         return <NotFound />;
@@ -59,6 +62,7 @@ const ServicePage = () => {
                     title={service.title}
                     subtitle={service.longDescription}
                     icon={service.icon}
+                    img={`/assets/${service.slug}-hero.webp`}
                 />
 
                 {/* BOTÓN 1: CONTACTO RÁPIDO (Debajo del Hero) */}
@@ -76,23 +80,19 @@ const ServicePage = () => {
             {/* --- CONTENIDO PRINCIPAL --- */}
             <div className="max-w-4xl mx-auto pt-24 pb-16 px-4">
 
-                {/* Fases del Proyecto */}
+                {/* --- NUEVA SECCIÓN DE FASES DESPLEGABLES --- */}
                 <section id="phases" className="mb-20">
-                    <h2 className="text-center mb-12">Fases del Proyecto</h2>
-                    <div className="grid grid-cols-1 gap-6">
+                    <h2 className="text-center mb-12 font-bold text-deepBlue">Fases del Proyecto</h2>
+                    <div className="space-y-2">
                         {service.phases.map((phase, index) => (
-                            <div key={index} className="p-8 rounded-2xl shadow-sm border border-gray-100 bg-ghostWhite flex items-start gap-6">
-                                <span className="flex-shrink-0 w-10 h-10 bg-primario text-white rounded-full flex items-center justify-center font-bold">
-                                    {index + 1}
-                                </span>
-                                <div>
-                                    <h3 className="text-deepBlue text-xl font-bold mb-2">{phase.title}</h3>
-                                    <p
-                                        className="text-gray-600 font-light leading-relaxed"
-                                        dangerouslySetInnerHTML={{ __html: phase.description }}
-                                    />
-                                </div>
-                            </div>
+                            <PhaseItem
+                                key={index}
+                                number={index + 1}
+                                title={phase.title}
+                                description={phase.description}
+                                isOpen={openPhaseIndex === index}
+                                onToggle={() => setOpenPhaseIndex(openPhaseIndex === index ? null : index)}
+                            />
                         ))}
                     </div>
                 </section>
@@ -160,7 +160,12 @@ const ServicePage = () => {
                         </div>
                     </div>
                 </section>
-
+                {/* // Dentro del return de ServicePage: */}
+                <ProjectSection
+                    title="Proyectos Realizados"
+                    subtitle={`Mira cómo hemos aplicado la ingeniería de ${service.title} en otros ecosistemas.`}
+                    limit={2} // Aquí puedes limitar a 2 para no alargar tanto la página de servicios
+                />
                 {/* FAQs */}
                 {serviceFaqs.length > 0 && (
                     <section id="service-faq" className="mb-20">

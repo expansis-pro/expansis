@@ -1,7 +1,5 @@
-// src/utils/trackingUtils.js
+// src/utils/whatsappUtils.js
 export const sendWhatsAppMessage = (servicio = "Información General") => {
-
-    console.log("Boton Whatsapp Clickeado!");
     const phoneNumber = "56988318443";
     const frasesContexto = {
         "Desarrollo Web": "potenciar mi negocio con un *Desarrollo Web* a medida",
@@ -16,21 +14,22 @@ export const sendWhatsAppMessage = (servicio = "Información General") => {
 
     const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(mensaje)}`;
 
-    // Centralizamos el tracking aquí para no olvidarlo nunca
+    // 1. Señal para GTM (Recomendado para eventos personalizados)
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+        'event': 'disparo_whatsapp_manual',
+        'servicio_seleccionado': servicio
+    });
+
+    // 2. Señal directa para Google Ads (Opcional, si tienes gtag.js cargado)
     if (typeof window.gtag === 'function') {
         window.gtag('event', 'conversion', {
             'send_to': 'AW-16965295721/wff8CPWU1sIbEOm815k_'
         });
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
-            'event': 'disparo_whatsapp_manual',
-            'servicio_consultado': servicio
-        });
-        console.log("✅ Señal enviada a DataLayer y Ads");
     }
 
-
-    window.open(whatsappLink, '_blank');
+    console.log("🚀 Evento de WhatsApp enviado a GTM/Ads");
+    window.open(whatsappLink, '_blank', 'noopener,noreferrer');
 };
 
 

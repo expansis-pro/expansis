@@ -4,21 +4,21 @@ export const servicesData = [
         icon: "fa-solid fa-code",
         title: "Desarrollo Web",
         description: "Construimos tu activo digital más importante mediante un proceso de Arquitectura Coherente.",
-        longDescription: "Tu sitio web es la materialización de un proceso estratégico. Te acompañaremos en el descubrimiento de tu relato de marca, definiremos tu lenguaje visual y diseñaremos una experiencia de usuario orientada a que logres tus objetivos comerciales. El resultado es una arquitectura web en React: rápida, segura y alineada al 100% con la autoridad de tu negocio.",
+        longDescription: "En Expansis Pro co-construimos canales digitales de venta diseñados como ecosistemas vivos que integran tu identidad real con plataformas digitales escalables, sostenibles y adaptables.",
         phases: [
             {
-                title: "Fase 1: Descubrimiento",
-                description: "Iniciamos con un entendimiento profundo de tu negocio, análisis de competencia y el descubrimiento del relato necesario. Definimos la razón estratégica del proyecto y el target para asegurar que los cimientos de tu arquitectura digital sean sólidos."
+                title: "Descubrimiento",
+                description: "Te acompañaremos en el proceso de descubrimiento del identidad de la marca. A partir de este punto. En esta fase desenterramos tu relato de marca y analizamos a la competencia para asegurar que los cimientos de tu plataforma no sean autenticos y coherentes."
             },
             {
-                title: "Fase 2: Coherencia Visual y UX",
-                description: "Establecemos tus <strong>Cimientos Visuales</strong> definiendo elementos de identidad y un sistema de estilo para dar vida a una <strong>interfaz visual de alta fidelidad</strong>. Nos enfocamos en una experiencia de usuario que proyecte autoridad real, validando la estética y la navegación estratégica antes de iniciar la construcción técnica."
+                title: "Coherencia Visual y UX",
+                description: "Aquí definimos los <strong>Cimientos Visuales</strong> de la marca. Prototipamos tu web y creamos el journey del usuario para ir afinando el canal final. De esta manera obtendremos un lenguaje visual y una experiencia de usuario (UX) óptima y diseñada para guiar al visitante hacia la confianza y la conversión."
             },
             {
-                title: "Fase 3: Construcción Técnica Integrada",
-                description: "Traducimos la estrategia a ingeniería de software utilizando tecnología React. Construimos una plataforma rápida, segura y escalable, integrando el contenido y las funcionalidades necesarias bajo un código limpio y profesional."
+                title: "Construcción Técnica Integrada",
+                description: "Traducimos la estrategia a ingeniería de software utilizando tecnología React. Construimos una plataforma web rápida, segura y escalable, integrando el contenido y las funcionalidades necesarias bajo un código limpio y profesional."
             }, {
-                title: "Fase 4: Validación y Lanzamiento",
+                title: "Validación y Lanzamiento",
                 description: "Realizamos auditorías de rendimiento y optimización SEO base para Google. Lanzamos tu activo digital al mercado con 30 días de soporte proactivo, garantizando que tu salida sea impecable y coherente con tu operación real."
             }
         ],
@@ -47,40 +47,42 @@ export const servicesData = [
     {
         slug: "consultoria-digital",
         icon: "fa-solid fa-chart-line",
-        title: "Consultoría Digital",
-        description: "Te asesoramos para definir objetivos, identificar oportunidades y optimizar tus procesos.",
-        longDescription: "Analizaremos tu presencia online actual para desarrollar una estrategia de transformación digital. Investigaremos tu mercado y competencia para optimizar la experiencia de usuario (UX) y entregarte una hoja de ruta clara para potenciar tus resultados.",
+        title: "Desarrollo de Marca",
+        description: "Desenterramos el propósito de tu negocio para construir una autoridad digital que tenga peso real y coherencia.",
+        longDescription: "Analizamos tu propuesta de valor y la traducimos a un lenguaje de autoridad digital, asegurando que cada punto de contacto con tu cliente refuerce tu profesionalismo y justifique tus precios.",
         phases: [
             {
-                title: "Fase 1: Diagnóstico",
-                description: "Evaluaremos tu ecosistema digital actual e identificaremos las áreas de mejora y las oportunidades clave para tu negocio."
+                title: "Descubrimiento del Relato Visceral",
+                description: "Realizamos una auditoría de identidad profunda. Aplicamos psicología estratégica para definir quién eres, qué valor real aportas y cuál es el mensaje que debe articular toda tu presencia digital para generar confianza inmediata."
             },
             {
-                title: "Fase 2: Plan Estratégico",
-                description: "Desarrollaremos una hoja de ruta clara con acciones concretas y priorizadas para que alcances tus objetivos."
+                title: "Arquitectura del Ecosistema Digital",
+                description: "Diseñamos el plano de tus canales. Definimos cómo debe estructurarse tu Web en React, qué rol juega cada red social y cómo se conectan entre sí para formar un ecosistema vivo, escalable y, sobre todo, propio."
             },
             {
-                title: "Fase 3: Implementación y Medición",
-                description: "Te acompañaremos en la ejecución del plan y mediremos el impacto de cada acción para asegurar el éxito de la estrategia."
+                title: "Pauta de Implementación y Desarrollo",
+                description: "Entregamos la hoja de ruta técnica. Definimos los estándares de diseño, tono de voz y funcionalidades necesarias para que la construcción de tus canales sea fluida, eliminando el azar y el 'humo' del proceso."
             }
         ],
         pricing: {
             from: "$300.000 CLP", // +50.000
             features: [
-                "Análisis de competencia",
-                "Estrategia de contenidos",
-                "Optimización de embudos de venta",
-                "Informe de resultados"
+                "Blueprint del Relato Visceral de Marca",
+                "Mapa de Arquitectura del Ecosistema Digital",
+                "Pauta Técnica para Desarrollo de Canales (Web/RRSS)",
+                "Definición de Ángulos de Venta y Autoridad",
+                "Hoja de Ruta de Expansión Tecnológica",
             ], scalability: {
-                title: "Escalabilidad Disponible",
-                description: "Lleva tu estrategia al siguiente nivel con: <strong>Acompañamiento directivo mensual, Dashboards de métricas en tiempo real o Auditorías de procesos internos.</strong>"
+                title: "De la Estrategia a la Acción",
+                description: "Una vez definida la pauta, podemos proceder a la: <strong>Construcción técnica en React, Integración de sistemas o Gestión de Adquisición de clientes.</strong>"
             }
         },
         details: [
-            "Análisis de presencia online actual.",
-            "Estrategia de transformación digital.",
-            "Investigación de mercado y competencia.",
-            "Optimización de la experiencia de usuario (UX)."
+            "Auditoría de Coherencia e Identidad Digital.",
+            "Diseño de Ecosistemas Digitales Propios y Escalables.",
+            "Análisis de Autoridad y Diferenciación de Mercado.",
+            "Arquitectura de Experiencia (UX) basada en el Relato.",
+            "Definición de Pautas Técnicas para el Desarrollo de Canales."
         ]
     },
     {
@@ -91,15 +93,15 @@ export const servicesData = [
         longDescription: "Diseñaremos e implementaremos campañas de marketing digital enfocadas en resultados. Nos enfocaremos en la gestión de tu inversión publicitaria en Meta (Facebook, Instagram) y Google Ads para crear estrategias que aumenten tu visibilidad y atraigan nuevos clientes.",
         phases: [
             {
-                title: "Fase 1: Definición de Audiencia",
+                title: "Definición de Audiencia",
                 description: "Junto a ti, identificaremos a tu cliente ideal y los canales más efectivos para llegar a él y conectar con sus necesidades."
             },
             {
-                title: "Fase 2: Creación de Campañas",
+                title: "Creación de Campañas",
                 description: "Diseñaremos y lanzaremos campañas publicitarias creativas y persuasivas en las plataformas que hayamos seleccionado."
             },
             {
-                title: "Fase 3: Optimización Continua",
+                title: "Optimización Continua",
                 description: "Monitorearemos los resultados en tiempo real y optimizaremos las campañas continuamente para maximizar el retorno de tu inversión."
             }
         ],
