@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { servicesData } from '../data/servicesData';
+import { contactData } from '../data/contactConfig';
 
 const Navbar = () => {
 	const [menuOpen, setMenuOpen] = useState(false);
@@ -81,10 +82,10 @@ const Navbar = () => {
 				{/* LOGO */}
 				<NavLink
 					to="/"
-					className="text-2xl  text-ghostWhite hover:text-primario transition-colors"
+					className="text-2xl  text-ghostWhite transition-colors"
 					onClick={handleLogoClick}
 				>
-					Expansis Pro
+					Expansis <span className="text-primario ">Pro</span>
 				</NavLink>
 
 				{/* BOTÓN HAMBURGUESA */}
@@ -167,14 +168,16 @@ const Navbar = () => {
 					<li><NavLink to="/quienes-somos" className="text-ghostWhite hover:text-primario font-medium transition-colors" onClick={() => handleNavLinkClick('Sobre Expansis')}>Sobre Expansis</NavLink></li>
 					<li><NavLink to="/contacto" className="text-ghostWhite hover:text-primario font-medium transition-colors" onClick={() => handleNavLinkClick('Contacto')}>Contacto</NavLink></li>
 					<li><NavLink to="/faq" className="text-ghostWhite hover:text-primario font-medium transition-colors" onClick={() => handleNavLinkClick('FAQ')}>FAQ</NavLink></li>
+					{/* CTA DESKTOP USANDO DATA DINÁMICA */}
 					<li>
-						<NavLink
-							to="/contacto"
+						<a
+							href={contactData.whatsapp.getLink("Hola, me gustaría cotizar un proyecto con Expansis Pro")}
+							target="_blank"
+							rel="noopener noreferrer"
 							className="btn-primary py-2.5 px-6 text-sm"
-							onClick={() => handleNavLinkClick('CTA Desktop')}
 						>
 							Cotizar Proyecto
-						</NavLink>
+						</a>
 					</li>
 				</ul>
 			</div>

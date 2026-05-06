@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { servicesData } from '../data/servicesData';
 import { sendWhatsAppMessage } from '../utils/trackingUtils';
-
+import { contactData } from '../data/contactConfig'; // Fuente de verdad
 
 const Footer = () => {
 	const currentYear = new Date().getFullYear();
@@ -25,7 +25,7 @@ const Footer = () => {
 
 				{/* Columna Marca: Se mantiene al final en móvil con order-4 */}
 				<div className="space-y-4 order-4 md:order-none">
-					<h3 className="text-ghostWhite">Expansis Pro</h3>
+					<h3 className="text-ghostWhite">Expansis <span className="text-primario">Pro</span></h3>
 					<p className="text-sm font-light">Tu socio estratégico para la expansión digital.</p>
 					<div className="text-xs text-gray-500 pt-4">
 						<p>© {currentYear} Expansis Pro.</p>
@@ -66,30 +66,40 @@ const Footer = () => {
 				{/* Contacto: Tercero en móvil */}
 				<div className="order-3 md:order-none">
 					<h4 className="text-ghostWhite font-semibold mb-6 uppercase tracking-wider text-sm">Contacto</h4>
-					<ul className="space-y-4">
+					<ul className="space-y-6">
+						{/* EMAIL DINÁMICO */}
 						<li className="flex items-center group">
-							<i className="fa-solid fa-envelope mr-3 text-primario"></i>
-							<a href="mailto:info@expansispro.com" className="hover:text-ghostWhite transition-colors">info@expansispro.com</a>
-						</li>
-						<li className="flex items-center group">
-							<i className="fa-brands fa-whatsapp mr-3 text-primario"></i>
-							<button
-								onClick={() => sendWhatsAppMessage("Información General")}
-								className="hover:text-ghostWhite transition-colors"
+							<i className="fa-solid fa-envelope mr-3 text-primario group-hover:scale-110 transition-transform"></i>
+							<a
+								href={contactData.email.getLink()}
+								className="text-sm hover:text-ghostWhite transition-colors break-all italic"
 							>
-								+56 988318443
+								{contactData.email.address}
+							</a>
+						</li>
+
+						{/* WHATSAPP DINÁMICO */}
+						<li className="flex items-center group">
+							<i className="fa-brands fa-whatsapp mr-3 text-primario group-hover:scale-110 transition-transform text-lg"></i>
+							<button
+								onClick={() => sendWhatsAppMessage("Consulta desde el Footer")}
+								className="text-sm font-medium hover:text-ghostWhite transition-colors"
+							>
+								{contactData.whatsapp.prefix} {contactData.whatsapp.number.slice(-8)}
 							</button>
 						</li>
-						<li className="flex items-center group">
-							<i className="fa-brands fa-instagram mr-3 text-primario"></i>
+
+						{/* REDES DINÁMICAS */}
+						<li className="flex items-center group ">
+							<i className="fa-brands fa-instagram mr-3 text-primario group-hover:scale-110 transition-transform text-lg"></i>
 							<a
-								href="https://www.instagram.com/expansispro/"
+								href={contactData.socials.instagram}
 								target="_blank"
 								rel="noopener noreferrer"
-								onClick={() => handleFooterLinkClick('Link Instagram', 'https://www.instagram.com/expansispro/')}
-								className="hover:text-ghostWhite transition-colors"
+								onClick={() => handleFooterLinkClick('Link Instagram', contactData.socials.instagram)}
+								className="text-sm hover:text-ghostWhite transition-colors"
 							>
-								@expansispro
+								expansispro
 							</a>
 						</li>
 					</ul>
