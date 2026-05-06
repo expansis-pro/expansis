@@ -8,12 +8,12 @@ const ProjectSection = ({ limit = 3, title = "Ecosistemas en Expansión", subtit
     const displayedProjects = limit ? projectsData.slice(0, limit) : projectsData;
 
     return (
-        <section className="py-20 bg-ghostWhite">
-            <div className="max-w-7xl mx-auto px-4">
+        <section className="section-padding bg-ghostWhite">
+            <div className="container-pro">
 
                 <div className="text-center mb-16">
                     <h2 className="text-deepBlue text-3xl md:text-4xl font-bold mb-4">{title}</h2>
-                    <p className="text-gray-600 font-light max-w-2xl mx-auto">{subtitle}</p>
+                    <p className="section-subtitle">{subtitle}</p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">

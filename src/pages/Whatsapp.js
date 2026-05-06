@@ -2,20 +2,6 @@ import React from "react";
 import { sendWhatsAppMessage } from "../utils/trackingUtils";
 
 const Whatsapp = () => {
-    // const phoneNumber = "56965961086";
-    // // Mensaje un poco más directo y profesional
-    // const message = encodeURIComponent("¡Hola! Me gustaría conversar sobre un proyecto y descubrir cómo Expansis Pro puede ayudarme.");
-    // const whatsappLink = `https://wa.me/${phoneNumber}?text=${message}`;
-
-    // Función para manejar el clic y disparar el evento de Google Ads
-    // const handleWhatsappClick = () => {
-    //     if (typeof window.gtag === 'function') {
-    //         window.gtag('event', 'conversion', {
-    //             'send_to': 'AW-16965295721/wff8CPWU1sIbEOm815k_'
-    //         });
-    //         console.log("Conversión de WhatsApp (Página Contacto) enviada con éxito");
-    //     }
-    // };
 
     return (
         <section id="whatsapp" className="py-12 sm:py-16 px-4">

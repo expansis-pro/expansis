@@ -10,34 +10,41 @@ const CallToAction = ({ title, description, serviceName = "Información General"
     // ya que ahora la gestiona whatsappUtils.js
 
     return (
-        <section id="call-to-action" className="py-12 md:py-20 bg-white">
-            <div className="md:max-w-6xl md:mx-auto bg-deepBlue text-ghostWhite px-6 py-12 md:p-20 rounded-[2rem] md:rounded-[3rem] shadow-2xl text-center">
+        <section id="call-to-action" className="max-w-4xl mx-auto section-padding bg-white">
+            <div className="container-pro">
 
-                <h2 className="text-ghostWhite mb-6">
-                    {title || '¿Listo para expandir tu negocio?'}
-                </h2>
+                <div className="bg-deepBlue text-ghostWhite px-8 py-12 md:p-20 rounded-3xl shadow-2xl text-center overflow-hidden relative">
 
-                <p className="text-ghostWhite/80 mb-12 max-w-2xl mx-auto">
-                    {description || 'Hablemos de tu proyecto. Elige la opción que más te acomode.'}
-                </p>
+                    <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-64 h-64 bg-primario/10 rounded-full blur-3xl pointer-events-none"></div>
+                    <div className="relative z-10">
 
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                    {/* 3. Reemplazamos el <a> por un <button> que llama a la utilidad */}
-                    <button
-                        onClick={() => sendWhatsAppMessage(serviceName)}
-                        className="btn-primary w-full sm:w-auto"
-                    >
-                        <i className="fa-brands fa-whatsapp text-2xl"></i>
-                        Hablemos por WhatsApp
-                    </button>
+                        <h2 className="text-ghostWhite mb-6 text-3xl md:text-5xl">
+                            {title || '¿Listo para expandir tu negocio?'}
+                        </h2>
 
-                    <CtaButton
-                        to="/contacto"
-                        variant="secondary"
-                        className="btn-secondary w-full sm:w-auto"
-                    >
-                        Envíanos un Mensaje
-                    </CtaButton>
+                        <p className="text-ghostWhite/80 mb-12 max-w-2xl mx-auto">
+                            {description || 'Hablemos de tu proyecto. Elige la opción que más te acomode.'}
+                        </p>
+
+                        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6">
+                            {/* 3. Reemplazamos el <a> por un <button> que llama a la utilidad */}
+                            <button
+                                onClick={() => sendWhatsAppMessage(serviceName)}
+                                className="btn-primary w-full sm:w-auto"
+                            >
+                                <i className="fa-brands fa-whatsapp text-2xl"></i>
+                                Hablemos por WhatsApp
+                            </button>
+
+                            <CtaButton
+                                to="/contacto"
+                                variant="secondary"
+                                className="btn-secondary w-full sm:w-auto"
+                            >
+                                Envíanos un Mensaje
+                            </CtaButton>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

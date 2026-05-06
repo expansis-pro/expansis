@@ -4,16 +4,20 @@ import { Link } from 'react-router-dom';
 import { scrollToSection } from '../utils/scrollUtils';
 
 const CtaButton = ({ children, to, scrollTo, variant = 'primary', className = "" }) => {
-    // 1. Estilos base compartidos (sin colores ni bordes fijos)
-    const baseClasses = "inline-block transition-all duration-300 transform hover:scale-105 text-center cursor-pointer";
 
-    // 2. Si NO hay className externo, usamos estos por defecto
-    const defaultVariantClasses = variant === 'primary'
-        ? "bg-primario text-ghostWhite px-8 py-3 rounded-lg shadow-lg"
-        : "border-2 border-deepBlue text-deepBlue px-8 py-3 rounded-lg bg-white";
+    // 1. Mapeamos las variantes a tus clases de index.css
+    const variantStyles = {
+        primary: "btn-primary",
+        secondary: "btn-secondary", // Ideal para fondos oscuros
+        outline: "btn-outline"      // Ideal para fondos claros (borde azul)
+    };
 
-    // 3. Prioridad: baseClasses + (className externo O defaultVariantClasses)
-    const finalClasses = `${baseClasses} ${className || defaultVariantClasses}`;
+    // 2. Definimos la clase de la variante elegida (o primary por defecto)
+    const selectedVariant = variantStyles[variant] || variantStyles.primary;
+
+    // 3. AQUÍ ESTÁ EL TRUCO: Sumamos las clases (espacio de por medio)
+    // En lugar de "O" (||), usamos una cadena que suma la variante + lo extra
+    const finalClasses = `${selectedVariant} ${className}`;
 
     if (scrollTo) {
         return (

@@ -6,7 +6,8 @@ import { servicesData } from '../data/servicesData';
 
 const Navbar = () => {
 	const [menuOpen, setMenuOpen] = useState(false);
-	const [servicesMenuOpen, setServicesMenuOpen] = useState(false);
+	const [servicesMenuOpen, setServicesMenuOpen] = useState(false); // Dropdown Desktop
+	const [mobileServicesOpen, setMobileServicesOpen] = useState(false); // Acordeón Mobile
 	const [scrolled, setScrolled] = useState(false);
 	const navRef = useRef(null);
 	const servicesNavRef = useRef(null);
@@ -22,7 +23,10 @@ const Navbar = () => {
 		closed: { opacity: 0, height: 0, transition: { duration: 0.3, ease: "easeInOut" } },
 		open: { opacity: 1, height: "auto", transition: { duration: 0.3, ease: "easeInOut" } }
 	};
-
+	const subMenuVariants = {
+		closed: { opacity: 0, height: 0, transition: { duration: 0.2 } },
+		open: { opacity: 1, height: "auto", transition: { duration: 0.2 } }
+	};
 	useEffect(() => {
 		const handleScroll = () => {
 			setScrolled(window.scrollY > 50);
@@ -72,12 +76,12 @@ const Navbar = () => {
 
 	return (
 		<nav className={navClasses} ref={navRef}>
-			<div className="max-w-6xl mx-auto flex justify-between items-center px-4 sm:px-6 lg:px-8">
+			<div className="container-pro flex justify-between items-center">
 
 				{/* LOGO */}
 				<NavLink
 					to="/"
-					className="text-2xl font-semibold text-ghostWhite hover:text-primario transition-colors"
+					className="text-2xl  text-ghostWhite hover:text-primario transition-colors"
 					onClick={handleLogoClick}
 				>
 					Expansis Pro
@@ -85,7 +89,7 @@ const Navbar = () => {
 
 				{/* BOTÓN HAMBURGUESA */}
 				<button
-					className="md:hidden text-ghostWhite text-3xl focus:outline-none"
+					className="md:hidden text-ghostWhite text-4xl focus:outline-none"
 					onClick={() => setMenuOpen(!menuOpen)}
 					aria-label="Toggle menu"
 				>
@@ -104,10 +108,12 @@ const Navbar = () => {
 						</NavLink>
 					</li>
 
-					<li className="relative" ref={servicesNavRef}>
+					<li className="relative group py-2" // Añadimos 'group' y un pequeño padding para que el puente de hover no se rompa
+						ref={servicesNavRef}
+						onMouseEnter={() => setServicesMenuOpen(true)}
+						onMouseLeave={() => setServicesMenuOpen(false)}>
 						<button
-							onClick={() => setServicesMenuOpen(!servicesMenuOpen)}
-							className="flex items-center gap-1 text-ghostWhite hover:text-primario font-medium transition-colors"
+							className="flex items-center gap-1 text-ghostWhite hover:text-primario font-medium transition-colors cursor-default"
 						>
 							Servicios
 							<motion.i
@@ -115,25 +121,36 @@ const Navbar = () => {
 								animate={{ rotate: servicesMenuOpen ? 180 : 0 }}
 							/>
 						</button>
+
 						<AnimatePresence>
 							{servicesMenuOpen && (
 								<motion.div
 									variants={desktopDropdownVariants}
-									initial="closed"
-									animate="open"
-									exit="closed"
-									className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-56 bg-deepBlue border border-gray-700 rounded-lg shadow-xl py-2"
+									initial="closed" animate="open" exit="closed"
+									className="absolute top-full left-1/2 -translate-x-1/2 w-64 bg-deepBlue border border-gray-700 rounded-2xl shadow-2xl py-3 overflow-hidden"
 								>
 									{servicesData.map(service => (
 										<NavLink
 											key={service.slug}
 											to={`/servicios/${service.slug}`}
-											onClick={() => handleNavLinkClick(`Servicio: ${service.title}`)}
-											className="block px-4 py-2 text-ghostWhite/80 hover:bg-gray-800 hover:text-primario transition-colors"
+											className="block px-6 py-2 text-ghostWhite/70 hover:bg-white/5 hover:text-primario transition-colors text-sm"
+											onClick={() => handleNavLinkClick(service.title)}
 										>
 											{service.title}
 										</NavLink>
 									))}
+
+									{/* BOTÓN DESTACADO DESKTOP */}
+									<div className="mt-2 pt-2 border-t border-gray-700 px-3">
+										<NavLink
+											to="/servicios"
+											className="flex items-center justify-center gap-2 w-full py-2 bg-primario/10 text-primario rounded-xl text-xs font-bold uppercase tracking-widest hover:bg-primario hover:text-white transition-all"
+											onClick={() => handleNavLinkClick('Ver Todos')}
+										>
+											Ver todos los servicios
+											<i className="fa-solid fa-arrow-right text-[10px]"></i>
+										</NavLink>
+									</div>
 								</motion.div>
 							)}
 						</AnimatePresence>
@@ -150,6 +167,15 @@ const Navbar = () => {
 					<li><NavLink to="/quienes-somos" className="text-ghostWhite hover:text-primario font-medium transition-colors" onClick={() => handleNavLinkClick('Sobre Expansis')}>Sobre Expansis</NavLink></li>
 					<li><NavLink to="/contacto" className="text-ghostWhite hover:text-primario font-medium transition-colors" onClick={() => handleNavLinkClick('Contacto')}>Contacto</NavLink></li>
 					<li><NavLink to="/faq" className="text-ghostWhite hover:text-primario font-medium transition-colors" onClick={() => handleNavLinkClick('FAQ')}>FAQ</NavLink></li>
+					<li>
+						<NavLink
+							to="/contacto"
+							className="btn-primary py-2.5 px-6 text-sm"
+							onClick={() => handleNavLinkClick('CTA Desktop')}
+						>
+							Cotizar Proyecto
+						</NavLink>
+					</li>
 				</ul>
 			</div>
 
@@ -163,35 +189,61 @@ const Navbar = () => {
 						exit="closed"
 						className="md:hidden bg-deepBlue border-t border-gray-800 overflow-hidden"
 					>
-						<ul className="flex flex-col p-4 space-y-4">
+						<ul className="flex flex-col p-8 space-y-8">
 							<li>
-								<NavLink to="/" className="text-ghostWhite block text-lg" onClick={() => handleNavLinkClick('Inicio')}>
+								<NavLink to="/" className="text-ghostWhite block text-2xl" onClick={() => handleNavLinkClick('Inicio')}>
 									Inicio
 								</NavLink>
 							</li>
-							{/* En mobile, listamos los servicios directamente para mejor UX */}
-							<li className="border-b border-gray-800 pb-2">
-								<span className="text-gray-400 text-sm uppercase ">Servicios</span>
-								<div className="mt-2 ml-4 flex flex-col space-y-2">
-									{servicesData.map(service => (
-										<NavLink
-											key={service.slug}
-											to={`/servicios/${service.slug}`}
-											onClick={() => handleNavLinkClick(`Servicio Mobile: ${service.title}`)}
-											className="text-ghostWhite/80 text-base"
+							{/* ACORDEÓN DE SERVICIOS */}
+							<li className="space-y-4">
+								<button
+									onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+									className="text-ghostWhite w-full flex justify-between items-center text-2xl font-bold focus:outline-none"
+								>
+									Servicios
+									<motion.i
+										className="fa-solid fa-chevron-down text-xl text-primario"
+										animate={{ rotate: mobileServicesOpen ? 180 : 0 }}
+									/>
+								</button>
+
+								<AnimatePresence>
+									{mobileServicesOpen && (
+										<motion.div
+											variants={subMenuVariants} initial="closed" animate="open" exit="closed"
+											className="grid grid-cols-1 gap-6 ml-2 border-l border-gray-800 pl-6 overflow-hidden"
 										>
-											{service.title}
-										</NavLink>
-									))}
-								</div>
-							</li><li>
+											{servicesData.map(service => (
+												<NavLink key={service.slug} to={`/servicios/${service.slug}`} className="text-ghostWhite/70 text-xl font-light" onClick={handleNavLinkClick}>
+													{service.title}
+												</NavLink>
+											))}
+											<NavLink to="/servicios" className="text-primario font-bold text-lg flex items-center gap-2 pt-4 border-t border-gray-800/50" onClick={handleNavLinkClick}>
+												Ver todos los servicios <i className="fa-solid fa-arrow-right"></i>
+											</NavLink>
+										</motion.div>
+									)}
+								</AnimatePresence>
+							</li>
+
+							<li>
 								<NavLink to="/proyectos" className="text-ghostWhite block text-lg" onClick={() => handleNavLinkClick('Proyectos')}>
 									Proyectos
 								</NavLink>
 							</li>
 							<li><NavLink to="/quienes-somos" className="text-ghostWhite block text-lg" onClick={() => handleNavLinkClick('Sobre Expansis')}>Sobre Expansis</NavLink></li>
 							<li><NavLink to="/contacto" className="text-ghostWhite block text-lg" onClick={() => handleNavLinkClick('Contacto')}>Contacto</NavLink></li>
-							<li><NavLink to="/faq" className="text-ghostWhite block text-lg" onClick={() => handleNavLinkClick('FAQ')}>FAQ</NavLink></li>
+							<li><NavLink to="/faq" className="text-ghostWhite block text-lg" onClick={() => handleNavLinkClick('FAQ')}>FAQ</NavLink></li><li className="pt-4">
+								<NavLink
+									to="/contacto"
+									className="btn-primary w-full py-5 text-xl shadow-primario/20"
+									onClick={() => handleNavLinkClick('CTA Mobile')}
+								>
+									<i className="fa-solid fa-paper-plane mr-2 text-lg"></i>
+									Cotizar ahora
+								</NavLink>
+							</li>
 						</ul>
 					</motion.div>
 				)}

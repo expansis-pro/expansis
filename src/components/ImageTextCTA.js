@@ -9,7 +9,10 @@ const ImageTextCTA = ({
     text,
     buttonContent,
     buttonLink,
-    buttonVariant = 'secondary',
+    buttonVariant = 'primary',
+    secondaryButtonContent,
+    secondaryButtonLink,
+    secondaryButtonVariant = 'secondary',
     subtitle,
     title,
     imageSide = 'left'
@@ -21,7 +24,7 @@ const ImageTextCTA = ({
     return (
         /* Usamos la nueva clase maestra section-padding */
         <section className="w-full section-padding bg-white overflow-hidden">
-            <div className="max-w-6xl mx-auto px-4">
+            <div className="container-pro">
                 <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-20">
 
                     {/* Contenedor de Imagen */}
@@ -50,17 +53,31 @@ const ImageTextCTA = ({
                             <ReadMoreParagraphs paragraphs={text} />
                         </div>
 
-                        {buttonContent && (
-                            <div className="mt-12 w-full flex justify-start">
-                                <CtaButton
-                                    to={buttonLink}
-                                    variant={buttonVariant}
-                                    /* w-full en mobile, md:w-auto en desktop */
-                                    className={`${buttonVariant === 'primary' ? 'btn-primary' : 'btn-outline'
-                                        } w-full md:w-auto`}
-                                >
-                                    {buttonContent}
-                                </CtaButton>
+                        {/* --- CONTENEDOR DE BOTONES EN IMAGETEXTCTA.JS --- */}
+                        {(buttonContent || secondaryButtonContent) && (
+                            <div className="mt-10 flex flex-col sm:flex-row items-center justify-start gap-4 md:gap-6 w-full">
+
+                                {/* Botón Principal */}
+                                {buttonContent && (
+                                    <CtaButton
+                                        to={buttonLink}
+                                        variant={buttonVariant}
+                                        className="w-full sm:w-auto" // En mobile ocupan todo el ancho
+                                    >
+                                        {buttonContent}
+                                    </CtaButton>
+                                )}
+
+                                {/* Botón Secundario */}
+                                {secondaryButtonContent && (
+                                    <CtaButton
+                                        to={secondaryButtonLink}
+                                        variant={secondaryButtonVariant}
+                                        className="w-full sm:w-auto"
+                                    >
+                                        {secondaryButtonContent}
+                                    </CtaButton>
+                                )}
                             </div>
                         )}
                     </div>

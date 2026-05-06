@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import SecondaryHero from '../components/SecondaryHero';
 import WhatIsExpansisPro from '../components/WhatIsExpansisPro';
 import OurStory from '../components/OurStory';
-import MisionVision from './MisionVision';
+import MisionVision from '../components/MisionVision';
 
 import CallToAction from '../components/CallToAction';
 

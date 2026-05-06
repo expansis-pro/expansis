@@ -14,7 +14,7 @@ import NotFound from './pages/NotFound';
 const Home = lazy(() => import('./pages/Home'));
 const ServicePage = lazy(() => import('./pages/ServicePage'));
 const QuienesSomos = lazy(() => import('./pages/QuienesSomos'));
-const Services = lazy(() => import('./pages/Services'));
+const Services = lazy(() => import('./pages/ServicesHub'));
 const Faqs = lazy(() => import('./pages/Faqs'));
 const Contact = lazy(() => import('./pages/Contact'));
 const ProjectsPage = lazy(() => import('./pages/ProjectsPage'));

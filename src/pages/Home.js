@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { servicesData } from '../data/servicesData';
-import ServiceItem from '../components/ServiceItem';
+import CarouselItem from '../components/CarouselItem';
 import CallToAction from '../components/CallToAction';
 import CtaButton from '../components/CtaButton';
 import ImageTextCTA from '../components/ImageTextCTA';
@@ -60,7 +60,7 @@ const Home = () => {
 			{/* --- SECCIÓN DE SERVICIOS (Ajustada) --- */}
 			{/* CAMBIO: py-12 para mobile (48px) y md:py-16 para desktop (64px) */}
 			<section id="services-home" className="pt-12 bg-white">
-				<div className="max-w-6xl mx-auto text-center px-4">
+				<div className="text-center ">
 					<h2 className="mb-4 md:mb-6">Nuestros Servicios</h2>
 
 					{/* CAMBIO: Reducimos mb-12 a mb-6 en mobile para que el carrusel esté más cerca */}
@@ -70,7 +70,14 @@ const Home = () => {
 
 					<CardCarousel>
 						{servicesData.map((service, index) => (
-							<ServiceItem key={index} {...service} />
+							<CarouselItem
+								key={index}
+								title={service.title}
+								description={service.description}
+								image={service.image} // Asegúrate de tener la URL en tus datos
+								category={service.category}
+								slug={service.slug}
+							/>
 						))}
 					</CardCarousel>
 				</div>
@@ -90,7 +97,10 @@ const Home = () => {
 					imageSide="left"
 					buttonContent="Conoce nuestra historia"
 					buttonLink="/quienes-somos"
-					buttonVariant="secondary"
+					buttonVariant="primary"
+					secondaryButtonContent="Ver Proyectos" // <-- Botón extra
+					secondaryButtonLink="/proyectos"
+					secondaryButtonVariant="outline"
 				/>
 			</section>
 

@@ -1,6 +1,6 @@
 // src/pages/AboutMe.jsx
 import React from 'react';
-import ImageTextCTA from '../components/ImageTextCTA';
+import ImageTextCTA from './ImageTextCTA';
 import aboutMeImage from '../img/Profile_Img_Expansis400x400.webp';
 
 const AboutMe = () => {

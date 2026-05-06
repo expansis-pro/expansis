@@ -1,7 +1,7 @@
 // src/pages/Services.js
 import React, { useEffect } from 'react';
 import { servicesData } from '../data/servicesData';
-import ServiceItem from '../components/ServiceItem';
+import CarouselItem from '../components/CarouselItem';
 import CallToAction from '../components/CallToAction';
 import CardCarousel from '../components/CardCarousel';
 import SecondaryHero from '../components/SecondaryHero'; // <-- Importar el nuevo Hero
@@ -20,6 +20,7 @@ const Services = () => {
 				title="Nuestros Servicios"
 				subtitle="Ofrecemos soluciones digitales integrales, diseñadas a medida para potenciar tu negocio y asegurar que tu expansión en el mundo online sea un éxito."
 				icon="fa-solid fa-layer-group" // Un icono que represente servicios/capas
+				img="/assets/hero-services.webp"
 			/>
 
 			<section id="services-page" className="py-16 text-center">
@@ -28,11 +29,12 @@ const Services = () => {
 					{/* El carrusel con las ServiceItems */}
 					<CardCarousel>
 						{servicesData.map((service, index) => (
-							<ServiceItem
+							<CarouselItem
 								key={index}
-								icon={service.icon}
 								title={service.title}
 								description={service.description}
+								image={service.image} // Importante: CarouselItem suele llevar imagen
+								category={service.category}
 								slug={service.slug}
 							/>
 						))}
