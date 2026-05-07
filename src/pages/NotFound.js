@@ -1,21 +1,47 @@
 // src/pages/NotFound.js
 import React from 'react';
-
-import MoveToUrlButton from '../components/MoveToUrlButton'; // Asegúrate de que la ruta sea correcta
+import MoveToUrlButton from '../components/MoveToUrlButton';
 
 const NotFound = () => {
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen  text-gray-700 p-4">
-            <h1 className="text-6xl sm:text-8xl  text-primario mb-4">404</h1>
-            <p className="text-xl sm:text-2xl font-semibold text-gray-800 mb-4 text-center">¡Ups! Parece que te has perdido.</p>
-            <p className="text-lg text-gray-600 mb-8 text-center">La página que buscas no existe.</p>
+        /* Cambiamos el fondo a DeepBlue y el texto a blanco */
+        <div className="relative flex flex-col items-center justify-center min-h-screen bg-[#020617] text-white p-6 overflow-hidden">
 
-            <MoveToUrlButton
-                name="Volver al Inicio"
-                url="/"
-                category="404 Not Found"
-                label="Boton Volver al Inicio"
-            />
+            {/* Capa de Cuadrícula (Grid) técnica con Tailwind */}
+            <div
+                className="absolute inset-0 z-0 opacity-10"
+                style={{
+                    backgroundImage: 'radial-gradient(#f8fafc 1px, transparent 1px)',
+                    backgroundSize: '40px 40px'
+                }}
+            ></div>
+
+            {/* Brillo naranja sutil de fondo */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primario/5 rounded-full blur-[120px] z-0 pointer-events-none"></div>
+
+            <div className="relative z-10 flex flex-col items-center max-w-lg">
+                {/* 404 Gigante en Naranja */}
+                <h1 className="text-[120px] sm:text-[160px] font-black text-primario leading-none mb-4 tracking-tighter opacity-80">
+                    404
+                </h1>
+
+                <h2 className="text-white text-2xl sm:text-3xl font-bold mb-4 text-center uppercase tracking-wider">
+                    Error de Arquitectura
+                </h2>
+
+                <p className="text-gray-400 font-light text-lg mb-10 text-center leading-relaxed">
+                    La coordenada solicitada no existe o ha sido reubicada dentro de nuestra infraestructura digital.
+                </p>
+
+                <MoveToUrlButton
+                    name="Reiniciar Navegación"
+                    url="/"
+                    category="404 Not Found"
+                    label="Boton Volver al Inicio"
+                    /* Asegúrate de que MoveToUrlButton acepte estilos o usa tu clase btn-primary */
+                    className="shadow-xl shadow-primario/20"
+                />
+            </div>
         </div>
     );
 };
