@@ -93,7 +93,7 @@ const Home = () => {
 			{/* SECCIÓN IMAGE TEXT CTA */}
 			<section id="about-teaser">
 				<ImageTextCTA
-					imageDesktop="/images/1920x1080_expansisPro_aboutus.webp"
+					imageDesktop="/images/expansisPro_aboutus.webp"
 					alt="Consultoría y estrategia digital en las oficinas de Expansis Pro"
 					subtitle="DETRÁS DE LA ESTRATEGIA"
 					title="Un Aliado, no un Proveedor"

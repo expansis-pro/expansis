@@ -14,7 +14,11 @@ const CarouselItem = ({
     const handleImgError = (e) => {
         e.target.style.display = 'none';
     };
-
+    const srcset = `
+    /assets/${slug}-sm.webp 600w,
+    /assets/${slug}-md.webp 800w,
+    /assets/${slug}-lg.webp 1200w
+  `;
 
     return (
         <NavLink
@@ -27,6 +31,8 @@ const CarouselItem = ({
                 alt={`Especialidad en ${title} | Expansis Pro`}
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 onError={handleImgError}
+                srcSet={srcset}
+                sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
 
             {/* Overlay Gradiente */}

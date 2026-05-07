@@ -18,6 +18,22 @@ const ImageTextCTA = ({
     imageSide = 'left'
 }) => {
 
+    // LÓGICA DE INGENIERÍA DE IMAGEN
+    const baseImagePath = imageDesktop ? imageDesktop.replace('.webp', '') : '';
+
+    // Generamos el catálogo de tamaños (sm: 480px, md: 800px, lg: 1200px)
+    const imageSrcSet = imageDesktop ? `
+        ${baseImagePath}-sm.webp 480w,
+        ${baseImagePath}-md.webp 800w,
+        ${baseImagePath}-lg.webp 1200w
+    ` : '';
+
+    /* EXPLICACIÓN DE SIZES:
+           - Si la pantalla es > 1024px (lg), la imagen ocupa el 50% del contenedor (50vw).
+           - En móviles, ocupa casi todo el ancho (100vw).
+        */
+    const imageSizes = "(max-width: 1024px) 100vw, 600px";
+
     const imageContainerClasses = "relative w-full   bg-[#E2E8F0] rounded-[60px_10px_60px_10px] overflow-hidden flex items-center justify-center shadow-2xl ";
     const imageClasses = "w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700";
 
@@ -31,7 +47,9 @@ const ImageTextCTA = ({
                     <div className={`${imageSide === 'left' ? 'lg:order-1' : 'lg:order-2'} flex justify-center`}>
                         <div className={imageContainerClasses}>
                             <img
-                                src={imageDesktop}
+                                src={imageDesktop} // Fallback
+                                srcSet={imageSrcSet}
+                                sizes={imageSizes}
                                 alt={alt}
                                 className={imageClasses}
                                 loading="lazy"      // <--- ESTO activa el Lazy Loading nativo

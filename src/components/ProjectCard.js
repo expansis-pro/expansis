@@ -2,6 +2,19 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const ProjectCard = ({ project, index }) => {
+
+    // LÓGICA DE OPTIMIZACIÓN:
+    // Extraemos la ruta base quitando la extensión .webp
+    const baseImagePath = project.image ? project.image.replace('.webp', '') : '';
+
+    // Construimos el srcset
+    // sm: 480px, md: 800px, lg: 1200px
+    const imageSrcSet = project.image ? `
+        ${baseImagePath}-sm.webp 480w,
+        ${baseImagePath}-md.webp 800w,
+        ${baseImagePath}-lg.webp 1200w
+    ` : '';
+
     // El contenido que se repite, ya sea con link o sin él
     const CardInner = (
         <>
@@ -9,9 +22,12 @@ const ProjectCard = ({ project, index }) => {
             <div className="relative w-full aspect-video overflow-hidden">
                 {project.image ? (
                     <img
+                        srcSet={imageSrcSet}
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
                         src={project.image}
-                        alt={project.title}
+                        alt={`Proyecto ${project.title} desarrollado por Expansis Pro`}
                         loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     />
                 ) : (

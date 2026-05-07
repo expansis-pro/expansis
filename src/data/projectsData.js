@@ -5,7 +5,7 @@ export const projectsData = [
         title: "2V Express",
         sector: "Logística Internacional & Courier",
         // Asegúrate de que la imagen esté en /public/images/
-        image: "/images/1920x1080_2VExpress.webp",
+        image: "/images/2VExpress-web.webp",
         description: "Desarrollo integral de <strong>identidad corporativa y ecosistema digital</strong> para una empresa especializada en el retiro de excedentes. El proyecto abarcó desde la definición estratégica de marca (branding) hasta la habilitación técnica de canales de comunicación profesional y una plataforma web de alta autoridad, garantizando coherencia operativa en cada punto de contacto.",
         results: [
             "Creación de identidad visual completa (Logo y Manual de Estilo)",
@@ -21,7 +21,7 @@ export const projectsData = [
         title: "Claudia Gallardo",
         sector: "Dirección de Arte & Cine Internacional",
         // Recuerda mover la imagen a /public/images/
-        image: "/images/1920x1080_ClaudiaGallardo.webp",
+        image: "/images/ClaudiaGallardo-web.webp",
         description: "Desarrollo de portafolio premium para Directora de Arte de trayectoria internacional. El proyecto consistió en crear una <strong>vitrina digital de alto impacto</strong> para organizar una filmografía destacada en plataformas como Netflix, HBO y Prime Video. La arquitectura se centró en una estética cinematográfica que proyecta el estatus de una ganadora del Premio Pedro Sienna.",
         results: [
             "Arquitectura de información diseñada para destacar producciones de clase mundial",
@@ -35,7 +35,7 @@ export const projectsData = [
         category: "Desarrollo Web",
         title: "Lobos Miniexcavadoras",
         sector: "Movimiento de Tierra & Construcción",
-        image: "/images/1920x1080_lobosMiniexcavadoras.webp",
+        image: "/images/lobosMiniexcavadoras-web.webp",
         description: "Desarrollo de una <strong>infraestructura digital de alto rendimiento</strong> para el sector industrial. Transformamos la presencia online en una máquina de <strong>generación de leads locales</strong>, priorizando la velocidad de carga en terreno y una arquitectura técnica que proyecta la solidez operativa de la marca.",
         results: [
             "Optimización de <strong>conversión estratégica</strong> para arriendo de maquinaria",
@@ -50,8 +50,8 @@ export const projectsData = [
         title: "Gonzalo Lobos",
         sector: "Psicología Organizacional & Estrategia",
         // IMPORTANTE: Usa esta ruta relativa, asegurándote de que el archivo 
-        // esté en /public/images/1920x1080_gonzalobos.webp
-        image: "/images/1920x1080_gonzalobos.webp",
+        // esté en /public/images/gonzalobos.webp
+        image: "/images/gonzalobos-web.webp",
         description: "Diseño de ecosistema digital para marca personal de alto nivel. El proyecto sintetiza una trayectoria en <strong>psicología organizacional</strong> con herramientas de gestión de negocios, creando una plataforma que equilibra <strong>humanismo y robustez técnica</strong> para atraer clientes corporativos.",
         results: [
             "Unificación de <strong>narrativa estratégica</strong> y sistema de estilo visual",
