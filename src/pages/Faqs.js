@@ -29,7 +29,7 @@ const Faqs = () => {
     }));
 
     return (
-        <main className="bg-white min-h-screen">
+        <main className=" min-h-screen">
             <SecondaryHero
                 title="Preguntas Frecuentes"
                 subtitle="Si no encuentras tu respuesta, no dudes en escribirnos. Estamos para ayudarte."

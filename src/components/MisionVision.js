@@ -21,7 +21,7 @@ function MisionVision() {
   };
 
   return (
-    <section className="section-padding bg-white">
+    <section className="section-padding ">
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="text-center text-4xl font-bold mb-16 text-deepBlue">Nuestra Filosofía</h2>
 

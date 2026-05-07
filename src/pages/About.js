@@ -12,7 +12,7 @@ const About = () => {
 	}, []);
 
 	return (
-		<main className="bg-white min-h-screen">
+		<main className=" min-h-screen">
 			{/* HERO SECUNDARIO: 
                 Ahora usa el componente reutilizable que configuramos 
                 con pt-32 para que el texto no quede debajo del Nav.

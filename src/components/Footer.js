@@ -82,7 +82,7 @@ const Footer = () => {
 						<li className="flex items-center group">
 							<i className="fa-brands fa-whatsapp mr-3 text-primario group-hover:scale-110 transition-transform text-lg"></i>
 							<button
-								onClick={() => sendWhatsAppMessage("Consulta desde el Footer")}
+								onClick={() => sendWhatsAppMessage("Expansis Pro")}
 								className="text-sm font-medium hover:text-ghostWhite transition-colors"
 							>
 								{contactData.whatsapp.prefix} {contactData.whatsapp.number.slice(-8)}

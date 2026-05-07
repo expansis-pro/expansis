@@ -14,7 +14,7 @@ const Services = () => {
 	}, []);
 
 	return (
-		<main className="bg-white min-h-screen">
+		<main className=" min-h-screen">
 			{/* --- HERO SECUNDARIO --- */}
 			<SecondaryHero
 				title="Nuestros Servicios"

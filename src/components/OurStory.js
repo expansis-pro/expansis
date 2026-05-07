@@ -3,7 +3,7 @@ import React from 'react';
 
 const OurStory = () => {
     return (
-        <section id="our-story" className="py-16 bg-white px-4">
+        <section id="our-story" className="py-16  px-4">
             <div className="max-w-4xl mx-auto text-center">
                 {/* h2: Tamaño y color gestionados globalmente */}
                 <h2>Nuestra Historia</h2>

@@ -5,7 +5,7 @@ const Whatsapp = () => {
 
     return (
         <section id="whatsapp" className="py-12 sm:py-16 px-4">
-            <div className="max-w-4xl mx-auto text-center p-8 sm:p-16 rounded-[2rem] bg-white shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-gray-100 relative overflow-hidden">
+            <div className="max-w-4xl mx-auto text-center p-8 sm:p-16 rounded-[2rem]  shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-gray-100 relative overflow-hidden">
 
                 {/* Elemento decorativo sutil para darle el toque Expansis */}
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-primario rounded-b-full"></div>

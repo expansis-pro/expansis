@@ -5,7 +5,7 @@ import CallToAction from '../components/CallToAction';
 
 const ProjectsPage = () => {
     return (
-        <div className="bg-white min-h-screen flex flex-col">
+        <div className=" min-h-screen flex flex-col">
             {/* HERO: Ya maneja su propio padding interno */}
             <SecondaryHero
                 title="Proyectos Realizados"

@@ -8,7 +8,8 @@ import NotFound from './NotFound';
 import PhaseItem from '../components/PhaseItem';
 import CallToAction from '../components/CallToAction';
 import FaqItem from '../components/FaqItem';
-import SecondaryHero from '../components/SecondaryHero'; import { sendWhatsAppMessage } from '../utils/trackingUtils';
+import SecondaryHero from '../components/SecondaryHero';
+import { sendWhatsAppMessage } from '../utils/trackingUtils';
 
 const ServicePage = () => {
     const { slug } = useParams();
@@ -51,7 +52,7 @@ const ServicePage = () => {
     };
 
     return (
-        <div className="bg-white min-h-screen">
+        <div className="min-h-screen ">
             <script type="application/ld+json">
                 {JSON.stringify(serviceSchema)}
             </script>
@@ -65,7 +66,7 @@ const ServicePage = () => {
                     img={`/assets/${service.slug}-hero.webp`}
                 />
 
-                {/* BOTÓN 1: CONTACTO RÁPIDO (Debajo del Hero) */}
+                {/* Floating CTA Button */}
                 <div className="absolute bottom-0 left-0 w-full flex justify-center translate-y-1/2 z-30 px-4">
                     <button
                         onClick={() => sendWhatsAppMessage(service.title)}
@@ -78,108 +79,146 @@ const ServicePage = () => {
             </div>
 
             {/* --- CONTENIDO PRINCIPAL --- */}
-            <div className="max-w-4xl mx-auto pt-24 pb-16 px-4">
+            <div >
 
                 {/* --- NUEVA SECCIÓN DE FASES DESPLEGABLES --- */}
-                <section id="phases" className="mb-20">
-                    <h2 className="text-center mb-12 font-bold text-deepBlue">Fases del Proyecto</h2>
-                    <div className="space-y-2">
-                        {service.phases.map((phase, index) => (
-                            <PhaseItem
-                                key={index}
-                                number={index + 1}
-                                title={phase.title}
-                                description={phase.description}
-                                isOpen={openPhaseIndex === index}
-                                onToggle={() => setOpenPhaseIndex(openPhaseIndex === index ? null : index)}
-                            />
-                        ))}
+                <section id="phases" className="section-padding pt-32">
+                    <div className="container-pro">
+
+                        <h2 className="text-center mb-12 font-bold text-deepBlue">Fases del Proyecto</h2>
+                        <div className="space-y-2">
+                            {service.phases.map((phase, index) => (
+                                <PhaseItem
+                                    key={index}
+                                    number={index + 1}
+                                    title={phase.title}
+                                    description={phase.description}
+                                    isOpen={openPhaseIndex === index}
+                                    onToggle={() => setOpenPhaseIndex(openPhaseIndex === index ? null : index)}
+                                />
+                            ))}
+                        </div>
                     </div>
                 </section>
 
-                {/* Sección de Inversión */}
-                <section id="pricing" className="mb-20 px-2">
-                    <h2 className="text-center mb-12">Inversión y Escalabilidad</h2>
+                {/* --- SECCIÓN DE INVERSIÓN --- */}
+                <section id="pricing" className="section-padding bg-ghostWhite">
+                    <div className="container-pro">
 
-                    <div className="bg-deepBlue text-white rounded-[2rem] md:rounded-[3rem] shadow-2xl relative overflow-hidden border border-white/10">
-                        <div className="relative z-10 p-8 md:p-16 flex flex-col items-center">
+                        {/* 1. ENCABEZADO DE SECCIÓN (Fuera de la card para que respire) */}
+                        <div className="text-center mb-16 md:mb-24">
+                            <h2 className="text-deepBlue font-bold">Inversión y Escalabilidad</h2>
+                            <p className="section-subtitle">
+                                Presupuestos transparentes diseñados para la expansión de tu marca.
+                            </p>
+                        </div>
 
-                            <span className="bg-primario/20 text-primario px-4 py-1 rounded-full text-xs uppercase tracking-widest font-bold mb-6 border border-primario/30">
-                                Punto de Partida
-                            </span>
+                        {/* 2. CARD MAESTRA DE PRECIOS */}
+                        <div className="max-w-5xl mx-auto">
+                            <div className="bg-deepBlue text-white rounded-[2.5rem] shadow-2xl relative overflow-hidden border border-white/10">
 
-                            <div className="text-center">
-                                <p className="text-5xl md:text-7xl font-bold text-white">
-                                    {service.pricing.from}
-                                </p>
-                                <p className="text-primario text-sm font-medium mt-2">IVA Incluido - Configuración Base Esencial</p>
-                            </div>
+                                {/* Decoración de fondo */}
+                                <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-primario/10 rounded-full blur-3xl pointer-events-none"></div>
 
-                            <div className="w-full max-w-xs h-[1px] bg-white/10 my-8"></div>
+                                <div className="relative z-10 p-8 md:p-16 lg:p-20">
 
-                            <div className="w-full max-w-md">
-                                <p className="text-center text-white/60 text-sm mb-6">
-                                    Ideal para iniciar tu presencia digital con estándares profesionales:
-                                </p>
+                                    {/* GRID DE DOS COLUMNAS (Desktop) */}
+                                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-6 items-center">
 
-                                <ul className="space-y-4">
-                                    {service.pricing.features.map((feature, index) => (
-                                        <li key={index} className="flex items-start gap-4">
-                                            <i className="fa-solid fa-check text-primario mt-1"></i>
-                                            <span className="text-white/80 font-light text-sm md:text-base">
-                                                {feature}
+                                        {/* COLUMNA IZQUIERDA: El Precio */}
+                                        <div className="text-center lg:text-left">
+                                            <span className="bg-primario text-deepBlue px-4 py-1 rounded-full text-[10px] uppercase tracking-[0.2em] font-black mb-8 inline-block">
+                                                Punto de Partida
                                             </span>
-                                        </li>
-                                    ))}
-                                </ul>
 
-                                {/* Sección de Escalabilidad Dinámica */}
-                                {service.pricing.scalability && (
-                                    <div className="mt-10 p-6 bg-white/5 rounded-2xl border border-white/5">
-                                        <p className="text-xs uppercase tracking-widest text-primario font-bold mb-3">
-                                            {service.pricing.scalability.title}
-                                        </p>
-                                        <p
-                                            className="text-white/70 text-sm font-light"
-                                            dangerouslySetInnerHTML={{ __html: service.pricing.scalability.description }}
-                                        />
+                                            <div className="mb-6">
+                                                <span className="text-sm text-white block uppercase tracking-widest mb-2">Inversión desde</span>
+                                                <div className="flex items-baseline justify-center lg:justify-start gap-2">
+                                                    <p className="text-6xl md:text-5xl lg:text-6xl font-bold text-white tracking-tighter leading-none">
+                                                        {service.pricing.from}
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                            <p className="text-primario text-sm font-medium leading-relaxed italic opacity-90">
+                                                IVA Incluido <br className="hidden lg:block" />
+                                                Configuración Base Profesional
+                                            </p>
+                                        </div>
+
+                                        {/* COLUMNA DERECHA: Características */}
+                                        <div className="bg-white/5 p-8 rounded-3xl border border-white/10">
+                                            <p className="text-white/60 text-sm mb-8 font-light text-center lg:text-left">
+                                                Tu proyecto incluye estándares de alta gama:
+                                            </p>
+
+                                            <ul className="space-y-5">
+                                                {service.pricing.features.map((feature, index) => (
+                                                    <li key={index} className="flex items-start gap-4">
+                                                        <div className="mt-1 w-5 h-5 rounded-full bg-primario/20 flex items-center justify-center flex-shrink-0">
+                                                            <i className="fa-solid fa-check text-primario text-[10px]"></i>
+                                                        </div>
+                                                        <span className="text-white/80 font-light text-base leading-snug">
+                                                            {feature}
+                                                        </span>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
                                     </div>
-                                )}
-                            </div>
 
-                            {/* BOTÓN 2: CONTACTO DESDE PRECIOS */}
-                            <div className="mt-12 w-full max-w-xs">
-                                <button
-                                    onClick={() => sendWhatsAppMessage(service.title)}
-                                    className="btn-primary w-full flex items-center justify-center gap-3 transition-transform hover:scale-105"
-                                >
-                                    <i className="fa-brands fa-whatsapp text-2xl"></i>
-                                    Cotizar Proyecto
-                                </button>
+                                    {/* --- ÁREA DE ACCIÓN (Debajo de las dos columnas) --- */}
+                                    <div className="mt-16 pt-12 border-t border-white/5 flex flex-col items-center w-full">
+
+                                        {service.pricing.scalability && (
+                                            <div className="max-w-2xl text-center mb-12">
+                                                <h4 className="text-xs uppercase tracking-[0.3em] text-primario font-bold mb-4">
+                                                    {service.pricing.scalability.title}
+                                                </h4>
+                                                <div
+                                                    className="text-white/50 text-sm font-light leading-relaxed italic"
+                                                    dangerouslySetInnerHTML={{ __html: service.pricing.scalability.description }}
+                                                />
+                                            </div>
+                                        )}
+
+                                        <button
+                                            onClick={() => sendWhatsAppMessage(service.title)}
+                                            className="btn-primary py-5 px-12 text-lg shadow-xl hover:scale-105 transition-transform w-full sm:w-auto"
+                                        >
+                                            <i className="fa-brands fa-whatsapp text-2xl"></i>
+                                            Cotizar {service.title}
+                                        </button>
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
                     </div>
                 </section>
                 {/* // Dentro del return de ServicePage: */}
                 <ProjectSection
-                    title="Proyectos Realizados"
+                    title="Casos de Éxito"
                     subtitle={`Mira cómo hemos aplicado la ingeniería de ${service.title} en otros ecosistemas.`}
                     limit={2} // Aquí puedes limitar a 2 para no alargar tanto la página de servicios
                 />
                 {/* FAQs */}
                 {serviceFaqs.length > 0 && (
-                    <section id="service-faq" className="mb-20">
-                        <h2 className="text-center mb-12">Preguntas Frecuentes</h2>
-                        <div className="space-y-2">
-                            {serviceFaqs.map((item, index) => (
-                                <FaqItem
-                                    key={index}
-                                    question={item.question}
-                                    answer={item.answerJSX}
-                                    isOpen={openFaqIndex === index}
-                                    onToggle={() => handleFaqToggle(index)}
-                                />
-                            ))}
+                    <section id="service-faq" className="section-padding">
+                        <div className="container-pro">
+
+                            <h2 className="text-center mb-12">Preguntas Frecuentes</h2>
+                            <div className="space-y-2">
+                                {serviceFaqs.map((item, index) => (
+                                    <FaqItem
+                                        key={index}
+                                        question={item.question}
+                                        answer={item.answerJSX}
+                                        isOpen={openFaqIndex === index}
+                                        onToggle={() => handleFaqToggle(index)}
+                                    />
+                                ))}
+                            </div>
                         </div>
                     </section>
                 )}

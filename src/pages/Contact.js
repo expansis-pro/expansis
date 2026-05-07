@@ -17,7 +17,7 @@ const Contact = () => {
 	const mailtoLink = `mailto:${email}?subject=${subject}&body=${body}`;
 
 	return (
-		<main className="bg-white min-h-screen">
+		<main className=" min-h-screen">
 			<title>Contacto - Expansis Pro</title>
 
 			<SecondaryHero
@@ -67,7 +67,7 @@ const Contact = () => {
 							</ul>
 						</div>
 
-						<div className="p-6 bg-ghostWhite rounded-2xl border border-gray-100 inline-block">
+						<div className="p-6  rounded-2xl border border-gray-100 inline-block">
 							<p className="text-deepBlue font-semibold mb-1">Horario de Atención</p>
 							<p className="text-gray-600 font-light text-sm">Lunes a Viernes: 9:00 - 22:00 hrs.</p>
 							<p className="text-gray-600 font-light text-sm">Sábado y Domingo: 10:00 - 22:00 hrs.</p>
@@ -75,7 +75,7 @@ const Contact = () => {
 					</div>
 
 					{/* Columna Derecha: Formulario */}
-					<div className="bg-white p-8 sm:p-10 rounded-[2.5rem] shadow-xl border border-gray-50">
+					<div className=" p-8 sm:p-10 rounded-[2.5rem] shadow-xl border border-gray-50">
 						<h3 className="text-deepBlue mb-8">Envíanos un mensaje</h3>
 						<ContactForm />
 					</div>

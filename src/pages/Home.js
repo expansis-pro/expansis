@@ -59,12 +59,12 @@ const Home = () => {
 
 			{/* --- SECCIÓN DE SERVICIOS (Ajustada) --- */}
 			{/* CAMBIO: py-12 para mobile (48px) y md:py-16 para desktop (64px) */}
-			<section id="services-home" className="pt-12 bg-white">
-				<div className="text-center ">
-					<h2 className="mb-4 md:mb-6">Nuestros Servicios</h2>
+			<section id="services-home" className="section-padding ">
+				<div className="container-pro text-center">
+					<h2 className="mb-4">Nuestros Servicios</h2>
 
 					{/* CAMBIO: Reducimos mb-12 a mb-6 en mobile para que el carrusel esté más cerca */}
-					<p className="text-gray-600 mb-6 md:mb-12 max-w-3xl mx-auto text-lg md:text-xl font-light leading-relaxed">
+					<p className="section-subtitle mb-12">
 						Soluciones integrales para potenciar tu negocio en el mundo digital.
 					</p>
 
@@ -105,7 +105,7 @@ const Home = () => {
 			</section>
 
 			{/* --- SECCIÓN DE CIERRE (CTA) --- */}
-			<section className="bg-white pb-8 px-4">
+			<section className=" pb-8 px-4">
 				<div className="max-w-4xl mx-auto">
 					<CallToAction
 						source="Home - Final de Página"

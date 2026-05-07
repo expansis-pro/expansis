@@ -6,7 +6,7 @@ const ProjectCard = ({ project, index }) => {
     const CardInner = (
         <>
             {/* Contenedor de Imagen con Aspect Ratio 16:9 */}
-            <div className="relative w-full aspect-video overflow-hidden bg-gray-200">
+            <div className="relative w-full aspect-video overflow-hidden">
                 {project.image ? (
                     <img
                         src={project.image}
@@ -32,7 +32,7 @@ const ProjectCard = ({ project, index }) => {
             </div>
 
             {/* Cuerpo de la Tarjeta */}
-            <div className="p-8 flex flex-col flex-grow">
+            <div className="p-8 flex flex-col flex-grow bg-white">
                 <div className="flex justify-between items-start mb-4">
                     <span className="text-[10px] font-bold uppercase tracking-widest text-primario bg-primario/10 px-3 py-1 rounded-full border border-primario/20">
                         {project.category}
@@ -59,7 +59,7 @@ const ProjectCard = ({ project, index }) => {
 
                 {/* Hitos Logrados */}
                 {project.results && (
-                    <div className="mb-8 p-5 bg-white rounded-2xl border border-gray-100 shadow-sm">
+                    <div className="mb-8 p-5  rounded-2xl border border-gray-100 shadow-sm">
                         <p className="text-[10px] font-bold text-deepBlue uppercase tracking-widest mb-3">Hitos Logrados:</p>
                         <ul className="space-y-2">
                             {project.results.map((res, i) => (
@@ -90,7 +90,7 @@ const ProjectCard = ({ project, index }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1 }}
-            className="group bg-white border border-gray-100 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full"
+            className="group  border border-gray-100 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full"
         >
             {project.liveUrl ? (
                 <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="flex flex-col h-full">

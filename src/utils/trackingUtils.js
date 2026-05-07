@@ -10,7 +10,7 @@ export const sendWhatsAppMessage = (servicio = "Información General") => {
 
     const accionTexto = frasesContexto[servicio] || `saber más sobre el servicio de *${servicio}*`;
 
-    const mensaje = `¡Hola Expansis Pro! \n\nMe gustaría ${accionTexto}.\n\n¿Podrían darme más detalles?`;
+    const mensaje = `¡Hola! \n\nMe gustaría ${accionTexto}.\n\n¿Podrían darme más detalles?`;
 
     const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(mensaje)}`;
 

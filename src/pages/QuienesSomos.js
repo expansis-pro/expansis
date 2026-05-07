@@ -14,7 +14,7 @@ const QuienesSomos = () => {
     }, []);
 
     return (
-        <main className="bg-white min-h-screen">
+        <main className=" min-h-screen">
             {/* Metadatos SEO */}
             <title>Sobre Expansis - Expansis Pro</title>
             <meta name="description" content="Conoce la misión, visión y al equipo detrás de Expansis Pro. Soluciones digitales con un enfoque integral y personalizado." />

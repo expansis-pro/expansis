@@ -8,7 +8,7 @@ const ProjectSection = ({ limit = 3, title = "Ecosistemas en Expansión", subtit
     const displayedProjects = limit ? projectsData.slice(0, limit) : projectsData;
 
     return (
-        <section className="section-padding bg-ghostWhite">
+        <section className="section-padding ">
             <div className="container-pro">
 
                 <div className="text-center mb-16">
@@ -30,12 +30,13 @@ const ProjectSection = ({ limit = 3, title = "Ecosistemas en Expansión", subtit
                     <div className="mt-16 text-center">
                         <CtaButton
                             to="/proyectos"
-                            variant="secondary"
+                            variant="outline"
                             className="group inline-flex items-center gap-3"
                         >
                             Ver portafolio completo
                             <i className="fa-solid fa-arrow-right transition-transform group-hover:translate-x-2"></i>
                         </CtaButton>
+
                     </div>
                 )}
             </div>

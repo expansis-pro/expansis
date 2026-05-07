@@ -23,7 +23,7 @@ const ImageTextCTA = ({
 
     return (
         /* Usamos la nueva clase maestra section-padding */
-        <section className="w-full section-padding bg-white overflow-hidden">
+        <section className="w-full section-padding  overflow-hidden">
             <div className="container-pro">
                 <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-20">
 

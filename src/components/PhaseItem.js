@@ -4,9 +4,9 @@ import React from 'react';
 const PhaseItem = ({ number, title, description, isOpen, onToggle }) => {
     return (
         <div
-            className={`transition-all duration-300 rounded-2xl mb-4 border ${isOpen
-                    ? 'border-primario bg-ghostWhite shadow-sm'
-                    : 'border-gray-200 bg-white hover:border-gray-300'
+            className={`group transition-all duration-300 rounded-2xl mb-4 border-2 ${isOpen
+                ? 'border-primario bg-white shadow-sm shadow-xl translate-x-2'
+                : 'border-gray-100 bg-white hover:border-primario/30 hover:bg-ghostWhite'
                 }`}
         >
             <button

@@ -5,8 +5,8 @@ const FaqItem = ({ question, answer, isOpen, onToggle }) => {
     return (
         <div
             className={`transition-all duration-300 rounded-2xl mb-4 border ${isOpen
-                    ? 'border-primario bg-ghostWhite shadow-sm'
-                    : 'border-gray-200 bg-white hover:border-gray-300'
+                ? 'border-primario bg-ghostWhite shadow-sm'
+                : 'border-gray-200 bg-white hover:border-gray-300'
                 }`}
         >
             <button
