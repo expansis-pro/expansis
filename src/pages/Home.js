@@ -5,6 +5,7 @@ import CarouselItem from '../components/CarouselItem';
 import CallToAction from '../components/CallToAction';
 import CtaButton from '../components/CtaButton';
 import ImageTextCTA from '../components/ImageTextCTA';
+import ProjectSection from '../components/ProjectSection';
 
 import CardCarousel from '../components/CardCarousel';
 
@@ -60,11 +61,11 @@ const Home = () => {
 			{/* --- SECCIÓN DE SERVICIOS (Ajustada) --- */}
 			{/* CAMBIO: py-12 para mobile (48px) y md:py-16 para desktop (64px) */}
 			<section id="services-home" className="section-padding ">
-				<div className="container-pro text-center">
+				<div className="container-pro">
 					<h2 className="mb-4">Nuestros Servicios</h2>
 
 					{/* CAMBIO: Reducimos mb-12 a mb-6 en mobile para que el carrusel esté más cerca */}
-					<p className="section-subtitle mb-12">
+					<p className="section-subtitle ">
 						Soluciones integrales para potenciar tu negocio en el mundo digital.
 					</p>
 
@@ -103,7 +104,12 @@ const Home = () => {
 					secondaryButtonVariant="outline"
 				/>
 			</section>
-
+			{/* // Dentro del return de ServicePage: */}
+			<ProjectSection
+				title="Casos de Éxito"
+				subtitle={`Mira cómo hemos aplicado nuestra ingeniería en diversos ecosistemas digitales.`}
+				limit={2} // Aquí puedes limitar a 2 para no alargar tanto la página de servicios
+			/>
 			{/* --- SECCIÓN DE CIERRE (CTA) --- */}
 			<section className=" pb-8 px-4">
 				<div className="max-w-4xl mx-auto">

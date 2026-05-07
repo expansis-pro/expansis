@@ -26,23 +26,23 @@ const CardCarousel = ({ children }) => {
         }
         return () => {
             if (currentRef) {
-                currentRef.removeEventListener('scroll', checkScrollPosition);
+                currentRef.removeEventListener('resize', checkScrollPosition);
             }
         };
     }, [children]); // Se ejecuta si los hijos del carrusel cambian
 
     const scroll = (direction) => {
         if (scrollRef.current) {
-            const scrollAmount = 280 * direction;
+            const scrollAmount = scrollRef.current.clientWidth * 0.8 * direction;
             scrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
         }
     };
 
     return (
-        <div className="relative">
+        <div className="relative ">
             <div
                 ref={scrollRef}
-                className="flex overflow-x-auto space-x-6 px-4 py-12 md:flex-wrap md:justify-center md:gap-6 md:space-x-0 no-scrollbar snap-x snap-mandatory scroll-smooth"
+                className="flex overflow-x-auto space-x-6 py-12  gap-8 no-scrollbar snap-x snap-mandatory scroll-smooth scroll-px-10 md:scroll-px-0 md:scroll-pl-0"
             >
                 {children}
             </div>

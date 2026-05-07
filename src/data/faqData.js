@@ -28,7 +28,7 @@ export const faqData = [
             </div>
         ),
         answerText: "La Consultoría Digital Estratégica es un servicio de diagnóstico basado en psicología organizacional que incluye auditoría de canales, hoja de ruta estratégica e identidad visual.",
-        tags: ["consultoria-digital", "estrategia"]
+        tags: ["autoridad-de-marca", "estrategia"]
     }, {
         question: "¿Para quién es la Consultoría Digital y qué incluye exactamente?",
         answerJSX: (
@@ -62,7 +62,7 @@ export const faqData = [
             </div>
         ),
         answerText: "La consultoría digital estratégica se adapta a negocios nuevos y existentes que buscan optimización o proyectos nuevos que necesitan un impulso en sus canales digitales. Incluye informe de auditoría y hoja de ruta estratégica para mejorar posicionamiento y conversión.",
-        tags: ["consultoria-digital", "estrategia", "procesos"]
+        tags: ["autoridad-de-marca", "estrategia", "procesos"]
     },
 
     {

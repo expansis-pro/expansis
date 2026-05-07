@@ -11,9 +11,9 @@ const ProjectSection = ({ limit = 3, title = "Ecosistemas en Expansión", subtit
         <section className="section-padding ">
             <div className="container-pro">
 
-                <div className="text-center mb-16">
-                    <h2 className="text-deepBlue text-3xl md:text-4xl font-bold mb-4">{title}</h2>
-                    <p className="section-subtitle">{subtitle}</p>
+                <div className="mb-16">
+                    <h2 className="text-deepBlue">{title}</h2>
+                    <p className="">{subtitle}</p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">

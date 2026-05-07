@@ -30,6 +30,7 @@ const PageTransition = ({ children }) => {
             exit="out"
             variants={pageVariants}
             transition={pageTransition}
+            className="bg-ghostWhite min-h-screen w-full"
         >
             {children}
         </motion.div>

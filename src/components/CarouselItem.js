@@ -45,8 +45,8 @@ const CarouselItem = ({ title, description, image, slug, category }) => {
                 */}
                 <p className="text-gray-200 text-sm font-light leading-relaxed mb-6 
                     line-clamp-3 transition-all duration-500
-                    opacity-100 translate-y-0
-                    md:opacity-0 md:translate-y-4 md:group-hover:opacity-100 md:group-hover:translate-y-0"
+                   translate-y-0
+                     md:translate-y-4 md:group-hover:opacity-100 md:group-hover:translate-y-0"
                 >
                     {description}
                 </p>

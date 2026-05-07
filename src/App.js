@@ -27,9 +27,10 @@ function App() {
       <ScrollToTop />
 
       <div className="flex flex-col min-h-screen">
+
         <Navbar />
         {/* --- CAMBIO: Se añadió padding horizontal (px-4 sm:px-6 lg:px-8) --- */}
-        <main className="flex-grow bg-gray-50">
+        <main className="flex-grow bg-deepBlue">
           <Suspense fallback={<LoadingPage />}>
             <AnimatePresence mode="wait">
               <Routes location={location} key={location.pathname}>
@@ -55,6 +56,14 @@ function App() {
                   element={
                     <PageTransition>
                       <ServicePage />
+                    </PageTransition>
+                  }
+                />
+                <Route
+                  path="/proyectos"
+                  element={
+                    <PageTransition>
+                      <ProjectsPage />
                     </PageTransition>
                   }
                 />

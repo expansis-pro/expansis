@@ -85,7 +85,7 @@ const ServicePage = () => {
                 <section id="phases" className="section-padding pt-32">
                     <div className="container-pro">
 
-                        <h2 className="text-center mb-12 font-bold text-deepBlue">Fases del Proyecto</h2>
+                        <h2 className="text-center mb-12  text-deepBlue">Fases del Proyecto</h2>
                         <div className="space-y-2">
                             {service.phases.map((phase, index) => (
                                 <PhaseItem
@@ -107,7 +107,7 @@ const ServicePage = () => {
 
                         {/* 1. ENCABEZADO DE SECCIÓN (Fuera de la card para que respire) */}
                         <div className="text-center mb-16 md:mb-24">
-                            <h2 className="text-deepBlue font-bold">Inversión y Escalabilidad</h2>
+                            <h2 className="text-deepBlue ">Inversión y Escalabilidad</h2>
                             <p className="section-subtitle">
                                 Presupuestos transparentes diseñados para la expansión de tu marca.
                             </p>
@@ -134,7 +134,7 @@ const ServicePage = () => {
                                             <div className="mb-6">
                                                 <span className="text-sm text-white block uppercase tracking-widest mb-2">Inversión desde</span>
                                                 <div className="flex items-baseline justify-center lg:justify-start gap-2">
-                                                    <p className="text-6xl md:text-5xl lg:text-6xl font-bold text-white tracking-tighter leading-none">
+                                                    <p className="text-6xl md:text-5xl lg:text-6xl  text-white tracking-tighter leading-none">
                                                         {service.pricing.from}
                                                     </p>
                                                 </div>
@@ -172,7 +172,7 @@ const ServicePage = () => {
 
                                         {service.pricing.scalability && (
                                             <div className="max-w-2xl text-center mb-12">
-                                                <h4 className="text-xs uppercase tracking-[0.3em] text-primario font-bold mb-4">
+                                                <h4 className="text-xs uppercase tracking-[0.3em] text-primario  mb-4">
                                                     {service.pricing.scalability.title}
                                                 </h4>
                                                 <div
@@ -229,14 +229,27 @@ const ServicePage = () => {
                     description="Conversemos sobre tu proyecto y cómo podemos ayudarte a crecer."
                 />
 
-                <div className="text-center mt-12">
-                    <Link
-                        to="/servicios"
-                        className="text-primario font-medium hover:underline inline-flex items-center gap-2 transition-all"
-                    >
-                        <span>&larr;</span> Volver a ver todos los servicios
-                    </Link>
-                </div>
+                {/* --- NAVEGACIÓN INFERIOR --- */}
+                <section className="pb-20 bg-white">
+                    <div className="container-pro">
+                        <div className="flex justify-center">
+                            <Link
+                                to="/servicios"
+                                className="group relative flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-deepBlue/5 text-deepBlue  rounded-2xl hover:border-primario hover:text-primario transition-all duration-300"
+                            >
+                                {/* Flecha con animación de "empuje" hacia la izquierda */}
+                                <i className="fa-solid fa-arrow-left transition-transform duration-300 group-hover:-translate-x-2"></i>
+
+                                <span className="tracking-tight">
+                                    Explorar todas las <span className="text-primario">especialidades</span>
+                                </span>
+
+                                {/* Sutil brillo al hacer hover */}
+                                <div className="absolute inset-0 rounded-2xl bg-primario/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                            </Link>
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
     );

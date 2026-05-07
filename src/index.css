@@ -48,7 +48,7 @@
 	}
 	/* En tu index.css bajo @layer components */
 	.section-subtitle {
-		@apply text-gray-600 text-lg md:text-xl font-light max-w-3xl mx-auto leading-relaxed;
+		@apply text-gray-600 text-lg md:text-xl font-light mx-auto leading-relaxed;
 	}
 	.service-card {
 		@apply bg-white p-8 h-full flex flex-col items-start text-left 

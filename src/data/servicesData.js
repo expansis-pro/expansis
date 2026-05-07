@@ -45,9 +45,9 @@ export const servicesData = [
         ]
     },
     {
-        slug: "consultoria-digital",
+        slug: "autoridad-de-marca",
         icon: "fa-solid fa-chart-line",
-        title: "Desarrollo de Marca",
+        title: "Autoridad de Marca",
         description: "Desenterramos el propósito de tu negocio para construir una autoridad digital que tenga peso real y coherencia.",
         longDescription: "Analizamos tu propuesta de valor y la traducimos a un lenguaje de autoridad digital, asegurando que cada punto de contacto con tu cliente refuerce tu profesionalismo y justifique tus precios.",
         phases: [

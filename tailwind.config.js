@@ -10,7 +10,6 @@ module.exports = {
         'primario': '#F27405',   // Color del botón principal
         'ghostWhite': '#F8FAFC', // Color de las letras
         'secundario': '#f4ad72',
-        // 'terciario': '#f2d905',
         'gris': '#cccccc',
       },
       fontFamily: {
