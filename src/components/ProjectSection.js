@@ -1,19 +1,35 @@
+
+
+
+
+
+
+
+// src/components/ProjectSection.js
 import React from 'react';
 import { projectsData } from '../data/projectsData';
-import ProjectCard from './ProjectCard'; // Importamos el nuevo componente
+import ProjectCard from './ProjectCard';
 import CtaButton from './CtaButton';
 
-const ProjectSection = ({ limit = 3, title = "Ecosistemas en Expansión", subtitle = "Casos de estudio donde la identidad y la ingeniería se fusionan." }) => {
+// Añadimos la prop 'titleTag' que por defecto es 'h2'
+const ProjectSection = ({
+    limit = 3,
+    title = "Ecosistemas en Expansión",
+    subtitle = "Casos de estudio donde la identidad y la ingeniería se fusionan.",
+    titleTag: TitleTag = 'h2' // <--- "T" mayúscula porque React trata los tags dinámicos así
+}) => {
 
     const displayedProjects = limit ? projectsData.slice(0, limit) : projectsData;
 
     return (
-        <section className="section-padding ">
+        <section className="section-padding">
             <div className="container-pro">
-
                 <div className="mb-16">
-                    <h2 className="text-deepBlue">{title}</h2>
-                    <p className="">{subtitle}</p>
+                    {/* Usamos el componente dinámico TitleTag */}
+                    <TitleTag className="text-deepBlue leading-tight mb-4">
+                        {title}
+                    </TitleTag>
+                    {subtitle && <p className="text-gray-500 max-w-2xl">{subtitle}</p>}
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
@@ -25,7 +41,6 @@ const ProjectSection = ({ limit = 3, title = "Ecosistemas en Expansión", subtit
                         />
                     ))}
                 </div>
-
                 {limit && (
                     <div className="mt-16 text-center">
                         <CtaButton

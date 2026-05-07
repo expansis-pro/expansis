@@ -1,5 +1,6 @@
 // src/pages/Services.js
 import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { servicesData } from '../data/servicesData';
 import CarouselItem from '../components/CarouselItem';
 import CallToAction from '../components/CallToAction';
@@ -13,8 +14,39 @@ const Services = () => {
 		window.scrollTo(0, 0);
 	}, []);
 
+	// --- SCHEMA: ITEMLIST (Catálogo de servicios) ---
+	const itemListSchema = {
+		"@context": "https://schema.org",
+		"@type": "ItemList",
+		"itemListElement": servicesData.map((service, index) => ({
+			"@type": "ListItem",
+			"position": index + 1,
+			"name": service.title,
+			"url": `https://expansispro.com/servicios/${service.slug}`
+		}))
+	};
+
+	const breadcrumbSchema = {
+		"@context": "https://schema.org",
+		"@type": "BreadcrumbList",
+		"itemListElement": [
+			{ "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://expansispro.com/" },
+			{ "@type": "ListItem", "position": 2, "name": "Servicios", "item": "https://expansispro.com/servicios" }
+		]
+	};
+
+
 	return (
 		<main className=" min-h-screen">
+
+			<Helmet>
+				<title>Especialidades y Servicios Digitales | Expansis Pro</title>
+				<meta name="description" content="Explora nuestras soluciones de ingeniería web y estrategia de marca." />
+				<link rel="canonical" href="https://expansispro.com/servicios" />
+			</Helmet>
+
+			<script type="application/ld+json">{JSON.stringify(itemListSchema)}</script>
+			<script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
 			{/* --- HERO SECUNDARIO --- */}
 			<SecondaryHero
 				title="Nuestros Servicios"
@@ -36,6 +68,7 @@ const Services = () => {
 								image={service.image} // Importante: CarouselItem suele llevar imagen
 								category={service.category}
 								slug={service.slug}
+								titleTag="h2"
 							/>
 						))}
 					</CardCarousel>

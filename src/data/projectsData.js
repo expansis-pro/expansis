@@ -1,35 +1,5 @@
 export const projectsData = [
     {
-        id: "lobos-miniexcavadoras",
-        category: "Desarrollo Web",
-        title: "Lobos Miniexcavadoras",
-        sector: "Movimiento de Tierra & Construcción",
-        image: "/images/1920x1080_lobosMiniexcavadoras.webp",
-        description: "Desarrollo de una <strong>infraestructura digital de alto rendimiento</strong> para el sector industrial. Transformamos la presencia online en una máquina de <strong>generación de leads locales</strong>, priorizando la velocidad de carga en terreno y una arquitectura técnica que proyecta la solidez operativa de la marca.",
-        results: [
-            "Optimización de <strong>conversión estratégica</strong> para arriendo de maquinaria",
-            "Interfaz ultra-rápida (WPO) diseñada para uso en condiciones de baja señal",
-            "Posicionamiento de autoridad en el mercado del Valle del Aconcagua"
-        ],
-        tags: ["React", "Tailwind CSS", "SEO Local", "Servicios Industriales"],
-        liveUrl: "https://lobosminiexcavadoras.cl/"
-    }, {
-        id: "gonzalo-lobos",
-        category: "Consultoría & Branding",
-        title: "Gonzalo Lobos",
-        sector: "Psicología Organizacional & Estrategia",
-        // IMPORTANTE: Usa esta ruta relativa, asegurándote de que el archivo 
-        // esté en /public/images/1920x1080_gonzalobos.webp
-        image: "/images/1920x1080_gonzalobos.webp",
-        description: "Diseño de ecosistema digital para marca personal de alto nivel. El proyecto sintetiza una trayectoria en <strong>psicología organizacional</strong> con herramientas de gestión de negocios, creando una plataforma que equilibra <strong>humanismo y robustez técnica</strong> para atraer clientes corporativos.",
-        results: [
-            "Unificación de <strong>narrativa estratégica</strong> y sistema de estilo visual",
-            "Arquitectura web optimizada para el posicionamiento de autoridad personal",
-            "Estructura orientada a la <strong>captación de clientes B2B</strong> de alto valor"
-        ],
-        tags: ["React", "Psicología Organizacional", "Branding Estratégico", "Consultoría"],
-        liveUrl: "https://gonzalobos.com/"
-    }, {
         id: "2v-express",
         category: "Branding & Desarrollo Web",
         title: "2V Express",
@@ -60,5 +30,35 @@ export const projectsData = [
         ],
         tags: ["React", "Dirección de Arte", "Cine & Series", "Portafolio de Autor"],
         liveUrl: "https://claudiagallardo.com/"
+    }, {
+        id: "lobos-miniexcavadoras",
+        category: "Desarrollo Web",
+        title: "Lobos Miniexcavadoras",
+        sector: "Movimiento de Tierra & Construcción",
+        image: "/images/1920x1080_lobosMiniexcavadoras.webp",
+        description: "Desarrollo de una <strong>infraestructura digital de alto rendimiento</strong> para el sector industrial. Transformamos la presencia online en una máquina de <strong>generación de leads locales</strong>, priorizando la velocidad de carga en terreno y una arquitectura técnica que proyecta la solidez operativa de la marca.",
+        results: [
+            "Optimización de <strong>conversión estratégica</strong> para arriendo de maquinaria",
+            "Interfaz ultra-rápida (WPO) diseñada para uso en condiciones de baja señal",
+            "Posicionamiento de autoridad en el mercado del Valle del Aconcagua"
+        ],
+        tags: ["React", "Tailwind CSS", "SEO Local", "Servicios Industriales"],
+        liveUrl: "https://lobosminiexcavadoras.cl/"
+    }, {
+        id: "gonzalo-lobos",
+        category: "Consultoría & Branding",
+        title: "Gonzalo Lobos",
+        sector: "Psicología Organizacional & Estrategia",
+        // IMPORTANTE: Usa esta ruta relativa, asegurándote de que el archivo 
+        // esté en /public/images/1920x1080_gonzalobos.webp
+        image: "/images/1920x1080_gonzalobos.webp",
+        description: "Diseño de ecosistema digital para marca personal de alto nivel. El proyecto sintetiza una trayectoria en <strong>psicología organizacional</strong> con herramientas de gestión de negocios, creando una plataforma que equilibra <strong>humanismo y robustez técnica</strong> para atraer clientes corporativos.",
+        results: [
+            "Unificación de <strong>narrativa estratégica</strong> y sistema de estilo visual",
+            "Arquitectura web optimizada para el posicionamiento de autoridad personal",
+            "Estructura orientada a la <strong>captación de clientes B2B</strong> de alto valor"
+        ],
+        tags: ["React", "Psicología Organizacional", "Branding Estratégico", "Consultoría"],
+        liveUrl: "https://gonzalobos.com/"
     },
 ]

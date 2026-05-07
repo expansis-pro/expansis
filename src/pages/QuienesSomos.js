@@ -1,6 +1,7 @@
 // src/pages/QuienesSomos.js
 import React, { useEffect } from 'react';
 import SecondaryHero from '../components/SecondaryHero';
+import { Helmet } from 'react-helmet-async';
 import WhatIsExpansisPro from '../components/WhatIsExpansisPro';
 import OurStory from '../components/OurStory';
 import MisionVision from '../components/MisionVision';
@@ -15,10 +16,20 @@ const QuienesSomos = () => {
 
     return (
         <main className=" min-h-screen">
-            {/* Metadatos SEO */}
-            <title>Sobre Expansis - Expansis Pro</title>
-            <meta name="description" content="Conoce la misión, visión y al equipo detrás de Expansis Pro. Soluciones digitales con un enfoque integral y personalizado." />
-            <link rel="canonical" href="https://expansispro.com/quienes-somos" />
+            {/* --- CONFIGURACIÓN SEO (HELMET) --- */}
+            <Helmet>
+                <title>Sobre Expansis Pro | Nuestra Filosofía de Ingeniería</title>
+                <meta
+                    name="description"
+                    content="Conoce al equipo detrás de la estrategia. Un aliado dedicado a entender y potenciar tu negocio con integridad técnica."
+                />
+                <link rel="canonical" href="https://expansispro.com/quienes-somos" />
+
+                {/* Open Graph para que se vea bien al compartir el link */}
+                <meta property="og:title" content="Sobre Expansis Pro | Nuestra Filosofía de Ingeniería" />
+                <meta property="og:description" content="Conoce al equipo detrás de la estrategia. Un aliado dedicado a entender y potenciar tu negocio con integridad técnica." />
+                <meta property="og:url" content="https://expansispro.com/quienes-somos" />
+            </Helmet>
 
             {/* --- HERO SECUNDARIO --- 
                 Sustituye al section id="quienes-somos" anterior para eliminar la franja blanca.
@@ -27,6 +38,7 @@ const QuienesSomos = () => {
                 title="Sobre Expansis"
                 subtitle="Conoce Nuestra Historia, Valores y al Equipo Que Lo Hace Posible."
                 icon="fa-solid fa-users"
+                img="/assets/hero-about.webp"
             />
 
             {/* Contenido de la página con espaciado consistente */}

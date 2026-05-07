@@ -6,12 +6,18 @@ import CallToAction from '../components/CallToAction';
 import CtaButton from '../components/CtaButton';
 import ImageTextCTA from '../components/ImageTextCTA';
 import ProjectSection from '../components/ProjectSection';
+import { Helmet } from 'react-helmet-async';
 
 import CardCarousel from '../components/CardCarousel';
 
 const Home = () => {
 	return (
 		<>
+			<Helmet>
+				<title>Expansis Pro | Ingeniería y Estrategia Digital</title>
+				<meta name="description" content="Tu socio estratégico para la expansión digital. Expertos en Desarrollo Web, Autoridad de Marca y Sistemas de Crecimiento." />
+				<link rel="canonical" href="https://expansispro.com/" />
+			</Helmet>
 			{/* --- HERO SECTION CON VIDEO --- */}
 			<section id="home" className="relative h-[85vh] min-h-[600px] flex items-center justify-start md:justify-center overflow-hidden bg-deepBlue px-6">
 				<video
@@ -88,7 +94,7 @@ const Home = () => {
 			<section id="about-teaser">
 				<ImageTextCTA
 					imageDesktop="/images/1920x1080_expansisPro_aboutus.webp"
-					alt="Trabajando en estrategia digital"
+					alt="Consultoría y estrategia digital en las oficinas de Expansis Pro"
 					subtitle="DETRÁS DE LA ESTRATEGIA"
 					title="Un Aliado, no un Proveedor"
 					text={[

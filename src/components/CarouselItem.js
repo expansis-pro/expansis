@@ -2,10 +2,15 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const CarouselItem = ({ title, description, image, slug, category }) => {
-    // Construimos la ruta de la imagen siguiendo tu convención del Hero
+const CarouselItem = ({
+    title,
+    description,
+    slug,
+    category,
+    titleTag: TitleTag = 'h3' // <--- Por defecto es h3
+}) => {
     const imagePath = `/assets/${slug}-hero.webp`;
-    // Función de seguridad: Si la imagen falla, la ocultamos para ver el fondo sólido
+
     const handleImgError = (e) => {
         e.target.style.display = 'none';
     };
@@ -19,7 +24,7 @@ const CarouselItem = ({ title, description, image, slug, category }) => {
             {/* Imagen de Fondo */}
             <img
                 src={imagePath}
-                alt={title}
+                alt={`Especialidad en ${title} | Expansis Pro`}
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 onError={handleImgError}
             />
@@ -35,9 +40,10 @@ const CarouselItem = ({ title, description, image, slug, category }) => {
                     </span>
                 )}
 
-                <h3 className="text-white text-2xl font-bold mb-2 leading-tight group-hover:text-primario transition-colors">
+                {/* USAMOS EL TAG DINÁMICO AQUÍ */}
+                <TitleTag className="text-white text-2xl font-bold mb-2 leading-tight group-hover:text-primario transition-colors">
                     {title}
-                </h3>
+                </TitleTag>
 
                 {/* 2. Lógica responsiva para el texto:
                     Visible por defecto (opacity-100) en mobile.

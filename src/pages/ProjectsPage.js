@@ -11,7 +11,7 @@ const ProjectsPage = () => {
                 title="Proyectos Realizados"
                 subtitle="Transformando visiones en resultados digitales medibles y plataformas de alto rendimiento."
                 icon="fa-solid fa-rocket"
-                img="/assets/projects-hero.webp"
+                img="/assets/hero-projects.webp"
             />
 
             {/* SECCIÓN DE PROYECTOS: 

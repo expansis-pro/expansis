@@ -10,6 +10,7 @@ import CallToAction from '../components/CallToAction';
 import FaqItem from '../components/FaqItem';
 import SecondaryHero from '../components/SecondaryHero';
 import { sendWhatsAppMessage } from '../utils/trackingUtils';
+import { Helmet } from 'react-helmet-async';
 
 const ServicePage = () => {
     const { slug } = useParams();
@@ -21,12 +22,6 @@ const ServicePage = () => {
         return <NotFound />;
     }
 
-    // --- LÓGICA DE RASTREO Y CONTACTO ---
-    const phoneNumber = "56988318443";
-
-
-
-
 
     // Filtrar FAQs por slug del servicio o generales
     const serviceFaqs = faqData.filter(faq =>
@@ -36,7 +31,16 @@ const ServicePage = () => {
     const handleFaqToggle = (index) => {
         setOpenFaqIndex(openFaqIndex === index ? null : index);
     };
-
+    // --- SCHEMA: BREADCRUMBS (Miga de pan) ---
+    const breadcrumbSchema = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://expansispro.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Servicios", "item": "https://expansispro.com/servicios" },
+            { "@type": "ListItem", "position": 3, "name": service.title, "item": `https://expansispro.com/servicios/${slug}` }
+        ]
+    };
     // Schema.org para SEO
     const serviceSchema = {
         "@context": "https://schema.org",
@@ -53,9 +57,26 @@ const ServicePage = () => {
 
     return (
         <div className="min-h-screen ">
-            <script type="application/ld+json">
-                {JSON.stringify(serviceSchema)}
-            </script>
+
+            <Helmet>
+                {/* Título único por servicio */}
+                <title>{`${service.title} | Expansis Pro`}</title>
+
+                {/* Descripción única (tomada de tus datos) */}
+                <meta name="description" content={service.longDescription} />
+
+                {/* Canonical URL para evitar contenido duplicado */}
+                <link rel="canonical" href={`https://expansispro.com/servicios/${slug}`} />
+
+                {/* Open Graph para redes sociales */}
+                <meta property="og:title" content={`${service.title} | Expansis Pro`} />
+                <meta property="og:description" content={service.longDescription} />
+                <meta property="og:url" content={`https://expansispro.com/servicios/${slug}`} />
+            </Helmet>
+
+            {/* Inyectamos ambos Schemas */}
+            <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
+            <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
 
             {/* --- HEADER / HERO CON BOTÓN DE CONVERSIÓN --- */}
             <div className="relative">
@@ -230,7 +251,7 @@ const ServicePage = () => {
                 />
 
                 {/* --- NAVEGACIÓN INFERIOR --- */}
-                <section className="pb-20 bg-white">
+                <section className="pb-20">
                     <div className="container-pro">
                         <div className="flex justify-center">
                             <Link

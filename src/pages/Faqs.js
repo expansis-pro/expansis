@@ -1,5 +1,6 @@
 // src/pages/Faqs.js
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion, AnimatePresence } from 'framer-motion';
 import { faqData } from '../data/faqData';
 import FaqItem from '../components/FaqItem';
@@ -28,8 +29,40 @@ const Faqs = () => {
         answer: faq.answerJSX
     }));
 
+    // --- OPCIONAL: SCHEMA MARKUP PARA FAQ (Altamente recomendado para Google) ---
+    const faqSchema = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": faqData.map(item => ({
+            "@type": "Question",
+            "name": item.question,
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": item.answerText || item.question // Lo ideal es tener una versión texto plano en tus data
+            }
+        }))
+    };
+
     return (
         <main className=" min-h-screen">
+            {/* --- CONFIGURACIÓN SEO (HELMET) --- */}
+            <Helmet>
+                <title>Preguntas Frecuentes | Expansis Pro - Consultoría Digital</title>
+                <meta
+                    name="description"
+                    content="Encuentra respuestas a las dudas más comunes sobre desarrollo web, autoridad de marca y marketing digital. Todo lo que necesitas saber para escalar tu negocio."
+                />
+                <link rel="canonical" href="https://expansispro.com/faq" />
+
+                {/* Metas para Redes Sociales */}
+                <meta property="og:title" content="FAQ | Resolvemos tus dudas digitales - Expansis Pro" />
+                <meta property="og:description" content="¿Tienes dudas sobre cómo escalar tu activo digital? Revisa nuestras preguntas frecuentes." />
+                <meta property="og:url" content="https://expansispro.com/faq" />
+            </Helmet>
+            {/* --- AÑADE ESTO AQUÍ --- */}
+            <script type="application/ld+json">
+                {JSON.stringify(faqSchema)}
+            </script>
             <SecondaryHero
                 title="Preguntas Frecuentes"
                 subtitle="Si no encuentras tu respuesta, no dudes en escribirnos. Estamos para ayudarte."

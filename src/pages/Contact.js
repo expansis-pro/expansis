@@ -1,5 +1,6 @@
 // src/pages/Contact.js
 import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import SecondaryHero from '../components/SecondaryHero';
 import ContactForm from '../components/ContactForm';
 import { sendWhatsAppMessage } from '../utils/trackingUtils';
@@ -18,12 +19,25 @@ const Contact = () => {
 
 	return (
 		<main className=" min-h-screen">
-			<title>Contacto - Expansis Pro</title>
+			<Helmet>
+				<title>Contacto | Expansis Pro - Ingeniería y Consultoría Digital</title>
+				<meta
+					name="description"
+					content="¿Listo para expandir tu negocio? Solicita una consultoría técnica hoy mismo. Diseñamos infraestructura web y sistemas de autoridad de marca a tu medida."
+				/>
+				<link rel="canonical" href="https://expansispro.com/contacto" />
+
+				{/* Open Graph para redes sociales */}
+				<meta property="og:title" content="Contacta con Expansis Pro | Consultoría Digital" />
+				<meta property="og:description" content="Hablemos de tu próximo activo digital. Ingeniería y estrategia enfocada en resultados." />
+				<meta property="og:url" content="https://expansispro.com/contacto" />
+			</Helmet>
 
 			<SecondaryHero
 				title="Hablemos de tu Proyecto"
 				subtitle="Estamos aquí para escucharte. Cuéntanos tus desafíos y diseñemos juntos el camino hacia tu expansión digital."
 				icon="fa-solid fa-paper-plane"
+				img="/assets/hero-contact.webp"
 			/>
 
 			<section className="py-16 px-4">

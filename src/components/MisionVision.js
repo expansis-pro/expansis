@@ -1,10 +1,10 @@
 // src/pages/MisionVision.js
-import React, { useRef } from 'react';
+import React from 'react';
 import ServiceItem from './ServiceItem';
-import CardCarousel from './CardCarousel';
+
 
 function MisionVision() {
-  const philosophyScrollRef = useRef(null);
+
 
 
   const misionData = {

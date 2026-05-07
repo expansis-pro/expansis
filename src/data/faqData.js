@@ -95,7 +95,7 @@ export const faqData = [
             </div>
         ),
         answerText: "Los precios son desde porque cada solución es personalizada y escalable según las necesidades del cliente.",
-        tags: ["general", , "tarifas"]
+        tags: ["general", "tarifas"]
     },
     {
         question: "¿Cómo se gestiona el material gráfico (diseño) para las campañas?",
@@ -183,7 +183,7 @@ export const faqData = [
             </div>
         ),
         answerText: "Entregamos proyectos en 6 semanas divididas en: Diagnóstico, Diseño Visual, Desarrollo Técnico y Lanzamiento.",
-        tags: ["desarrollo-web", , "seo"]
+        tags: ["desarrollo-web", "seo"]
     },
     {
         question: "¿Seré dueño de mi sitio web una vez terminado el proyecto?",
