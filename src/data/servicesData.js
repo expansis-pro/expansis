@@ -7,8 +7,8 @@ export const servicesData = [
         longDescription: "En Expansis Pro co-construimos canales digitales de venta diseñados como ecosistemas vivos que integran tu identidad real con plataformas digitales escalables, sostenibles y adaptables.",
         phases: [
             {
-                title: "Descubrimiento",
-                description: "Te acompañaremos en el proceso de descubrimiento del identidad de la marca. A partir de este punto. En esta fase desenterramos tu relato de marca y analizamos a la competencia para asegurar que los cimientos de tu plataforma no sean autenticos y coherentes."
+                title: "Descubrimiento y Autoridad",
+                description: "Fase obligatoria: Aplicamos psicología estratégica para definir tu **Relato Visceral**. Antes de programar, desenterramos quién eres y qué valor aportas para asegurar que los cimientos de tu plataforma tengan peso real y coherencia."
             },
             {
                 title: "Coherencia Visual y UX",
@@ -45,50 +45,97 @@ export const servicesData = [
         ]
     },
     {
-        slug: "autoridad-de-marca",
-        icon: "fa-solid fa-chart-line",
-        title: "Autoridad de Marca",
-        description: "Desenterramos el propósito de tu negocio para construir una autoridad digital que tenga peso real y coherencia.",
-        longDescription: "Analizamos tu propuesta de valor y la traducimos a un lenguaje de autoridad digital, asegurando que cada punto de contacto con tu cliente refuerce tu profesionalismo y justifique tus precios.",
+        slug: "ecommerce",
+        icon: "fa-solid fa-cart-shopping",
+        title: "Plataformas E-commerce",
+        description: "Diseñamos ecosistemas de ventas donde la transaccionalidad se encuentra con el relato de marca.",
+        longDescription: "En Expansis Pro no solo subimos productos; diseñamos tu flujo de caja digital. Construimos ecosistemas vivos que integran pasarelas de pago, gestión de inventario y automatización bajo una arquitectura escalable y rentable.",
         phases: [
             {
-                title: "Descubrimiento del Relato Visceral",
-                description: "Realizamos una auditoría de identidad profunda. Aplicamos psicología estratégica para definir quién eres, qué valor real aportas y cuál es el mensaje que debe articular toda tu presencia digital para generar confianza inmediata."
+                title: "Estrategia de Flujo y Sentido",
+                description: "Fase obligatoria: Definimos el ángulo de venta y el ecosistema transaccional. Analizamos cómo tu identidad debe guiar la compra para evitar que tu tienda sea solo un estante digital vacío de alma."
             },
             {
-                title: "Arquitectura del Ecosistema Digital",
-                description: "Diseñamos el plano de tus canales. Definimos cómo debe estructurarse tu Web en React, qué rol juega cada red social y cómo se conectan entre sí para formar un ecosistema vivo, escalable y, sobre todo, propio."
+                title: "Ingeniería de Conversión (UX)",
+                description: "Diseñamos embudos de conversión optimizados. Aplicamos psicología del consumidor para crear un journey que transforme la desconfianza instintiva en un 'latido digital', guiando al usuario desde el deseo hasta el pago de forma fluida."
             },
             {
-                title: "Pauta de Implementación y Desarrollo",
-                description: "Entregamos la hoja de ruta técnica. Definimos los estándares de diseño, tono de voz y funcionalidades necesarias para que la construcción de tus canales sea fluida, eliminando el azar y el 'humo' del proceso."
+                title: "Integración y Automatización",
+                description: "Construimos con React para asegurar una velocidad transaccional extrema. Integramos pasarelas de pago locales/internacionales, sistemas de inventario y automatizamos procesos para que el canal soporte el peso de tu crecimiento sin generar caos."
+            },
+            {
+                title: "Optimización del Latido",
+                description: "Lanzamos con un enfoque en el rendimiento real. Realizamos auditorías de 'Time-to-Trust' y carga técnica, asegurando que tu tienda sea una estructura robusta, segura y lista para recibir tráfico de alta calidad."
             }
         ],
         pricing: {
-            from: "$300.000 CLP", // +50.000
+            from: "$1.200.000 CLP",
             features: [
-                "Blueprint del Relato Visceral de Marca",
-                "Mapa de Arquitectura del Ecosistema Digital",
-                "Pauta Técnica para Desarrollo de Canales (Web/RRSS)",
-                "Definición de Ángulos de Venta y Autoridad",
-                "Hoja de Ruta de Expansión Tecnológica",
-            ], scalability: {
-                title: "De la Estrategia a la Acción",
-                description: "Una vez definida la pauta, podemos proceder a la: <strong>Construcción técnica en React, Integración de sistemas o Gestión de Adquisición de clientes.</strong>"
+                "Arquitectura técnica en React (Máximo rendimiento)",
+                "Diseño de Embudos de Conversión personalizados",
+                "Integración de Pasarelas de Pago (Webpay, Mercado Pago, etc.)",
+                "Gestión de Inventario y Stock automatizada",
+                "Panel de administración autogestionable",
+                "Optimización SEO para categorías y productos",
+                "Integración con Píxel de Meta y Google Ads",
+            ],
+            scalability: {
+                title: "Expansión Comercial",
+                description: "¿Tu negocio creció? Podemos implementar: <strong>Sistemas de suscripción, Integraciones con ERPs, Automatización de envíos o Marketing Automation avanzado.</strong>"
             }
         },
         details: [
-            "Auditoría de Coherencia e Identidad Digital.",
-            "Diseño de Ecosistemas Digitales Propios y Escalables.",
-            "Análisis de Autoridad y Diferenciación de Mercado.",
-            "Arquitectura de Experiencia (UX) basada en el Relato.",
-            "Definición de Pautas Técnicas para el Desarrollo de Canales."
+            "Consultoría de Ecosistema de Ventas Digital.",
+            "Desarrollo de tiendas online de alto rendimiento.",
+            "Automatización de procesos transaccionales.",
+            "Diseño de experiencia de usuario (UX) para conversión."
         ]
     },
+    // {
+    //     slug: "autoridad-de-marca",
+    //     icon: "fa-solid fa-chart-line",
+    //     title: "Autoridad de Marca",
+    //     description: "Desenterramos el propósito de tu negocio para construir una autoridad digital que tenga peso real y coherencia.",
+    //     longDescription: "Analizamos tu propuesta de valor y la traducimos a un lenguaje de autoridad digital, asegurando que cada punto de contacto con tu cliente refuerce tu profesionalismo y justifique tus precios.",
+    //     phases: [
+    //         {
+    //             title: "Descubrimiento del Relato Visceral",
+    //             description: "Realizamos una auditoría de identidad profunda. Aplicamos psicología estratégica para definir quién eres, qué valor real aportas y cuál es el mensaje que debe articular toda tu presencia digital para generar confianza inmediata."
+    //         },
+    //         {
+    //             title: "Arquitectura del Ecosistema Digital",
+    //             description: "Diseñamos el plano de tus canales. Definimos cómo debe estructurarse tu Web en React, qué rol juega cada red social y cómo se conectan entre sí para formar un ecosistema vivo, escalable y, sobre todo, propio."
+    //         },
+    //         {
+    //             title: "Pauta de Implementación y Desarrollo",
+    //             description: "Entregamos la hoja de ruta técnica. Definimos los estándares de diseño, tono de voz y funcionalidades necesarias para que la construcción de tus canales sea fluida, eliminando el azar y el 'humo' del proceso."
+    //         }
+    //     ],
+    //     pricing: {
+    //         from: "$300.000 CLP", // +50.000
+    //         features: [
+    //             "Blueprint del Relato Visceral de Marca",
+    //             "Mapa de Arquitectura del Ecosistema Digital",
+    //             "Pauta Técnica para Desarrollo de Canales (Web/RRSS)",
+    //             "Definición de Ángulos de Venta y Autoridad",
+    //             "Hoja de Ruta de Expansión Tecnológica",
+    //         ], scalability: {
+    //             title: "De la Estrategia a la Acción",
+    //             description: "Una vez definida la pauta, podemos proceder a la: <strong>Construcción técnica en React, Integración de sistemas o Gestión de Adquisición de clientes.</strong>"
+    //         }
+    //     },
+    //     details: [
+    //         "Auditoría de Coherencia e Identidad Digital.",
+    //         "Diseño de Ecosistemas Digitales Propios y Escalables.",
+    //         "Análisis de Autoridad y Diferenciación de Mercado.",
+    //         "Arquitectura de Experiencia (UX) basada en el Relato.",
+    //         "Definición de Pautas Técnicas para el Desarrollo de Canales."
+    //     ]
+    // },
     {
-        slug: "marketing-online",
+        slug: "marketing-digital",
         icon: "fa-solid fa-bullhorn",
-        title: "Marketing Online",
+        title: "Marketing Digital",
         description: "Implementamos estrategias para aumentar tu visibilidad y generar clientes potenciales.",
         longDescription: "Diseñaremos e implementaremos campañas de marketing digital enfocadas en resultados. Nos enfocaremos en la gestión de tu inversión publicitaria en Meta (Facebook, Instagram) y Google Ads para crear estrategias que aumenten tu visibilidad y atraigan nuevos clientes.",
         phases: [

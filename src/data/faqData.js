@@ -81,7 +81,7 @@ export const faqData = [
             </div>
         ),
         answerText: "Gestionamos el ciclo creativo de tus campañas (Ads, Reels, Banners) basándonos en datos de performance y conversión.",
-        tags: ["marketing-online", "performance"]
+        tags: ["marketing-digital", "performance"]
     },
     {
         question: "¿Por qué los precios de Expansis Pro son 'desde'?",
@@ -121,7 +121,7 @@ export const faqData = [
             </div>
         ),
         answerText: "Gestionamos el ciclo completo de diseño para campañas: desde la definición estratégica y el briefing al equipo creativo, hasta la optimización de piezas según los resultados de conversión. Todo centralizado en nuestra gestión.",
-        tags: ["marketing-online", "performance", "gestión"]
+        tags: ["marketing-digital", "performance", "gestión"]
     }, {
         question: "¿Que pasa si no tengo logo o colores definidos de mi marca?",
         answerJSX: (<div className="text-justify space-y-3">
@@ -136,7 +136,7 @@ export const faqData = [
             </p>
         </div>),
         answerText: "Colaboramos con una diseñadora gráfica profesional. El costo se cotiza por separado y se incluye en la facturación mensual para simplificar la gestión.",
-        tags: ["marketing-online", "general"]
+        tags: ["marketing-digital", "general"]
     },
     {
         question: "¿Por qué desarrollan con React y no usan plantillas de WordPress?",

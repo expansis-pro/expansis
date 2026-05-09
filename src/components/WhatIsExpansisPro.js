@@ -1,8 +1,7 @@
 // src/components/WhatIsExpansisPro.js
 import React from 'react';
 import ImageTextCTA from './ImageTextCTA';
-import aboutImageDesktop from '../img/img-expansis-quienes-somos-630x630.webp';
-import aboutImageMobile from '../img/img-expansis-quienes-somos-400x200.webp';
+
 
 const WhatIsExpansisPro = () => {
     return (
@@ -10,8 +9,10 @@ const WhatIsExpansisPro = () => {
             <div className="max-w-6xl mx-auto text-center">
 
                 <ImageTextCTA
-                    imageMobile={aboutImageMobile}
-                    imageDesktop={aboutImageDesktop}
+                    imageDesktop="/images/expansisPro_aboutus.webp"
+                    alt="Consultoría y estrategia digital en las oficinas de Expansis Pro"
+
+
                     alt="Personas colaborando en una estrategia digital"
                     title="Tu Aliado Estratégico en el Mundo Digital"
                     text={[

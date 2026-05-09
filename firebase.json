@@ -27,7 +27,24 @@
             "key": "Strict-Transport-Security",
             "value": "max-age=31536000; includeSubDomains"
           },
-          {}
+          {
+            "source": "**/*.@(jpg|jpeg|gif|png|webp|mp4|js|css|woff2)",
+            "headers": [
+              {
+                "key": "Cache-Control",
+                "value": "max-age=31536000"
+              }
+            ]
+          },
+          {
+            "source": "404.html",
+            "headers": [
+              {
+                "key": "Cache-Control",
+                "value": "max-age=300"
+              }
+            ]
+          }
         ]
       },
       {
