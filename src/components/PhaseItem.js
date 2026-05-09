@@ -1,52 +1,52 @@
 // src/components/PhaseItem.js
 import React from 'react';
 
-const PhaseItem = ({ number, title, description, isOpen, onToggle }) => {
+const PhaseItem = ({ number, title, description, isOpen, onToggle, isLast }) => {
     return (
-        <div
-            className={`group transition-all duration-300 rounded-2xl mb-4 border-2 ${isOpen
-                ? 'border-primario bg-white shadow-sm shadow-xl translate-x-2'
-                : 'border-gray-100 bg-white hover:border-primario/30 hover:bg-ghostWhite'
-                }`}
-        >
-            <button
-                onClick={onToggle}
-                aria-expanded={isOpen}
-                className="w-full flex justify-between items-center text-left p-5 focus:outline-none"
-            >
-                <div className="flex items-center gap-4">
-                    {/* El número de la fase con el estilo de Expansis */}
-                    <span className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm transition-colors duration-300 ${isOpen ? 'bg-primario text-white' : 'bg-gray-100 text-deepBlue'
-                        }`}>
-                        {number}
-                    </span>
-                    <span className={`text-lg font-medium transition-colors duration-300 ${isOpen ? 'text-primario' : 'text-deepBlue'
+        <div className="relative flex gap-6 md:gap-10">
+            {/* LÍNEA Y NÚMERO (Columna Izquierda) */}
+            <div className="flex flex-col items-center">
+                {/* Círculo con Número */}
+                <button
+                    onClick={onToggle}
+                    className={`z-10 w-10 h-10 md:w-12 md:h-12 rounded-full border-2 flex items-center justify-center font-bold transition-all duration-500 ${isOpen
+                            ? 'bg-primario border-primario text-white shadow-[0_0_15px_rgba(242,116,5,0.4)] scale-110'
+                            : 'bg-white border-gray-200 text-gray-400 hover:border-primario/50'
+                        }`}
+                >
+                    {number}
+                </button>
+
+                {/* Línea Conectora */}
+                {!isLast && (
+                    <div className={`w-0.5 flex-grow my-2 transition-colors duration-500 ${isOpen ? 'bg-primario' : 'bg-gray-100'
+                        }`}></div>
+                )}
+            </div>
+
+            {/* CONTENIDO (Columna Derecha) */}
+            <div className="flex-grow pb-12">
+                <div
+                    onClick={onToggle}
+                    className={`cursor-pointer transition-all duration-300 ${isOpen ? 'opacity-100' : 'opacity-60 hover:opacity-100'
+                        }`}
+                >
+                    <h3 className={`text-xl md:text-2xl font-bold tracking-tight transition-colors duration-300 ${isOpen ? 'text-deepBlue' : 'text-gray-500'
                         }`}>
                         {title}
-                    </span>
+                    </h3>
                 </div>
 
-                <span className={`flex-shrink-0 ml-4 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}>
-                    <svg
-                        className={`w-6 h-6 ${isOpen ? 'text-primario' : 'text-gray-400'}`}
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                    >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                </span>
-            </button>
-
-            <div
-                className={`grid transition-all duration-500 ease-in-out ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
-                    }`}
-            >
-                <div className="overflow-hidden">
-                    <div className="px-5 pb-6 text-gray-600 font-light leading-relaxed">
-                        <div className="pt-4 border-t border-gray-100"
-                            dangerouslySetInnerHTML={{ __html: description }}
-                        />
+                {/* Contenido Desplegable */}
+                <div className={`grid transition-all duration-500 ease-in-out ${isOpen ? 'grid-rows-[1fr] opacity-100 mt-4' : 'grid-rows-[0fr] opacity-0 mt-0'
+                    }`}>
+                    <div className="overflow-hidden">
+                        <div className="bg-white border border-gray-100 p-6 rounded-2xl shadow-sm">
+                            <p
+                                className="text-gray-600 font-light leading-relaxed text-lg"
+                                dangerouslySetInnerHTML={{ __html: description }}
+                            />
+                        </div>
                     </div>
                 </div>
             </div>

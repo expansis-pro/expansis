@@ -115,6 +115,7 @@ const ServicePage = () => {
                                     title={phase.title}
                                     description={phase.description}
                                     isOpen={openPhaseIndex === index}
+                                    isLast={index === service.phases.length - 1} // <--- Nueva Prop
                                     onToggle={() => setOpenPhaseIndex(openPhaseIndex === index ? null : index)}
                                 />
                             ))}

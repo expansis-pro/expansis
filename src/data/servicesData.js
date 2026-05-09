@@ -8,7 +8,7 @@ export const servicesData = [
         phases: [
             {
                 title: "Descubrimiento y Autoridad",
-                description: "Fase obligatoria: Aplicamos psicología estratégica para definir tu **Relato Visceral**. Antes de programar, desenterramos quién eres y qué valor aportas para asegurar que los cimientos de tu plataforma tengan peso real y coherencia."
+                description: "Fase obligatoria: Aplicamos psicología estratégica para definir tu <strong>Relato Visceral</strong>. Antes de programar, desenterramos quién eres y qué valor aportas para asegurar que los cimientos de tu plataforma tengan peso real y coherencia."
             },
             {
                 title: "Coherencia Visual y UX",
@@ -77,7 +77,6 @@ export const servicesData = [
                 "Gestión de Inventario y Stock automatizada",
                 "Panel de administración autogestionable",
                 "Optimización SEO para categorías y productos",
-                "Integración con Píxel de Meta y Google Ads",
             ],
             scalability: {
                 title: "Expansión Comercial",
@@ -144,6 +143,10 @@ export const servicesData = [
                 description: "Junto a ti, identificaremos a tu cliente ideal y los canales más efectivos para llegar a él y conectar con sus necesidades."
             },
             {
+                title: "Implementación de Ecosistema",
+                description: "Configuración técnica de píxeles, API de conversiones y vinculación de canales en el Business Manager de Google y Meta."
+            },
+            {
                 title: "Creación de Campañas",
                 description: "Diseñaremos y lanzaremos campañas publicitarias creativas y persuasivas en las plataformas que hayamos seleccionado."
             },
@@ -155,20 +158,20 @@ export const servicesData = [
         pricing: {
             from: "$250.000 CLP / mes", // +50.000
             features: [
-                "Gestión de Redes Sociales",
-                "Campañas en Meta y Google Ads",
-                "Email Marketing",
-                "Reportes mensuales"
+                "Gestión Profesional de Meta & Google Ads",
+                "Configuración de Píxeles de Seguimiento",
+                "Estrategia de Retargeting Avanzada",
+                "Reporte de Rendimiento & Análisis de Datos"
             ], scalability: {
                 title: "Escalabilidad Disponible",
                 description: "Amplía tu impacto mediante: <strong>Publicidad en canales B2B (LinkedIn), Producción de contenido audiovisual o Gestión de embudos de fidelización.</strong>"
             }
         },
         details: [
-            "Gestión de campañas en redes sociales.",
-            "Publicidad en Meta y Google Ads (SEM).",
-            "Email marketing y automatización.",
-            "Creación de contenido de valor."
+            "Ingeniería de pauta en Meta y Google Ads.",
+            "Automatización de marketing y nutrición de leads.",
+            "Analítica avanzada para la toma de decisiones.",
+            "Optimización de tasa de conversión (CRO)."
         ]
     }
 ];
