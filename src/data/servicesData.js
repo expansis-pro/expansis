@@ -47,7 +47,7 @@ export const servicesData = [
     {
         slug: "ecommerce",
         icon: "fa-solid fa-cart-shopping",
-        title: "Plataformas E-commerce",
+        title: "E-commerce",
         description: "Diseñamos ecosistemas de ventas donde la transaccionalidad se encuentra con el relato de marca.",
         longDescription: "En Expansis Pro no solo subimos productos; diseñamos tu flujo de caja digital. Construimos ecosistemas vivos que integran pasarelas de pago, gestión de inventario y automatización bajo una arquitectura escalable y rentable.",
         phases: [
