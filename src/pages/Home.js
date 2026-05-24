@@ -7,16 +7,32 @@ import CtaButton from '../components/CtaButton';
 import ImageTextCTA from '../components/ImageTextCTA';
 import ProjectSection from '../components/ProjectSection';
 import { Helmet } from 'react-helmet-async';
+import { useLocation } from 'react-router-dom';
 
 import CardCarousel from '../components/CardCarousel';
 
 const Home = () => {
+
+	// 2. CONFIGURAMOS EL CANONICAL DINÁMICO
+	const location = useLocation();
+	const baseUrl = 'https://expansispro.com';
+	// Esto evita que queden barras diagonales duplicadas al final (ej: /contacto/)
+	const canonicalUrl = `${baseUrl}${location.pathname}`.replace(/\/$/, "");
+
 	return (
 		<>
 			<Helmet>
-				<title>Expansis Pro | Ingeniería y Estrategia Digital</title>
-				<meta name="description" content="Tu socio estratégico para la expansión digital. Expertos en Desarrollo Web, Autoridad de Marca y Sistemas de Crecimiento." />
-				<link rel="canonical" href="https://expansispro.com/" />
+				{/* 3. TÍTULO Y DESCRIPCIÓN OPTIMIZADOS PARA CHILE */}
+				<title>Diseño de Landing Pages y Tiendas Online en Chile | Expansis Pro</title>
+				<meta name="description" content="En Expansis Pro creamos tus landing pages, e-commerce a medida y gestionamos tus campañas de Ads y Meta en Chile. ¡Impulsa tus canales digitales!" />
+
+				{/* CANONICAL DINÁMICO (Si es la raíz, usa el baseUrl) */}
+				<link rel="canonical" href={canonicalUrl || baseUrl} />
+
+				{/* ETIQUETAS OPEN GRAPH ACTUALIZADAS */}
+				<meta property="og:title" content="Diseño de Landing Pages y Tiendas Online en Chile | Expansis Pro" />
+				<meta property="og:description" content="En Expansis Pro creamos tus landing pages, e-commerce a medida y gestionamos tus campañas de Ads y Meta en Chile. ¡Impulsa tus canales digitales!" />
+				<meta property="og:url" content={canonicalUrl || baseUrl} />
 			</Helmet>
 			{/* --- HERO SECTION CON VIDEO --- */}
 			<section id="home" className="relative h-[85vh] min-h-[600px] flex items-center justify-start md:justify-center overflow-hidden bg-deepBlue px-6">

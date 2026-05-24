@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
 import ReCAPTCHA from "react-google-recaptcha";
 import axios from 'axios';
-import { trackFormConversion } from '../utils/trackingUtils';
+import { trackFormSubmit } from '../utils/trackingUtils';
 const ContactForm = () => {
 
     const [formData, setFormData] = useState({
@@ -76,7 +76,7 @@ const ContactForm = () => {
 
             // 2. DISPARO DE CONVERSIÓN CENTRALIZADO
             // Esto llamará al ID AW-16965295721/mRlTCNr00sIbEOm815k_
-            trackFormConversion();
+            trackFormSubmit('contacto_main_form');
 
             setIsSuccess(true);
         } catch (error) {

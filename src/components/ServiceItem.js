@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// Importamos la lógica centralizada
-import { sendWhatsAppMessage } from '../utils/trackingUtils';
+import { trackWhatsAppClick } from '../utils/trackingUtils';
 
 const ServiceItem = ({ icon, title, description, slug }) => {
     const isPhilosophy = slug === "mision" || slug === "vision";
@@ -38,7 +37,7 @@ const ServiceItem = ({ icon, title, description, slug }) => {
                 <div className="mt-auto flex flex-col gap-3 w-full">
                     {/* Botón WhatsApp: Ahora solo llama a la función con el nombre del servicio */}
                     <button
-                        onClick={() => sendWhatsAppMessage(title)}
+                        onClick={() => trackWhatsAppClick('service_item', title)}
                         className="btn-primary w-full text-sm py-3 flex items-center justify-center gap-2"
                     >
                         <i className="fa-brands fa-whatsapp text-lg"></i>

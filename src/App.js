@@ -10,6 +10,7 @@ import ScrollToTop from './components/ScrollToTop';
 
 import LoadingPage from './pages/LoadingPage';
 import NotFound from './pages/NotFound';
+import WhatsAppFloating from './components/WhatsAppFloating';
 
 const Home = lazy(() => import('./pages/Home'));
 const ServicePage = lazy(() => import('./pages/ServicePage'));
@@ -96,6 +97,7 @@ function App() {
             </AnimatePresence>
           </Suspense>
         </main>
+        <WhatsAppFloating /> {/* 2. COLÓCALO AQUÍ (Se renderizará en todo el sitio) */}
         <Footer />
       </div>
     </>

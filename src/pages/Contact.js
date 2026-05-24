@@ -1,14 +1,20 @@
 // src/pages/Contact.js
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useLocation } from 'react-router-dom';
 import SecondaryHero from '../components/SecondaryHero';
 import ContactForm from '../components/ContactForm';
-import { sendWhatsAppMessage } from '../utils/trackingUtils';
+import { trackWhatsAppClick } from '../utils/trackingUtils';
 
 const Contact = () => {
 	useEffect(() => {
 		window.scrollTo(0, 0);
 	}, []);
+
+	// 2. CONFIGURAMOS EL CANONICAL DINÁMICO
+	const location = useLocation();
+	const baseUrl = 'https://expansispro.com';
+	const canonicalUrl = `${baseUrl}${location.pathname}`.replace(/\/$/, "");
 
 	// --- LÓGICA DE CORREO ---
 	const email = "info@expansispro.com";
@@ -16,21 +22,23 @@ const Contact = () => {
 	const body = encodeURIComponent("Hola equipo de Expansis Pro,\n\nMe pongo en contacto con ustedes porque estoy interesado en potenciar mi negocio digital.\n\nMis datos son:\n- Nombre:\n- Empresa:\n- Teléfono:\n\nQuedo atento a su respuesta.");
 
 	const mailtoLink = `mailto:${email}?subject=${subject}&body=${body}`;
-
 	return (
 		<main className=" min-h-screen">
 			<Helmet>
-				<title>Contacto | Expansis Pro - Ingeniería y Consultoría Digital</title>
+				{/* 3. TÍTULO Y DESCRIPCIÓN CON PALABRAS CLAVE DE ALTA CONVERSIÓN EN CHILE */}
+				<title>Cotizar Diseño Web, E-commerce y Ads en Chile | Expansis Pro</title>
 				<meta
 					name="description"
-					content="¿Listo para expandir tu negocio? Solicita una consultoría técnica hoy mismo. Diseñamos infraestructura web y sistemas de autoridad de marca a tu medida."
+					content="Contáctanos hoy para diseñar tu landing page, crear tu tienda online a medida o gestionar tus campañas de anuncios en Google y Meta. Solicita tu presupuesto en Chile."
 				/>
-				<link rel="canonical" href="https://expansispro.com/contacto" />
 
-				{/* Open Graph para redes sociales */}
-				<meta property="og:title" content="Contacta con Expansis Pro | Consultoría Digital" />
-				<meta property="og:description" content="Hablemos de tu próximo activo digital. Ingeniería y estrategia enfocada en resultados." />
-				<meta property="og:url" content="https://expansispro.com/contacto" />
+				{/* Canonical automatizado */}
+				<link rel="canonical" href={canonicalUrl} />
+
+				{/* Open Graph para redes sociales actualizados */}
+				<meta property="og:title" content="Cotizar Diseño Web, E-commerce y Ads en Chile | Expansis Pro" />
+				<meta property="og:description" content="Contáctanos hoy para diseñar tu landing page, crear tu tienda online a medida o gestionar tus campañas de anuncios en Google y Meta. Solicita tu presupuesto en Chile." />
+				<meta property="og:url" content={canonicalUrl} />
 			</Helmet>
 
 			<SecondaryHero
@@ -59,7 +67,7 @@ const Contact = () => {
 									<div>
 										<p className="text-xs text-gray-400 uppercase tracking-widest font-semibold">WhatsApp</p>
 										<button
-											onClick={() => sendWhatsAppMessage("Información General")}
+											onClick={() => trackWhatsAppClick('contact_page_channels', 'Información General')}
 											className="text-deepBlue text-lg hover:text-primario transition-colors font-medium text-left block"
 										>
 											+56 9 88318443

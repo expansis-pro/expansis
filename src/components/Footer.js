@@ -2,7 +2,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { servicesData } from '../data/servicesData';
-import { sendWhatsAppMessage } from '../utils/trackingUtils';
+// 1. CAMBIO: Importamos la función centralizada desde tu archivo de tracking
+import { trackWhatsAppClick } from '../utils/trackingUtils';
 import { contactData } from '../data/contactConfig'; // Fuente de verdad
 
 const Footer = () => {
@@ -81,8 +82,9 @@ const Footer = () => {
 						{/* WHATSAPP DINÁMICO */}
 						<li className="flex items-center group">
 							<i className="fa-brands fa-whatsapp mr-3 text-primario group-hover:scale-110 transition-transform text-lg"></i>
+							{/* 2. CAMBIO: Ejecutamos el tracker inyectando la ubicación fija 'footer' */}
 							<button
-								onClick={() => sendWhatsAppMessage("Expansis Pro")}
+								onClick={() => trackWhatsAppClick('footer', 'Información General')}
 								className="text-sm font-medium hover:text-ghostWhite transition-colors"
 							>
 								{contactData.whatsapp.prefix} {contactData.whatsapp.number.slice(-8)}

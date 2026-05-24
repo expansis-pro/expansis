@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { servicesData } from '../data/servicesData';
 import { contactData } from '../data/contactConfig';
+import { trackWhatsAppClick } from '../utils/trackingUtils';
 
 const Navbar = () => {
 	const [menuOpen, setMenuOpen] = useState(false);
@@ -170,14 +171,12 @@ const Navbar = () => {
 					<li><NavLink to="/faq" className="text-ghostWhite hover:text-primario font-medium transition-colors" onClick={() => handleNavLinkClick('FAQ')}>FAQ</NavLink></li>
 					{/* CTA DESKTOP USANDO DATA DINÁMICA */}
 					<li>
-						<a
-							href={contactData.whatsapp.getLink("Hola, me gustaría cotizar un proyecto con Expansis Pro")}
-							target="_blank"
-							rel="noopener noreferrer"
-							className="btn-primary py-2.5 px-6 text-sm"
+						<button
+							onClick={() => trackWhatsAppClick('nav_desktop', 'Información General')}
+							className="btn-primary py-2.5 px-6 text-sm cursor-pointer"
 						>
 							Cotizar Proyecto
-						</a>
+						</button>
 					</li>
 				</ul>
 			</div>
@@ -238,14 +237,16 @@ const Navbar = () => {
 							<li><NavLink to="/quienes-somos" className="text-ghostWhite block text-lg" onClick={() => handleNavLinkClick('Sobre Expansis')}>Sobre Expansis</NavLink></li>
 							<li><NavLink to="/contacto" className="text-ghostWhite block text-lg" onClick={() => handleNavLinkClick('Contacto')}>Contacto</NavLink></li>
 							<li><NavLink to="/faq" className="text-ghostWhite block text-lg" onClick={() => handleNavLinkClick('FAQ')}>FAQ</NavLink></li><li className="pt-4">
-								<NavLink
-									to="/contacto"
-									className="btn-primary w-full py-5 text-xl shadow-primario/20"
-									onClick={() => handleNavLinkClick('CTA Mobile')}
+								<button
+									className="btn-primary w-full py-5 text-xl shadow-primario/20 cursor-pointer"
+									onClick={() => {
+										setMenuOpen(false); // Cierra el menú desplegable primero
+										trackWhatsAppClick('nav_mobile', 'Información General');
+									}}
 								>
-									<i className="fa-solid fa-paper-plane mr-2 text-lg"></i>
+									<i className="fa-brands fa-whatsapp text-2xl"></i>
 									Cotizar ahora
-								</NavLink>
+								</button>
 							</li>
 						</ul>
 					</motion.div>

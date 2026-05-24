@@ -1,6 +1,7 @@
 // src/pages/Services.js
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useLocation } from 'react-router-dom';
 import { servicesData } from '../data/servicesData';
 import CarouselItem from '../components/CarouselItem';
 import CallToAction from '../components/CallToAction';
@@ -14,6 +15,13 @@ const Services = () => {
 		window.scrollTo(0, 0);
 	}, []);
 
+
+	// 2. CONFIGURAMOS EL CANONICAL DINÁMICO
+	const location = useLocation();
+	const baseUrl = 'https://expansispro.com';
+	const canonicalUrl = `${baseUrl}${location.pathname}`.replace(/\/$/, "");
+
+
 	// --- SCHEMA: ITEMLIST (Catálogo de servicios) ---
 	const itemListSchema = {
 		"@context": "https://schema.org",
@@ -22,7 +30,7 @@ const Services = () => {
 			"@type": "ListItem",
 			"position": index + 1,
 			"name": service.title,
-			"url": `https://expansispro.com/servicios/${service.slug}`
+			"url": `${baseUrl}/servicios/${service.slug}`
 		}))
 	};
 
@@ -40,9 +48,17 @@ const Services = () => {
 		<main className=" min-h-screen">
 
 			<Helmet>
-				<title>Especialidades y Servicios Digitales | Expansis Pro</title>
-				<meta name="description" content="Explora nuestras soluciones de ingeniería web y estrategia de marca." />
-				<link rel="canonical" href="https://expansispro.com/servicios" />
+				{/* 3. TÍTULO Y DESCRIPCIÓN ENFOCADOS EN EL MERCADO DE CHILE */}
+				<title>Agencia de Desarrollo Web y Marketing Digital en Chile | Expansis Pro</title>
+				<meta name="description" content="Explora nuestros servicios digitales en Chile: diseño de landing pages, creación de tiendas online e-commerce a medida y gestión profesional de Google y Meta Ads." />
+
+				{/* El Canonical automatizado */}
+				<link rel="canonical" href={canonicalUrl} />
+
+				{/* Etiquetas Open Graph actualizadas */}
+				<meta property="og:title" content="Agencia de Desarrollo Web y Marketing Digital en Chile | Expansis Pro" />
+				<meta property="og:description" content="Explora nuestros servicios digitales en Chile: diseño de landing pages, creación de tiendas online e-commerce a medida y gestión profesional de Google y Meta Ads." />
+				<meta property="og:url" content={canonicalUrl} />
 			</Helmet>
 
 			<script type="application/ld+json">{JSON.stringify(itemListSchema)}</script>

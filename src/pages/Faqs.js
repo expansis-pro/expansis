@@ -1,6 +1,7 @@
 // src/pages/Faqs.js
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { faqData } from '../data/faqData';
 import FaqItem from '../components/FaqItem';
@@ -15,7 +16,10 @@ const Faqs = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
-
+    // 2. CONFIGURAMOS EL CANONICAL DINÁMICO
+    const location = useLocation();
+    const baseUrl = 'https://expansispro.com';
+    const canonicalUrl = `${baseUrl}${location.pathname}`.replace(/\/$/, "");
     const handleToggle = (index) => {
         setOpenIndex(openIndex === index ? null : index);
     };
@@ -38,7 +42,7 @@ const Faqs = () => {
             "name": item.question,
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": item.answerText || item.question // Lo ideal es tener una versión texto plano en tus data
+                "text": item.answerText || item.question
             }
         }))
     };
@@ -47,17 +51,18 @@ const Faqs = () => {
         <main className=" min-h-screen">
             {/* --- CONFIGURACIÓN SEO (HELMET) --- */}
             <Helmet>
-                <title>Preguntas Frecuentes | Expansis Pro - Consultoría Digital</title>
+                <title>Preguntas Frecuentes | Desarrollo Web y Marketing en Chile | Expansis Pro</title>
                 <meta
                     name="description"
-                    content="Encuentra respuestas a las dudas más comunes sobre desarrollo web, autoridad de marca y marketing digital. Todo lo que necesitas saber para escalar tu negocio."
+                    content="Resuelve tus dudas sobre el diseño de landing pages, desarrollo de e-commerce a medida y campañas de Google/Meta Ads en Chile. Todo lo que necesitas saber antes de iniciar tu proyecto."
                 />
-                <link rel="canonical" href="https://expansispro.com/faq" />
+                {/* Canonical automatizado */}
+                <link rel="canonical" href={canonicalUrl} />
 
-                {/* Metas para Redes Sociales */}
-                <meta property="og:title" content="FAQ | Resolvemos tus dudas digitales - Expansis Pro" />
-                <meta property="og:description" content="¿Tienes dudas sobre cómo escalar tu activo digital? Revisa nuestras preguntas frecuentes." />
-                <meta property="og:url" content="https://expansispro.com/faq" />
+                {/* Metas para Redes Sociales actualizados */}
+                <meta property="og:title" content="Preguntas Frecuentes | Desarrollo Web y Marketing en Chile | Expansis Pro" />
+                <meta property="og:description" content="¿Tienes dudas sobre cómo escalar tu canal digital en Chile? Resolvemos tus dudas sobre desarrollo web, e-commerce y publicidad." />
+                <meta property="og:url" content={canonicalUrl} />
             </Helmet>
             {/* --- AÑADE ESTO AQUÍ --- */}
             <script type="application/ld+json">

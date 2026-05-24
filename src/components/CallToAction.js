@@ -1,7 +1,7 @@
 import React from 'react';
 import CtaButton from './CtaButton';
 // 1. Importamos la utilidad
-import { sendWhatsAppMessage } from '../utils/trackingUtils';
+import { trackWhatsAppClick } from '../utils/trackingUtils';
 
 // Añadimos serviceName a las props (con "Información General" por defecto)
 const CallToAction = ({ title, description, serviceName = "Información General" }) => {
@@ -29,7 +29,7 @@ const CallToAction = ({ title, description, serviceName = "Información General"
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6">
                             {/* 3. Reemplazamos el <a> por un <button> que llama a la utilidad */}
                             <button
-                                onClick={() => sendWhatsAppMessage(serviceName)}
+                                onClick={() => trackWhatsAppClick('cta_block', serviceName)}
                                 className="btn-primary w-full sm:w-auto"
                             >
                                 <i className="fa-brands fa-whatsapp text-2xl"></i>

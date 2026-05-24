@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useLocation } from 'react-router-dom';
 import ProjectSection from '../components/ProjectSection';
 
 import { servicesData } from '../data/servicesData';
@@ -9,7 +9,7 @@ import PhaseItem from '../components/PhaseItem';
 import CallToAction from '../components/CallToAction';
 import FaqItem from '../components/FaqItem';
 import SecondaryHero from '../components/SecondaryHero';
-import { sendWhatsAppMessage } from '../utils/trackingUtils';
+import { trackWhatsAppClick } from '../utils/trackingUtils';
 import { Helmet } from 'react-helmet-async';
 
 const ServicePage = () => {
@@ -18,9 +18,38 @@ const ServicePage = () => {
     const [openFaqIndex, setOpenFaqIndex] = useState(null);
     const [openPhaseIndex, setOpenPhaseIndex] = useState(0); // Empezamos con la Fase 1 abierta
 
+
+    // 2. CONFIGURAMOS EL ENRUTADOR PARA EL CANONICAL DINÁMICO
+    const location = useLocation();
+    const baseUrl = 'https://expansispro.com';
+    const canonicalUrl = `${baseUrl}${location.pathname}`.replace(/\/$/, "");
+
+    // 3. MAPEO DE CONTENIDO SEO OPTIMIZADO PARA EL MERCADO CHILENO
+    const seoMapping = {
+        "desarrollo-web": {
+            title: "Diseño y Desarrollo Web Profesional en Chile | Expansis Pro",
+            description: "Creamos tu sitio web corporativo a medida en React. Páginas rápidas, seguras y con optimización SEO base para Google en Chile."
+        },
+        "ecommerce": {
+            title: "Creación de Tiendas Online y E-commerce en Chile | Expansis Pro",
+            description: "Diseño de canales de e-commerce robustos y escalables en Chile. Integración de Webpay, Mercado Pago, control de inventario y alta conversión."
+        },
+        "marketing-digital": {
+            title: "Gestión de Google Ads y Meta Ads en Chile | Expansis Pro",
+            description: "Agencia de marketing digital especializada en anuncios de pago. Optimizamos tus campañas en Instagram, Facebook y Google para captar clientes reales."
+        }
+    };
+
     if (!service) {
         return <NotFound />;
     }
+
+    // Obtenemos los textos optimizados, o usamos los del archivo data como respaldo (fallback)
+    const currentSeo = seoMapping[slug] || {
+        title: `${service.title} | Expansis Pro`,
+        description: service.longDescription
+    };
+
 
 
     // Filtrar FAQs por slug del servicio o generales
@@ -31,14 +60,14 @@ const ServicePage = () => {
     const handleFaqToggle = (index) => {
         setOpenFaqIndex(openFaqIndex === index ? null : index);
     };
-    // --- SCHEMA: BREADCRUMBS (Miga de pan) ---
+    // --- SCHEMA: BREADCRUMBS ---
     const breadcrumbSchema = {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://expansispro.com/" },
             { "@type": "ListItem", "position": 2, "name": "Servicios", "item": "https://expansispro.com/servicios" },
-            { "@type": "ListItem", "position": 3, "name": service.title, "item": `https://expansispro.com/servicios/${slug}` }
+            { "@type": "ListItem", "position": 3, "name": service.title, "item": canonicalUrl }
         ]
     };
     // Schema.org para SEO
@@ -59,24 +88,26 @@ const ServicePage = () => {
         <div className="min-h-screen ">
 
             <Helmet>
-                {/* Título único por servicio */}
-                <title>{`${service.title} | Expansis Pro`}</title>
+                {/* Agregamos de manera explícita el título e indicamos que limpie duplicados */}
+                <title data-rh="true">{currentSeo.title}</title>
 
-                {/* Descripción única (tomada de tus datos) */}
-                <meta name="description" content={service.longDescription} />
+                {/* Forzamos que la descripción sea única usando la misma llave */}
+                <meta data-rh="true" name="description" content={currentSeo.description} />
 
-                {/* Canonical URL para evitar contenido duplicado */}
-                <link rel="canonical" href={`https://expansispro.com/servicios/${slug}`} />
+                {/* El Canonical definitivo (sin IDs duplicados que confundan al validador) */}
+                <link rel="canonical" href={canonicalUrl} />
 
-                {/* Open Graph para redes sociales */}
-                <meta property="og:title" content={`${service.title} | Expansis Pro`} />
-                <meta property="og:description" content={service.longDescription} />
-                <meta property="og:url" content={`https://expansispro.com/servicios/${slug}`} />
+                {/* Open Graph unificado */}
+                <meta data-rh="true" property="og:title" content={currentSeo.title} />
+                <meta data-rh="true" property="og:description" content={currentSeo.description} />
+                <meta data-rh="true" property="og:url" content={canonicalUrl} />
             </Helmet>
 
-            {/* Inyectamos ambos Schemas */}
+            {/* Inyectamos ambos Schemas actualizados con el canonical dinámico */}
             <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
             <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
+
+
 
             {/* --- HEADER / HERO CON BOTÓN DE CONVERSIÓN --- */}
             <div className="relative">
@@ -90,7 +121,7 @@ const ServicePage = () => {
                 {/* Floating CTA Button */}
                 <div className="absolute bottom-0 left-0 w-full flex justify-center translate-y-1/2 z-30 px-4">
                     <button
-                        onClick={() => sendWhatsAppMessage(service.title)}
+                        onClick={() => trackWhatsAppClick('service_hero_floating', service.title)}
                         className="btn-primary"
                     >
                         <i className="fa-brands fa-whatsapp text-2xl"></i>
@@ -205,7 +236,7 @@ const ServicePage = () => {
                                         )}
 
                                         <button
-                                            onClick={() => sendWhatsAppMessage(service.title)}
+                                            onClick={() => trackWhatsAppClick('service_pricing_card', service.title)}
                                             className="btn-primary py-5 px-12 text-lg shadow-xl hover:scale-105 transition-transform w-full sm:w-auto"
                                         >
                                             <i className="fa-brands fa-whatsapp text-2xl"></i>
