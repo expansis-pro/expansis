@@ -3,10 +3,15 @@ import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
 import { servicesData } from '../data/servicesData';
+
 import CarouselItem from '../components/CarouselItem';
 import CallToAction from '../components/CallToAction';
 import CardCarousel from '../components/CardCarousel';
 import SecondaryHero from '../components/SecondaryHero'; // <-- Importar el nuevo Hero
+import ImageTextCTA from '../components/ImageTextCTA';
+
+
+
 
 const Services = () => {
 
@@ -90,7 +95,27 @@ const Services = () => {
 					</CardCarousel>
 				</div>
 			</section>
+			<ImageTextCTA
+				imageDesktop="/images/expansisPro_aboutus.webp"
+				alt="Ecosistema de Ingeniería Digital Expansis Pro"
+				subtitle="Nuestros Servicios"
+				title="Infraestructura Digital con Crecimiento Sostenible"
+				vimeoId="1196058571" // 👈 Pasas el ID aquí
+				text={[
+					"En Expansis Pro tratamos tu presencia digital como un ecosistema vivo e integrado, donde la velocidad de carga, la psicología de conversión y la ingeniería de pauta publicitaria trabajan bajo un mismo objetivo técnico.",
+					"Conectamos tus canales de venta (sitios corporativos o E-commerce a medida) con integraciones robustas de tracking para alimentar los algoritmos de Google y Meta Ads con datos limpios, asegurando que cada línea de código y cada campaña estén subordinadas a la estabilidad de tu operación y al retorno real (ROAS) de tu marca."
+				]}
+				imageSide="left"
+				// 1. BOTÓN PRINCIPAL CORREGIDO: Eliminamos la variable service.title inexistente
+				buttonContent="Cotizar por WhatsApp"
+				buttonLink="https://wa.me/56988318443?text=Hola%20Expansis%20Pro%2C%20me%20interesa%20cotizar%20un%20ecosistema%20digital%20integral"
+				buttonVariant="primary"
 
+				// 2. BOTÓN SECUNDARIO CORREGIDO: Variante "secondary" para que sea visible en la interfaz
+				secondaryButtonContent="Formulario de Contacto"
+				secondaryButtonLink="/contacto"
+				secondaryButtonVariant="secondary"
+			/>
 			<CallToAction
 				title="¿Necesitas una solución personalizada?"
 				description="Si no encuentras lo que buscas, hablemos. Diseñamos planes a la medida de tus necesidades."

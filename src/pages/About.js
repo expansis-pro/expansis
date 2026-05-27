@@ -4,6 +4,7 @@ import SecondaryHero from '../components/SecondaryHero';
 import OurStory from '../components/OurStory';
 import CallToAction from '../components/CallToAction';
 
+
 const About = () => {
 	// Garantiza que al navegar a esta página, el scroll suba al inicio
 	// Esto es vital para que el Navbar empiece siendo transparente sobre el azul

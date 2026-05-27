@@ -23,7 +23,7 @@ function MisionVision() {
   return (
     <section className="section-padding ">
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-center text-4xl font-bold mb-16 text-deepBlue">Nuestra Filosofía</h2>
+        <h2 className="text-center text-4xl mb-16 ">Nuestra Filosofía</h2>
 
         {/* Este contenedor controla el ancho de las cards */}
         <div className="flex flex-col md:flex-row items-stretch gap-6">

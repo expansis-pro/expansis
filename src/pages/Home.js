@@ -13,6 +13,10 @@ import CardCarousel from '../components/CardCarousel';
 
 const Home = () => {
 
+
+
+
+
 	// 2. CONFIGURAMOS EL CANONICAL DINÁMICO
 	const location = useLocation();
 	const baseUrl = 'https://expansispro.com';
@@ -112,11 +116,12 @@ const Home = () => {
 					imageDesktop="/images/expansisPro_aboutus.webp"
 					alt="Consultoría y estrategia digital en las oficinas de Expansis Pro"
 					subtitle="DETRÁS DE LA ESTRATEGIA"
-					title="Un Aliado, no un Proveedor"
+					title="Somos Socios en la Transformación Digital"
 					text={[
-						'Creemos en las relaciones a largo plazo. Detrás de cada línea de código y cada campaña de marketing, hay un profesional dedicado a entender y potenciar tu negocio.',
-						'Conoce nuestra historia, nuestra filosofía de trabajo y al equipo que lo hace posible.'
+						"Expansis Pro es un espacio que aspira a devolver el propósito a las organizaciones para usarlo como hoja de ruta definitiva para los procesos de transformación digital.",
+						"Conoce nuestra historia, nuestra filosofía de trabajo y al equipo que lo hace posible."
 					]}
+					vimeoId="1196058571" // 👈 Pasas el ID aquí
 					imageSide="left"
 					buttonContent="Conoce nuestra historia"
 					buttonLink="/quienes-somos"

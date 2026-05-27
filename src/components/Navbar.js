@@ -114,15 +114,18 @@ const Navbar = () => {
 						ref={servicesNavRef}
 						onMouseEnter={() => setServicesMenuOpen(true)}
 						onMouseLeave={() => setServicesMenuOpen(false)}>
-						<button
-							className="flex items-center gap-1 text-ghostWhite hover:text-primario font-medium transition-colors cursor-default"
+						<NavLink
+							to="/servicios"
+							className={({ isActive }) => `flex items-center gap-1 font-medium transition-colors ${isActive ? 'text-primario' : 'text-ghostWhite hover:text-primario'
+								}`}
+							onClick={() => handleNavLinkClick('Sección Servicios General')}
 						>
 							Servicios
 							<motion.i
 								className="fa-solid fa-chevron-down text-xs"
 								animate={{ rotate: servicesMenuOpen ? 180 : 0 }}
 							/>
-						</button>
+						</NavLink>
 
 						<AnimatePresence>
 							{servicesMenuOpen && (

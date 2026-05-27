@@ -105,3 +105,41 @@
 		@apply py-12 md:py-12;
 	}
 }
+
+/* src/index.css o tu archivo CSS global */
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		backdrop-filter: blur(0px);
+	}
+	to {
+		opacity: 1;
+		backdrop-filter: blur(4px); /* Sutil efecto premium de desenfoque de fondo */
+	}
+}
+
+@keyframes slideUp {
+	from {
+		opacity: 0;
+		transform: scale(0.95) translateY(20px); /* Viaja desde abajo y un poco más pequeño */
+	}
+	to {
+		opacity: 1;
+		transform: scale(1) translateY(0);
+	}
+}
+
+/* Dejamos las clases listas para que Tailwind u hojas externas las lean sin fricción */
+.animate-fadeIn {
+	animation: fadeIn 0.25s ease-out forwards;
+}
+
+.animate-slideUp {
+	animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; /* Curva suave de desaceleración */
+}
+/* 🚀 FUERZA EL PESO CORPORATIVO PREMIUM PARA TODAS LAS ETIQUETAS STRONG DEL SITIO */
+strong {
+	font-weight: 500 !important; /* Fuerza el grosor Bold (700) sin importar el contenedor */
+	@apply text-deepBlue; /* Opcional: Le da tu color corporativo para que resalte aún más */
+}

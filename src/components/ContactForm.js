@@ -11,6 +11,7 @@ const ContactForm = () => {
     const [formData, setFormData] = useState({
         name: "",
         company: "", // Nuevo (Opcional)
+        email: "",
         phone: "",
         message: "",
         serviceType: []
@@ -140,6 +141,18 @@ const ContactForm = () => {
                     type="text" name="company"
                     value={formData.company} onChange={handleChange}
                     placeholder="Nombre de tu negocio o empresa"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primario focus:ring-1 focus:ring-primario outline-none transition-all font-light"
+                />
+            </div>
+            {/* Campo: Correo */}
+            <div>
+                <label className="block text-sm font-medium text-deepBlue mb-2">
+                    Correo Electrónico
+                </label>
+                <input
+                    type="email" name="email"
+                    value={formData.email} onChange={handleChange}
+                    placeholder="tu@correo.com"
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primario focus:ring-1 focus:ring-primario outline-none transition-all font-light"
                 />
             </div>

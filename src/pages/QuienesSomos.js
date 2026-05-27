@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet-async';
 import WhatIsExpansisPro from '../components/WhatIsExpansisPro';
 import OurStory from '../components/OurStory';
 import MisionVision from '../components/MisionVision';
+import AboutMe from '../components/AboutMe';
 
 import CallToAction from '../components/CallToAction';
 
@@ -43,10 +44,10 @@ const QuienesSomos = () => {
 
             {/* Contenido de la página con espaciado consistente */}
             <div className="space-y-0">
-                <WhatIsExpansisPro />
+                <AboutMe />
                 <MisionVision />
-                <OurStory />
-
+                <WhatIsExpansisPro />
+                {/* <OurStory /> */}
             </div>
 
             <CallToAction
