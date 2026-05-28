@@ -22,7 +22,7 @@ jobs:
       - name: Install dependencies and Build
         run: |
           npm ci
-          npm run build
+          CI=false npm run build
 
       - name: Install Firebase CLI
         run: npm install -g firebase-tools

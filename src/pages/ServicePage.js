@@ -46,7 +46,7 @@ const ServicePage = () => {
             title: "El Usuario al Centro del Negocio",
             text: [
                 "En Expansis Pro tratamos tu presencia digital como un ecosistema integrado, donde la velocidad de carga, la psicología de conversión y el posicionamiento trabajan bajo un mismo objetivo técnico.",
-                "Estructuramos sitios corporativos limpios y optimizados a nivel de código para asegurar una carga instantánea, reduciendo la tasa de rebote y garantizando una base sólida para el SEO en Google."
+                "Estructuramos Landing pages y sitios corporativos limpios y optimizados a nivel de código para asegurar una carga instantánea, reduciendo la tasa de rebote y garantizando una base sólida para el SEO en Google."
             ],
             imageDesktop: "/images/desarrollo-web-ImgText.webp",
             alt: "Desarrollo Web Profesional Expansis Pro",
