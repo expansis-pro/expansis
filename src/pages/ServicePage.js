@@ -43,7 +43,7 @@ const ServicePage = () => {
     const videoSectionMapping = {
         "desarrollo-web": {
             subtitle: "Ingeniería en React",
-            title: "El usuario al centro del negocio",
+            title: "El Usuario al Centro del Negocio",
             text: [
                 "En Expansis Pro tratamos tu presencia digital como un ecosistema integrado, donde la velocidad de carga, la psicología de conversión y el posicionamiento trabajan bajo un mismo objetivo técnico.",
                 "Estructuramos sitios corporativos limpios y optimizados a nivel de código para asegurar una carga instantánea, reduciendo la tasa de rebote y garantizando una base sólida para el SEO en Google."
