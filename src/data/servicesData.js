@@ -34,7 +34,7 @@ export const servicesData = [
                 "Ingeniería en React para rendimiento y seguridad superior",
             ], scalability: {
                 title: "Escalabilidad Disponible",
-                description: "¿Necesitas más potencia? Podemos integrar: <strong>E-commerce, Paneles autogestionables, SEO avanzado o Integraciones con CRMs.</strong>"
+                description: "¿Necesitas más potencia? Podemos integrar: E-commerce, Paneles autogestionables, SEO avanzado o Integraciones con CRMs."
             }
         },
         details: [
@@ -80,7 +80,7 @@ export const servicesData = [
             ],
             scalability: {
                 title: "Expansión Comercial",
-                description: "¿Tu negocio creció? Podemos implementar: <strong>Sistemas de suscripción, Integraciones con ERPs, Automatización de envíos o Marketing Automation avanzado.</strong>"
+                description: "¿Tu negocio creció? Podemos implementar: Sistemas de suscripción, Integraciones con ERPs, Automatización de envíos o Marketing Automation avanzado."
             }
         },
         details: [
@@ -164,7 +164,7 @@ export const servicesData = [
                 "Reporte de Rendimiento & Análisis de Datos"
             ], scalability: {
                 title: "Escalabilidad Disponible",
-                description: "Amplía tu impacto mediante: <strong>Publicidad en canales B2B (LinkedIn), Producción de contenido audiovisual o Gestión de embudos de fidelización.</strong>"
+                description: "Amplía tu impacto mediante: Publicidad en canales B2B (LinkedIn), Producción de contenido audiovisual o Gestión de embudos de fidelización."
             }
         },
         details: [
