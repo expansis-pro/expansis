@@ -2,6 +2,7 @@
   "name": "my-expansis-pro-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://expansispro.com",
   "dependencies": {
     "@analytics/google-analytics": "^1.1.0",
     "@testing-library/dom": "^10.4.0",
@@ -60,6 +61,7 @@
     "puppeteerArgs": [
       "--no-sandbox",
       "--disable-setuid-sandbox"
-    ]
+    ],
+    "saveAs": "html"
   }
 }

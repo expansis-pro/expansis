@@ -63,12 +63,10 @@ const CarouselItem = ({
                     {description}
                 </p>
 
-                <NavLink
-                    to={`/servicios/${slug}`}
-                    className="inline-flex items-center text-white font-bold text-xs uppercase tracking-widest group-hover:text-primario transition-colors"
-                >
+                {/* CAMBIO AQUÍ: Usamos un div en lugar de NavLink para evitar anidación ilegal */}
+                <div className="inline-flex items-center text-white font-bold text-xs uppercase tracking-widest group-hover:text-primario transition-colors">
                     Saber más <i className="fa-solid fa-arrow-right ml-2 transition-transform group-hover:translate-x-2"></i>
-                </NavLink>
+                </div>
             </div>
         </NavLink>
     );
