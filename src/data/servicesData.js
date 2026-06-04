@@ -20,18 +20,22 @@ export const servicesData = [
             }, {
                 title: "Validación y Lanzamiento",
                 description: "Realizamos auditorías de rendimiento y optimización SEO base para Google. Lanzamos tu activo digital al mercado con 30 días de soporte proactivo, garantizando que tu salida sea impecable y coherente con tu operación real."
+            }, {
+                "title": "Soporte Técnico Especializado",
+                "description": "Ofrecemos 30 días de respaldo post-lanzamiento ante caídas del servidor, fallas críticas del sistema o errores inesperados para que operes con total tranquilidad."
             }
         ],
         pricing: {
-            from: "$420.000 CLP", // +50.000
+            from: "$350.000 CLP", // +50.000
             features: [
                 "Tecnología moderna (React) para máxima velocidad",
                 "Diseño UI/UX 100% personalizado a tu marca",
                 "Diseño responsivo para todos los dispositivos",
+                "Botón de WhatsApp",
+                "Formulario de contacto integrado",
                 "Optimización SEO base para Google",
-                "Integración con WhatsApp Business",
                 "Integración con Google Analytics 4",
-                "Ingeniería en React para rendimiento y seguridad superior",
+                "30 días de soporte técnico ante caídas del sitio o fallas críticas"
             ], scalability: {
                 title: "Escalabilidad Disponible",
                 description: "¿Necesitas más potencia? Podemos integrar: E-commerce, Paneles autogestionables, SEO avanzado o Integraciones con CRMs."
@@ -48,35 +52,40 @@ export const servicesData = [
         slug: "ecommerce",
         icon: "fa-solid fa-cart-shopping",
         title: "E-commerce",
-        description: "Diseñamos ecosistemas de ventas donde la transaccionalidad se encuentra con el relato de marca.",
-        longDescription: "En Expansis Pro no solo subimos productos; diseñamos tu flujo de caja digital. Construimos ecosistemas vivos que integran pasarelas de pago, gestión de inventario y automatización bajo una arquitectura escalable y rentable.",
+        description: "Diseñamos canales digitales de ventas donde la transaccionalidad convive con el relato de marca.",
+        longDescription: "Somos una agencia experta en el desarrollo de tiendas online enfocadas en rentabilidad a corto, mediano y largo plazo.",
         phases: [
             {
-                title: "Estrategia de Flujo y Sentido",
-                description: "Fase obligatoria: Definimos el ángulo de venta y el ecosistema transaccional. Analizamos cómo tu identidad debe guiar la compra para evitar que tu tienda sea solo un estante digital vacío de alma."
+                title: "Estrategia de Descubrimiento y Sentido",
+                description: "Fase obligatoria: Definimos el ángulo de venta y planificamos estrategiamente tu canal de venta digital. Analizamos cómo tu identidad  de marca debe guiar la compra para evitar que tu tienda sea solo un estante digital vacío de alma."
             },
             {
                 title: "Ingeniería de Conversión (UX)",
-                description: "Diseñamos embudos de conversión optimizados. Aplicamos psicología del consumidor para crear un journey que transforme la desconfianza instintiva en un 'latido digital', guiando al usuario desde el deseo hasta el pago de forma fluida."
+                description: "Diseñamos embudos de conversión optimizados. Aplicamos psicología del consumidor para crear un journey que transforme la desconfianza instintiva en una creación de valor para el ususario. De esta manera converstimos prospectos en compradores a traves de procesos de compra fluidos."
             },
             {
                 title: "Integración y Automatización",
-                description: "Construimos con React para asegurar una velocidad transaccional extrema. Integramos pasarelas de pago locales/internacionales, sistemas de inventario y automatizamos procesos para que el canal soporte el peso de tu crecimiento sin generar caos."
+                description: "Construimos con React y Shopify para asegurar una experiencia de compra fluida. Integramos pasarelas de pago locales/internacionales, sistemas de inventario y automatizamos procesos para que el canal soporte el peso de tu crecimiento sin generar caos."
             },
             {
-                title: "Optimización del Latido",
-                description: "Lanzamos con un enfoque en el rendimiento real. Realizamos auditorías de 'Time-to-Trust' y carga técnica, asegurando que tu tienda sea una estructura robusta, segura y lista para recibir tráfico de alta calidad."
+                title: "Optimización de la plataforma y Lanzamiento",
+                description: "Testeamos el canal digital y lanzamos el proyectos. Realizamos auditorías y reportes para garantizar su rendimiento y asegurar que tu tienda sea una estructura robusta, segura y lista para recibir tráfico de alta calidad."
+            }, {
+                "title": "Soporte Técnico Especializado",
+                "description": "Ofrecemos 30 días de respaldo post-lanzamiento ante caídas del servidor, fallas críticas del sistema o errores inesperados para que operes con total tranquilidad."
             }
         ],
         pricing: {
             from: "$1.200.000 CLP",
             features: [
-                "Arquitectura técnica en React (Máximo rendimiento)",
+                "Arquitectura técnica profesional basada en Shopify",
+                "Opción de desarrollo custom en React para proyectos robustos",
                 "Diseño de Embudos de Conversión personalizados",
                 "Integración de Pasarelas de Pago (Webpay, Mercado Pago, etc.)",
-                "Gestión de Inventario y Stock automatizada",
-                "Panel de administración autogestionable",
-                "Optimización SEO para categorías y productos",
+                "Gestión de Inventario, Stock y Alertas automatizadas",
+                "Panel de administración Shopify 100% autogestionable",
+                "Optimización SEO para categorías y productos de alta rotación",
+                "30 días de soporte técnico ante caídas del sitio o fallas críticas"
             ],
             scalability: {
                 title: "Expansión Comercial",
@@ -156,22 +165,24 @@ export const servicesData = [
             }
         ],
         pricing: {
-            from: "$250.000 CLP / mes", // +50.000
+            from: "$180.000 CLP / mes", // +50.000
             features: [
-                "Gestión Profesional de Meta & Google Ads",
-                "Configuración de Píxeles de Seguimiento",
+                "Gestión Profesional de 1 Plataforma (Meta Ads o Google Ads)",
+                "Pack Full (Ambas plataformas) por $300.000 CLP / mes",
+                "Configuración de Píxeles y Eventos de Conversión",
                 "Estrategia de Retargeting Avanzada",
-                "Reporte de Rendimiento & Análisis de Datos"
+                "Reporte mensual de rendimiento y ventas generadas",
+                "Nota: No incluye presupuesto de inversión en publicidad."
             ], scalability: {
                 title: "Escalabilidad Disponible",
                 description: "Amplía tu impacto mediante: Publicidad en canales B2B (LinkedIn), Producción de contenido audiovisual o Gestión de embudos de fidelización."
             }
         },
         details: [
-            "Ingeniería de pauta en Meta y Google Ads.",
-            "Automatización de marketing y nutrición de leads.",
-            "Analítica avanzada para la toma de decisiones.",
-            "Optimización de tasa de conversión (CRO)."
+            "Estrategia y optimización de pauta publicitaria.",
+            "Automatización de marketing y captura de leads.",
+            "Analítica clara para la toma de decisiones comerciales.",
+            "Mejora continua de anuncios para bajar tus costos de adquisición."
         ]
     }
 ];

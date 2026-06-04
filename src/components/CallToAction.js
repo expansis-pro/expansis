@@ -10,7 +10,7 @@ const CallToAction = ({ title, description, serviceName = "Información General"
     // ya que ahora la gestiona whatsappUtils.js
 
     return (
-        <section id="call-to-action" className="max-w-4xl mx-auto section-padding ">
+        <section id="call-to-action" className=" section-padding ">
             <div className="container-pro">
 
                 <div className="bg-deepBlue text-ghostWhite px-8 py-12 md:p-20 rounded-3xl shadow-2xl text-center overflow-hidden relative">

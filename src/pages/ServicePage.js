@@ -57,7 +57,7 @@ const ServicePage = () => {
             subtitle: "Ecosistemas Transaccionales",
             title: "El Foco en la Conversión",
             text: [
-                "En Expansis Pro creamos canales de venta a través de Shopify bajo un estricto análisis de catálogo y una potente estrategia de diseño UX/UI.",
+                "En Expansis Pro creamos tu e-commerce en Shopify con integraciones de pasarelas de pago, gestión de inventario y automatizaciones clave para optimizar tu flujo de caja digital.",
                 "Contemplamos todo el viaje de compra: desde la captación y navegación del catálogo, hasta la integración de pasarelas de pago y la integración con couriers. De esta manera aseguramos un ecosistema comercial completamente integrado, sin dejar cabos sueltos en tu operación."
             ],
             imageDesktop: "/images/ecommerce_ImgText.webp",
@@ -195,26 +195,6 @@ const ServicePage = () => {
                         secondaryButtonVariant="outline"
                     />
                 )}
-                {/* --- NUEVA SECCIÓN DE FASES DESPLEGABLES --- */}
-                <section id="phases" className="section-padding pt-32">
-                    <div className="container-pro">
-
-                        <h2 className="text-center mb-12  text-deepBlue">Fases del Proyecto</h2>
-                        <div className="space-y-2">
-                            {service.phases.map((phase, index) => (
-                                <PhaseItem
-                                    key={index}
-                                    number={index + 1}
-                                    title={phase.title}
-                                    description={phase.description}
-                                    isOpen={openPhaseIndex === index}
-                                    isLast={index === service.phases.length - 1} // <--- Nueva Prop
-                                    onToggle={() => setOpenPhaseIndex(openPhaseIndex === index ? null : index)}
-                                />
-                            ))}
-                        </div>
-                    </div>
-                </section>
 
                 {/* --- SECCIÓN DE INVERSIÓN --- */}
                 <section id="pricing" className="section-padding bg-ghostWhite">
@@ -229,7 +209,7 @@ const ServicePage = () => {
                         </div>
 
                         {/* 2. CARD MAESTRA DE PRECIOS */}
-                        <div className="max-w-5xl mx-auto">
+                        <div className=" ">
                             <div className="bg-deepBlue text-white rounded-[2.5rem] shadow-2xl relative overflow-hidden border border-white/10">
 
                                 {/* Decoración de fondo */}
@@ -249,7 +229,7 @@ const ServicePage = () => {
                                             <div className="mb-6">
                                                 <span className="text-sm text-white block uppercase tracking-widest mb-2">Inversión desde</span>
                                                 <div className="flex items-baseline justify-center lg:justify-start gap-2">
-                                                    <p className="text-6xl md:text-5xl lg:text-6xl  text-white tracking-tighter leading-none">
+                                                    <p className="text-4xl md:text-5xl lg:text-6xl  text-white tracking-tighter leading-none">
                                                         {service.pricing.from}
                                                     </p>
                                                 </div>
@@ -311,6 +291,30 @@ const ServicePage = () => {
                         </div>
                     </div>
                 </section>
+
+
+                {/* --- NUEVA SECCIÓN DE FASES DESPLEGABLES --- */}
+                <section id="phases" className="section-padding pt-32">
+                    <div className="container-pro">
+
+                        <h2 className="text-center mb-12  text-deepBlue">Fases del Proyecto</h2>
+                        <div className="space-y-2">
+                            {service.phases.map((phase, index) => (
+                                <PhaseItem
+                                    key={index}
+                                    number={index + 1}
+                                    title={phase.title}
+                                    description={phase.description}
+                                    isOpen={openPhaseIndex === index}
+                                    isLast={index === service.phases.length - 1} // <--- Nueva Prop
+                                    onToggle={() => setOpenPhaseIndex(openPhaseIndex === index ? null : index)}
+                                />
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+
                 {/* // Dentro del return de ServicePage: */}
                 <ProjectSection
                     title="Casos de Éxito"

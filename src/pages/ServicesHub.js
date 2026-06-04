@@ -114,7 +114,7 @@ const Services = () => {
 				// 2. BOTÓN SECUNDARIO CORREGIDO: Variante "secondary" para que sea visible en la interfaz
 				secondaryButtonContent="Formulario de Contacto"
 				secondaryButtonLink="/contacto"
-				secondaryButtonVariant="secondary"
+				secondaryButtonVariant="outline"
 			/>
 			<CallToAction
 				title="¿Necesitas una solución personalizada?"
