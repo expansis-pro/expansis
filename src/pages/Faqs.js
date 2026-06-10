@@ -51,23 +51,26 @@ const Faqs = () => {
         <main className=" min-h-screen">
             {/* --- CONFIGURACIÓN SEO (HELMET) --- */}
             <Helmet>
-                <title>Preguntas Frecuentes | Desarrollo Web y Marketing en Chile | Expansis Pro</title>
-                <meta
-                    name="description"
-                    content="Resuelve tus dudas sobre el diseño de landing pages, desarrollo de e-commerce a medida y campañas de Google/Meta Ads en Chile. Todo lo que necesitas saber antes de iniciar tu proyecto."
-                />
-                {/* Canonical automatizado */}
+                <title>Preguntas Frecuentes | Expansis Pro</title>
                 <link rel="canonical" href={canonicalUrl} />
 
-                {/* Metas para Redes Sociales actualizados */}
-                <meta property="og:title" content="Preguntas Frecuentes | Desarrollo Web y Marketing en Chile | Expansis Pro" />
-                <meta property="og:description" content="¿Tienes dudas sobre cómo escalar tu canal digital en Chile? Resolvemos tus dudas sobre desarrollo web, e-commerce y publicidad." />
-                <meta property="og:url" content={canonicalUrl} />
+                {/* 🌟 AGREGAMOS EL SCHEMA DE PREGUNTAS FRECUENTES EN TEXTO PLANO */}
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "FAQPage",
+                        "mainEntity": faqData.map((faq) => ({
+                            "@type": "Question",
+                            "name": faq.question,
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": faq.answerText || faq.question // Usa aquí la versión en texto plano de tu respuesta
+                            }
+                        }))
+                    })}
+                </script>
             </Helmet>
-            {/* --- AÑADE ESTO AQUÍ --- */}
-            <script type="application/ld+json">
-                {JSON.stringify(faqSchema)}
-            </script>
+
             <SecondaryHero
                 title="Preguntas Frecuentes"
                 subtitle="Si no encuentras tu respuesta, no dudes en escribirnos. Estamos para ayudarte."

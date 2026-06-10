@@ -128,26 +128,38 @@ const ServicePage = () => {
         <div className="min-h-screen ">
 
             <Helmet>
-                {/* Agregamos de manera explícita el título e indicamos que limpie duplicados */}
-                <title data-rh="true">{currentSeo.title}</title>
-
-                {/* Forzamos que la descripción sea única usando la misma llave */}
-                <meta data-rh="true" name="description" content={currentSeo.description} />
-
-                {/* El Canonical definitivo (sin IDs duplicados que confundan al validador) */}
+                <title>{seoMapping[slug]?.title || service?.title}</title>
+                <meta name="description" content={seoMapping[slug]?.description || service?.description} />
                 <link rel="canonical" href={canonicalUrl} />
 
-                {/* Open Graph unificado */}
-                <meta data-rh="true" property="og:title" content={currentSeo.title} />
-                <meta data-rh="true" property="og:description" content={currentSeo.description} />
-                <meta data-rh="true" property="og:url" content={canonicalUrl} />
+                {/* 🌟 1. Schema del Servicio Dinámico */}
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "Service",
+                        "name": service?.title,
+                        "description": seoMapping[slug]?.description || service?.description,
+                        "provider": {
+                            "@type": "ProfessionalService",
+                            "name": "Expansis Pro",
+                            "url": "https://expansispro.com"
+                        }
+                    })}
+                </script>
+
+                {/* 🌟 2. Schema de los Breadcrumbs Históricos */}
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://expansispro.com/" },
+                            { "@type": "ListItem", "position": 2, "name": "Servicios", "item": "https://expansispro.com/servicios" },
+                            { "@type": "ListItem", "position": 3, "name": service.title, "item": canonicalUrl }
+                        ]
+                    })}
+                </script>
             </Helmet>
-
-            {/* Inyectamos ambos Schemas actualizados con el canonical dinámico */}
-            <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
-            <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
-
-
 
             {/* --- HEADER / HERO CON BOTÓN DE CONVERSIÓN --- */}
             <div className="relative">

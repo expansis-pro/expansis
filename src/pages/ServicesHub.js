@@ -53,21 +53,26 @@ const Services = () => {
 		<main className=" min-h-screen">
 
 			<Helmet>
-				{/* 3. TÍTULO Y DESCRIPCIÓN ENFOCADOS EN EL MERCADO DE CHILE */}
-				<title>Agencia de Desarrollo Web y Marketing Digital en Chile | Expansis Pro</title>
-				<meta name="description" content="Explora nuestros servicios digitales en Chile: diseño de landing pages, creación de tiendas online e-commerce a medida y gestión profesional de Google y Meta Ads." />
-
-				{/* El Canonical automatizado */}
+				<title>Nuestros Servicios de Ingeniería Digital | Expansis Pro</title>
+				<meta name="description" content="En Expansis Pro tratamos tu presencia digital como un ecosistema vivo e integrado..." />
 				<link rel="canonical" href={canonicalUrl} />
 
-				{/* Etiquetas Open Graph actualizadas */}
-				<meta property="og:title" content="Agencia de Desarrollo Web y Marketing Digital en Chile | Expansis Pro" />
-				<meta property="og:description" content="Explora nuestros servicios digitales en Chile: diseño de landing pages, creación de tiendas online e-commerce a medida y gestión profesional de Google y Meta Ads." />
-				<meta property="og:url" content={canonicalUrl} />
+				{/* 🌟 AQUÍ INYECTAMOS TU ESQUEMA DE MANERA CORRECTA */}
+				<script type="application/ld+json">
+					{JSON.stringify({
+						"@context": "https://schema.org",
+						"@type": "ItemList",
+						"itemListElement": servicesData.map((service, index) => ({
+							"@type": "ListItem",
+							"position": index + 1,
+							"name": service.title,
+							"url": `${baseUrl}/servicios/${service.slug}`
+						}))
+					})}
+				</script>
 			</Helmet>
 
-			<script type="application/ld+json">{JSON.stringify(itemListSchema)}</script>
-			<script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
+
 			{/* --- HERO SECUNDARIO --- */}
 			<SecondaryHero
 				title="Nuestros Servicios"
