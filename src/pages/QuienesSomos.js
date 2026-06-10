@@ -40,8 +40,7 @@ const QuienesSomos = () => {
                         "@type": "AboutPage",
                         "mainEntity": {
                             "@type": "ProfessionalService",
-                            "name": "Expansis Pro",
-                            "url": "https://expansispro.com"
+                            "@id": "https://expansispro.com/#agency"
                         },
                         "author": {
                             "@type": "Person",
