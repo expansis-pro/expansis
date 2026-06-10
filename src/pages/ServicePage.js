@@ -119,8 +119,7 @@ const ServicePage = () => {
                         "description": seoMapping[slug]?.description || service?.description,
                         "provider": {
                             "@type": "ProfessionalService",
-                            "name": "Expansis Pro",
-                            "url": "https://expansispro.com"
+                            "@id": "https://expansispro.com/#agency"
                         }
                     })}
                 </script>

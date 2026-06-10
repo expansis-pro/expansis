@@ -7,6 +7,7 @@ export default function AgencySchema() {
     const agencyData = {
         '@context': 'https://schema.org',
         '@type': 'ProfessionalService',
+        '@id': 'https://expansispro.com/#agency', // 🌟 LLAVE PRIMARIA ÚNICA
         'name': 'Expansis Pro',
         'legalName': 'Expansis Pro Consultorías y Desarrollo Limitada',
         'description': 'Agencia de desarrollo web y marketing digital de alto impacto. Especialistas en diseño UX/UI, aplicaciones web con React, SEO técnico y automatizaciones para empresas.',
