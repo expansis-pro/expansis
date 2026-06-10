@@ -27,26 +27,6 @@ const Services = () => {
 	const canonicalUrl = `${baseUrl}${location.pathname}`.replace(/\/$/, "");
 
 
-	// --- SCHEMA: ITEMLIST (Catálogo de servicios) ---
-	const itemListSchema = {
-		"@context": "https://schema.org",
-		"@type": "ItemList",
-		"itemListElement": servicesData.map((service, index) => ({
-			"@type": "ListItem",
-			"position": index + 1,
-			"name": service.title,
-			"url": `${baseUrl}/servicios/${service.slug}`
-		}))
-	};
-
-	const breadcrumbSchema = {
-		"@context": "https://schema.org",
-		"@type": "BreadcrumbList",
-		"itemListElement": [
-			{ "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://expansispro.com/" },
-			{ "@type": "ListItem", "position": 2, "name": "Servicios", "item": "https://expansispro.com/servicios" }
-		]
-	};
 
 
 	return (
@@ -57,17 +37,31 @@ const Services = () => {
 				<meta name="description" content="En Expansis Pro tratamos tu presencia digital como un ecosistema vivo e integrado..." />
 				<link rel="canonical" href={canonicalUrl} />
 
-				{/* 🌟 AQUÍ INYECTAMOS TU ESQUEMA DE MANERA CORRECTA */}
+				{/* 🌟 1. ItemList del catálogo mapeado 100% en automático desde tu data */}
 				<script type="application/ld+json">
 					{JSON.stringify({
 						"@context": "https://schema.org",
 						"@type": "ItemList",
+						"name": "Catálogo de Servicios de Expansis Pro",
+						"description": "Infraestructura digital y soluciones estratégicas de software y pauta digital.",
 						"itemListElement": servicesData.map((service, index) => ({
 							"@type": "ListItem",
 							"position": index + 1,
 							"name": service.title,
 							"url": `${baseUrl}/servicios/${service.slug}`
 						}))
+					})}
+				</script>
+
+				{/* 🌟 2. Breadcrumbs de navegación para los fragmentos de Google */}
+				<script type="application/ld+json">
+					{JSON.stringify({
+						"@context": "https://schema.org",
+						"@type": "BreadcrumbList",
+						"itemListElement": [
+							{ "@type": "ListItem", "position": 1, "name": "Inicio", "item": `${baseUrl}/` },
+							{ "@type": "ListItem", "position": 2, "name": "Servicios", "item": `${baseUrl}/servicios` }
+						]
 					})}
 				</script>
 			</Helmet>

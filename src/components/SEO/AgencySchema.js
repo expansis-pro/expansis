@@ -1,5 +1,7 @@
+// src/components/SEO/AgencySchema.js
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { contactData } from '../../data/contactConfig'; // Ajusta la ruta si es necesario
 
 export default function AgencySchema() {
     const agencyData = {
@@ -9,18 +11,19 @@ export default function AgencySchema() {
         'legalName': 'Expansis Pro Consultorías y Desarrollo Limitada',
         'description': 'Agencia de desarrollo web y marketing digital de alto impacto. Especialistas en diseño UX/UI, aplicaciones web con React, SEO técnico y automatizaciones para empresas.',
         'url': 'https://expansispro.com',
-        'logo': 'https://expansispro.com/logo.png', // Reemplaza por la URL real de tu logo
+        'logo': 'https://expansispro.com/logo.png',
+        'telephone': `${contactData.whatsapp.prefix} ${contactData.whatsapp.number}`, // 🌟 Dinámico desde tu config
+        'email': contactData.email.address, // 🌟 Dinámico desde tu config
         'sameAs': [
-            'https://www.instagram.com/lobos_miniexcavadoras/' // Agrega tus RRSS reales de la agencia aquí
+            contactData.socials.instagram,
+            contactData.socials.linkedin
         ],
-        'telephone': '+56944578994', // Reemplaza por tu teléfono de contacto oficial
         'address': {
             '@type': 'PostalAddress',
             'addressLocality': 'Santiago',
             'addressRegion': 'Metropolitana',
             'addressCountry': 'CL'
         },
-        // Catálogo de servicios profesionales que ofrece tu agencia
         'hasOfferCatalog': {
             '@type': 'OfferCatalog',
             'name': 'Servicios de Tecnología y Marketing Digital',
@@ -59,7 +62,8 @@ export default function AgencySchema() {
 
     return (
         <Helmet>
-            <script type="application/ld+json">
+            {/* ID único para fusionar los scripts durante la hidratación y evitar duplicados */}
+            <script id="agency-jsonld" type="application/ld+json">
                 {JSON.stringify(agencyData)}
             </script>
         </Helmet>

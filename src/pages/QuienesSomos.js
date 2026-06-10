@@ -1,40 +1,72 @@
 // src/pages/QuienesSomos.js
 import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import SecondaryHero from '../components/SecondaryHero';
 import { Helmet } from 'react-helmet-async';
 import WhatIsExpansisPro from '../components/WhatIsExpansisPro';
 import OurStory from '../components/OurStory';
 import MisionVision from '../components/MisionVision';
 import AboutMe from '../components/AboutMe';
-
 import CallToAction from '../components/CallToAction';
 
 const QuienesSomos = () => {
-    // Aseguramos que la página cargue en el inicio para el efecto del Nav transparente
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
 
+    // 🌟 Configuración del Canonical Dinámico de Expansis Pro
+    const location = useLocation();
+    const baseUrl = 'https://expansispro.com';
+    const canonicalUrl = `${baseUrl}${location.pathname}`.replace(/\/$/, "");
+
     return (
-        <main className=" min-h-screen">
-            {/* --- CONFIGURACIÓN SEO (HELMET) --- */}
+        <main className="min-h-screen">
             <Helmet>
                 <title>Sobre Expansis Pro | Nuestra Filosofía de Ingeniería</title>
                 <meta
                     name="description"
                     content="Conoce al equipo detrás de la estrategia. Un aliado dedicado a entender y potenciar tu negocio con integridad técnica."
                 />
-                <link rel="canonical" href="https://expansispro.com/quienes-somos" />
+                <link rel="canonical" href={canonicalUrl} />
 
-                {/* Open Graph para que se vea bien al compartir el link */}
                 <meta property="og:title" content="Sobre Expansis Pro | Nuestra Filosofía de Ingeniería" />
                 <meta property="og:description" content="Conoce al equipo detrás de la estrategia. Un aliado dedicado a entender y potenciar tu negocio con integridad técnica." />
-                <meta property="og:url" content="https://expansispro.com/quienes-somos" />
+                <meta property="og:url" content={canonicalUrl} />
+
+                {/* 🌟 1. Schema de AboutPage + Datos de Autoridad del Fundador */}
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "AboutPage",
+                        "mainEntity": {
+                            "@type": "ProfessionalService",
+                            "name": "Expansis Pro",
+                            "url": "https://expansispro.com"
+                        },
+                        "author": {
+                            "@type": "Person",
+                            "name": "Gonzalo Lobos", // Vincula directamente con tu data personal
+                            "jobTitle": "Founder & Lead Software Engineer",
+                            "sameAs": [
+                                "https://gonzalobos.com/" // Tu marca personal cruzada
+                            ]
+                        }
+                    })}
+                </script>
+
+                {/* 🌟 2. Breadcrumbs técnicos */}
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            { "@type": "ListItem", "position": 1, "name": "Inicio", "item": `${baseUrl}/` },
+                            { "@type": "ListItem", "position": 2, "name": "Sobre Expansis", "item": canonicalUrl }
+                        ]
+                    })}
+                </script>
             </Helmet>
 
-            {/* --- HERO SECUNDARIO --- 
-                Sustituye al section id="quienes-somos" anterior para eliminar la franja blanca.
-            */}
             <SecondaryHero
                 title="Sobre Expansis"
                 subtitle="Conoce Nuestra Historia, Valores y al Equipo Que Lo Hace Posible."
@@ -42,12 +74,10 @@ const QuienesSomos = () => {
                 img="/assets/hero-about.webp"
             />
 
-            {/* Contenido de la página con espaciado consistente */}
             <div className="space-y-0">
                 <AboutMe />
                 <MisionVision />
                 <WhatIsExpansisPro />
-                {/* <OurStory /> */}
             </div>
 
             <CallToAction
