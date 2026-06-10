@@ -100,29 +100,7 @@ const ServicePage = () => {
     const handleFaqToggle = (index) => {
         setOpenFaqIndex(openFaqIndex === index ? null : index);
     };
-    // --- SCHEMA: BREADCRUMBS ---
-    const breadcrumbSchema = {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://expansispro.com/" },
-            { "@type": "ListItem", "position": 2, "name": "Servicios", "item": "https://expansispro.com/servicios" },
-            { "@type": "ListItem", "position": 3, "name": service.title, "item": canonicalUrl }
-        ]
-    };
-    // Schema.org para SEO
-    const serviceSchema = {
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "serviceType": service.title,
-        "name": `Expansis Pro - ${service.title}`,
-        "description": service.longDescription,
-        "provider": {
-            "@type": "Organization",
-            "name": "Expansis Pro",
-            "url": "https://expansispro.com/"
-        }
-    };
+
 
     return (
         <div className="min-h-screen ">
