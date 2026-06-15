@@ -1,81 +1,63 @@
-import React, { useRef, useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion'; // <-- Se añadió motion y AnimatePresence
+import React, { useState, useRef } from 'react';
 
 const CardCarousel = ({ children }) => {
+    const [index, setIndex] = useState(0);
     const scrollRef = useRef(null);
-    const [isAtStart, setIsAtStart] = useState(true);
-    const [isAtEnd, setIsAtEnd] = useState(false);
+    const totalItems = React.Children.count(children);
 
-    // Función para revisar la posición del scroll
-    const checkScrollPosition = () => {
+    // Monitorea el scroll nativo del dispositivo para encender los puntitos
+    const handleScroll = () => {
         if (scrollRef.current) {
-            const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
-            setIsAtStart(scrollLeft === 0);
-            // Se añade un pequeño margen de 1px por si hay decimales en los cálculos del navegador
-            setIsAtEnd(scrollLeft + clientWidth >= scrollWidth - 1);
-        }
-    };
+            const { scrollLeft, clientWidth } = scrollRef.current;
+            // Evaluamos el cambio de tarjeta basado en el 80% del ancho visible
+            const currentIndex = Math.round(scrollLeft / (clientWidth * 0.8));
 
-    // Revisa la posición del scroll cada vez que el carrusel se mueva
-    useEffect(() => {
-        const currentRef = scrollRef.current;
-        if (currentRef) {
-            // Revisa la posición inicial y cada vez que cambia el tamaño o los hijos
-            checkScrollPosition();
-            currentRef.addEventListener('scroll', checkScrollPosition);
-        }
-        return () => {
-            if (currentRef) {
-                currentRef.removeEventListener('resize', checkScrollPosition);
+            if (currentIndex !== index && currentIndex >= 0 && currentIndex < totalItems) {
+                setIndex(currentIndex);
             }
-        };
-    }, [children]); // Se ejecuta si los hijos del carrusel cambian
-
-    const scroll = (direction) => {
-        if (scrollRef.current) {
-            const scrollAmount = scrollRef.current.clientWidth * 0.8 * direction;
-            scrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
         }
     };
 
     return (
-        <div className="relative ">
+        <div className="w-full py-2">
+            {/* LA SOLUCIÓN MAESTRA:
+              1. Eliminamos por completo Framer Motion de este componente (adiós saltos).
+              2. Agregamos 'px-[10%]' directamente al contenedor de scroll. Esto genera un colchón 
+                 simétrico del 10% a la izquierda y derecha de la pantalla.
+              3. Como la tarjeta mide 'w-[80%]', encaja matemáticamente en el centro a la perfección.
+            */}
             <div
                 ref={scrollRef}
-                className="flex overflow-x-auto space-x-6 py-12  gap-8 no-scrollbar snap-x snap-mandatory scroll-smooth scroll-px-10 md:scroll-px-0 md:scroll-pl-0"
+                onScroll={handleScroll}
+                className="flex w-full overflow-x-auto snap-x snap-mandatory gap-6 py-6 no-scrollbar px-[5%] md:px-0 md:justify-center md:snap-none"
+                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
-                {children}
+                <style dangerouslySetInnerHTML={{
+                    __html: `
+                    .no-scrollbar::-webkit-scrollbar { display: none; }
+                `}} />
+
+                {React.Children.map(children, (child, idx) => (
+                    <div
+                        key={idx}
+                        // Cada tarjeta toma el 80% del ancho disponible y se imanta al centro
+                        className="w-[100%] md:w-[350px] shrink-0 snap-center select-none"
+                    >
+                        {child}
+                    </div>
+                ))}
             </div>
 
-            {/* --- BOTONES ANIMADOS --- */}
-            <AnimatePresence>
-                {!isAtStart && (
-                    <motion.button
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        onClick={() => scroll(-1)}
-                        className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/80 rounded-full w-10 h-10 shadow-md md:hidden flex items-center justify-center text-xl"
-                        aria-label="Anterior"
-                    >
-                        &#8249;
-                    </motion.button>
-                )}
-            </AnimatePresence>
-            <AnimatePresence>
-                {!isAtEnd && (
-                    <motion.button
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        onClick={() => scroll(1)}
-                        className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/80 rounded-full w-10 h-10 shadow-md md:hidden flex items-center justify-center text-xl"
-                        aria-label="Siguiente"
-                    >
-                        &#8250;
-                    </motion.button>
-                )}
-            </AnimatePresence>
+            {/* --- INDICADORES (PUNTITOS) --- */}
+            <div className="mt-2 flex justify-center items-center gap-2 md:hidden">
+                {Array.from({ length: totalItems }).map((_, idx) => (
+                    <div
+                        key={idx}
+                        className={`h-2 rounded-full transition-all duration-300 ${idx === index ? 'w-8 bg-primario' : 'w-2 bg-gray-300'
+                            }`}
+                    />
+                ))}
+            </div>
         </div>
     );
 };

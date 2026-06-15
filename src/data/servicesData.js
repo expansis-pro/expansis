@@ -99,47 +99,7 @@ export const servicesData = [
             "Diseño de experiencia de usuario (UX) para conversión."
         ]
     },
-    // {
-    //     slug: "autoridad-de-marca",
-    //     icon: "fa-solid fa-chart-line",
-    //     title: "Autoridad de Marca",
-    //     description: "Desenterramos el propósito de tu negocio para construir una autoridad digital que tenga peso real y coherencia.",
-    //     longDescription: "Analizamos tu propuesta de valor y la traducimos a un lenguaje de autoridad digital, asegurando que cada punto de contacto con tu cliente refuerce tu profesionalismo y justifique tus precios.",
-    //     phases: [
-    //         {
-    //             title: "Descubrimiento del Relato Visceral",
-    //             description: "Realizamos una auditoría de identidad profunda. Aplicamos psicología estratégica para definir quién eres, qué valor real aportas y cuál es el mensaje que debe articular toda tu presencia digital para generar confianza inmediata."
-    //         },
-    //         {
-    //             title: "Arquitectura del Ecosistema Digital",
-    //             description: "Diseñamos el plano de tus canales. Definimos cómo debe estructurarse tu Web en React, qué rol juega cada red social y cómo se conectan entre sí para formar un ecosistema vivo, escalable y, sobre todo, propio."
-    //         },
-    //         {
-    //             title: "Pauta de Implementación y Desarrollo",
-    //             description: "Entregamos la hoja de ruta técnica. Definimos los estándares de diseño, tono de voz y funcionalidades necesarias para que la construcción de tus canales sea fluida, eliminando el azar y el 'humo' del proceso."
-    //         }
-    //     ],
-    //     pricing: {
-    //         from: "$300.000 CLP", // +50.000
-    //         features: [
-    //             "Blueprint del Relato Visceral de Marca",
-    //             "Mapa de Arquitectura del Ecosistema Digital",
-    //             "Pauta Técnica para Desarrollo de Canales (Web/RRSS)",
-    //             "Definición de Ángulos de Venta y Autoridad",
-    //             "Hoja de Ruta de Expansión Tecnológica",
-    //         ], scalability: {
-    //             title: "De la Estrategia a la Acción",
-    //             description: "Una vez definida la pauta, podemos proceder a la: <strong>Construcción técnica en React, Integración de sistemas o Gestión de Adquisición de clientes.</strong>"
-    //         }
-    //     },
-    //     details: [
-    //         "Auditoría de Coherencia e Identidad Digital.",
-    //         "Diseño de Ecosistemas Digitales Propios y Escalables.",
-    //         "Análisis de Autoridad y Diferenciación de Mercado.",
-    //         "Arquitectura de Experiencia (UX) basada en el Relato.",
-    //         "Definición de Pautas Técnicas para el Desarrollo de Canales."
-    //     ]
-    // },
+
     {
         slug: "marketing-digital",
         icon: "fa-solid fa-bullhorn",

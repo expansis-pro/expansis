@@ -88,25 +88,37 @@ const Home = () => {
 			{/* CAMBIO: py-12 para mobile (48px) y md:py-16 para desktop (64px) */}
 			<section id="services-home" className="section-padding ">
 				<div className="container-pro">
-					<h2 className="mb-4">Nuestros Servicios</h2>
-
+					<h2 className="mb-4 ">Nuestros Servicios</h2>
 					{/* CAMBIO: Reducimos mb-12 a mb-6 en mobile para que el carrusel esté más cerca */}
 					<p className="section-subtitle ">
 						Soluciones integrales para potenciar tu negocio en el mundo digital.
 					</p>
+				</div>
 
-					<CardCarousel>
-						{servicesData.map((service, index) => (
-							<CarouselItem
-								key={index}
-								title={service.title}
-								description={service.description}
-								image={service.image} // Asegúrate de tener la URL en tus datos
-								category={service.category}
-								slug={service.slug}
-							/>
-						))}
-					</CardCarousel>
+				<CardCarousel>
+					{servicesData.map((service, index) => (
+						<CarouselItem
+							key={index}
+							title={service.title}
+							description={service.description}
+							image={service.image} // Asegúrate de tener la URL en tus datos
+							category={service.category}
+							slug={service.slug}
+						/>
+					))}
+				</CardCarousel>
+				{/* 🌟 NUEVO: Botón centrado para ver todos los servicios */}
+				<div className="mt-12 text-center">
+					<CtaButton
+						to="/servicios"
+						variant="outline"
+						category="Home"
+						label="Boton Ver Todos Los Servicios"
+						className="group inline-flex items-center gap-3"
+					>
+						Ver todos los servicios
+						<i className="fa-solid fa-arrow-right transition-transform group-hover:translate-x-2"></i>
+					</CtaButton>
 				</div>
 			</section>
 
@@ -134,8 +146,9 @@ const Home = () => {
 			{/* // Dentro del return de ServicePage: */}
 			<ProjectSection
 				title="Casos de Éxito"
-				subtitle={`Mira cómo hemos aplicado nuestra ingeniería en diversos ecosistemas digitales.`}
-				limit={2} // Aquí puedes limitar a 2 para no alargar tanto la página de servicios
+				subtitle="Mira cómo hemos aplicado nuestra ingeniería en diversos ecosistemas digitales."
+				selectedIds={["estudio-brkovic", "2v-express", "lobos-miniexcavadoras"]} // Orden estricto basado en tus IDs de data
+				showCta={true} // Forzamos a que muestre el botón
 			/>
 			{/* --- SECCIÓN DE CIERRE (CTA) --- */}
 			<section className=" pb-8 px-4">

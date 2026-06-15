@@ -4,7 +4,6 @@ export const projectsData = [
         category: "Branding & Desarrollo Web",
         title: "2V Express",
         sector: "Logística Internacional & Courier",
-        // Asegúrate de que la imagen esté en /public/images/
         image: "/images/2VExpress-web.webp",
         description: "Desarrollo integral de <strong>identidad corporativa y ecosistema digital</strong> para una empresa especializada en el retiro de excedentes. El proyecto abarcó desde la definición estratégica de marca (branding) hasta la habilitación técnica de canales de comunicación profesional y una plataforma web de alta autoridad, garantizando coherencia operativa en cada punto de contacto.",
         results: [
@@ -20,7 +19,6 @@ export const projectsData = [
         category: "Desarrollo Web & Portafolio",
         title: "Claudia Gallardo",
         sector: "Dirección de Arte & Cine Internacional",
-        // Recuerda mover la imagen a /public/images/
         image: "/images/ClaudiaGallardo-web.webp",
         description: "Desarrollo de portafolio premium para Directora de Arte de trayectoria internacional. El proyecto consistió en crear una <strong>vitrina digital de alto impacto</strong> para organizar una filmografía destacada en plataformas como Netflix, HBO y Prime Video. La arquitectura se centró en una estética cinematográfica que proyecta el estatus de una ganadora del Premio Pedro Sienna.",
         results: [
@@ -30,7 +28,8 @@ export const projectsData = [
         ],
         tags: ["React", "Dirección de Arte", "Cine & Series", "Portafolio de Autor"],
         liveUrl: "https://claudiagallardo.com/"
-    }, {
+    },
+    {
         id: "lobos-miniexcavadoras",
         category: "Desarrollo Web",
         title: "Lobos Miniexcavadoras",
@@ -44,13 +43,12 @@ export const projectsData = [
         ],
         tags: ["React", "Tailwind CSS", "SEO Local", "Servicios Industriales"],
         liveUrl: "https://lobosminiexcavadoras.cl/"
-    }, {
+    },
+    {
         id: "gonzalo-lobos",
         category: "Consultoría & Branding",
         title: "Gonzalo Lobos",
         sector: "Psicología Organizacional & Estrategia",
-        // IMPORTANTE: Usa esta ruta relativa, asegurándote de que el archivo 
-        // esté en /public/images/gonzalobos.webp
         image: "/images/gonzalobos-web.webp",
         description: "Diseño de ecosistema digital para marca personal de alto nivel. El proyecto sintetiza una trayectoria en <strong>psicología organizacional</strong> con herramientas de gestión de negocios, creando una plataforma que equilibra <strong>humanismo y robustez técnica</strong> para atraer clientes corporativos.",
         results: [
@@ -61,4 +59,19 @@ export const projectsData = [
         tags: ["React", "Psicología Organizacional", "Branding Estratégico", "Consultoría"],
         liveUrl: "https://gonzalobos.com/"
     },
-]
+    {
+        id: "estudio-brkovic",
+        category: "Desarrollo Web Corporativo",
+        title: "Estudio Jurídico Brkovic",
+        sector: "Servicios Legales & Litigación Compleja",
+        image: "/images/estudiobrkovic-web.webp",
+        description: "Desarrollo de una <strong>plataforma web institucional premium</strong> para una firma de Abogados con más de 30 años de trayectoria en alta complejidad y derechos humanos. El ecosistema fue diseñado bajo una arquitectura limpia y solemne que organiza múltiples áreas de práctica especializada, balanceando la seriedad institucional con flujos de conversión optimizados.",
+        results: [
+            "Arquitectura modular para la indexación y desglose de áreas complejas (Justicia, DD.HH. y Defensa de Comunidades)",
+            "Integración estratégica de canales de atención inmediata y asesoría directa vía WhatsApp",
+            "Optimización avanzada de rendimiento (WPO) mediante precarga de activos críticos para una navegación sin fricciones"
+        ],
+        tags: ["React", "Tailwind CSS", "Infraestructura Digital", "Sector Legal"],
+        liveUrl: "https://estudiobrkovic.cl/"
+    }
+];

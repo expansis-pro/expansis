@@ -308,7 +308,7 @@ const ServicePage = () => {
                 <ProjectSection
                     title="Casos de Éxito"
                     subtitle={`Mira cómo hemos aplicado la ingeniería de ${service.title} en otros ecosistemas.`}
-                    limit={2} // Aquí puedes limitar a 2 para no alargar tanto la página de servicios
+                    limit={3} // Aquí puedes limitar a 2 para no alargar tanto la página de servicios
                 />
                 {/* FAQs */}
                 {serviceFaqs.length > 0 && (
