@@ -72,7 +72,7 @@ const Services = () => {
 				title="Nuestros Servicios"
 				subtitle="Ofrecemos soluciones digitales integrales, diseñadas a medida para potenciar tu negocio y asegurar que tu expansión en el mundo online sea un éxito."
 				icon="fa-solid fa-layer-group" // Un icono que represente servicios/capas
-				img="/assets/hero-services.webp"
+				img="/assets/images/hero-services.webp"
 			/>
 
 			<section id="services-page" className="py-16 text-center">
@@ -94,8 +94,28 @@ const Services = () => {
 					</CardCarousel>
 				</div>
 			</section>
+
+			{/* --- 🌟 NUEVA SECCIÓN: TEXTO DE AUDIENCIA DEL HOME (~610 caracteres) --- */}
+			<section id="home-target">
+				<ImageTextCTA
+					imageDesktop="/assets/images/expansisPro_aboutus.webp"
+					alt="Público objetivo y clientes de la agencia Expansis Pro en Chile"
+					subtitle="PERFIL COMERCIAL"
+					title="Estructuras Digitales con Foco en la Conversión y el Negocio"
+					text={[
+						"Expansis Pro impulsa a personas, marcas e instituciones que buscan iniciar o avanzar en su transformación digital mediante activos web de alta conversión. Desarrollamos canales a medida, optimizados para la difusión institucional o la automatización de ventas.",
+						"Unificamos consultoría estratégica e ingeniería técnica para proyectar la solidez de tu operación, garantizando que tu ecosistema digital traduzca cada visita en oportunidades de negocio reales."
+					]}
+					imageSide="right" // Rompe simetría con la sección "About Us" de abajo
+					buttonContent="Cotizar Proyecto"
+					buttonLink="https://wa.me/56988318443?text=Hola%20Expansis%20Pro%2C%20me%20gustaría%20saber%20si%20sus%20servicios%20se%20adaptan%20a%20mi%20modelo%20de%20negocio."
+					buttonVariant="primary"
+
+				/>
+			</section>
+
 			<ImageTextCTA
-				imageDesktop="/images/expansisPro_aboutus.webp"
+				imageDesktop="/assets/images/expansisPro_target.webp"
 				alt="Ecosistema de Ingeniería Digital Expansis Pro"
 				subtitle="Nuestros Servicios"
 				title="Infraestructura Digital con Crecimiento Sostenible"

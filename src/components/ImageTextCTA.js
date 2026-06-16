@@ -6,7 +6,7 @@ import ReadMoreParagraphs from './ReadMoreParagraphs';
 const ImageTextCTA = ({
     imageDesktop,
     alt,
-    text,
+    text = [],
     buttonContent,
     buttonLink,
     buttonVariant = 'primary',
@@ -18,30 +18,40 @@ const ImageTextCTA = ({
     imageSide = 'left',
     vimeoId = null,
     imageShape = 'video',
-    showLinkedIn = false,    // 👈 NUEVA PROP: Controla el enlace de LinkedIn
-    showPersonalWeb = false  // 👈 NUEVA PROP: Controla tu web personal
-
+    showLinkedIn = false,    // Controla el enlace de LinkedIn
+    showPersonalWeb = false  // Controla la web personal
 }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    // Bloquear scroll del body (esto sí es necesario por UX)
+    // Bloquear scroll del body por UX al abrir el modal de video
     useEffect(() => {
         document.body.style.overflow = isModalOpen ? 'hidden' : 'unset';
         return () => { document.body.style.overflow = 'unset'; };
     }, [isModalOpen]);
 
-    // LÓGICA DE IMAGEN RESPONSIVA
-    const baseImagePath = imageDesktop ? imageDesktop.replace('.webp', '') : '';
-    const imageSrcSet = imageDesktop ? `${baseImagePath}-sm.webp 480w, ${baseImagePath}-md.webp 800w, ${baseImagePath}-lg.webp 1200w` : '';
+    // =========================================================================
+    // 🌟 LÓGICA DE INGENIERÍA PARA IMÁGENES RESPONSIVAS Y HERO UNIFICADO
+    // =========================================================================
+    // Eliminamos preventivamente tanto '.webp' como '-hero.webp' para obtener la raíz limpia (ej: /assets/images/ecommerce)
+    const baseImagePath = imageDesktop
+        ? imageDesktop.replace('-hero.webp', '').replace('.webp', '')
+        : '';
+
+    // El fallback 'src' clásico ahora apuntará de forma automática al formato '-hero.webp'
+    const fallbackSrc = imageDesktop ? `${baseImagePath}-hero.webp` : '';
+
+    // El 'srcSet' se genera limpio usando tus nombres amigables (ecommerce-sm.webp, etc.)
+    const imageSrcSet = imageDesktop
+        ? `${baseImagePath}-sm.webp 600w, ${baseImagePath}-md.webp 800w, ${baseImagePath}-lg.webp 1200w`
+        : '';
+
     const imageSizes = "(max-width: 1024px) 100vw, 600px";
 
-
-
-    // 🛠️ ASIGNACIÓN DINÁMICA DE CLASES SEGÚN EL FORMATO
-    // Si es 'square', reduce el tamaño máximo en desktop para que no se vea gigante y redondea de forma premium
+    // Asignación dinámica de clases según el formato geométrico de la imagen
     const imageContainerClasses = imageShape === 'square'
         ? 'aspect-square max-w-sm mx-auto rounded-[60px_10px_60px_10px]'
         : 'aspect-video w-full rounded-[60px_10px_60px_10px]';
+
     return (
         <section className="w-full section-padding overflow-hidden">
             <div className="container-pro">
@@ -50,7 +60,6 @@ const ImageTextCTA = ({
                     {/* Contenedor de Imagen */}
                     <div className={`${imageSide === 'left' ? 'lg:order-1' : 'lg:order-2'} flex justify-center w-full`}>
                         <div
-                            // CORRECCIÓN: Ahora el div consume dinámicamente el aspecto y el redondeado correspondientes
                             className={`relative bg-[#E2E8F0] overflow-hidden flex items-center justify-center shadow-2xl ${imageContainerClasses} ${vimeoId ? 'cursor-pointer group/video' : ''}`}
                             onClick={() => vimeoId && setIsModalOpen(true)}
                         >
@@ -78,8 +87,10 @@ const ImageTextCTA = ({
                     <div className={`text-left ${imageSide === 'left' ? 'lg:order-2' : 'lg:order-1'}`}>
                         {subtitle && <span className="block text-primario uppercase tracking-widest mb-4 text-sm font-bold">{subtitle}</span>}
                         {title && <h2 className="text-deepBlue mb-8 leading-tight text-3xl md:text-4xl">{title}</h2>}
+
+                        {/* Blindaje contra caídas: fallback de array vacío por seguridad si text es null/undefined */}
                         <div className="space-y-6 text-gray-600 leading-relaxed text-justify font-light text-lg">
-                            <ReadMoreParagraphs paragraphs={text} />
+                            <ReadMoreParagraphs paragraphs={text || []} />
                         </div>
 
                         {(buttonContent || secondaryButtonContent) && (
@@ -89,10 +100,7 @@ const ImageTextCTA = ({
                             </div>
                         )}
 
-
-                        {/* ========================================================================= */}
-                        {/* 🚀 ENLACES PROFESIONALES EXTERNOS (CONDICIONALES CON _BLANK)              */}
-                        {/* ========================================================================= */}
+                        {/* Enlaces profesionales condicionales */}
                         {(showLinkedIn || showPersonalWeb) && (
                             <div className="mt-8 pt-6 border-t border-gray-100 flex flex-wrap items-center gap-6">
                                 <span className="text-gray-400 font-light text-xs uppercase tracking-widest block w-full sm:w-auto">
@@ -129,16 +137,12 @@ const ImageTextCTA = ({
                 </div>
             </div>
 
-            {/* ========================================================================= */}
-            {/* MODAL SIMPLIFICADO CON ANIMACIÓN CSS NATIVA (FADE-IN AL ENTRAR) */}
-            {/* ========================================================================= */}
+            {/* Modal de video con animación CSS nativa */}
             {vimeoId && isModalOpen && (
                 <div
-                    // Usamos la nueva clase limpia inyectada en el CSS global
                     className="fixed inset-0 z-[9999] bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 md:p-10 animate-fadeIn"
                     onClick={() => setIsModalOpen(false)}
                 >
-                    {/* Botón de cerrar flotante */}
                     <button
                         className="absolute top-6 right-6 text-white hover:text-primario text-3xl transition-colors focus:outline-none z-50"
                         onClick={() => setIsModalOpen(false)}

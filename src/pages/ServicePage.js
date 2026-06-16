@@ -1,3 +1,4 @@
+// src/pages/ServicePage.js
 import React, { useState } from 'react';
 import { useParams, Link, useLocation } from 'react-router-dom';
 import ProjectSection from '../components/ProjectSection';
@@ -16,83 +17,17 @@ const ServicePage = () => {
     const { slug } = useParams();
     const service = servicesData.find(s => s.slug === slug);
     const [openFaqIndex, setOpenFaqIndex] = useState(null);
-    const [openPhaseIndex, setOpenPhaseIndex] = useState(0); // Empezamos con la Fase 1 abierta
+    const [openPhaseIndex, setOpenPhaseIndex] = useState(0);
 
-
-    // 2. CONFIGURAMOS EL ENRUTADOR PARA EL CANONICAL DINÁMICO
     const location = useLocation();
     const baseUrl = 'https://expansispro.com';
     const canonicalUrl = `${baseUrl}${location.pathname}`.replace(/\/$/, "");
-
-    // 3. MAPEO DE CONTENIDO SEO OPTIMIZADO PARA EL MERCADO CHILENO
-    const seoMapping = {
-        "desarrollo-web": {
-            title: "Diseño y Desarrollo Web Profesional en Chile | Expansis Pro",
-            description: "Creamos tu sitio web corporativo a medida en React. Páginas rápidas, seguras y con optimización SEO base para Google en Chile."
-        },
-        "ecommerce": {
-            title: "Creación de Tiendas Online y E-commerce en Chile | Expansis Pro",
-            description: "Diseño de canales de e-commerce robustos y escalables en Chile. Integración de Webpay, Mercado Pago, control de inventario y alta conversión."
-        },
-        "marketing-digital": {
-            title: "Gestión de Google Ads y Meta Ads en Chile | Expansis Pro",
-            description: "Agencia de marketing digital especializada en anuncios de pago. Optimizamos tus campañas en Instagram, Facebook y Google para captar clientes reales."
-        }
-    };
-    // 2. CONFIGURACIÓN DINÁMICA DE LA SECCIÓN DE VIDEO POR TIPO DE SERVICIO
-    const videoSectionMapping = {
-        "desarrollo-web": {
-            subtitle: "Ingeniería en React",
-            title: "El Usuario al Centro del Negocio",
-            text: [
-                "En Expansis Pro tratamos tu presencia digital como un ecosistema integrado, donde la velocidad de carga, la psicología de conversión y el posicionamiento trabajan bajo un mismo objetivo técnico.",
-                "Estructuramos Landing Pages y sitios corporativos limpios y optimizados a nivel de código para asegurar una carga instantánea, reduciendo la tasa de rebote y garantizando una base sólida para el SEO en Google."
-            ],
-            imageDesktop: "/images/desarrollo-web-ImgText.webp",
-            alt: "Desarrollo Web Profesional Expansis Pro",
-            imageSide: "left",
-            vimeoId: "1196058571" // ID actual
-        },
-        "ecommerce": {
-            subtitle: "Ecosistemas Transaccionales",
-            title: "El Foco en la Conversión",
-            text: [
-                "En Expansis Pro creamos tu e-commerce en Shopify con integraciones de pasarelas de pago, gestión de inventario y automatizaciones clave para optimizar tu flujo de caja digital.",
-                "Contemplamos todo el viaje de compra: desde la captación y navegación del catálogo, hasta la integración de pasarelas de pago y la integración con couriers. De esta manera aseguramos un ecosistema comercial completamente integrado, sin dejar cabos sueltos en tu operación."
-            ],
-            imageDesktop: "/images/ecommerce_ImgText.webp",
-            alt: "E-commerce de Alta Conversión Expansis Pro",
-            imageSide: "right", // Rompe la simetría visual
-            vimeoId: "1196058571" // ID actual (personalizable a futuro)
-        },
-        "marketing-digital": {
-            subtitle: "Rendimiento Basado en Datos",
-            title: "Una Campaña en Constante Crecimiento",
-            text: [
-                "En Expansis Pro diseñamos e implementamos estrategias de pauta publicitaria integrando Google Ads (Búsqueda y Shopping) para capturar la demanda existente, y Meta Ads (Instagram y Facebook) para escalar el alcance de tu marca en Chile.",
-                "El verdadero éxito de tu inversión radica en nuestra metodología de constante descubrimiento: un proceso continuo de auditoría, testeo de audiencias, optimización de copies y análisis de conversiones. Así aseguramos que tus campañas maduren, se estabilicen y mantengan un crecimiento en el tiempo enfocado en maximizar tu retorno real (ROAS)."
-            ],
-            imageDesktop: "/images/marketing-digital_ImgText.webp",
-            alt: "Estrategias de Marketing Digital Expansis Pro",
-            imageSide: "left",
-            vimeoId: "1196058571" // ID actual (personalizable a futuro)
-        }
-    };
 
     if (!service) {
         return <NotFound />;
     }
 
-    const currentSeo = seoMapping[slug] || {
-        title: `${service.title} | Expansis Pro`,
-        description: service.longDescription
-    };
-
-    // Extraer datos de la sección de video según el servicio activo
-    const currentVideoSection = videoSectionMapping[slug];
-
-
-    // Filtrar FAQs por slug del servicio o generales
+    // Filtrado de FAQs basadas en el servicio activo o generales
     const serviceFaqs = faqData.filter(faq =>
         faq.tags && (faq.tags.includes(slug) || faq.tags.includes('general'))
     );
@@ -101,30 +36,26 @@ const ServicePage = () => {
         setOpenFaqIndex(openFaqIndex === index ? null : index);
     };
 
-
     return (
         <div className="min-h-screen ">
-
             <Helmet>
-                <title>{seoMapping[slug]?.title || service?.title}</title>
-                <meta name="description" content={seoMapping[slug]?.description || service?.description} />
+                {/* 🌟 LEEMOS DIRECTAMENTE DESDE EL NODO SEO DEL DATA */}
+                <title>{service.seo?.title || service.title}</title>
+                <meta name="description" content={service.seo?.description || service.description} />
                 <link rel="canonical" href={canonicalUrl} />
 
-                {/* 🌟 1. Schema del Servicio Dinámico */}
                 <script type="application/ld+json">
                     {JSON.stringify({
                         "@context": "https://schema.org",
                         "@type": "Service",
-                        "name": service?.title,
-                        "description": seoMapping[slug]?.description || service?.description,
+                        "name": service.title,
+                        "description": service.seo?.description || service.description,
                         "provider": {
                             "@type": "ProfessionalService",
                             "@id": "https://expansispro.com/#agency"
                         }
                     })}
                 </script>
-
-                {/* 🌟 2. Schema de los Breadcrumbs Históricos */}
                 <script type="application/ld+json">
                     {JSON.stringify({
                         "@context": "https://schema.org",
@@ -138,16 +69,14 @@ const ServicePage = () => {
                 </script>
             </Helmet>
 
-            {/* --- HEADER / HERO CON BOTÓN DE CONVERSIÓN --- */}
+            {/* --- HERO DE SECCIÓN --- */}
             <div className="relative">
                 <SecondaryHero
                     title={service.title}
                     subtitle={service.longDescription}
                     icon={service.icon}
-                    img={`/assets/${service.slug}-hero.webp`}
+                    img={`/assets/images/${service.slug}-hero.webp`}
                 />
-
-                {/* Floating CTA Button */}
                 <div className="absolute bottom-0 left-0 w-full flex justify-center translate-y-1/2 z-30 px-4">
                     <button
                         onClick={() => trackWhatsAppClick('service_hero_floating', service.title)}
@@ -159,37 +88,49 @@ const ServicePage = () => {
                 </div>
             </div>
 
-            {/* --- CONTENIDO PRINCIPAL --- */}
-            <div >
-                {/* ========================================================================= */}
-                {/* 🚀 NUEVA SECCIÓN DE VIDEO / IMAGE-TEXT REUTILIZABLE Y DINÁMICA */}
-                {/* ========================================================================= */}
-                {currentVideoSection && (
+            {/* --- CONTENIDO DINÁMICO --- */}
+            <div>
+                {/* 🌟 1. SECCIÓN EXPLICATIVA DE VIDEO (PROVENIENTE DEL DATA) */}
+                {service.videoSection && (
                     <ImageTextCTA
-                        subtitle={currentVideoSection.subtitle}
-                        title={currentVideoSection.title}
-                        text={currentVideoSection.text}
-                        imageDesktop={currentVideoSection.imageDesktop}
-                        alt={currentVideoSection.alt}
-                        imageSide={currentVideoSection.imageSide}
-                        vimeoId={currentVideoSection.vimeoId}
-                        // 1. BOTÓN PRINCIPAL: Variante "primary" (Hereda la clase btn-primary en CtaButton)
+                        subtitle={service.videoSection.subtitle}
+                        title={service.videoSection.title}
+                        text={service.videoSection.text}
+                        imageDesktop={service.videoSection.imageDesktop}
+                        alt={service.videoSection.alt}
+                        imageSide={service.videoSection.imageSide}
+                        vimeoId={service.videoSection.vimeoId}
                         buttonContent="Cotizar por WhatsApp"
                         buttonLink={`https://wa.me/56988318443?text=Hola%20Expansis%20Pro%2C%20me%20interesa%20el%20servicio%20de%20${encodeURIComponent(service.title)}`}
                         buttonVariant="primary"
-
-                        // 2. BOTÓN SECUNDARIO: Variante "secondary" (Hereda tus estilos de link/formulario)
                         secondaryButtonContent="Formulario de Contacto"
                         secondaryButtonLink="/contacto"
                         secondaryButtonVariant="outline"
                     />
                 )}
 
+                {/* 🌟 2. SECCIÓN DE AUDIENCIA TARGET (PROVENIENTE DEL DATA) */}
+                {service.targetAudience && (
+                    <section id="service-target-section">
+                        <ImageTextCTA
+
+                            subtitle={service.targetAudience.subtitle}
+                            title={service.targetAudience.title}
+                            text={service.targetAudience.text}
+                            imageDesktop="/assets/images/expansisPro_target.webp"
+                            alt={service.targetAudience.alt}
+                            imageSide={service.targetAudience.imageSide}
+                            buttonContent="Evaluar mi Negocio"
+                            buttonLink={`https://wa.me/56988318443?text=Hola%20Expansis%20Pro%2C%20quiero%20validar%20mi%20perfil%20para%20el%20servicio%20de%20${encodeURIComponent(service.title)}`}
+                            buttonVariant="primary"
+
+                        />
+                    </section>
+                )}
+
                 {/* --- SECCIÓN DE INVERSIÓN --- */}
                 <section id="pricing" className="section-padding bg-ghostWhite">
                     <div className="container-pro">
-
-                        {/* 1. ENCABEZADO DE SECCIÓN (Fuera de la card para que respire) */}
                         <div className="text-center mb-16 md:mb-24">
                             <h2 className="text-deepBlue ">Inversión y Escalabilidad</h2>
                             <p className="section-subtitle">
@@ -197,96 +138,76 @@ const ServicePage = () => {
                             </p>
                         </div>
 
-                        {/* 2. CARD MAESTRA DE PRECIOS */}
-                        <div className=" ">
-                            <div className="bg-deepBlue text-white rounded-[2.5rem] shadow-2xl relative overflow-hidden border border-white/10">
-
-                                {/* Decoración de fondo */}
-                                <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-primario/10 rounded-full blur-3xl pointer-events-none"></div>
-
-                                <div className="relative z-10 p-8 md:p-16 lg:p-20">
-
-                                    {/* GRID DE DOS COLUMNAS (Desktop) */}
-                                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-6 items-center">
-
-                                        {/* COLUMNA IZQUIERDA: El Precio */}
-                                        <div className="text-center lg:text-left">
-                                            <span className="bg-primario text-deepBlue px-4 py-1 rounded-full text-[10px] uppercase tracking-[0.2em] font-black mb-8 inline-block">
-                                                Punto de Partida
-                                            </span>
-
-                                            <div className="mb-6">
-                                                <span className="text-sm text-white block uppercase tracking-widest mb-2">Inversión desde</span>
-                                                <div className="flex items-baseline justify-center lg:justify-start gap-2">
-                                                    <p className="text-4xl md:text-5xl lg:text-6xl  text-white tracking-tighter leading-none">
-                                                        {service.pricing.from}
-                                                    </p>
-                                                </div>
+                        <div className="bg-deepBlue text-white rounded-[2.5rem] shadow-2xl relative overflow-hidden border border-white/10">
+                            <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-primario/10 rounded-full blur-3xl pointer-events-none"></div>
+                            <div className="relative z-10 p-8 md:p-16 lg:p-20">
+                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-6 items-center">
+                                    <div className="text-center lg:text-left">
+                                        <span className="bg-primario text-deepBlue px-4 py-1 rounded-full text-[10px] uppercase tracking-[0.2em] font-black mb-8 inline-block">
+                                            Punto de Partida
+                                        </span>
+                                        <div className="mb-6">
+                                            <span className="text-sm text-white block uppercase tracking-widest mb-2">Inversión desde</span>
+                                            <div className="flex items-baseline justify-center lg:justify-start gap-2">
+                                                <p className="text-4xl md:text-5xl lg:text-6xl text-white tracking-tighter leading-none">
+                                                    {service.pricing.from}
+                                                </p>
                                             </div>
-
-                                            <p className="text-primario text-sm font-medium leading-relaxed italic opacity-90">
-                                                IVA Incluido <br className="hidden lg:block" />
-                                                Configuración Base Profesional
-                                            </p>
                                         </div>
-
-                                        {/* COLUMNA DERECHA: Características */}
-                                        <div className="bg-white/5 p-8 rounded-3xl border border-white/10">
-                                            <p className="text-white/60 text-sm mb-8 font-light text-center lg:text-left">
-                                                Tu proyecto incluye estándares de alta gama:
-                                            </p>
-
-                                            <ul className="space-y-5">
-                                                {service.pricing.features.map((feature, index) => (
-                                                    <li key={index} className="flex items-start gap-4">
-                                                        <div className="mt-1 w-5 h-5 rounded-full bg-primario/20 flex items-center justify-center flex-shrink-0">
-                                                            <i className="fa-solid fa-check text-primario text-[10px]"></i>
-                                                        </div>
-                                                        <span className="text-white/80 font-light text-base leading-snug">
-                                                            {feature}
-                                                        </span>
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </div>
+                                        <p className="text-primario text-sm font-medium leading-relaxed italic opacity-90">
+                                            IVA Incluido <br className="hidden lg:block" />
+                                            Configuración Base Profesional
+                                        </p>
                                     </div>
 
-                                    {/* --- ÁREA DE ACCIÓN (Debajo de las dos columnas) --- */}
-                                    <div className="mt-16 pt-12 border-t border-white/5 flex flex-col items-center w-full">
-
-                                        {service.pricing.scalability && (
-                                            <div className="max-w-2xl text-center mb-12">
-                                                <h4 className="text-xs uppercase tracking-[0.3em] text-primario  mb-4">
-                                                    {service.pricing.scalability.title}
-                                                </h4>
-                                                <div
-                                                    className="text-white/50 text-sm font-light leading-relaxed italic"
-                                                    dangerouslySetInnerHTML={{ __html: service.pricing.scalability.description }}
-                                                />
-                                            </div>
-                                        )}
-
-                                        <button
-                                            onClick={() => trackWhatsAppClick('service_pricing_card', service.title)}
-                                            className="btn-primary py-5 px-12 text-lg shadow-xl hover:scale-105 transition-transform w-full sm:w-auto"
-                                        >
-                                            <i className="fa-brands fa-whatsapp text-2xl"></i>
-                                            Cotizar {service.title}
-                                        </button>
+                                    <div className="bg-white/5 p-8 rounded-3xl border border-white/10">
+                                        <p className="text-white/60 text-sm mb-8 font-light text-center lg:text-left">
+                                            Tu proyecto incluye estándares de alta gama:
+                                        </p>
+                                        <ul className="space-y-5">
+                                            {service.pricing.features.map((feature, index) => (
+                                                <li key={index} className="flex items-start gap-4">
+                                                    <div className="mt-1 w-5 h-5 rounded-full bg-primario/20 flex items-center justify-center flex-shrink-0">
+                                                        <i className="fa-solid fa-check text-primario text-[10px]"></i>
+                                                    </div>
+                                                    <span className="text-white/80 font-light text-base leading-snug">
+                                                        {feature}
+                                                    </span>
+                                                </li>
+                                            ))}
+                                        </ul>
                                     </div>
+                                </div>
 
+                                <div className="mt-16 pt-12 border-t border-white/5 flex flex-col items-center w-full">
+                                    {service.pricing.scalability && (
+                                        <div className="max-w-2xl text-center mb-12">
+                                            <h4 className="text-xs uppercase tracking-[0.3em] text-primario  mb-4">
+                                                {service.pricing.scalability.title}
+                                            </h4>
+                                            <div
+                                                className="text-white/50 text-sm font-light leading-relaxed italic"
+                                                dangerouslySetInnerHTML={{ __html: service.pricing.scalability.description }}
+                                            />
+                                        </div>
+                                    )}
+                                    <button
+                                        onClick={() => trackWhatsAppClick('service_pricing_card', service.title)}
+                                        className="btn-primary py-5 px-12 text-lg shadow-xl hover:scale-105 transition-transform w-full sm:w-auto"
+                                    >
+                                        <i className="fa-brands fa-whatsapp text-2xl"></i>
+                                        Cotizar {service.title}
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
 
-
-                {/* --- NUEVA SECCIÓN DE FASES DESPLEGABLES --- */}
+                {/* --- SECCIÓN DE FASES --- */}
                 <section id="phases" className="section-padding pt-32">
                     <div className="container-pro">
-
-                        <h2 className="text-center mb-12  text-deepBlue">Fases del Proyecto</h2>
+                        <h2 className="text-center mb-12 text-deepBlue">Fases del Proyecto</h2>
                         <div className="space-y-2">
                             {service.phases.map((phase, index) => (
                                 <PhaseItem
@@ -295,7 +216,7 @@ const ServicePage = () => {
                                     title={phase.title}
                                     description={phase.description}
                                     isOpen={openPhaseIndex === index}
-                                    isLast={index === service.phases.length - 1} // <--- Nueva Prop
+                                    isLast={index === service.phases.length - 1}
                                     onToggle={() => setOpenPhaseIndex(openPhaseIndex === index ? null : index)}
                                 />
                             ))}
@@ -303,18 +224,16 @@ const ServicePage = () => {
                     </div>
                 </section>
 
-
-                {/* // Dentro del return de ServicePage: */}
                 <ProjectSection
                     title="Casos de Éxito"
                     subtitle={`Mira cómo hemos aplicado la ingeniería de ${service.title} en otros ecosistemas.`}
-                    limit={3} // Aquí puedes limitar a 2 para no alargar tanto la página de servicios
+                    limit={3}
                 />
-                {/* FAQs */}
+
+                {/* --- SECCIÓN DE PREGUNTAS FRECUENTES --- */}
                 {serviceFaqs.length > 0 && (
                     <section id="service-faq" className="section-padding">
                         <div className="container-pro">
-
                             <h2 className="text-center mb-12">Preguntas Frecuentes</h2>
                             <div className="space-y-2">
                                 {serviceFaqs.map((item, index) => (
@@ -343,16 +262,12 @@ const ServicePage = () => {
                         <div className="flex justify-center">
                             <Link
                                 to="/servicios"
-                                className="group relative flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-deepBlue/5 text-deepBlue  rounded-2xl hover:border-primario hover:text-primario transition-all duration-300"
+                                className="group relative flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-deepBlue/5 text-deepBlue rounded-2xl hover:border-primario hover:text-primario transition-all duration-300"
                             >
-                                {/* Flecha con animación de "empuje" hacia la izquierda */}
                                 <i className="fa-solid fa-arrow-left transition-transform duration-300 group-hover:-translate-x-2"></i>
-
                                 <span className="tracking-tight">
                                     Explorar todas las <span className="text-primario">especialidades</span>
                                 </span>
-
-                                {/* Sutil brillo al hacer hover */}
                                 <div className="absolute inset-0 rounded-2xl bg-primario/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                             </Link>
                         </div>

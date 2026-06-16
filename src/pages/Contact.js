@@ -45,7 +45,7 @@ const Contact = () => {
 				title="Hablemos de tu Proyecto"
 				subtitle="Estamos aquí para escucharte. Cuéntanos tus desafíos y diseñemos juntos el camino hacia tu expansión digital."
 				icon="fa-solid fa-paper-plane"
-				img="/assets/hero-contact.webp"
+				img="/assets/images/hero-contact.webp"
 			/>
 
 			<section className="py-16 px-4">

@@ -45,11 +45,11 @@ const Home = () => {
 					loop
 					muted
 					playsInline
-					poster="/assets/hero-poster.webp"
+					poster="/assets/images/hero-poster.webp"
 					fetchPriority="high"
 					className="absolute inset-0 z-0 w-full h-full object-cover opacity-40 brightness-[0.7]"
 				>
-					<source src="/assets/hero-expansis.mp4" type="video/mp4" />
+					<source src="/assets/videos/hero-expansis.mp4" type="video/mp4" />
 				</video>
 
 				<div className="absolute inset-0 z-10 bg-gradient-to-b from-deepBlue/20 via-deepBlue/40 to-deepBlue"></div>
@@ -121,25 +121,24 @@ const Home = () => {
 					</CtaButton>
 				</div>
 			</section>
-
-			{/* SECCIÓN IMAGE TEXT CTA */}
-			<section id="about-teaser">
+			{/* --- 🌟 NUEVA SECCIÓN: TEXTO DE AUDIENCIA DEL HOME (~610 caracteres) --- */}
+			<section id="home-target">
 				<ImageTextCTA
-					imageDesktop="/images/expansisPro_aboutus.webp"
-					alt="Consultoría y estrategia digital en las oficinas de Expansis Pro"
-					subtitle="DETRÁS DE LA ESTRATEGIA"
-					title="Somos Socios en la Transformación Digital"
+					imageDesktop="/assets/images/expansisPro_target.webp"
+					alt="Público objetivo y clientes de la agencia Expansis Pro en Chile"
+					subtitle="PERFIL COMERCIAL"
+					title="Estructuras Digitales con Foco en la Conversión y el Negocio"
 					text={[
-						"Expansis Pro es un espacio que aspira a devolver el propósito a las organizaciones para usarlo como hoja de ruta definitiva para los procesos de transformación digital.",
-						"Conoce nuestra historia, nuestra filosofía de trabajo y al equipo que lo hace posible."
+						"Expansis Pro impulsa a personas, marcas e instituciones que buscan iniciar o avanzar en su transformación digital mediante activos web de alta conversión. Desarrollamos canales a medida, optimizados para la difusión institucional o la automatización de ventas.",
+						"Unificamos consultoría estratégica e ingeniería técnica para proyectar la solidez de tu operación, garantizando que tu ecosistema digital traduzca cada visita en oportunidades de negocio reales."
 					]}
 					vimeoId="1196058571" // 👈 Pasas el ID aquí
-					imageSide="left"
-					buttonContent="Conoce nuestra historia"
-					buttonLink="/quienes-somos"
+					imageSide="right" // Rompe simetría con la sección "About Us" de abajo
+					buttonContent="Cotizar Proyecto"
+					buttonLink="https://wa.me/56988318443?text=Hola%20Expansis%20Pro%2C%20me%20gustaría%20saber%20si%20sus%20servicios%20se%20adaptan%20a%20mi%20modelo%20de%20negocio."
 					buttonVariant="primary"
-					secondaryButtonContent="Ver Proyectos" // <-- Botón extra
-					secondaryButtonLink="/proyectos"
+					secondaryButtonContent="Ver Especialidades"
+					secondaryButtonLink="/servicios"
 					secondaryButtonVariant="outline"
 				/>
 			</section>
@@ -150,6 +149,29 @@ const Home = () => {
 				selectedIds={["estudio-brkovic", "2v-express", "lobos-miniexcavadoras"]} // Orden estricto basado en tus IDs de data
 				showCta={true} // Forzamos a que muestre el botón
 			/>
+
+			{/* SECCIÓN IMAGE TEXT CTA */}
+			<section id="about-teaser">
+				<ImageTextCTA
+					imageDesktop="/assets/images/expansisPro_aboutus.webp"
+					alt="Consultoría y estrategia digital en las oficinas de Expansis Pro"
+					subtitle="DETRÁS DE LA ESTRATEGIA"
+					title="Somos Socios en la Transformación Digital"
+					text={[
+						"Expansis Pro es un espacio que aspira a devolver el propósito a las organizaciones para usarlo como hoja de ruta definitiva para los procesos de transformación digital.",
+						"Conoce nuestra historia, nuestra filosofía de trabajo y al equipo que lo hace posible."
+					]}
+
+					imageSide="left"
+					buttonContent="Conoce nuestra historia"
+					buttonLink="/quienes-somos"
+					buttonVariant="primary"
+					secondaryButtonContent="Ver Proyectos" // <-- Botón extra
+					secondaryButtonLink="/proyectos"
+					secondaryButtonVariant="outline"
+				/>
+			</section>
+
 			{/* --- SECCIÓN DE CIERRE (CTA) --- */}
 			<section className=" pb-8 px-4">
 				<div className="max-w-4xl mx-auto">

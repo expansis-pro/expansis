@@ -4,7 +4,7 @@ export const projectsData = [
         category: "Branding & Desarrollo Web",
         title: "2V Express",
         sector: "Logística Internacional & Courier",
-        image: "/images/2VExpress-web.webp",
+        image: "/assets/images/2VExpress-web.webp",
         description: "Desarrollo integral de <strong>identidad corporativa y ecosistema digital</strong> para una empresa especializada en el retiro de excedentes. El proyecto abarcó desde la definición estratégica de marca (branding) hasta la habilitación técnica de canales de comunicación profesional y una plataforma web de alta autoridad, garantizando coherencia operativa en cada punto de contacto.",
         results: [
             "Creación de identidad visual completa (Logo y Manual de Estilo)",
@@ -19,7 +19,7 @@ export const projectsData = [
         category: "Desarrollo Web & Portafolio",
         title: "Claudia Gallardo",
         sector: "Dirección de Arte & Cine Internacional",
-        image: "/images/ClaudiaGallardo-web.webp",
+        image: "/assets/images/ClaudiaGallardo-web.webp",
         description: "Desarrollo de portafolio premium para Directora de Arte de trayectoria internacional. El proyecto consistió en crear una <strong>vitrina digital de alto impacto</strong> para organizar una filmografía destacada en plataformas como Netflix, HBO y Prime Video. La arquitectura se centró en una estética cinematográfica que proyecta el estatus de una ganadora del Premio Pedro Sienna.",
         results: [
             "Arquitectura de información diseñada para destacar producciones de clase mundial",
@@ -34,7 +34,7 @@ export const projectsData = [
         category: "Desarrollo Web",
         title: "Lobos Miniexcavadoras",
         sector: "Movimiento de Tierra & Construcción",
-        image: "/images/lobosMiniexcavadoras-web.webp",
+        image: "/assets/images/lobosMiniexcavadoras-web.webp",
         description: "Desarrollo de una <strong>infraestructura digital de alto rendimiento</strong> para el sector industrial. Transformamos la presencia online en una máquina de <strong>generación de leads locales</strong>, priorizando la velocidad de carga en terreno y una arquitectura técnica que proyecta la solidez operativa de la marca.",
         results: [
             "Optimización de <strong>conversión estratégica</strong> para arriendo de maquinaria",
@@ -49,7 +49,7 @@ export const projectsData = [
         category: "Consultoría & Branding",
         title: "Gonzalo Lobos",
         sector: "Psicología Organizacional & Estrategia",
-        image: "/images/gonzalobos-web.webp",
+        image: "/assets/images/gonzalobos-web.webp",
         description: "Diseño de ecosistema digital para marca personal de alto nivel. El proyecto sintetiza una trayectoria en <strong>psicología organizacional</strong> con herramientas de gestión de negocios, creando una plataforma que equilibra <strong>humanismo y robustez técnica</strong> para atraer clientes corporativos.",
         results: [
             "Unificación de <strong>narrativa estratégica</strong> y sistema de estilo visual",
@@ -64,7 +64,7 @@ export const projectsData = [
         category: "Desarrollo Web Corporativo",
         title: "Estudio Jurídico Brkovic",
         sector: "Servicios Legales & Litigación Compleja",
-        image: "/images/estudiobrkovic-web.webp",
+        image: "/assets/images/estudiobrkovic-web.webp",
         description: "Desarrollo de una <strong>plataforma web institucional premium</strong> para una firma de Abogados con más de 30 años de trayectoria en alta complejidad y derechos humanos. El ecosistema fue diseñado bajo una arquitectura limpia y solemne que organiza múltiples áreas de práctica especializada, balanceando la seriedad institucional con flujos de conversión optimizados.",
         results: [
             "Arquitectura modular para la indexación y desglose de áreas complejas (Justicia, DD.HH. y Defensa de Comunidades)",
