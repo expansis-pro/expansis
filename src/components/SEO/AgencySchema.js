@@ -1,6 +1,6 @@
 // src/components/SEO/AgencySchema.js
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+
 import { contactData } from '../../data/contactConfig';
 import { servicesData } from '../../data/servicesData'; // 🌟 Importamos tu data real de servicios
 
@@ -41,10 +41,8 @@ export default function AgencySchema() {
     };
 
     return (
-        <Helmet>
-            <script id="agency-jsonld" type="application/ld+json">
-                {JSON.stringify(agencyData)}
-            </script>
-        </Helmet>
+        <script id="agency-jsonld" type="application/ld+json">
+            {JSON.stringify(agencyData)}
+        </script>
     );
 }

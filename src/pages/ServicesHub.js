@@ -1,6 +1,6 @@
 // src/pages/Services.js
 import React, { useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
+
 import { useLocation } from 'react-router-dom';
 import { servicesData } from '../data/servicesData';
 
@@ -32,39 +32,39 @@ const Services = () => {
 	return (
 		<main className=" min-h-screen">
 
-			<Helmet>
-				<title>Nuestros Servicios de Ingeniería Digital | Expansis Pro</title>
-				<meta name="description" content="En Expansis Pro tratamos tu presencia digital como un ecosistema vivo e integrado..." />
-				<link rel="canonical" href={canonicalUrl} />
 
-				{/* 🌟 1. ItemList del catálogo mapeado 100% en automático desde tu data */}
-				<script type="application/ld+json">
-					{JSON.stringify({
-						"@context": "https://schema.org",
-						"@type": "ItemList",
-						"name": "Catálogo de Servicios de Expansis Pro",
-						"description": "Infraestructura digital y soluciones estratégicas de software y pauta digital.",
-						"itemListElement": servicesData.map((service, index) => ({
-							"@type": "ListItem",
-							"position": index + 1,
-							"name": service.title,
-							"url": `${baseUrl}/servicios/${service.slug}`
-						}))
-					})}
-				</script>
+			<title>Nuestros Servicios de Ingeniería Digital | Expansis Pro</title>
+			<meta name="description" content="En Expansis Pro tratamos tu presencia digital como un ecosistema vivo e integrado..." />
+			<link rel="canonical" href={canonicalUrl} />
 
-				{/* 🌟 2. Breadcrumbs de navegación para los fragmentos de Google */}
-				<script type="application/ld+json">
-					{JSON.stringify({
-						"@context": "https://schema.org",
-						"@type": "BreadcrumbList",
-						"itemListElement": [
-							{ "@type": "ListItem", "position": 1, "name": "Inicio", "item": `${baseUrl}/` },
-							{ "@type": "ListItem", "position": 2, "name": "Servicios", "item": `${baseUrl}/servicios` }
-						]
-					})}
-				</script>
-			</Helmet>
+			{/* 🌟 1. ItemList del catálogo mapeado 100% en automático desde tu data */}
+			<script type="application/ld+json">
+				{JSON.stringify({
+					"@context": "https://schema.org",
+					"@type": "ItemList",
+					"name": "Catálogo de Servicios de Expansis Pro",
+					"description": "Infraestructura digital y soluciones estratégicas de software y pauta digital.",
+					"itemListElement": servicesData.map((service, index) => ({
+						"@type": "ListItem",
+						"position": index + 1,
+						"name": service.title,
+						"url": `${baseUrl}/servicios/${service.slug}`
+					}))
+				})}
+			</script>
+
+			{/* 🌟 2. Breadcrumbs de navegación para los fragmentos de Google */}
+			<script type="application/ld+json">
+				{JSON.stringify({
+					"@context": "https://schema.org",
+					"@type": "BreadcrumbList",
+					"itemListElement": [
+						{ "@type": "ListItem", "position": 1, "name": "Inicio", "item": `${baseUrl}/` },
+						{ "@type": "ListItem", "position": 2, "name": "Servicios", "item": `${baseUrl}/servicios` }
+					]
+				})}
+			</script>
+
 
 
 			{/* --- HERO SECUNDARIO --- */}

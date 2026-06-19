@@ -59,7 +59,7 @@ const CarouselItem = ({
 
                 <div className="inline-flex items-center text-gray-400 font-bold text-xs uppercase tracking-wildest group-hover:text-primario transition-colors duration-300">
                     <span className="border-b border-transparent group-hover:border-primario pb-0.5 transition-all duration-300">
-                        Saber más
+                        Saber más sobre {title}
                     </span>
                     <svg
                         className="w-3.5 h-3.5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1.5"

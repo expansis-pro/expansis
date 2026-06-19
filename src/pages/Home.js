@@ -1,21 +1,16 @@
+// src/pages/Home.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
 import { servicesData } from '../data/servicesData';
 import CarouselItem from '../components/CarouselItem';
-import CallToAction from '../components/CallToAction';
-import CtaButton from '../components/CtaButton';
-import ImageTextCTA from '../components/ImageTextCTA';
 import ProjectSection from '../components/ProjectSection';
-import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
-
 import CardCarousel from '../components/CardCarousel';
+import ImageTextCTA from '../components/ImageTextCTA';
+import CtaButton from '../components/CtaButton';
+import CallToAction from '../components/CallToAction';
 
 const Home = () => {
-
-
-
-
 
 	// 2. CONFIGURAMOS EL CANONICAL DINÁMICO
 	const location = useLocation();
@@ -25,19 +20,17 @@ const Home = () => {
 
 	return (
 		<>
-			<Helmet>
-				{/* 3. TÍTULO Y DESCRIPCIÓN OPTIMIZADOS PARA CHILE */}
-				<title>Diseño de Landing Pages y Tiendas Online en Chile | Expansis Pro</title>
-				<meta name="description" content="En Expansis Pro creamos tus landing pages, e-commerce a medida y gestionamos tus campañas de Ads y Meta en Chile. ¡Impulsa tus canales digitales!" />
 
-				{/* CANONICAL DINÁMICO (Si es la raíz, usa el baseUrl) */}
-				<link rel="canonical" href={canonicalUrl || baseUrl} />
+			{/* 1. SOPORTE NATIVO DE REACT 19: Sin etiquetas  */}
+			<title>Agencia de Desarrollo Web y Marketing Digital en Chile | Expansis Pro</title>
+			<meta name="description" content="En Expansis Pro creamos páginas web profesionales, e-commerce a medida y estrategias de marketing digital en Chile. ¡Potencia tus canales digitales!" />
+			<link rel="canonical" href={canonicalUrl || baseUrl} />
 
-				{/* ETIQUETAS OPEN GRAPH ACTUALIZADAS */}
-				<meta property="og:title" content="Diseño de Landing Pages y Tiendas Online en Chile | Expansis Pro" />
-				<meta property="og:description" content="En Expansis Pro creamos tus landing pages, e-commerce a medida y gestionamos tus campañas de Ads y Meta en Chile. ¡Impulsa tus canales digitales!" />
-				<meta property="og:url" content={canonicalUrl || baseUrl} />
-			</Helmet>
+			{/* ETIQUETAS OPEN GRAPH NATIVAS */}
+			<meta property="og:title" content="Agencia de Desarrollo Web y Marketing Digital en Chile | Expansis Pro" />
+			<meta property="og:description" content="Diseño de tiendas online, landing pages y marketing digital de alto impacto para empresas chilenas." />
+			<meta property="og:url" content={canonicalUrl || baseUrl} />
+
 			{/* --- HERO SECTION CON VIDEO --- */}
 			<section id="home" className="relative h-[85vh] min-h-[600px] flex items-center justify-start md:justify-center overflow-hidden bg-deepBlue px-6">
 				<video
@@ -61,13 +54,13 @@ const Home = () => {
 						transition={{ duration: 0.8, ease: "easeOut" }}
 						className="hero-wrapper"
 					>
-						<h1 className="text-ghostWhite drop-shadow-lg">
-							Tu negocio es sólido<br />
-							<span className="text-primario italic font-bold">Tu web también debería serlo</span>
+						<h1 className="text-ghostWhite drop-shadow-lg  text-3xl md:text-5xl leading-tight">
+							Agencia de Desarrollo Web y Marketing Digital<br />
+							<span className="text-primario italic font-semibold text-2xl md:text-4xl">Estructuras digitales sólidas para tu negocio</span>
 						</h1>
 
 						<p className="hero-paragraph">
-							En Expansis Pro creamos sitios web profesionales y robustos para empresas y marcas que necesitan transmitir confianza real.
+							En Expansis Pro desarrollamos sitios ecosistemas digitales a medida para empresas y marcas que necesitan transmitir confianza real.
 						</p>
 
 						<div className="hero-actions">
@@ -88,7 +81,7 @@ const Home = () => {
 			{/* CAMBIO: py-12 para mobile (48px) y md:py-16 para desktop (64px) */}
 			<section id="services-home" className="section-padding ">
 				<div className="container-pro">
-					<h2 className="mb-4 ">Nuestros Servicios</h2>
+					<h2 className="mb-4 ">Servicios de Creación de Canales Digitales</h2>
 					{/* CAMBIO: Reducimos mb-12 a mb-6 en mobile para que el carrusel esté más cerca */}
 					<p className="section-subtitle ">
 						Soluciones integrales para potenciar tu negocio en el mundo digital.

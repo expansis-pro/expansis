@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+
 import { useLocation } from 'react-router-dom';
 import { projectsData } from '../data/projectsData'; // 🌟 Importamos tu data de proyectos
 import SecondaryHero from '../components/SecondaryHero';
@@ -14,43 +14,43 @@ const ProjectsPage = () => {
 
     return (
         <div className="min-h-screen flex flex-col">
-            <Helmet>
-                <title>Casos de Éxito y Portafolio de Ingeniería Digital | Expansis Pro</title>
-                <meta
-                    name="description"
-                    content="Explora las plataformas web, e-commerce a medida y ecosistemas digitales que hemos diseñado y construido para marcas con autoridad en Chile."
-                />
-                <link rel="canonical" href={canonicalUrl} />
 
-                {/* 🌟 1. ItemList de Proyectos para indexación masiva en Google */}
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "ItemList",
-                        "name": "Portafolio de Casos de Éxito de Expansis Pro",
-                        "description": "Plataformas web modulares y tiendas online de alta conversión construidas en React.",
-                        "itemListElement": projectsData.map((project, index) => ({
-                            "@type": "ListItem",
-                            "position": index + 1,
-                            "name": project.title,
-                            "description": project.sector,
-                            "url": project.liveUrl
-                        }))
-                    })}
-                </script>
+            <title>Casos de Éxito y Portafolio de Ingeniería Digital | Expansis Pro</title>
+            <meta
+                name="description"
+                content="Explora las plataformas web, e-commerce a medida y ecosistemas digitales que hemos diseñado y construido para marcas con autoridad en Chile."
+            />
+            <link rel="canonical" href={canonicalUrl} />
 
-                {/* 🌟 2. Breadcrumbs de jerarquía de navegación */}
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "BreadcrumbList",
-                        "itemListElement": [
-                            { "@type": "ListItem", "position": 1, "name": "Inicio", "item": `${baseUrl}/` },
-                            { "@type": "ListItem", "position": 2, "name": "Proyectos", "item": `${baseUrl}/proyectos` }
-                        ]
-                    })}
-                </script>
-            </Helmet>
+            {/* 🌟 1. ItemList de Proyectos para indexación masiva en Google */}
+            <script type="application/ld+json">
+                {JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "ItemList",
+                    "name": "Portafolio de Casos de Éxito de Expansis Pro",
+                    "description": "Plataformas web modulares y tiendas online de alta conversión construidas en React.",
+                    "itemListElement": projectsData.map((project, index) => ({
+                        "@type": "ListItem",
+                        "position": index + 1,
+                        "name": project.title,
+                        "description": project.sector,
+                        "url": project.liveUrl
+                    }))
+                })}
+            </script>
+
+            {/* 🌟 2. Breadcrumbs de jerarquía de navegación */}
+            <script type="application/ld+json">
+                {JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": `${baseUrl}/` },
+                        { "@type": "ListItem", "position": 2, "name": "Proyectos", "item": `${baseUrl}/proyectos` }
+                    ]
+                })}
+            </script>
+
 
             <SecondaryHero
                 title="Proyectos Realizados"

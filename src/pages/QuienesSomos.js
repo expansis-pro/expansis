@@ -1,7 +1,7 @@
 // src/pages/QuienesSomos.js
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+
 import SecondaryHero from '../components/SecondaryHero';
 import ImageTextCTA from '../components/ImageTextCTA';
 import ServiceItem from '../components/ServiceItem'; // Mantiene la dependencia de tus cards de filosofía
@@ -32,50 +32,50 @@ const QuienesSomos = () => {
 
     return (
         <main className="min-h-screen">
-            <Helmet>
-                <title>Sobre Expansis Pro | Nuestra Filosofía de Ingeniería</title>
-                <meta
-                    name="description"
-                    content="Conoce al equipo detrás de la estrategia. Un aliado dedicado a entender y potenciar tu negocio con integridad técnica."
-                />
-                <link rel="canonical" href={canonicalUrl} />
 
-                <meta property="og:title" content="Sobre Expansis Pro | Nuestra Filosofía de Ingeniería" />
-                <meta property="og:description" content="Conoce al equipo detrás de la estrategia. Un aliado dedicado a entender y potenciar tu negocio con integridad técnica." />
-                <meta property="og:url" content={canonicalUrl} />
+            <title>Sobre Expansis Pro | Nuestra Filosofía de Ingeniería</title>
+            <meta
+                name="description"
+                content="Conoce al equipo detrás de la estrategia. Un aliado dedicado a entender y potenciar tu negocio con integridad técnica."
+            />
+            <link rel="canonical" href={canonicalUrl} />
 
-                {/* Schema de AboutPage + Datos de Autoridad del Fundador */}
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "AboutPage",
-                        "mainEntity": {
-                            "@type": "ProfessionalService",
-                            "@id": "https://expansispro.com/#agency"
-                        },
-                        "author": {
-                            "@type": "Person",
-                            "name": "Gonzalo Lobos",
-                            "jobTitle": "Founder & Lead Software Engineer",
-                            "sameAs": [
-                                "https://gonzalobos.com/"
-                            ]
-                        }
-                    })}
-                </script>
+            <meta property="og:title" content="Sobre Expansis Pro | Nuestra Filosofía de Ingeniería" />
+            <meta property="og:description" content="Conoce al equipo detrás de la estrategia. Un aliado dedicado a entender y potenciar tu negocio con integridad técnica." />
+            <meta property="og:url" content={canonicalUrl} />
 
-                {/* Breadcrumbs técnicos */}
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "BreadcrumbList",
-                        "itemListElement": [
-                            { "@type": "ListItem", "position": 1, "name": "Inicio", "item": `${baseUrl}/` },
-                            { "@type": "ListItem", "position": 2, "name": "Sobre Expansis", "item": canonicalUrl }
+            {/* Schema de AboutPage + Datos de Autoridad del Fundador */}
+            <script type="application/ld+json">
+                {JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "AboutPage",
+                    "mainEntity": {
+                        "@type": "ProfessionalService",
+                        "@id": "https://expansispro.com/#agency"
+                    },
+                    "author": {
+                        "@type": "Person",
+                        "name": "Gonzalo Lobos",
+                        "jobTitle": "Founder & Lead Software Engineer",
+                        "sameAs": [
+                            "https://gonzalobos.com/"
                         ]
-                    })}
-                </script>
-            </Helmet>
+                    }
+                })}
+            </script>
+
+            {/* Breadcrumbs técnicos */}
+            <script type="application/ld+json">
+                {JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": `${baseUrl}/` },
+                        { "@type": "ListItem", "position": 2, "name": "Sobre Expansis", "item": canonicalUrl }
+                    ]
+                })}
+            </script>
+
 
             {/* 1. HERO SUPERIOR DE LA PÁGINA (Estandarizado en assets/images) */}
             <SecondaryHero

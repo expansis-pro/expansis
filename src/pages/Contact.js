@@ -1,6 +1,6 @@
 // src/pages/Contact.js
 import React, { useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
+
 import { useLocation } from 'react-router-dom';
 import SecondaryHero from '../components/SecondaryHero';
 import ContactForm from '../components/ContactForm';
@@ -24,22 +24,22 @@ const Contact = () => {
 	const mailtoLink = `mailto:${email}?subject=${subject}&body=${body}`;
 	return (
 		<main className=" min-h-screen">
-			<Helmet>
-				{/* 3. TÍTULO Y DESCRIPCIÓN CON PALABRAS CLAVE DE ALTA CONVERSIÓN EN CHILE */}
-				<title>Cotizar Diseño Web, E-commerce y Ads en Chile | Expansis Pro</title>
-				<meta
-					name="description"
-					content="Contáctanos hoy para diseñar tu landing page, crear tu tienda online a medida o gestionar tus campañas de anuncios en Google y Meta. Solicita tu presupuesto en Chile."
-				/>
 
-				{/* Canonical automatizado */}
-				<link rel="canonical" href={canonicalUrl} />
+			{/* 3. TÍTULO Y DESCRIPCIÓN CON PALABRAS CLAVE DE ALTA CONVERSIÓN EN CHILE */}
+			<title>Cotizar Diseño Web, E-commerce y Ads en Chile | Expansis Pro</title>
+			<meta
+				name="description"
+				content="Contáctanos hoy para diseñar tu landing page, crear tu tienda online a medida o gestionar tus campañas de anuncios en Google y Meta. Solicita tu presupuesto en Chile."
+			/>
 
-				{/* Open Graph para redes sociales actualizados */}
-				<meta property="og:title" content="Cotizar Diseño Web, E-commerce y Ads en Chile | Expansis Pro" />
-				<meta property="og:description" content="Contáctanos hoy para diseñar tu landing page, crear tu tienda online a medida o gestionar tus campañas de anuncios en Google y Meta. Solicita tu presupuesto en Chile." />
-				<meta property="og:url" content={canonicalUrl} />
-			</Helmet>
+			{/* Canonical automatizado */}
+			<link rel="canonical" href={canonicalUrl} />
+
+			{/* Open Graph para redes sociales actualizados */}
+			<meta property="og:title" content="Cotizar Diseño Web, E-commerce y Ads en Chile | Expansis Pro" />
+			<meta property="og:description" content="Contáctanos hoy para diseñar tu landing page, crear tu tienda online a medida o gestionar tus campañas de anuncios en Google y Meta. Solicita tu presupuesto en Chile." />
+			<meta property="og:url" content={canonicalUrl} />
+
 
 			<SecondaryHero
 				title="Hablemos de tu Proyecto"

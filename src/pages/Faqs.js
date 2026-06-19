@@ -1,6 +1,6 @@
 // src/pages/Faqs.js
 import React, { useState, useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
+
 import { useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { faqData } from '../data/faqData';
@@ -50,26 +50,26 @@ const Faqs = () => {
     return (
         <main className=" min-h-screen">
             {/* --- CONFIGURACIÓN SEO (HELMET) --- */}
-            <Helmet>
-                <title>Preguntas Frecuentes | Expansis Pro</title>
-                <link rel="canonical" href={canonicalUrl} />
 
-                {/* 🌟 AGREGAMOS EL SCHEMA DE PREGUNTAS FRECUENTES EN TEXTO PLANO */}
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "FAQPage",
-                        "mainEntity": faqData.map((faq) => ({
-                            "@type": "Question",
-                            "name": faq.question,
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": faq.answerText || faq.question // Usa aquí la versión en texto plano de tu respuesta
-                            }
-                        }))
-                    })}
-                </script>
-            </Helmet>
+            <title>Preguntas Frecuentes | Expansis Pro</title>
+            <link rel="canonical" href={canonicalUrl} />
+
+            {/* 🌟 AGREGAMOS EL SCHEMA DE PREGUNTAS FRECUENTES EN TEXTO PLANO */}
+            <script type="application/ld+json">
+                {JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "FAQPage",
+                    "mainEntity": faqData.map((faq) => ({
+                        "@type": "Question",
+                        "name": faq.question,
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": faq.answerText || faq.question // Usa aquí la versión en texto plano de tu respuesta
+                        }
+                    }))
+                })}
+            </script>
+
 
             <SecondaryHero
                 title="Preguntas Frecuentes"

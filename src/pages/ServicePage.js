@@ -11,7 +11,7 @@ import CallToAction from '../components/CallToAction';
 import FaqItem from '../components/FaqItem';
 import SecondaryHero from '../components/SecondaryHero';
 import { trackWhatsAppClick } from '../utils/trackingUtils';
-import { Helmet } from 'react-helmet-async';
+
 
 const ServicePage = () => {
     const { slug } = useParams();
@@ -38,36 +38,36 @@ const ServicePage = () => {
 
     return (
         <div className="min-h-screen ">
-            <Helmet>
-                {/* 🌟 LEEMOS DIRECTAMENTE DESDE EL NODO SEO DEL DATA */}
-                <title>{service.seo?.title || service.title}</title>
-                <meta name="description" content={service.seo?.description || service.description} />
-                <link rel="canonical" href={canonicalUrl} />
 
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "Service",
-                        "name": service.title,
-                        "description": service.seo?.description || service.description,
-                        "provider": {
-                            "@type": "ProfessionalService",
-                            "@id": "https://expansispro.com/#agency"
-                        }
-                    })}
-                </script>
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "BreadcrumbList",
-                        "itemListElement": [
-                            { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://expansispro.com/" },
-                            { "@type": "ListItem", "position": 2, "name": "Servicios", "item": "https://expansispro.com/servicios" },
-                            { "@type": "ListItem", "position": 3, "name": service.title, "item": canonicalUrl }
-                        ]
-                    })}
-                </script>
-            </Helmet>
+            {/* 🌟 LEEMOS DIRECTAMENTE DESDE EL NODO SEO DEL DATA */}
+            <title>{service.seo?.title || service.title}</title>
+            <meta name="description" content={service.seo?.description || service.description} />
+            <link rel="canonical" href={canonicalUrl} />
+
+            <script type="application/ld+json">
+                {JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "Service",
+                    "name": service.title,
+                    "description": service.seo?.description || service.description,
+                    "provider": {
+                        "@type": "ProfessionalService",
+                        "@id": "https://expansispro.com/#agency"
+                    }
+                })}
+            </script>
+            <script type="application/ld+json">
+                {JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://expansispro.com/" },
+                        { "@type": "ListItem", "position": 2, "name": "Servicios", "item": "https://expansispro.com/servicios" },
+                        { "@type": "ListItem", "position": 3, "name": service.title, "item": canonicalUrl }
+                    ]
+                })}
+            </script>
+
 
             {/* --- HERO DE SECCIÓN --- */}
             <div className="relative">
