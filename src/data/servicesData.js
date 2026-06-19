@@ -10,14 +10,14 @@ export const servicesData = [
 
         // 🌟 1. CONTENIDO SEO
         seo: {
-            title: "Diseño y Desarrollo Web Profesional en Chile | Expansis Pro",
+            title: "Diseño y Desarrollo Web Profesional | Expansis Pro",
             description: "Creamos tu sitio web corporativo a medida en React. Páginas rápidas, seguras y con optimización SEO base para Google en Chile."
         },
 
         // 🌟 2. SECCIÓN EXPLICATIVA DE VIDEO
         videoSection: {
             subtitle: "Ingeniería en React",
-            title: "El Usuario al Centro del Negocio",
+            title: "Páginas Web en React: El Usuario al Centro del Negocio",
             imageDesktop: "/assets/images/desarrollo-web.webp",
             alt: "Desarrollo Web Profesional Expansis Pro",
             imageSide: "left",
@@ -92,14 +92,15 @@ export const servicesData = [
 
         // 🌟 1. CONTENIDO SEO
         seo: {
-            title: "Creación de Tiendas Online y E-commerce en Chile | Expansis Pro",
+            title: "Creación de Tiendas Online y E-commerce | Expansis Pro",
             description: "Diseño de canales de e-commerce robustos y escalables en Chile. Integración de Webpay, Mercado Pago, control de inventario y alta conversión."
         },
 
         // 🌟 2. SECCIÓN EXPLICATIVA DE VIDEO
         videoSection: {
             subtitle: "Ecosistemas Transaccionales",
-            title: "El Foco en la Conversión",
+            // 🌟 OPTIMIZADO: Título semántico con Keyword
+            title: "Tiendas Online Shopify: El Foco en la Conversión",
             imageDesktop: "/assets/images/ecommerce.webp",
             alt: "E-commerce de Alta Conversión Expansis Pro",
             imageSide: "right",
@@ -172,18 +173,18 @@ export const servicesData = [
         icon: "fa-solid fa-bullhorn",
         title: "Marketing Digital",
         description: "Implementamos estrategias para aumentar tu visibilidad y generar clientes potenciales.",
-        longDescription: "Diseñaremos e implementaremos campañas de marketing digital enfocadas en resultados. Nos enfocaremos en la gestión de tu inversión publicitaria en Meta (Facebook, Instagram) y Google Ads para crear estrategias que aumenten tu visibilidad y atraigan nuevos clientes.",
+        longDescription: "Diseñamos e implementamos campañas de marketing digital enfocadas en resultados. Nos enfocaremos en la gestión de tu inversión publicitaria en Meta (Facebook, Instagram) y Google Ads para crear estrategias que aumenten tu visibilidad y atraigan nuevos clientes.",
 
         // 🌟 1. CONTENIDO SEO
         seo: {
-            title: "Gestión de Google Ads y Meta Ads en Chile | Expansis Pro",
+            title: "Gestión de Google Ads y Meta Ads | Expansis Pro",
             description: "Agencia de marketing digital especializada en anuncios de pago. Optimizamos tus campañas en Instagram, Facebook y Google para captar clientes reales."
         },
 
         // 🌟 2. SECCIÓN EXPLICATIVA DE VIDEO
         videoSection: {
             subtitle: "Rendimiento Basado en Datos",
-            title: "Una Campaña en Constante Crecimiento",
+            title: "Google Ads y Meta Ads: Una Campaña en Constante Crecimiento",
             imageDesktop: "/assets/images/marketing-digital.webp",
             alt: "Estrategias de Marketing Digital Expansis Pro",
             imageSide: "left",

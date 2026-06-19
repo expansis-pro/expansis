@@ -86,7 +86,7 @@ const ImageTextCTA = ({
                     {/* Contenedor de Texto */}
                     <div className={`text-left ${imageSide === 'left' ? 'lg:order-2' : 'lg:order-1'}`}>
                         {subtitle && <span className="block text-primario uppercase tracking-widest mb-4 text-sm font-bold">{subtitle}</span>}
-                        {title && <h2 className="text-deepBlue mb-8 leading-tight text-3xl md:text-4xl">{title}</h2>}
+                        {title && <h2 >{title}</h2>}
 
                         {/* Blindaje contra caídas: fallback de array vacío por seguridad si text es null/undefined */}
                         <div className="space-y-6 text-gray-600 leading-relaxed text-justify font-light text-lg">

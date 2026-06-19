@@ -13,11 +13,11 @@
 
 	/* h1: Base fluida. El tamaño 6xl se aplica en el Hero */
 	h1 {
-		@apply text-4xl sm:text-5xl md:text-5xl leading-tight;
+		@apply text-4xl sm:text-5xl md:text-4xl leading-tight;
 	}
 
 	h2 {
-		@apply text-3xl sm:text-4xl text-gray-900 mb-6;
+		@apply text-3xl sm:text-3xl text-gray-900 mb-6;
 	}
 
 	h3 {
