@@ -330,6 +330,7 @@ export const faqData = [
         question: "¿Qué incluye la Configuración Base de un E-commerce y cuál es su inversión?",
         answerJSX: (
             <div className="text-justify space-y-3">
+
                 <p>
                     Nuestro servicio de <strong>E-commerce</strong> está diseñado para construir un ecosistema transaccional enfocado en la rentabilidad a corto, mediano y largo plazo. El punto de partida es la <strong>Configuración Base Profesional (Inversión desde $1.200.000 CLP, IVA incluido)</strong>, la cual integra la operación comercial completa de tu negocio:
                 </p>
