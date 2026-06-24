@@ -1,10 +1,9 @@
 // src/pages/ServicePage.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, Link, useLocation } from 'react-router-dom';
 import ProjectSection from '../components/ProjectSection';
 import ImageTextCTA from '../components/ImageTextCTA';
 import { servicesData } from '../data/servicesData';
-import { faqData } from '../data/faqData';
 import NotFound from './NotFound';
 import PhaseItem from '../components/PhaseItem';
 import CallToAction from '../components/CallToAction';
@@ -12,47 +11,69 @@ import FaqItem from '../components/FaqItem';
 import SecondaryHero from '../components/SecondaryHero';
 import { trackWhatsAppClick } from '../utils/trackingUtils';
 
+// Importamos los formateadores globales y centralizados
+import { formatResponseText } from '../utils/faqFormatter';
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3000';
+
 const ServicePage = () => {
     const { slug } = useParams();
     const service = servicesData.find(s => s.slug === slug);
     const [openFaqIndex, setOpenFaqIndex] = useState(null);
     const [openPhaseIndex, setOpenPhaseIndex] = useState(0);
 
+    // Estados para las FAQs dinámicas del Chatbot
+    const [serviceFaqs, setServiceFaqs] = useState([]);
+    const [loadingFaqs, setLoadingFaqs] = useState(true);
+
     const location = useLocation();
     const baseUrl = 'https://expansispro.com';
     const canonicalUrl = `${baseUrl}${location.pathname}`.replace(/\/$/, "");
+
+    // Efecto para cargar y filtrar las FAQs según el slug activo de la landing
+    useEffect(() => {
+        if (!service) return;
+
+        setLoadingFaqs(true);
+        fetch(`${API_URL}/api/faq`)
+            .then(res => res.json())
+            .then(res => {
+                if (res.success) {
+                    // Filtramos dinámicamente las preguntas del servicio o las generales
+                    const filtered = res.data.filter(faq =>
+                        faq.tags && (faq.tags.includes(slug) || faq.tags.includes('general'))
+                    );
+                    setServiceFaqs(filtered);
+                }
+                setLoadingFaqs(false);
+            })
+            .catch(err => {
+                console.error("Error al sincronizar FAQs de servicios:", err);
+                setLoadingFaqs(false);
+            });
+    }, [slug, service]);
 
     if (!service) {
         return <NotFound />;
     }
 
-    const serviceFaqs = faqData.filter(faq =>
-        faq.tags && (faq.tags.includes(slug) || faq.tags.includes('general'))
-    );
-
     const handleFaqToggle = (index) => {
         setOpenFaqIndex(openFaqIndex === index ? null : index);
     };
 
-    // 🌟 TRUCO SEO: Extrae el título limpio del SEO (ej: "Diseño y Desarrollo Web Profesional en Chile") para usarlo de H1
     const cleanHeroTitle = service.seo?.title ? service.seo.title.split('|')[0].trim() : service.title;
 
     return (
         <div className="min-h-screen ">
-
-            {/* --- CONFIGURACIÓN SEO NATIVA DE REACT 19 --- */}
             <title>{service.seo?.title || service.title}</title>
             <meta name="description" content={service.seo?.description || service.description} />
             <link rel="canonical" href={canonicalUrl} />
 
-            {/* 🌟 NUEVO: Metadatos Open Graph Dinámicos para cada servicio */}
             <meta property="og:title" content={service.seo?.title || service.title} />
             <meta property="og:description" content={service.seo?.description || service.description} />
             <meta property="og:url" content={canonicalUrl} />
             <meta property="og:type" content="article" />
             <meta property="og:image" content={`${baseUrl}/assets/images/${service.slug}-hero.webp`} />
 
-            {/* --- ESQUEMAS JSON-LD --- */}
             <script type="application/ld+json">
                 {JSON.stringify({
                     "@context": "https://schema.org",
@@ -77,10 +98,9 @@ const ServicePage = () => {
                 })}
             </script>
 
-            {/* --- HERO DE SECCIÓN --- */}
             <div className="relative">
                 <SecondaryHero
-                    title={cleanHeroTitle} // 🌟 Inyecta el título SEO optimizado como H1 de forma automática
+                    title={cleanHeroTitle}
                     subtitle={service.longDescription}
                     icon={service.icon}
                     img={`/assets/images/${service.slug}-hero.webp`}
@@ -96,7 +116,6 @@ const ServicePage = () => {
                 </div>
             </div>
 
-            {/* ... El resto del componente se mantiene exactamente igual ... */}
             <div>
                 {service.videoSection && (
                     <ImageTextCTA
@@ -157,7 +176,7 @@ const ServicePage = () => {
                                         <ul className="space-y-5">
                                             {service.pricing.features.map((feature, index) => (
                                                 <li key={index} className="flex items-start gap-4">
-                                                    <div className="mt-1 w-5 h-5 rounded-full bg-primario/20 flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-check text-primario text-[10px]"></i></div>
+                                                    <div className="mt-1 w-5 h-5 rounded-full bg-primario/20 flex items-center justify-center flex-shrink-0"><i className="fa-solid fa-check text-primario text-[10px]"></i></div>
                                                     <span className="text-white/80 font-light text-base leading-snug">{feature}</span>
                                                 </li>
                                             ))}
@@ -171,7 +190,7 @@ const ServicePage = () => {
                                             <div className="text-white/50 text-sm font-light leading-relaxed italic" dangerouslySetInnerHTML={{ __html: service.pricing.scalability.description }} />
                                         </div>
                                     )}
-                                    <button onClick={() => trackWhatsAppClick('service_pricing_card', service.title)} className="btn-primary py-5 px-12 text-lg shadow-xl hover:scale-105 transition-transform w-full sm:w-auto"><i class="fa-brands fa-whatsapp text-2xl"></i>Cotizar {service.title}</button>
+                                    <button onClick={() => trackWhatsAppClick('service_pricing_card', service.title)} className="btn-primary py-5 px-12 text-lg shadow-xl hover:scale-105 transition-transform w-full sm:w-auto"><i className="fa-brands fa-whatsapp text-2xl"></i>Cotizar {service.title}</button>
                                 </div>
                             </div>
                         </div>
@@ -191,13 +210,20 @@ const ServicePage = () => {
 
                 <ProjectSection title="Casos de Éxito" subtitle={`Mira cómo hemos aplicado la ingeniería de ${service.title} en otros ecosistemas.`} limit={3} />
 
-                {serviceFaqs.length > 0 && (
+                {/* Se renderiza el bloque de FAQs únicamente si terminó de cargar y existen preguntas asociadas */}
+                {!loadingFaqs && serviceFaqs.length > 0 && (
                     <section id="service-faq" className="section-padding">
                         <div className="container-pro">
                             <h2 className="text-center mb-12">Preguntas Frecuentes</h2>
                             <div className="space-y-2">
                                 {serviceFaqs.map((item, index) => (
-                                    <FaqItem key={index} question={item.question} answer={item.answerJSX} isOpen={openFaqIndex === index} onToggle={() => handleFaqToggle(index)} />
+                                    <FaqItem
+                                        key={item.id || index}
+                                        question={item.pregunta}
+                                        answer={formatResponseText(item.respuesta)} // Inyección dinámica del formateador utilitario
+                                        isOpen={openFaqIndex === index}
+                                        onToggle={() => handleFaqToggle(index)}
+                                    />
                                 ))}
                             </div>
                         </div>
@@ -210,8 +236,8 @@ const ServicePage = () => {
                     <div className="container-pro">
                         <div className="flex justify-center">
                             <Link to="/servicios" className="group relative flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-deepBlue/5 text-deepBlue rounded-2xl hover:border-primario hover:text-primario transition-all duration-300">
-                                <i class="fa-solid fa-arrow-left transition-transform duration-300 group-hover:-translate-x-2"></i>
-                                <span className="tracking-tight">Explorar todas las <span class="text-primario">especialidades</span></span>
+                                <i className="fa-solid fa-arrow-left transition-transform duration-300 group-hover:-translate-x-2"></i>
+                                <span className="tracking-tight">Explorar todas las <span className="text-primario">especialidades</span></span>
                                 <div className="absolute inset-0 rounded-2xl bg-primario/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                             </Link>
                         </div>
