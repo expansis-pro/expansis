@@ -1,3 +1,4 @@
+// src/components/CardCarousel.js
 import React, { useState, useRef } from 'react';
 
 const CardCarousel = ({ children }) => {
@@ -5,12 +6,10 @@ const CardCarousel = ({ children }) => {
     const scrollRef = useRef(null);
     const totalItems = React.Children.count(children);
 
-    // Monitorea el scroll nativo del dispositivo para encender los puntitos
     const handleScroll = () => {
         if (scrollRef.current) {
             const { scrollLeft, clientWidth } = scrollRef.current;
-            // Evaluamos el cambio de tarjeta basado en el 80% del ancho visible
-            const currentIndex = Math.round(scrollLeft / (clientWidth * 0.8));
+            const currentIndex = Math.round(scrollLeft / (clientWidth * 0.85));
 
             if (currentIndex !== index && currentIndex >= 0 && currentIndex < totalItems) {
                 setIndex(currentIndex);
@@ -20,16 +19,17 @@ const CardCarousel = ({ children }) => {
 
     return (
         <div className="w-full py-2">
-            {/* LA SOLUCIÓN MAESTRA:
-              1. Eliminamos por completo Framer Motion de este componente (adiós saltos).
-              2. Agregamos 'px-[10%]' directamente al contenedor de scroll. Esto genera un colchón 
-                 simétrico del 10% a la izquierda y derecha de la pantalla.
-              3. Como la tarjeta mide 'w-[80%]', encaja matemáticamente en el centro a la perfección.
+            {/* 🛠️ INGENIERÍA DE DISEÑO RESPONSIVO DE ALTA GAMA:
+              - Móvil/Tablet (px-0): Forzamos un padding de 0 pixeles laterales. Las tarjetas tocarán 
+                exactamente el borde de la pantalla permitiendo un deslizamiento infinito y limpio de borde a borde.
+              - Desktop (md:max-w-7xl md:mx-auto...): En lugar de romper el componente con wrappers externos, inyectamos
+                los mismos parámetros exactos de tu clase maestra '.container-pro' directamente a partir del breakpoint md.
+                Esto asegura que en laptops y notebooks la grilla se centre y mantenga márgenes seguros sin tocar los bordes.
             */}
             <div
                 ref={scrollRef}
                 onScroll={handleScroll}
-                className="flex w-full overflow-x-auto snap-x snap-mandatory gap-6 py-6 no-scrollbar px-[5%] md:px-0 md:justify-center md:snap-none"
+                className="flex w-full overflow-x-auto snap-x snap-mandatory gap-6 py-6 no-scrollbar px-0 md:max-w-7xl md:mx-auto md:px-6 lg:px-8 md:overflow-x-visible md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
                 style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
                 <style dangerouslySetInnerHTML={{
@@ -40,8 +40,11 @@ const CardCarousel = ({ children }) => {
                 {React.Children.map(children, (child, idx) => (
                     <div
                         key={idx}
-                        // Cada tarjeta toma el 80% del ancho disponible y se imanta al centro
-                        className="w-[100%] md:w-[350px] shrink-0 snap-center select-none"
+                        /* Mantenemos w-[85%] en móvil combinado con el px-0 de arriba: 
+                           La primera tarjeta se pegará al borde izquierdo, y la siguiente asomará un 15% 
+                           en el borde derecho de manera perfecta, invitando nativamente al usuario a deslizar.
+                        */
+                        className="w-[85%] sm:w-[47%] md:w-full shrink-0 snap-center select-none"
                     >
                         {child}
                     </div>

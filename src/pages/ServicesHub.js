@@ -76,7 +76,7 @@ const Services = () => {
 			/>
 
 			<section id="services-page" className="py-16 text-center">
-				<div className="max-w-6xl mx-auto">
+				<div className="">
 
 					{/* El carrusel con las ServiceItems */}
 					<CardCarousel>

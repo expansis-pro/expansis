@@ -6,7 +6,7 @@ export const servicesData = [
         icon: "fa-solid fa-code",
         title: "Desarrollo Web",
         description: "Construimos tu activo digital más importante mediante un proceso de Arquitectura Coherente.",
-        longDescription: "En Expansis Pro co-construimos canales digitales de venta diseñados como ecosistemas vivos que integran tu identidad real con plataformas digitales escalables, sostenibles y adaptables.",
+        longDescription: "En Expansis Pro co-construimos canales digitales de contacto diseñados como ecosistemas vivos que integran tu identidad real con plataformas digitales escalables, sostenibles y adaptables.",
 
         // 🌟 1. CONTENIDO SEO
         seo: {
@@ -24,7 +24,7 @@ export const servicesData = [
             vimeoId: "1196058571",
             text: [
                 "En Expansis Pro tratamos tu presencia digital como un ecosistema integrado, donde la velocidad de carga, la psicología de conversión y el posicionamiento trabajan bajo un mismo objetivo técnico.",
-                "Estructuramos Landing Pages y sitios corporativos limpios y optimizados a nivel de código para asegurar una carga instantánea, reduciendo la tasa de rebote y garantizando una base sólida para el SEO en Google."
+                "Estructuramos sitios web corporativos limpios y optimizados a nivel de código para asegurar una carga instantánea, reduciendo la tasa de rebote y garantizando una base sólida para el SEO en Google."
             ]
         },
 
@@ -36,7 +36,7 @@ export const servicesData = [
             alt: "Público objetivo para el desarrollo web en React de Expansis Pro",
             imageSide: "right",
             text: [
-                "Este servicio se dirige a consultores, marcas personales y empresas que requieren validar su autoridad, difundir servicios complejos o captar leads calificados mediante una infraestructura de alta gama. Es ideal para negocios industriales, firmas legales o profesionales de servicios B2B que necesitan una carta de presentación solemne, veloz y libre de plantillas genéricas.",
+                "Este servicio se dirige a organizaciones y empresas que requieren validar su autoridad, difundir servicios complejos o captar leads calificados mediante una infraestructura de alta gama. Es ideal para negocios industriales, firmas legales o profesionales de servicios B2B que necesitan una carta de presentación solemne, veloz y libre de plantillas genéricas.",
                 "Si tu meta es educar al mercado, estructurar tu propuesta de valor bajo un código limpio en React y guiar al visitante hacia canales de contacto directo, aquí construimos el activo digital que sostendrá tu reputación."
             ]
         },
@@ -62,6 +62,7 @@ export const servicesData = [
         ],
         pricing: {
             from: "$350.000 CLP",
+            maintenance: "$45.000 CLP / mes",
             features: [
                 "Tecnología moderna (React) para máxima velocidad",
                 "Diseño UI/UX 100% personalizado a tu marca",
@@ -146,6 +147,7 @@ export const servicesData = [
         ],
         pricing: {
             from: "$1.200.000 CLP",
+            maintenance: "$45.000 CLP / mes",
             features: [
                 "Arquitectura técnica profesional basada en Shopify",
                 "Opción de desarrollo custom en React para proyectos robustos",
@@ -227,6 +229,7 @@ export const servicesData = [
         ],
         pricing: {
             from: "$180.000 CLP / mes",
+            maintenance: "Sujeto a Inversión",
             features: [
                 "Gestión Profesional de 1 Plataforma (Meta Ads o Google Ads)",
                 "Pack Full (Ambas plataformas) por $300.000 CLP / mes",
@@ -244,6 +247,87 @@ export const servicesData = [
             "Automatización de marketing y captura de leads.",
             "Analítica clara para la toma de decisiones comerciales.",
             "Mejora continua de anuncios para bajar tus costos de adquisición."
+        ]
+    },
+    {
+        slug: "web-para-profesionales",
+        icon: "fa-solid fa-user-tie",
+        title: "Web para Profesionales",
+        description: "Tu oficina digital en formato One-Page. Control total de tus contenidos con Strapi CMS, velocidad instantánea y cero complicaciones técnicas.",
+        longDescription: "Diseñado para médicos, abogados, coaches y consultores en Chile. Creamos tu oficina digital en una sola página (One-Page) de alta gama en React, conectada al panel moderno de Strapi para que gestiones tu contenido con total autonomía y sin el caos de WordPress.",
+
+        // 🌟 1. CONTENIDO SEO
+        seo: {
+            title: "Web para Profesionales | Expansis Pro",
+            description: "Potencia tu autoridad médica o legal. Sitios web One-Page en React, autoadministrables con Strapi CMS. Carga instantánea y SEO local en Chile."
+        },
+
+        // 🌟 2. SECCIÓN EXPLICATIVA DE VIDEO
+        videoSection: {
+            subtitle: "Estructuras de Autoridad Rápida",
+            title: "Tu Oficina Digital One-Page: Autonomía Real con Strapi CMS",
+            imageDesktop: "/assets/images/web-para-profesionales.webp",
+            alt: "Sitios web autoadministrables con Strapi para profesionales independientes - Expansis Pro",
+            imageSide: "left",
+            vimeoId: "1196058571",
+            text: [
+                "Para profesionales de la salud, las leyes o la consultoría, el tiempo es oro. Por ello, diseñamos una solución premium en formato One-Page (una sola página estructurada) conectada directamente a Strapi, un panel de administración independiente que te permite actualizar tus textos, imágenes y datos de contacto en minutos.",
+                "Al separar por completo el diseño técnico en React de tus contenidos en Strapi, eliminamos el riesgo típico de WordPress donde un clic erróneo puede desconfigurar toda la web. Aquí modificas lo que quieres, cuando quieres, garantizando una carga instantánea y la máxima seguridad."
+            ]
+        },
+
+        // 🌟 3. SECCIÓN DE AUDIENCIA OBJETIVO
+        targetAudience: {
+            subtitle: "PERFIL DE CLIENTE",
+            title: "¿Para quién está diseñado el servicio de Marca Personal?",
+            imageDesktop: "/assets/images/expansisPro_target.webp",
+            alt: "Público objetivo para sitios One-Page con Strapi en Chile",
+            imageSide: "right",
+            text: [
+                "Este servicio está pensado exclusivamente para especialistas que venden su conocimiento o servicios directos: psicólogos, abogados, asesores de negocios, médicos y conferencistas. Si requieres una tarjeta de presentación digital de primer nivel en una sola página fluida, que proyecte confianza inmediata y te otorgue control absoluto sobre tu información sin depender de un programador para cambios menores, esta es tu estructura."
+            ]
+        },
+        phases: [
+            {
+                title: "Selección de Estructura One-Page",
+                description: "Elegimos el layout de una sola página que mejor se adapte a tu rubro. Nos entregas tu perfil, trayectoria y datos de contacto para estructurar un embudo de conversión enfocado en tu autoridad."
+            },
+            {
+                title: "Personalización de Identidad",
+                description: "Adaptamos la interfaz a tus colores corporativos, tipografías y logotipos, asegurando que la estética de la One-Page sea un reflejo fiel de tu reputación profesional."
+            },
+            {
+                title: "Montaje React y Conexión Strapi",
+                description: "Programamos tu sitio con código limpio en React y configuramos tu panel autogestionable en Strapi. Dejamos el sistema listo para que puedas editar tus textos de forma intuitiva, además de añadir el SEO local base para Google Chile."
+            },
+            {
+                title: "Lanzamiento y Entrega de Control",
+                description: "Validamos los botones de WhatsApp y formularios. Ponemos tu web en vivo y te entregamos los accesos directos a tu panel de Strapi junto a tus 30 días de soporte técnico de respaldo."
+            }
+        ],
+        pricing: {
+            from: "$250.000 CLP",
+            maintenance: "$30.000 CLP / mes",
+            features: [
+                "Estructura One-Page premium optimizada para scroll fluido y conversión",
+                "Panel autogestionable con Strapi CMS (Control total de textos y fotos sin romper el diseño)",
+                "Tecnología React para una velocidad de carga instantánea",
+                "Personalización visual de colores, tipografías y logotipo de marca",
+                "Secciones integradas: Perfil/Sobre Mí, Servicios, Testimonios y Contacto",
+                "Botón de WhatsApp directo y formulario de contacto",
+                "Optimización SEO local base para Google Chile",
+                "30 días de soporte técnico gratuito ante caídas del sitio o fallas críticas"
+            ],
+            scalability: {
+                title: "Evolución sin Límites",
+                description: "Tu web no es un callejón sin salida. Gracias a la flexibilidad de React y Strapi, en el futuro puedes transformar tu One-Page en un sitio multi-sección integrando: un blog de contenidos, sistemas de agendamiento automático o pasarelas de pago."
+            }
+        },
+        details: [
+            "Diseño de landing page One-Page para marca personal.",
+            "Páginas web autoadministrables con Strapi (Sin WordPress).",
+            "Control total de contenidos para médicos, abogados y consultores.",
+            "Optimización de velocidad y SEO base local."
         ]
     }
 ];
