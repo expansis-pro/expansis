@@ -17,8 +17,8 @@ const PhaseItem = ({ number, title, description, isLast }) => {
                 <button
                     onClick={handleToggle}
                     className={`z-10 w-10 h-10 md:w-12 md:h-12 rounded-full border-2 flex items-center justify-center font-bold transition-all duration-500 md:pointer-events-none ${isOpen
-                            ? 'bg-primario border-primario text-white shadow-[0_0_15px_rgba(242,116,5,0.4)] scale-110'
-                            : 'bg-white border-gray-200 text-gray-400 hover:border-primario/50'
+                        ? 'bg-primario border-primario text-white shadow-[0_0_15px_rgba(242,116,5,0.4)] scale-110'
+                        : 'bg-white border-gray-200 text-gray-400 hover:border-primario/50'
                         } md:bg-deepBlue md:border-deepBlue md:text-white md:scale-100 md:shadow-none`}
                 >
                     {number}
@@ -53,6 +53,7 @@ const PhaseItem = ({ number, title, description, isLast }) => {
                 <div className={`grid transition-all duration-500 ease-in-out ${isOpen ? 'grid-rows-[1fr] opacity-100 mt-4' : 'grid-rows-[0fr] opacity-0 mt-0'
                     } md:grid-rows-[1fr] md:opacity-100 md:mt-2`}>
                     <div className="overflow-hidden">
+
                         <div className="bg-white border border-gray-100 p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300">
                             <p
                                 className="text-gray-600 font-light leading-relaxed text-lg"
