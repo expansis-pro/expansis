@@ -73,5 +73,19 @@ export const projectsData = [
         ],
         tags: ["React", "Tailwind CSS", "Infraestructura Digital", "Sector Legal"],
         liveUrl: "https://estudiobrkovic.cl/"
+    }, {
+        id: "expansis-oscar",
+        category: "Agentes de IA",
+        title: "OSCAR: Agente Comercial Inteligente",
+        sector: "Automatización Comercial",
+        image: "/assets/images/expansis-oscar-web.webp",
+        description: "Diseño y desarrollo de un <strong>agente conversacional autónomo y arquitectura de API centralizada</strong>. El proyecto interconecta los modelos de lenguaje avanzado de Gemini 2.5 Flash con la API oficial de WhatsApp (Meta) y Chatwoot, implementando un modelo de 'Única Fuente de Verdad' (Single Source of Truth) para sincronizar en tiempo real el conocimiento corporativo del bot y de la página web de la agencia.",
+        results: [
+            "Automatización del embudo de ventas y calificación de leads mediante respuestas ultra-sintéticas orientadas a la conversión (Cal.com)",
+            "Arquitectura híbrida orientada a eventos con sistema de seguridad 'Human-in-the-Loop' para desvíos automáticos por etiquetas",
+            "Exposición de endpoints API protegidos con soporte CORS para el consumo dinámico de datos del ecosistema en el frontend"
+        ],
+        tags: ["Node.js", "Express", "Gemini AI", "Webhooks", "Conversational AI"],
+        liveUrl: "https://api.whatsapp.com/send/?phone=56988318443&text=%C2%A1Hola%21+%0A%0AMe+gustar%C3%ADa+potenciar+mi+negocio+con+un+%2ADesarrollo+Web%2A+a+medida.%0A%0A%C2%BFPodr%C3%ADan+darme+m%C3%A1s+detalles%3F&type=phone_number&app_absent=0"
     }
 ];
