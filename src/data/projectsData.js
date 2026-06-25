@@ -20,7 +20,7 @@ export const projectsData = [
         title: "Claudia Gallardo",
         sector: "Dirección de Arte & Cine Internacional",
         image: "/assets/images/ClaudiaGallardo-web.webp",
-        description: "Desarrollo de portafolio premium para Directora de Arte de trayectoria internacional. El proyecto consistió en crear una <strong>vitrina digital de alto impacto</strong> para organizar una filmografía destacada en plataformas como Netflix, HBO y Prime Video. La arquitectura se centró en una estética cinematográfica que proyecta el estatus de una ganadora del Premio Pedro Sienna.",
+        description: "Desarrollo de portafolio para Directora de Arte de trayectoria internacional. El proyecto consistió en crear una <strong>vitrina digital de alto impacto</strong> para organizar una filmografía destacada en plataformas como Netflix, HBO y Prime Video. La arquitectura se centró en una estética cinematográfica que proyecta el estatus de una ganadora del Premio Pedro Sienna.",
         results: [
             "Arquitectura de información diseñada para destacar producciones de clase mundial",
             "Interfaz minimalista y sofisticada que cede el protagonismo a la obra visual",
