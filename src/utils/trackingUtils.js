@@ -36,7 +36,16 @@ const sendWhatsAppMessageBase = (servicio = "Información General", metadata = {
         });
     }
 
-    console.log("🚀 Evento de WhatsApp enviado a GTM/Ads con metadata:", metadata);
+    // 3. NUEVO: Señal directa para el Píxel de Meta (Evento Contactar)
+    if (typeof window.fbq === 'function') {
+        window.fbq('track', 'Contact', {
+            content_category: 'WhatsApp',
+            content_name: servicio,
+            predicted_availability: metadata.click_location
+        });
+    }
+
+    console.log("🚀 Eventos de WhatsApp enviados a Google y Meta con metadata:", metadata);
     window.open(whatsappLink, '_blank', 'noopener,noreferrer');
 };
 
@@ -58,8 +67,17 @@ const trackFormConversionBase = (formName = "Formulario General", metadata = {})
             'send_to': 'AW-16965295721/mRlTCNr00sIbEOm815k_',
             ...metadata
         });
-        console.log(`🚀 Conversión de formulario [${formName}] enviada a Google Ads`);
     }
+
+    // 3. NUEVO: Señal directa para el Píxel de Meta (Evento Cliente Potencial / Lead)
+    if (typeof window.fbq === 'function') {
+        window.fbq('track', 'Lead', {
+            content_name: formName,
+            status: 'Formulario Enviado Exitosamente'
+        });
+    }
+
+    console.log(`🚀 Conversión de formulario [${formName}] enviada a Google y Meta`);
 };
 
 
