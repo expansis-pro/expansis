@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
-// ❌ ELIMINADO: Ya no importamos HelmetProvider
 import './index.css';
 import App from './App';
 

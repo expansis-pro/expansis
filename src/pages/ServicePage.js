@@ -11,6 +11,7 @@ import FaqItem from '../components/FaqItem';
 import SecondaryHero from '../components/SecondaryHero';
 import VideoViewport from '../components/VideoViewport'; // 👈 COMPONENTE DE VIDEO OPTIMIZADO
 import { trackWhatsAppClick } from '../utils/trackingUtils';
+import JsonLd from '../components/SEO/JsonLd';
 
 // Importamos los formateadores globales y centralizados
 import { formatResponseText } from '../utils/faqFormatter';
@@ -20,7 +21,6 @@ const ServicePage = () => {
     const { slug } = useParams();
     const service = servicesData.find(s => s.slug === slug);
     const [openFaqIndex, setOpenFaqIndex] = useState(null);
-    const [openPhaseIndex, setOpenPhaseIndex] = useState(0);
 
     // Estados para las FAQs dinámicas del Chatbot
     const [serviceFaqs, setServiceFaqs] = useState([]);
@@ -78,8 +78,9 @@ const ServicePage = () => {
             <meta property="og:type" content="article" />
             <meta property="og:image" content={`${baseUrl}/assets/images/${service.slug}-hero.webp`} />
 
-            <script type="application/ld+json">
-                {JSON.stringify({
+            <JsonLd
+                id={`service-schema-${service.slug}`}
+                data={{
                     "@context": "https://schema.org",
                     "@type": "Service",
                     "name": service.title,
@@ -88,19 +89,8 @@ const ServicePage = () => {
                         "@type": "ProfessionalService",
                         "@id": "https://expansispro.com/#agency"
                     }
-                })}
-            </script>
-            <script type="application/ld+json">
-                {JSON.stringify({
-                    "@context": "https://schema.org",
-                    "@type": "BreadcrumbList",
-                    "itemListElement": [
-                        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://expansispro.com/" },
-                        { "@type": "ListItem", "position": 2, "name": "Servicios", "item": "https://expansispro.com/servicios" },
-                        { "@type": "ListItem", "position": 3, "name": service.title, "item": canonicalUrl }
-                    ]
-                })}
-            </script>
+                }}
+            />
 
             <div className="relative">
                 <SecondaryHero

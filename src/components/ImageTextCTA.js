@@ -37,8 +37,6 @@ const ImageTextCTA = ({
         ? imageDesktop.replace('-hero.webp', '').replace('.webp', '')
         : '';
 
-    // El fallback 'src' clásico ahora apuntará de forma automática al formato '-hero.webp'
-    const fallbackSrc = imageDesktop ? `${baseImagePath}-hero.webp` : '';
 
     // El 'srcSet' se genera limpio usando tus nombres amigables (ecommerce-sm.webp, etc.)
     const imageSrcSet = imageDesktop

@@ -1,6 +1,6 @@
 // src/components/SEO/AgencySchema.js
 import React from 'react';
-
+import JsonLd from './JsonLd'; // 1. Importa tu inyector
 import { contactData } from '../../data/contactConfig';
 import { servicesData } from '../../data/servicesData'; // 🌟 Importamos tu data real de servicios
 
@@ -14,6 +14,7 @@ export default function AgencySchema() {
         'description': 'Agencia de desarrollo web y marketing digital de alto impacto. Especialistas en diseño UX/UI, aplicaciones web con React, SEO técnico y automatizaciones para empresas.',
         'url': 'https://expansispro.com',
         'logo': 'https://expansispro.com/logo.png',
+        'image': 'https://expansispro.com/assets/images/expansisPro_aboutus.webp',
         'telephone': `${contactData.whatsapp.prefix} ${contactData.whatsapp.number}`,
         'email': contactData.email.address,
         'sameAs': [
@@ -40,9 +41,6 @@ export default function AgencySchema() {
         }
     };
 
-    return (
-        <script id="agency-jsonld" type="application/ld+json">
-            {JSON.stringify(agencyData)}
-        </script>
-    );
+    // 2. Retorna usando el componente optimizado
+    return <JsonLd data={agencyData} id="agency-jsonld" />;
 }

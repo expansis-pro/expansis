@@ -3,7 +3,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { servicesData } from '../data/servicesData';
-import { contactData } from '../data/contactConfig';
 import { trackWhatsAppClick } from '../utils/trackingUtils';
 
 const Navbar = () => {

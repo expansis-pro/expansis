@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import FaqItem from '../components/FaqItem';
 import SecondaryHero from '../components/SecondaryHero';
 import CtaButton from '../components/CtaButton';
+import JsonLd from '../components/SEO/JsonLd';
 
 // Coloca aquí la URL de tu backend de Chatbot (ej: en producción o localhost)
 const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3000';
@@ -85,21 +86,22 @@ const Faqs = () => {
             <title>Preguntas Frecuentes | Expansis Pro</title>
             <link rel="canonical" href={canonicalUrl} />
 
-            {/* 🌟 SCHEMA MARKUP DINÁMICO (Google leerá siempre tu versión actualizada automáticamente) */}
-            <script type="application/ld+json">
-                {JSON.stringify({
+            {/* Solución en Faqs.js (Colócalo justo abajo del loading check) */}
+            <JsonLd
+                id="faqs-page-schema"
+                data={{
                     "@context": "https://schema.org",
                     "@type": "FAQPage",
-                    "mainEntity": faqData.map((faq) => ({
+                    "mainEntity": faqData.map(faq => ({
                         "@type": "Question",
                         "name": faq.pregunta,
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": faq.respuesta // Texto limpio que viene del backend
+                            "text": faq.respuesta
                         }
                     }))
-                })}
-            </script>
+                }}
+            />
 
             <SecondaryHero
                 title="Preguntas Frecuentes"

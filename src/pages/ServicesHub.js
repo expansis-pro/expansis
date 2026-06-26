@@ -9,6 +9,7 @@ import CallToAction from '../components/CallToAction';
 import CardCarousel from '../components/CardCarousel';
 import SecondaryHero from '../components/SecondaryHero'; // <-- Importar el nuevo Hero
 import ImageTextCTA from '../components/ImageTextCTA';
+import JsonLd from '../components/SEO/JsonLd';
 
 
 
@@ -37,33 +38,16 @@ const Services = () => {
 			<meta name="description" content="En Expansis Pro tratamos tu presencia digital como un ecosistema vivo e integrado..." />
 			<link rel="canonical" href={canonicalUrl} />
 
-			{/* 🌟 1. ItemList del catálogo mapeado 100% en automático desde tu data */}
-			<script type="application/ld+json">
-				{JSON.stringify({
+			<JsonLd
+				id="services-hub-schema"
+				data={{
 					"@context": "https://schema.org",
-					"@type": "ItemList",
-					"name": "Catálogo de Servicios de Expansis Pro",
-					"description": "Infraestructura digital y soluciones estratégicas de software y pauta digital.",
-					"itemListElement": servicesData.map((service, index) => ({
-						"@type": "ListItem",
-						"position": index + 1,
-						"name": service.title,
-						"url": `${baseUrl}/servicios/${service.slug}`
-					}))
-				})}
-			</script>
-
-			{/* 🌟 2. Breadcrumbs de navegación para los fragmentos de Google */}
-			<script type="application/ld+json">
-				{JSON.stringify({
-					"@context": "https://schema.org",
-					"@type": "BreadcrumbList",
-					"itemListElement": [
-						{ "@type": "ListItem", "position": 1, "name": "Inicio", "item": `${baseUrl}/` },
-						{ "@type": "ListItem", "position": 2, "name": "Servicios", "item": `${baseUrl}/servicios` }
-					]
-				})}
-			</script>
+					"@type": "CollectionPage",
+					"name": "Nuestros Servicios de Ingeniería Digital | Expansis Pro",
+					"description": "En Expansis Pro tratamos tu presencia digital como un ecosistema vivo e integrado...",
+					"url": canonicalUrl
+				}}
+			/>
 
 
 
