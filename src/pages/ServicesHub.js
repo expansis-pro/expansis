@@ -92,7 +92,7 @@ const Services = () => {
 					]}
 					imageSide="right" // Rompe simetría con la sección "About Us" de abajo
 					buttonContent="Cotizar Proyecto"
-					buttonLink="https://wa.me/5696591086?text=Hola%20Expansis%20Pro%2C%20me%20gustaría%20saber%20si%20sus%20servicios%20se%20adaptan%20a%20mi%20modelo%20de%20negocio."
+					buttonLink="https://wa.me/56965961086?text=Hola%20Expansis%20Pro%2C%20me%20gustaría%20saber%20si%20sus%20servicios%20se%20adaptan%20a%20mi%20modelo%20de%20negocio."
 					buttonVariant="primary"
 
 				/>
@@ -111,7 +111,7 @@ const Services = () => {
 				imageSide="left"
 				// 1. BOTÓN PRINCIPAL CORREGIDO: Eliminamos la variable service.title inexistente
 				buttonContent="Cotizar por WhatsApp"
-				buttonLink="https://wa.me/5696591086?text=Hola%20Expansis%20Pro%2C%20me%20interesa%20cotizar%20un%20ecosistema%20digital%20integral"
+				buttonLink="https://wa.me/56965961086?text=Hola%20Expansis%20Pro%2C%20me%20interesa%20cotizar%20un%20ecosistema%20digital%20integral"
 				buttonVariant="primary"
 
 				// 2. BOTÓN SECUNDARIO CORREGIDO: Variante "secondary" para que sea visible en la interfaz

@@ -142,7 +142,7 @@ const ServicePage = () => {
                         imageSide={service.videoSection.imageSide}
                         vimeoId={service.videoSection.vimeoId}
                         buttonContent="Cotizar por WhatsApp"
-                        buttonLink={`https://wa.me/5696591086?text=Hola%20Expansis%20Pro%2C%20me%20interesa%20el%20servicio%20de%20${encodeURIComponent(service.title)}`}
+                        buttonLink={`https://wa.me/56965961086?text=Hola%20Expansis%20Pro%2C%20me%20interesa%20el%20servicio%20de%20${encodeURIComponent(service.title)}`}
                         buttonVariant="primary"
                         secondaryButtonContent="Formulario de Contacto"
                         secondaryButtonLink="/contacto"
@@ -261,7 +261,7 @@ const ServicePage = () => {
                             alt={service.targetAudience.alt}
                             imageSide={service.targetAudience.imageSide}
                             buttonContent="Evaluar mi Negocio"
-                            buttonLink={`https://wa.me/5696591086?text=Hola%20Expansis%20Pro%2C%20quiero%20validar%20mi%20perfil%20para%20el%20servicio%20de%20${encodeURIComponent(service.title)}`}
+                            buttonLink={`https://wa.me/56965961086?text=Hola%20Expansis%20Pro%2C%20quiero%20validar%20mi%20perfil%20para%20el%20servicio%20de%20${encodeURIComponent(service.title)}`}
                             buttonVariant="primary"
                         />
                     </section>
