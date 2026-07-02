@@ -23,7 +23,7 @@ const WhatIsExpansisPro = () => {
 
                     // 1. BOTÓN PRINCIPAL: Variante "primary" (Hereda la clase btn-primary en CtaButton)
                     buttonContent="Conversemos por WhatsApp"
-                    buttonLink="https://wa.me/56988318443?text=Hola%20Expansis%20Pro%2C%20me%20interesa%20cotizar%20un%20ecosistema%20digital%20integral"
+                    buttonLink="https://wa.me/5696591086?text=Hola%20Expansis%20Pro%2C%20me%20interesa%20cotizar%20un%20ecosistema%20digital%20integral"
                     buttonVariant="primary"
 
                     // 2. BOTÓN SECUNDARIO: Variante "secondary" (Hereda tus estilos de link/formulario)

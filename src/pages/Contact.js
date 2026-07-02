@@ -70,7 +70,7 @@ const Contact = () => {
 											onClick={() => trackWhatsAppClick('contact_page_channels', 'Información General')}
 											className="text-deepBlue text-lg hover:text-primario transition-colors font-medium text-left block"
 										>
-											+56 9 88318443
+											+56 9 6591086
 										</button>
 									</div>
 								</li>

@@ -101,7 +101,7 @@ const QuienesSomos = () => {
                         imageSide="right"
                         imageShape="square"
                         buttonContent="Conversemos por WhatsApp"
-                        buttonLink="https://wa.me/56988318443?text=Hola%20Gonzalo%2C%20vi%20tu%20perfil%20en%20la%20web%20y%20me%20gustar%C3%ADa%20agendar%20una%20reuni%C3%B3n"
+                        buttonLink="https://wa.me/5696591086?text=Hola%20Gonzalo%2C%20vi%20tu%20perfil%20en%20la%20web%20y%20me%20gustar%C3%ADa%20agendar%20una%20reuni%C3%B3n"
                         buttonVariant="primary"
                         showLinkedIn={true}
                         showPersonalWeb={true}
@@ -135,7 +135,7 @@ const QuienesSomos = () => {
                         ]}
                         imageSide="left" // Intercala el orden visual con la sección del fundador superior
                         buttonContent="Agendar Asesoría Integral"
-                        buttonLink="https://wa.me/56988318443?text=Hola%20Expansis%20Pro%2C%20me%20interesa%20cotizar%20un%20ecosistema%20digital%20integral"
+                        buttonLink="https://wa.me/5696591086?text=Hola%20Expansis%20Pro%2C%20me%20interesa%20cotizar%20un%20ecosistema%20digital%20integral"
                         buttonVariant="primary"
                         secondaryButtonContent="Formulario de Contacto"
                         secondaryButtonLink="/contacto"

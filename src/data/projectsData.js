@@ -86,6 +86,6 @@ export const projectsData = [
             "Exposición de endpoints API protegidos con soporte CORS para el consumo dinámico de datos del ecosistema en el frontend"
         ],
         tags: ["Node.js", "Express", "Gemini AI", "Webhooks", "Conversational AI"],
-        liveUrl: "https://api.whatsapp.com/send/?phone=56988318443&text=%C2%A1Hola%21+%0A%0AMe+gustar%C3%ADa+potenciar+mi+negocio+con+un+%2ADesarrollo+Web%2A+a+medida.%0A%0A%C2%BFPodr%C3%ADan+darme+m%C3%A1s+detalles%3F&type=phone_number&app_absent=0"
+        liveUrl: "https://api.whatsapp.com/send/?phone=5696591086&text=%C2%A1Hola%21+%0A%0AMe+gustar%C3%ADa+potenciar+mi+negocio+con+un+%2ADesarrollo+Web%2A+a+medida.%0A%0A%C2%BFPodr%C3%ADan+darme+m%C3%A1s+detalles%3F&type=phone_number&app_absent=0"
     }
 ];

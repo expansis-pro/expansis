@@ -8,7 +8,7 @@
  * Abre WhatsApp con un mensaje personalizado y envía señales a GTM y Google Ads.
  */
 const sendWhatsAppMessageBase = (servicio = "Información General", metadata = {}) => {
-    const phoneNumber = "56988318443";
+    const phoneNumber = "5696591086";
     const frasesContexto = {
         "Desarrollo Web": "potenciar mi negocio con un *Desarrollo Web* a medida",
         "Marketing Digital": "mejorar mi visibilidad online con *Marketing Digital*",
