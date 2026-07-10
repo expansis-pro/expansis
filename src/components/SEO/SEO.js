@@ -1,4 +1,4 @@
-// src/components/SEO.js
+// src/components/SEO/SEO.js
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 

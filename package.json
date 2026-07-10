@@ -62,6 +62,7 @@
       "--disable-setuid-sandbox"
     ],
     "saveAs": "html",
-    "delay": 3000
+    "delay": 3000,
+    "skipThirdPartyRequests": true
   }
 }
