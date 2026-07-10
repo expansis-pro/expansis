@@ -5,7 +5,7 @@ import FaqItem from '../components/FaqItem';
 import SecondaryHero from '../components/SecondaryHero';
 import CtaButton from '../components/CtaButton';
 import JsonLd from '../components/SEO/JsonLd';
-import SEO from '../components/SEO';
+import SEO from '../components/SEO/SEO';
 
 // Coloca aquí la URL de tu backend de Chatbot (ej: en producción o localhost)
 const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3000';
@@ -19,7 +19,7 @@ const Faqs = () => {
 
     const location = useLocation();
     const baseUrl = 'https://expansispro.com';
-    const canonicalUrl = `${baseUrl}${location.pathname}`.replace(/\/$/, "");
+
 
     // 1. LLAMADA EN VIVO AL CEREBRO DEL CHATBOT
     useEffect(() => {

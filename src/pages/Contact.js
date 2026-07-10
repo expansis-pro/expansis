@@ -1,6 +1,6 @@
 // src/pages/Contact.js
 import React, { useEffect } from 'react';
-import SEO from '../components/SEO';
+import SEO from '../components/SEO/SEO';
 import { useLocation } from 'react-router-dom';
 import SecondaryHero from '../components/SecondaryHero';
 import ContactForm from '../components/ContactForm';
@@ -14,7 +14,7 @@ const Contact = () => {
 	// 2. CONFIGURAMOS EL CANONICAL DINÁMICO
 	const location = useLocation();
 	const baseUrl = 'https://expansispro.com';
-	const canonicalUrl = `${baseUrl}${location.pathname}`.replace(/\/$/, "");
+
 
 	// --- LÓGICA DE CORREO ---
 	const email = "info@expansispro.com";

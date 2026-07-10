@@ -5,13 +5,13 @@ import { projectsData } from '../data/projectsData'; // 🌟 Importamos tu data 
 import SecondaryHero from '../components/SecondaryHero';
 import ProjectSection from '../components/ProjectSection';
 import CallToAction from '../components/CallToAction';
-import SEO from '../components/SEO'; // 🌟 Importamos el componente SEO
+import SEO from '../components/SEO/SEO'; // 🌟 Importamos el componente SEO
 
 const ProjectsPage = () => {
     // 🌟 Configuración del Canonical Dinámico de Expansis Pro
     const location = useLocation();
     const baseUrl = 'https://expansispro.com';
-    const canonicalUrl = `${baseUrl}${location.pathname}`.replace(/\/$/, "");
+
 
     return (
         <div className="min-h-screen flex flex-col">

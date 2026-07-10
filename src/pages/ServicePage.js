@@ -11,7 +11,7 @@ import FaqItem from '../components/FaqItem';
 import SecondaryHero from '../components/SecondaryHero';
 import VideoViewport from '../components/VideoViewport';
 import JsonLd from '../components/SEO/JsonLd';
-import SEO from '../components/SEO';
+import SEO from '../components/SEO/SEO';
 
 import { formatResponseText } from '../utils/faqFormatter';
 const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3000';
@@ -25,7 +25,7 @@ const ServicePage = () => {
 
     const location = useLocation();
     const baseUrl = 'https://expansispro.com';
-    const canonicalUrl = `${baseUrl}${location.pathname}`.replace(/\/$/, "");
+
 
     useEffect(() => {
         if (!service) return;

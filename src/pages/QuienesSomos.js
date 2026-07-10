@@ -7,7 +7,7 @@ import ImageTextCTA from '../components/ImageTextCTA';
 import ServiceItem from '../components/ServiceItem'; // Mantiene la dependencia de tus cards de filosofía
 import CallToAction from '../components/CallToAction';
 
-import SEO from '../components/SEO';
+import SEO from '../components/SEO/SEO';
 
 const QuienesSomos = () => {
     useEffect(() => {
@@ -16,8 +16,8 @@ const QuienesSomos = () => {
 
     const location = useLocation();
     const baseUrl = 'https://expansispro.com';
-    const canonicalUrl = `${baseUrl}${location.pathname}`.replace(/\/$/, "");
 
+    const canonicalUrl = `${baseUrl}${location.pathname}`.replace(/\/$/, "");
     // Datos estructurados para la sección Misión y Visión
     const misionData = {
         slug: "mision",

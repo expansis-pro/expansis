@@ -10,7 +10,7 @@ import CardCarousel from '../components/CardCarousel';
 import SecondaryHero from '../components/SecondaryHero'; // <-- Importar el nuevo Hero
 import ImageTextCTA from '../components/ImageTextCTA';
 import JsonLd from '../components/SEO/JsonLd';
-import SEO from '../components/SEO'; // 🌟 Importamos el componente SEO
+import SEO from '../components/SEO/SEO'; // 🌟 Importamos el componente SEO
 
 
 

@@ -1,6 +1,6 @@
 // src/pages/Home.jsx
 import React from 'react';
-import SEO from '../components/SEO';
+import SEO from '../components/SEO/SEO';
 import { motion } from 'framer-motion';
 import { servicesData } from '../data/servicesData';
 import CarouselItem from '../components/CarouselItem';
@@ -17,7 +17,7 @@ const Home = () => {
 	const location = useLocation();
 	const baseUrl = 'https://expansispro.com';
 	// Esto evita que queden barras diagonales duplicadas al final (ej: /contacto/)
-	const canonicalUrl = `${baseUrl}${location.pathname}`.replace(/\/$/, "");
+
 
 	return (
 		<>
