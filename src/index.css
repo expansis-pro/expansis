@@ -66,15 +66,16 @@
 	}
 }
 
-/* Utilidades adicionales */
-.no-scrollbar::-webkit-scrollbar {
-	display: none;
+/* Utilidades adicionales optimizadas */
+@layer utilities {
+	.no-scrollbar::-webkit-scrollbar {
+		display: none;
+	}
+	.no-scrollbar {
+		-ms-overflow-style: none; /* IE y Edge */
+		scrollbar-width: none; /* Firefox */
+	}
 }
-.no-scrollbar {
-	-ms-overflow-style: none;
-	scrollbar-width: none;
-}
-
 @layer components {
 	/* BOTÓN PRIMARIO (Naranja Expansis) */
 	.btn-primary {

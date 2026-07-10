@@ -15,40 +15,70 @@ const ImageTextCTA = ({
     secondaryButtonVariant = 'secondary',
     subtitle,
     title,
+    serviceName, // Nombre limpio del servicio (ej: "Desarrollo Web")
     imageSide = 'left',
     vimeoId = null,
     imageShape = 'video',
-    showLinkedIn = false,    // Controla el enlace de LinkedIn
-    showPersonalWeb = false  // Controla la web personal
+    showLinkedIn = false,
+    showPersonalWeb = false,
+    // Parámetros de control para el botón exclusivo de WhatsApp
+    showWhatsAppButton = false,
+    whatsAppButtonContent = "Chatear por WhatsApp",
+    whatsAppButtonLink = "https://wa.me/56965961086"
 }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    // Bloquear scroll del body por UX al abrir el modal de video
     useEffect(() => {
         document.body.style.overflow = isModalOpen ? 'hidden' : 'unset';
         return () => { document.body.style.overflow = 'unset'; };
     }, [isModalOpen]);
 
-    // =========================================================================
-    // 🌟 LÓGICA DE INGENIERÍA PARA IMÁGENES RESPONSIVAS Y HERO UNIFICADO
-    // =========================================================================
-    // Eliminamos preventivamente tanto '.webp' como '-hero.webp' para obtener la raíz limpia (ej: /assets/images/ecommerce)
     const baseImagePath = imageDesktop
         ? imageDesktop.replace('-hero.webp', '').replace('.webp', '')
         : '';
 
-
-    // El 'srcSet' se genera limpio usando tus nombres amigables (ecommerce-sm.webp, etc.)
     const imageSrcSet = imageDesktop
         ? `${baseImagePath}-sm.webp 600w, ${baseImagePath}-md.webp 800w, ${baseImagePath}-lg.webp 1200w`
         : '';
 
     const imageSizes = "(max-width: 1024px) 100vw, 600px";
 
-    // Asignación dinámica de clases según el formato geométrico de la imagen
     const imageContainerClasses = imageShape === 'square'
         ? 'aspect-square max-w-sm mx-auto rounded-[60px_10px_60px_10px]'
         : 'aspect-video w-full rounded-[60px_10px_60px_10px]';
+
+    // 🟢 TRACKING EXCLUSIVO Y ROBUSTO PARA EL BOTÓN DEDICADO
+    const handleDedicatedWhatsAppClick = () => {
+        // Genera una ubicación limpia basada en el subtítulo (ej: cta_wa_perfil_comercial)
+        const cleanLocation = subtitle
+            ? `cta_wa_${subtitle.toLowerCase().replace(/\s+/g, '_')}`
+            : 'cta_wa_section';
+
+        // 1. Señal para Google Tag Manager (Activa tu etiqueta click_whatsapp)
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+            'event': 'disparo_whatsapp_manual',
+            'servicio_seleccionado': serviceName || 'Información General',
+            'click_location': cleanLocation,
+            'page_url': window.location.href
+        });
+
+        // 2. Señal de respaldo directa para Google Ads
+        if (typeof window.gtag === 'function') {
+            window.gtag('event', 'conversion', {
+                'send_to': 'AW-16965295721/wff8CPWU1sIbEOm815k_'
+            });
+        }
+
+        // 3. Señal de respaldo directa para Meta Pixel
+        if (typeof window.fbq === 'function') {
+            window.fbq('track', 'Contact', {
+                content_category: 'WhatsApp',
+                content_name: serviceName || 'Información General',
+                predicted_availability: cleanLocation
+            });
+        }
+    };
 
     return (
         <section className="w-full section-padding overflow-hidden">
@@ -86,15 +116,37 @@ const ImageTextCTA = ({
                         {subtitle && <span className="block text-primario uppercase tracking-widest mb-4 text-sm font-bold">{subtitle}</span>}
                         {title && <h2 >{title}</h2>}
 
-                        {/* Blindaje contra caídas: fallback de array vacío por seguridad si text es null/undefined */}
                         <div className="space-y-6 text-gray-600 leading-relaxed text-justify font-light text-lg">
                             <ReadMoreParagraphs paragraphs={text || []} />
                         </div>
 
-                        {(buttonContent || secondaryButtonContent) && (
+                        {(buttonContent || secondaryButtonContent || showWhatsAppButton) && (
                             <div className="mt-10 flex flex-col sm:flex-row items-center justify-start gap-4 md:gap-6 w-full">
-                                {buttonContent && <CtaButton to={buttonLink} variant={buttonVariant} className="w-full sm:w-auto">{buttonContent}</CtaButton>}
+                                {buttonContent && (
+                                    <CtaButton
+                                        to={buttonLink}
+                                        variant={buttonVariant}
+                                        className="w-full sm:w-auto"
+                                    >
+                                        {buttonContent}
+                                    </CtaButton>
+                                )}
+
                                 {secondaryButtonContent && <CtaButton to={secondaryButtonLink} variant={secondaryButtonVariant} className="w-full sm:w-auto">{secondaryButtonContent}</CtaButton>}
+
+                                {/* 🟢 BOTÓN EXCLUSIVO DE WHATSAPP: HTML5 puro para asegurar el target="_blank" en móviles */}
+                                {showWhatsAppButton && (
+                                    <a
+                                        href={whatsAppButtonLink}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        onClick={handleDedicatedWhatsAppClick}
+                                        className="w-full sm:w-auto bg-[#25D366] hover:bg-[#1eb956] text-white font-bold text-base py-4 px-8 rounded-2xl shadow-xl shadow-green-100 flex items-center justify-center gap-2 transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 text-center tokens-custom-wa"
+                                    >
+                                        <i className="fa-brands fa-whatsapp text-2xl"></i>
+                                        {whatsAppButtonContent}
+                                    </a>
+                                )}
                             </div>
                         )}
 
@@ -135,7 +187,7 @@ const ImageTextCTA = ({
                 </div>
             </div>
 
-            {/* Modal de video con animación CSS nativa */}
+            {/* Modal de video */}
             {vimeoId && isModalOpen && (
                 <div
                     className="fixed inset-0 z-[9999] bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 md:p-10 animate-fadeIn"
