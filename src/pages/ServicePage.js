@@ -11,6 +11,7 @@ import FaqItem from '../components/FaqItem';
 import SecondaryHero from '../components/SecondaryHero';
 import VideoViewport from '../components/VideoViewport';
 import JsonLd from '../components/SEO/JsonLd';
+import SEO from '../components/SEO';
 
 import { formatResponseText } from '../utils/faqFormatter';
 const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3000';
@@ -85,16 +86,11 @@ const ServicePage = () => {
 
     return (
         <div className="min-h-screen ">
-            <title>{service.seo?.title || service.title}</title>
-            <meta name="description" content={service.seo?.description || service.description} />
-            <link rel="canonical" href={canonicalUrl} />
-
-            <meta property="og:title" content={service.seo?.title || service.title} />
-            <meta property="og:description" content={service.seo?.description || service.description} />
-            <meta property="og:url" content={canonicalUrl} />
-            <meta property="og:type" content="article" />
-            <meta property="og:image" content={`${baseUrl}/assets/images/${service.slug}-hero.webp`} />
-
+            <SEO
+                title={service.seo?.title || service.title}
+                description={service.seo?.description || service.description}
+                image={`https://expansispro.com/assets/images/${service.slug}-hero.webp`}
+            />
             <JsonLd
                 id={`service-schema-${service.slug}`}
                 data={{

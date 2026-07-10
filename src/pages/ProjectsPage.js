@@ -5,6 +5,7 @@ import { projectsData } from '../data/projectsData'; // 🌟 Importamos tu data 
 import SecondaryHero from '../components/SecondaryHero';
 import ProjectSection from '../components/ProjectSection';
 import CallToAction from '../components/CallToAction';
+import SEO from '../components/SEO'; // 🌟 Importamos el componente SEO
 
 const ProjectsPage = () => {
     // 🌟 Configuración del Canonical Dinámico de Expansis Pro
@@ -14,13 +15,12 @@ const ProjectsPage = () => {
 
     return (
         <div className="min-h-screen flex flex-col">
-
-            <title>Casos de Éxito y Portafolio de Ingeniería Digital | Expansis Pro</title>
-            <meta
-                name="description"
-                content="Explora las plataformas web, e-commerce a medida y ecosistemas digitales que hemos diseñado y construido para marcas con autoridad en Chile."
+            {/* 🌟 CONTROL DE INMUNIDAD SEO */}
+            <SEO
+                title="Casos de Éxito y Portafolio de Ingeniería Digital | Expansis Pro"
+                description="Explora las plataformas web, e-commerce a medida y ecosistemas digitales que hemos diseñado y construido para marcas con autoridad en Chile."
+                image="https://expansispro.com/assets/images/hero-projects.webp"
             />
-            <link rel="canonical" href={canonicalUrl} />
 
             {/* 🌟 1. ItemList de Proyectos para indexación masiva en Google */}
             <script type="application/ld+json">

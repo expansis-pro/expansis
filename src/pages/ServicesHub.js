@@ -10,7 +10,7 @@ import CardCarousel from '../components/CardCarousel';
 import SecondaryHero from '../components/SecondaryHero'; // <-- Importar el nuevo Hero
 import ImageTextCTA from '../components/ImageTextCTA';
 import JsonLd from '../components/SEO/JsonLd';
-
+import SEO from '../components/SEO'; // 🌟 Importamos el componente SEO
 
 
 
@@ -31,12 +31,14 @@ const Services = () => {
 
 
 	return (
-		<main className=" min-h-screen">
+		<main className="min-h-screen">
 
 
-			<title>Nuestros Servicios de Ingeniería Digital | Expansis Pro</title>
-			<meta name="description" content="En Expansis Pro tratamos tu presencia digital como un ecosistema vivo e integrado..." />
-			<link rel="canonical" href={canonicalUrl} />
+			<SEO
+				title="Nuestros Servicios de Ingeniería Digital | Expansis Pro"
+				description="En Expansis Pro tratamos tu presencia digital como un ecosistema vivo e integrado. Conoce nuestras soluciones en Diseño Web, E-commerce y Marketing Digital."
+				image="https://expansispro.com/assets/images/hero-services.webp"
+			/>
 
 			<JsonLd
 				id="services-hub-schema"

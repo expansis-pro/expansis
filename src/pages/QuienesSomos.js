@@ -7,6 +7,8 @@ import ImageTextCTA from '../components/ImageTextCTA';
 import ServiceItem from '../components/ServiceItem'; // Mantiene la dependencia de tus cards de filosofía
 import CallToAction from '../components/CallToAction';
 
+import SEO from '../components/SEO';
+
 const QuienesSomos = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -33,16 +35,11 @@ const QuienesSomos = () => {
     return (
         <main className="min-h-screen">
 
-            <title>Sobre Expansis Pro | Nuestra Filosofía de Ingeniería</title>
-            <meta
-                name="description"
-                content="Conoce al equipo detrás de la estrategia. Un aliado dedicado a entender y potenciar tu negocio con integridad técnica."
+            <SEO
+                title="Sobre Expansis Pro | Nuestra Filosofía de Ingeniería"
+                description="Conoce al equipo detrás de la estrategia. Un aliado dedicado a entender y potenciar tu negocio con integridad técnica."
+                image="https://expansispro.com/assets/images/hero-about.webp"
             />
-            <link rel="canonical" href={canonicalUrl} />
-
-            <meta property="og:title" content="Sobre Expansis Pro | Nuestra Filosofía de Ingeniería" />
-            <meta property="og:description" content="Conoce al equipo detrás de la estrategia. Un aliado dedicado a entender y potenciar tu negocio con integridad técnica." />
-            <meta property="og:url" content={canonicalUrl} />
 
             {/* Schema de AboutPage + Datos de Autoridad del Fundador */}
             <script type="application/ld+json">

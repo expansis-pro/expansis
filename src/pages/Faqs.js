@@ -5,6 +5,7 @@ import FaqItem from '../components/FaqItem';
 import SecondaryHero from '../components/SecondaryHero';
 import CtaButton from '../components/CtaButton';
 import JsonLd from '../components/SEO/JsonLd';
+import SEO from '../components/SEO';
 
 // Coloca aquí la URL de tu backend de Chatbot (ej: en producción o localhost)
 const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3000';
@@ -83,8 +84,11 @@ const Faqs = () => {
 
     return (
         <main className="min-h-screen">
-            <title>Preguntas Frecuentes | Expansis Pro</title>
-            <link rel="canonical" href={canonicalUrl} />
+            {/* 🌟 CONTROL DE INMUNIDAD SEO */}
+            <SEO
+                title="Preguntas Frecuentes | Expansis Pro"
+                description="Resolvemos tus dudas sobre desarrollo web en React, tiendas online Shopify, administración con Strapi CMS, hosting y estrategias digitales en Chile."
+            />
 
             {/* Solución en Faqs.js (Colócalo justo abajo del loading check) */}
             <JsonLd

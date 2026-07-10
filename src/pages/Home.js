@@ -1,5 +1,6 @@
 // src/pages/Home.jsx
 import React from 'react';
+import SEO from '../components/SEO';
 import { motion } from 'framer-motion';
 import { servicesData } from '../data/servicesData';
 import CarouselItem from '../components/CarouselItem';
@@ -21,16 +22,12 @@ const Home = () => {
 	return (
 		<>
 
-			{/* 1. SOPORTE NATIVO DE REACT 19: Sin etiquetas  */}
-			<title>Agencia de Desarrollo Web y Marketing Digital en Chile | Expansis Pro</title>
-			<meta name="description" content="En Expansis Pro creamos páginas web profesionales, e-commerce a medida y estrategias de marketing digital en Chile. ¡Potencia tus canales digitales!" />
-			<link rel="canonical" href={canonicalUrl || baseUrl} />
-
-			{/* ETIQUETAS OPEN GRAPH NATIVAS */}
-			<meta property="og:title" content="Agencia de Desarrollo Web y Marketing Digital en Chile | Expansis Pro" />
-			<meta property="og:description" content="Diseño de tiendas online, landing pages y marketing digital de alto impacto para empresas chilenas." />
-			<meta property="og:url" content={canonicalUrl || baseUrl} />
-
+			{/* 🌟 CONTROL DE SEO SCON TRUCO ANTI-DUPLICADO */}
+			<SEO
+				title="Agencia de Desarrollo Web y Marketing Digital en Chile | Expansis Pro"
+				description="En Expansis Pro creamos páginas web profesionales, e-commerce a medida y estrategias de marketing digital en Chile. ¡Potencia tus canales digitales!"
+				image="https://expansispro.com/assets/images/hero-poster.webp"
+			/>
 			{/* --- HERO SECTION CON VIDEO --- */}
 			<section id="home" className="relative h-[85vh] min-h-[600px] flex items-center justify-start md:justify-center overflow-hidden bg-deepBlue px-6">
 				<video
