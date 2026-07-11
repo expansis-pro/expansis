@@ -1,13 +1,36 @@
+// src/components/CallToAction.js
 import React from 'react';
 import CtaButton from './CtaButton';
-// 1. Importamos la utilidad
+// Importamos la utilidad de WhatsApp existente
 import { trackWhatsAppClick } from '../utils/trackingUtils';
 
-// Añadimos serviceName a las props (con "Información General" por defecto)
-const CallToAction = ({ title, description, serviceName = "Información General" }) => {
+// Añadimos 'source' a las props para capturar dinámicamente la ubicación exacta
+const CallToAction = ({ title, description, serviceName = "Información General", source }) => {
 
-    // 2. Eliminamos toda la lógica de construcción de links y tracking local
-    // ya que ahora la gestiona whatsappUtils.js
+    // 🟢 TELEMETRÍA EXCLUSIVA INTENCIÓN FORMULARIO
+    const handleContactClick = () => {
+        // Si se pasa un 'source' (ej: "FAQs - Final de Página"), lo usamos; si no, cae en el genérico
+        const cleanLocation = source ? `cta_block_${source.toLowerCase().replace(/ /g, '_')}` : 'cta_block_generic';
+
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+            'event': 'click_contacto_manual',
+            'servicio_seleccionado': serviceName,
+            'click_location': cleanLocation,
+            'page_url': window.location.href
+        });
+
+        if (typeof window.fbq === 'function') {
+            window.fbq('track', 'FindLocation', {
+                content_name: 'Intención de Formulario',
+                content_category: serviceName,
+                predicted_availability: cleanLocation
+            });
+        }
+    };
+
+    // Dinamizamos también la ubicación de WhatsApp basándonos en el origen
+    const whatsAppLocation = source ? `cta_block_${source.toLowerCase().replace(/ /g, '_')}` : 'cta_block';
 
     return (
         <section id="call-to-action" className=" section-padding ">
@@ -27,19 +50,21 @@ const CallToAction = ({ title, description, serviceName = "Información General"
                         </p>
 
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6">
-                            {/* 3. Reemplazamos el <a> por un <button> que llama a la utilidad */}
+                            {/* Botón 1: WhatsApp (Llama a la utilidad global con ubicación dinámica) */}
                             <button
-                                onClick={() => trackWhatsAppClick('cta_block', serviceName)}
+                                onClick={() => trackWhatsAppClick(whatsAppLocation, serviceName)}
                                 className="btn-primary w-full sm:w-auto"
                             >
                                 <i className="fa-brands fa-whatsapp text-2xl"></i>
                                 Hablemos por WhatsApp
                             </button>
 
+                            {/* Botón 2: Formulario de Contacto (Gatilla handleContactClick al hacer clic) */}
                             <CtaButton
                                 to="/contacto"
                                 variant="secondary"
-                                className="btn-secondary w-full sm:w-auto"
+                                className="w-full sm:w-auto"
+                                onClick={handleContactClick}
                             >
                                 Envíanos un Mensaje
                             </CtaButton>

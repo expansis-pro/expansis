@@ -156,16 +156,20 @@ const ServicePage = () => {
                         text={service.videoSection.text}
                         imageDesktop={service.videoSection.imageDesktop}
                         alt={service.videoSection.alt}
+                        trackLocation="commercial_profile"
                         imageSide={service.videoSection.imageSide}
                         vimeoId={service.videoSection.vimeoId}
-                        // Configuración del botón secundario/sitio
-                        buttonContent="Formulario de Contacto"
-                        buttonLink="/contacto"
-                        buttonVariant="outline"
-                        // 🟢 ACTIVACIÓN DEL NUEVO BOTÓN EXCLUSIVO DE WHATSAPP
+
+                        // 🟢 BOTÓN DEDICADO DE WHATSAPP (Saldrá primero en la interfaz)
                         showWhatsAppButton={true}
                         whatsAppButtonContent="Cotizar por WhatsApp"
                         whatsAppButtonLink={`https://wa.me/56965961086?text=Hola%20Expansis%20Pro%2C%20me%20interesa%20el%20servicio%20de%20${encodeURIComponent(service.title)}`}
+
+                        // 🔵 NUEVA CONFIGURACIÓN: BOTÓN DEDICADO DE CONTACTO (Saldrá segundo con tracking interno)
+                        showContactButton={true}
+                        contactButtonContent="Formulario de Contacto"
+                        contactButtonVariant="outline"
+                        contactButtonLink="/contacto" // Puedes omitirlo porque ya tiene "/contacto" por defecto, pero dejarlo es más explícito
                     />
                 )}
 
@@ -278,6 +282,7 @@ const ServicePage = () => {
                             text={service.targetAudience.text}
                             imageDesktop="/assets/images/expansisPro_target.webp"
                             alt={service.targetAudience.alt}
+                            trackLocation="client_profile"
                             imageSide={service.targetAudience.imageSide}
                             // Configuración del botón secundario/sitio
                             buttonContent="Formulario de Contacto"

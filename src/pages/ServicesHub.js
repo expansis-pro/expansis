@@ -87,39 +87,47 @@ const Services = () => {
 					imageDesktop="/assets/images/expansisPro_aboutus.webp"
 					alt="Público objetivo y clientes de la agencia Expansis Pro en Chile"
 					subtitle="PERFIL COMERCIAL"
+					trackLocation="commercial_profile"
 					title="Estructuras Digitales con Foco en la Conversión y el Negocio"
 					text={[
 						"Expansis Pro impulsa a personas, marcas e instituciones que buscan iniciar o avanzar en su transformación digital mediante activos web de alta conversión. Desarrollamos canales a medida, optimizados para la difusión institucional o la automatización de ventas.",
 						"Unificamos consultoría estratégica e ingeniería técnica para proyectar la solidez de tu operación, garantizando que tu ecosistema digital traduzca cada visita en oportunidades de negocio reales."
 					]}
 					imageSide="right" // Rompe simetría con la sección "About Us" de abajo
-					buttonContent="Cotizar Proyecto"
-					buttonLink="https://wa.me/56965961086?text=Hola%20Expansis%20Pro%2C%20me%20gustaría%20saber%20si%20sus%20servicios%20se%20adaptan%20a%20mi%20modelo%20de%20negocio."
-					buttonVariant="primary"
+					showWhatsAppButton={true}
+					whatsAppButtonContent="Cotizar por WhatsApp"
+					whatsAppButtonLink="https://wa.me/56965961086?text=Hola%20Expansis%20Pro%2C%20me%20gustaría%20saber%20si%20sus%20servicios%20se%20adaptan%20a%20mi%20modelo%20de%20negocio."
+
+					// 2. BOTÓN SECUNDARIO CORREGIDO: Variante "secondary" para que sea visible en la interfaz
+					showContactButton={true}
+					contactButtonContent="Formulario de Contacto"
+					contactButtonVariant="outline"
 
 				/>
 			</section>
 
 			<ImageTextCTA
-				imageDesktop="/assets/images/expansisPro_target.webp"
-				alt="Ecosistema de Ingeniería Digital Expansis Pro"
-				subtitle="Nuestros Servicios"
 				title="Infraestructura Digital con Crecimiento Sostenible"
-				vimeoId="1196058571" // 👈 Pasas el ID aquí
+				subtitle="Nuestros Servicios"
+				serviceName="Ecosistema Integral"
+				trackLocation="service_detail"
+				imageDesktop="/assets/images/expansisPro_target.webp"
 				text={[
 					"En Expansis Pro tratamos tu presencia digital como un ecosistema vivo e integrado, donde la velocidad de carga, la psicología de conversión y la ingeniería de pauta publicitaria trabajan bajo un mismo objetivo técnico.",
 					"Conectamos tus canales de venta (sitios corporativos o E-commerce a medida) con integraciones robustas de tracking para alimentar los algoritmos de Google y Meta Ads con datos limpios, asegurando que cada línea de código y cada campaña estén subordinadas a la estabilidad de tu operación y al retorno real (ROAS) de tu marca."
 				]}
+				alt="Ecosistema de Ingeniería Digital Expansis Pro"
+				vimeoId="1196058571" // 👈 Pasas el ID aquí
 				imageSide="left"
-				// 1. BOTÓN PRINCIPAL CORREGIDO: Eliminamos la variable service.title inexistente
-				buttonContent="Cotizar por WhatsApp"
-				buttonLink="https://wa.me/56965961086?text=Hola%20Expansis%20Pro%2C%20me%20interesa%20cotizar%20un%20ecosistema%20digital%20integral"
-				buttonVariant="primary"
+
+				showWhatsAppButton={true}
+				whatsAppButtonContent="Cotizar por WhatsApp"
+				whatsAppButtonLink="https://wa.me/56965961086?text=Hola%20Expansis%20Pro%2C%20me%20gustaría%20saber%20si%20sus%20servicios%20se%20adaptan%20a%20mi%20modelo%20de%20negocio."
 
 				// 2. BOTÓN SECUNDARIO CORREGIDO: Variante "secondary" para que sea visible en la interfaz
-				secondaryButtonContent="Formulario de Contacto"
-				secondaryButtonLink="/contacto"
-				secondaryButtonVariant="outline"
+				showContactButton={true}
+				contactButtonContent="Formulario de Contacto"
+				contactButtonVariant="outline"
 			/>
 			<CallToAction
 				title="¿Necesitas una solución personalizada?"

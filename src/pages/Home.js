@@ -118,15 +118,16 @@ const Home = () => {
 					alt="Público objetivo y clientes de la agencia Expansis Pro en Chile"
 					subtitle="PERFIL COMERCIAL"
 					title="Estructuras Digitales con Foco en la Conversión y el Negocio"
+					trackLocation="commercial_profile"
 					text={[
 						"Expansis Pro impulsa a personas, marcas e instituciones que buscan iniciar o avanzar en su transformación digital mediante activos web de alta conversión. Desarrollamos canales a medida, optimizados para la difusión institucional o la automatización de ventas.",
 						"Unificamos consultoría estratégica e ingeniería técnica para proyectar la solidez de tu operación, garantizando que tu ecosistema digital traduzca cada visita en oportunidades de negocio reales."
 					]}
 					vimeoId="1196058571" // 👈 Pasas el ID aquí
 					imageSide="right" // Rompe simetría con la sección "About Us" de abajo
-					buttonContent="Cotizar Proyecto"
-					buttonLink="https://wa.me/56965961086?text=Hola%20Expansis%20Pro%2C%20me%20gustaría%20saber%20si%20sus%20servicios%20se%20adaptan%20a%20mi%20modelo%20de%20negocio."
-					buttonVariant="primary"
+					showWhatsAppButton={true}
+					whatsAppButtonContent="Cotizar Proyecto"
+					whatsAppButtonLink="https://wa.me/56965961086?text=Hola%20Expansis%20Pro%2C%20me%20gustaría%20saber%20si%20sus%20servicios%20se%20adaptan%20a%20mi%20modelo%20de%20negocio."
 					secondaryButtonContent="Ver Especialidades"
 					secondaryButtonLink="/servicios"
 					secondaryButtonVariant="outline"
@@ -146,6 +147,7 @@ const Home = () => {
 					imageDesktop="/assets/images/expansisPro_aboutus.webp"
 					alt="Consultoría y estrategia digital en las oficinas de Expansis Pro"
 					subtitle="DETRÁS DE LA ESTRATEGIA"
+					trackLocation="brand_philosophy"
 					title="Somos Socios en la Transformación Digital"
 					text={[
 						"Expansis Pro es un espacio que aspira a devolver el propósito a las organizaciones para usarlo como hoja de ruta definitiva para los procesos de transformación digital.",

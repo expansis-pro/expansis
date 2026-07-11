@@ -15,16 +15,22 @@ const ImageTextCTA = ({
     secondaryButtonVariant = 'secondary',
     subtitle,
     title,
-    serviceName, // Nombre limpio del servicio (ej: "Desarrollo Web")
+    serviceName,
+    trackLocation,
     imageSide = 'left',
     vimeoId = null,
     imageShape = 'video',
     showLinkedIn = false,
     showPersonalWeb = false,
-    // Parámetros de control para el botón exclusivo de WhatsApp
+    // Controladores de WhatsApp
     showWhatsAppButton = false,
     whatsAppButtonContent = "Chatear por WhatsApp",
-    whatsAppButtonLink = "https://wa.me/56965961086"
+    whatsAppButtonLink = "https://wa.me/56965961086",
+    // Controladores del nuevo botón dedicado de Contacto
+    showContactButton = false,
+    contactButtonContent = "Formulario de Contacto",
+    contactButtonLink = "/contacto",
+    contactButtonVariant = "outline"
 }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -47,14 +53,10 @@ const ImageTextCTA = ({
         ? 'aspect-square max-w-sm mx-auto rounded-[60px_10px_60px_10px]'
         : 'aspect-video w-full rounded-[60px_10px_60px_10px]';
 
-    // 🟢 TRACKING EXCLUSIVO Y ROBUSTO PARA EL BOTÓN DEDICADO
+    // 🟢 TELEMETRÍA EXCLUSIVA WHATSAPP
     const handleDedicatedWhatsAppClick = () => {
-        // Genera una ubicación limpia basada en el subtítulo (ej: cta_wa_perfil_comercial)
-        const cleanLocation = subtitle
-            ? `cta_wa_${subtitle.toLowerCase().replace(/\s+/g, '_')}`
-            : 'cta_wa_section';
+        const cleanLocation = trackLocation ? `image_text_cta_${trackLocation}` : 'image_text_cta_generic';
 
-        // 1. Señal para Google Tag Manager (Activa tu etiqueta click_whatsapp)
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
             'event': 'disparo_whatsapp_manual',
@@ -63,18 +65,35 @@ const ImageTextCTA = ({
             'page_url': window.location.href
         });
 
-        // 2. Señal de respaldo directa para Google Ads
         if (typeof window.gtag === 'function') {
-            window.gtag('event', 'conversion', {
-                'send_to': 'AW-16965295721/wff8CPWU1sIbEOm815k_'
-            });
+            window.gtag('event', 'conversion', { 'send_to': 'AW-16965295721/wff8CPWU1sIbEOm815k_' });
         }
 
-        // 3. Señal de respaldo directa para Meta Pixel
         if (typeof window.fbq === 'function') {
             window.fbq('track', 'Contact', {
                 content_category: 'WhatsApp',
                 content_name: serviceName || 'Información General',
+                predicted_availability: cleanLocation
+            });
+        }
+    };
+
+    // 🟢 TELEMETRÍA EXCLUSIVA FORMULARIO DE CONTACTO
+    const handleDedicatedContactClick = () => {
+        const cleanLocation = trackLocation ? `image_text_cta_${trackLocation}` : 'image_text_cta_generic';
+
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+            'event': 'click_contacto_manual',
+            'servicio_seleccionado': serviceName || 'Información General',
+            'click_location': cleanLocation,
+            'page_url': window.location.href
+        });
+
+        if (typeof window.fbq === 'function') {
+            window.fbq('track', 'FindLocation', {
+                content_name: 'Intención de Formulario',
+                content_category: serviceName || 'Información General',
                 predicted_availability: cleanLocation
             });
         }
@@ -114,27 +133,26 @@ const ImageTextCTA = ({
                     {/* Contenedor de Texto */}
                     <div className={`text-left ${imageSide === 'left' ? 'lg:order-2' : 'lg:order-1'}`}>
                         {subtitle && <span className="block text-primario uppercase tracking-widest mb-4 text-sm font-bold">{subtitle}</span>}
-                        {title && <h2 >{title}</h2>}
+                        {title && <h2>{title}</h2>}
 
                         <div className="space-y-6 text-gray-600 leading-relaxed text-justify font-light text-lg">
                             <ReadMoreParagraphs paragraphs={text || []} />
                         </div>
 
-                        {(buttonContent || secondaryButtonContent || showWhatsAppButton) && (
+                        {(buttonContent || secondaryButtonContent || showWhatsAppButton || showContactButton) && (
                             <div className="mt-10 flex flex-col sm:flex-row items-center justify-start gap-4 md:gap-6 w-full">
                                 {buttonContent && (
-                                    <CtaButton
-                                        to={buttonLink}
-                                        variant={buttonVariant}
-                                        className="w-full sm:w-auto"
-                                    >
+                                    <CtaButton to={buttonLink} variant={buttonVariant} className="w-full sm:w-auto">
                                         {buttonContent}
                                     </CtaButton>
                                 )}
 
-                                {secondaryButtonContent && <CtaButton to={secondaryButtonLink} variant={secondaryButtonVariant} className="w-full sm:w-auto">{secondaryButtonContent}</CtaButton>}
-
-                                {/* 🟢 BOTÓN EXCLUSIVO DE WHATSAPP: HTML5 puro para asegurar el target="_blank" en móviles */}
+                                {secondaryButtonContent && (
+                                    <CtaButton to={secondaryButtonLink} variant={secondaryButtonVariant} className="w-full sm:w-auto">
+                                        {secondaryButtonContent}
+                                    </CtaButton>
+                                )}
+                                {/* Botón dedicado de WhatsApp */}
                                 {showWhatsAppButton && (
                                     <a
                                         href={whatsAppButtonLink}
@@ -147,10 +165,22 @@ const ImageTextCTA = ({
                                         {whatsAppButtonContent}
                                     </a>
                                 )}
+                                {/* Botón dedicado de formulario interno */}
+                                {showContactButton && (
+                                    <CtaButton
+                                        to={contactButtonLink}
+                                        variant={contactButtonVariant}
+                                        className="w-full sm:w-auto"
+                                        onClick={handleDedicatedContactClick}
+                                    >
+                                        {contactButtonContent}
+                                    </CtaButton>
+                                )}
+
+
                             </div>
                         )}
 
-                        {/* Enlaces profesionales condicionales */}
                         {(showLinkedIn || showPersonalWeb) && (
                             <div className="mt-8 pt-6 border-t border-gray-100 flex flex-wrap items-center gap-6">
                                 <span className="text-gray-400 font-light text-xs uppercase tracking-widest block w-full sm:w-auto">

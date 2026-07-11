@@ -6,6 +6,7 @@ import SecondaryHero from '../components/SecondaryHero';
 import CtaButton from '../components/CtaButton';
 import JsonLd from '../components/SEO/JsonLd';
 import SEO from '../components/SEO/SEO';
+import CallToAction from '../components/CallToAction';
 
 // Coloca aquí la URL de tu backend de Chatbot (ej: en producción o localhost)
 const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3000';
@@ -170,14 +171,14 @@ const Faqs = () => {
                             </button>
                         )}
 
-                        <div className="pt-8 border-t border-gray-100 w-full text-center">
-                            <p className="text-gray-600 font-light mb-6">¿Aún tienes dudas?</p>
-                            <CtaButton to="/contacto" variant="primary">
-                                Contáctanos directamente
-                            </CtaButton>
-                        </div>
                     </div>
                 </div>
+                <CallToAction
+                    source="FAQs - Final de Página"
+                    serviceName="Información General"
+                    title="¿No encontraste lo que buscabas?"
+                    description="Hablemos de tu proyecto. Elige la opción que más te acomode."
+                />
             </section>
         </main>
     );
