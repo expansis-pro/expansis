@@ -2,7 +2,7 @@
 
 export const contactData = {
     whatsapp: {
-        number: "65961086", // Reemplaza por tu número real (sin el +)
+        number: "88318443", // Reemplaza por tu número real (sin el +)
         prefix: "+56 9",       // Para mostrar visualmente en el sitio
         defaultMessage: "Hola Expansis Pro, me gustaría solicitar más información sobre sus servicios.",
         // Función para generar el link dinámicamente

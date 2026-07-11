@@ -25,7 +25,7 @@ const ImageTextCTA = ({
     // Controladores de WhatsApp
     showWhatsAppButton = false,
     whatsAppButtonContent = "Chatear por WhatsApp",
-    whatsAppButtonLink = "https://wa.me/56965961086",
+    whatsAppButtonLink = "https://wa.me/56988318443",
     // Controladores del nuevo botón dedicado de Contacto
     showContactButton = false,
     contactButtonContent = "Formulario de Contacto",

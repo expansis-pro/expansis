@@ -96,7 +96,7 @@ const Services = () => {
 					imageSide="right" // Rompe simetría con la sección "About Us" de abajo
 					showWhatsAppButton={true}
 					whatsAppButtonContent="Cotizar por WhatsApp"
-					whatsAppButtonLink="https://wa.me/56965961086?text=Hola%20Expansis%20Pro%2C%20me%20gustaría%20saber%20si%20sus%20servicios%20se%20adaptan%20a%20mi%20modelo%20de%20negocio."
+					whatsAppButtonLink="https://wa.me/56988318443?text=Hola%20Expansis%20Pro%2C%20me%20gustaría%20saber%20si%20sus%20servicios%20se%20adaptan%20a%20mi%20modelo%20de%20negocio."
 
 					// 2. BOTÓN SECUNDARIO CORREGIDO: Variante "secondary" para que sea visible en la interfaz
 					showContactButton={true}
@@ -122,7 +122,7 @@ const Services = () => {
 
 				showWhatsAppButton={true}
 				whatsAppButtonContent="Cotizar por WhatsApp"
-				whatsAppButtonLink="https://wa.me/56965961086?text=Hola%20Expansis%20Pro%2C%20me%20gustaría%20saber%20si%20sus%20servicios%20se%20adaptan%20a%20mi%20modelo%20de%20negocio."
+				whatsAppButtonLink="https://wa.me/56988318443?text=Hola%20Expansis%20Pro%2C%20me%20gustaría%20saber%20si%20sus%20servicios%20se%20adaptan%20a%20mi%20modelo%20de%20negocio."
 
 				// 2. BOTÓN SECUNDARIO CORREGIDO: Variante "secondary" para que sea visible en la interfaz
 				showContactButton={true}

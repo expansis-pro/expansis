@@ -115,7 +115,7 @@ const ServicePage = () => {
                 />
                 <div className="absolute bottom-0 left-0 w-full flex justify-center translate-y-1/2 z-30 px-4">
                     <a
-                        href={`https://wa.me/56965961086?text=¡Hola!%20Me%20interesa%20cotizar%20el%20servicio%20de%20*${encodeURIComponent(service.title)}*.`}
+                        href={`https://wa.me/56988318443?text=¡Hola!%20Me%20interesa%20cotizar%20el%20servicio%20de%20*${encodeURIComponent(service.title)}*.`}
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={() => fireWhatsAppTelemetry('service_hero_floating', service.title)}
@@ -163,7 +163,7 @@ const ServicePage = () => {
                         // 🟢 BOTÓN DEDICADO DE WHATSAPP (Saldrá primero en la interfaz)
                         showWhatsAppButton={true}
                         whatsAppButtonContent="Cotizar por WhatsApp"
-                        whatsAppButtonLink={`https://wa.me/56965961086?text=Hola%20Expansis%20Pro%2C%20me%20interesa%20el%20servicio%20de%20${encodeURIComponent(service.title)}`}
+                        whatsAppButtonLink={`https://wa.me/56988318443?text=Hola%20Expansis%20Pro%2C%20me%20interesa%20el%20servicio%20de%20${encodeURIComponent(service.title)}`}
 
                         // 🔵 NUEVA CONFIGURACIÓN: BOTÓN DEDICADO DE CONTACTO (Saldrá segundo con tracking interno)
                         showContactButton={true}
@@ -257,7 +257,7 @@ const ServicePage = () => {
                                         </div>
                                     )}
                                     <a
-                                        href={`https://wa.me/56965961086?text=Hola%20Expansis%20Pro%2C%20me%20interesa%20cotizar%20el%20ecosistema%20de%20*${encodeURIComponent(service.title)}*.`}
+                                        href={`https://wa.me/56988318443?text=Hola%20Expansis%20Pro%2C%20me%20interesa%20cotizar%20el%20ecosistema%20de%20*${encodeURIComponent(service.title)}*.`}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         onClick={() => fireWhatsAppTelemetry('service_pricing_card', service.title)}
@@ -291,7 +291,7 @@ const ServicePage = () => {
                             // 🟢 ACTIVACIÓN DEL NUEVO BOTÓN EXCLUSIVO DE WHATSAPP
                             showWhatsAppButton={true}
                             whatsAppButtonContent="Evaluar mi Negocio"
-                            whatsAppButtonLink={`https://wa.me/56965961086?text=Hola%20Expansis%20Pro%2C%20quiero%20validar%20mi%20perfil%20para%20el%20servicio%20de%20${encodeURIComponent(service.title)}`}
+                            whatsAppButtonLink={`https://wa.me/56988318443?text=Hola%20Expansis%20Pro%2C%20quiero%20validar%20mi%20perfil%20para%20el%20servicio%20de%20${encodeURIComponent(service.title)}`}
                         />
                     </section>
                 )}

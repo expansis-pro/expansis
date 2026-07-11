@@ -1,16 +1,15 @@
-import React, { useState } from 'react';
+// src/components/ContactForm.js
+import React, { useState, useEffect } from 'react'; // 1. Agregamos useEffect
 import emailjs from 'emailjs-com';
 import ReCAPTCHA from "react-google-recaptcha";
 import axios from 'axios';
 import { trackFormSubmit } from '../utils/trackingUtils';
-import { servicesData } from '../data/servicesData'; // Traemos la fuente de verdad
-
+import { servicesData } from '../data/servicesData';
 
 const ContactForm = () => {
-
     const [formData, setFormData] = useState({
         name: "",
-        company: "", // Nuevo (Opcional)
+        company: "",
         email: "",
         phone: "",
         message: "",
@@ -20,15 +19,17 @@ const ContactForm = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [statusMessage, setStatusMessage] = useState("");
     const [captchaVerified, setCaptchaVerified] = useState(false);
+    const [captchaToken, setCaptchaToken] = useState(""); // 🟢 NUEVO: Estado para guardar el token string real
+    const [isMounted, setIsMounted] = useState(false); // 🔵 NUEVO: Control para matar el error #418 de hidratación
     const [isSuccess, setIsSuccess] = useState(false);
 
+    // Ejecutamos tras el primer render en el navegador real
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
 
-
-    // Si tu .env no tiene la clave, usamos una bandera para no bloquear al usuario legítimo
     const siteKey = process.env.REACT_APP_RECAPTCHA_SITE_KEY;
 
-
-    // 2. Manejadores de cambios
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData(prev => ({ ...prev, [name]: value }));
@@ -45,14 +46,13 @@ const ContactForm = () => {
     };
 
     const handleCaptcha = (value) => {
+        setCaptchaToken(value || ""); // 🟢 Guardamos la cadena de texto limpia que exige EmailJS
         setCaptchaVerified(!!value);
     };
 
-    // 3. Lógica de envío unificada
     const handleSubmit = async (e) => {
-        e.preventDefault(); // Evita que la página se refresque
+        e.preventDefault();
 
-        // Si hay una siteKey configurada pero el usuario no lo ha marcado, exigimos la verificación
         if (siteKey && !captchaVerified) {
             setStatusMessage("Por favor, confirma el reCAPTCHA de seguridad.");
             return;
@@ -61,11 +61,12 @@ const ContactForm = () => {
         setIsSubmitting(true);
         setStatusMessage("");
 
-        // Preparamos el string de servicios para EmailJS y Sheets
+        // Preparamos los parámetros
         const templateParams = {
             ...formData,
             company: formData.company ? formData.company : "No especificada",
-            serviceType: formData.serviceType.length > 0 ? formData.serviceType.join(", ") : "Ninguno seleccionado"
+            serviceType: formData.serviceType.length > 0 ? formData.serviceType.join(", ") : "Ninguno seleccionado",
+            'g-recaptcha-response': captchaToken // 🟢 CRÍTICO: Adjuntamos el token con el nombre exacto que EmailJS espera
         };
 
         try {
@@ -77,7 +78,7 @@ const ContactForm = () => {
                 });
             }
 
-
+            // B. Envío a EmailJS
             await emailjs.send(
                 process.env.REACT_APP_EMAILJS_SERVICE_ID,
                 process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
@@ -85,9 +86,10 @@ const ContactForm = () => {
                 process.env.REACT_APP_EMAILJS_USER_ID
             );
 
-            // 2. DISPARO DE CONVERSIÓN CENTRALIZADO
-            // Esto llamará al ID AW-16965295721/mRlTCNr00sIbEOm815k_
-            trackFormSubmit('contacto_main_form');
+            // C. Disparo de Conversión en Google Ads / GA4
+            trackFormSubmit('contacto_main_form', {
+                'servicio_seleccionado': formData.serviceType.length > 0 ? formData.serviceType.join(", ") : "Información General"
+            });
 
             setIsSuccess(true);
         } catch (error) {
@@ -98,7 +100,6 @@ const ContactForm = () => {
         }
     };
 
-    // Vista de Éxito
     if (isSuccess) {
         return (
             <div className="text-center py-10 animate-fade-in">
@@ -110,6 +111,7 @@ const ContactForm = () => {
                         setIsSuccess(false);
                         setFormData({ name: "", company: "", phone: "", message: "", serviceType: [] });
                         setCaptchaVerified(false);
+                        setCaptchaToken("");
                     }}
                     className="mt-6 text-primario font-semibold underline hover:text-primario/80 transition-colors"
                 >
@@ -121,8 +123,6 @@ const ContactForm = () => {
 
     return (
         <form className="space-y-6" onSubmit={handleSubmit}>
-
-            {/* Campo: Nombre */}
             <div>
                 <label className="block text-sm font-medium text-deepBlue mb-2">Nombre</label>
                 <input
@@ -132,7 +132,6 @@ const ContactForm = () => {
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primario focus:ring-1 focus:ring-primario outline-none transition-all font-light"
                 />
             </div>
-            {/* Campo: Empresa (Opcional) */}
             <div>
                 <label className="block text-sm font-medium text-deepBlue mb-2">
                     Empresa <span className="text-gray-400 text-xs">(Opcional)</span>
@@ -144,21 +143,15 @@ const ContactForm = () => {
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primario focus:ring-1 focus:ring-primario outline-none transition-all font-light"
                 />
             </div>
-            {/* Campo: Correo */}
             <div>
-                <label className="block text-sm font-medium text-deepBlue mb-2">
-                    Correo Electrónico
-                </label>
+                <label className="block text-sm font-medium text-deepBlue mb-2">Correo Electrónico</label>
                 <input
-                    type="email" name="email"
+                    type="email" name="email" required
                     value={formData.email} onChange={handleChange}
                     placeholder="tu@correo.com"
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primario focus:ring-1 focus:ring-primario outline-none transition-all font-light"
                 />
             </div>
-
-
-            {/* Fila 2: Teléfono */}
             <div>
                 <label className="block text-sm font-medium text-deepBlue mb-2">Teléfono de Contacto</label>
                 <input
@@ -169,7 +162,6 @@ const ContactForm = () => {
                 />
             </div>
 
-            {/* Fila 3: Checkboxes de Servicios Dinámicos */}
             <div>
                 <label className="block text-sm font-medium text-deepBlue mb-3">Servicios de Interés</label>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -188,7 +180,6 @@ const ContactForm = () => {
                 </div>
             </div>
 
-            {/* Fila 4: Detalles de la consulta */}
             <div>
                 <label className="block text-sm font-medium text-deepBlue mb-2">Detalles de la Consulta</label>
                 <textarea
@@ -199,9 +190,9 @@ const ContactForm = () => {
                 ></textarea>
             </div>
 
-            {/* Fila 5: Botón y Recaptcha */}
             <div className="flex flex-col items-center gap-4 pt-2">
-                {siteKey && (
+                {/* 🔵 SOLUCIÓN 418: Solo renderiza el reCAPTCHA si está montado en el cliente real */}
+                {isMounted && siteKey && (
                     <div className="overflow-hidden max-w-full flex justify-center">
                         <ReCAPTCHA sitekey={siteKey} onChange={handleCaptcha} />
                     </div>
