@@ -1,31 +1,30 @@
-// src/pages/ServicePage.js
-import React, { useState, useEffect } from 'react';
-import { useParams, Link, useLocation } from 'react-router-dom';
-import ProjectSection from '../components/ProjectSection';
-import ImageTextCTA from '../components/ImageTextCTA';
-import { servicesData } from '../data/servicesData';
-import NotFound from './NotFound';
-import PhaseItem from '../components/PhaseItem';
-import CallToAction from '../components/CallToAction';
-import FaqItem from '../components/FaqItem';
-import SecondaryHero from '../components/SecondaryHero';
-import VideoViewport from '../components/VideoViewport';
-import JsonLd from '../components/SEO/JsonLd';
-import SEO from '../components/SEO/SEO';
+'use client';
 
-import { formatResponseText } from '../utils/faqFormatter';
+import React, { useState, useEffect, use } from 'react';
+import Link from 'next/link';
+import ProjectSection from '@/components/ProjectSection';
+import ImageTextCTA from '@/components/ImageTextCTA';
+import { servicesData } from '@/data/servicesData';
+import NotFound from '@/app/not-found';
+import PhaseItem from '@/components/PhaseItem';
+import CallToAction from '@/components/CallToAction';
+import FaqItem from '@/components/FaqItem';
+import SecondaryHero from '@/components/SecondaryHero';
+import VideoViewport from '@/components/VideoViewport';
+import JsonLd from '@/components/SEO/JsonLd';
+import { formatResponseText } from '@/utils/faqFormatter';
+
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
 
-const ServicePage = () => {
-    const { slug } = useParams();
+export default function ServicePage({ params }) {
+    // Si usas React 19 / Next 15 se resuelve params con React.use(params) o directamente params.slug
+    const resolvedParams = use(params);
+    const slug = resolvedParams.slug;
+
     const service = servicesData.find(s => s.slug === slug);
     const [openFaqIndex, setOpenFaqIndex] = useState(null);
     const [serviceFaqs, setServiceFaqs] = useState([]);
     const [loadingFaqs, setLoadingFaqs] = useState(true);
-
-    const location = useLocation();
-    const baseUrl = 'https://expansispro.com';
-
 
     useEffect(() => {
         if (!service) return;
@@ -59,7 +58,6 @@ const ServicePage = () => {
     const cleanHeroTitle = service.seo?.title ? service.seo.title.split('|')[0].trim() : service.title;
     const maintenancePrice = service.pricing?.maintenance || "$30.000 CLP / mes";
 
-    // Helper de telemetría unificado para elementos HTML nativos (Hero y Pricing)
     const fireWhatsAppTelemetry = (location, serviceName) => {
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
@@ -85,12 +83,7 @@ const ServicePage = () => {
     };
 
     return (
-        <div className="min-h-screen ">
-            <SEO
-                title={service.seo?.title || service.title}
-                description={service.seo?.description || service.description}
-                image={`https://expansispro.com/assets/images/${service.slug}-hero.webp`}
-            />
+        <div className="min-h-screen">
             <JsonLd
                 id={`service-schema-${service.slug}`}
                 data={{
@@ -128,11 +121,10 @@ const ServicePage = () => {
             </div>
 
             <div>
-                {/* SECCIÓN EXCLUSIVA MARCA PERSONAL */}
                 {slug === 'web-para-profesionales' && (
                     <section id="exclusive-walkthrough" className="section-padding bg-ghostWhite pt-24 pb-12">
                         <div className="container-pro max-w-4xl text-center">
-                            <span className="font-black bg-primario uppercase px-4 py-1 rounded-full text-[10px] uppercase tracking-[0.2em] text-white mb-6 inline-block">
+                            <span className="font-black bg-primario px-4 py-1 rounded-full text-[10px] uppercase tracking-[0.2em] text-white mb-6 inline-block">
                                 Demostración Tecnológica en Vivo
                             </span>
                             <h2 className="text-deepBlue mb-6">Tu Próxima Oficina Digital por Dentro</h2>
@@ -147,33 +139,28 @@ const ServicePage = () => {
                     </section>
                 )}
 
-                {/* 1. SECCIÓN EXPLICATIVA DE VIDEO (REFACTORIZADA) */}
                 {service.videoSection && (
                     <ImageTextCTA
                         subtitle={service.videoSection.subtitle}
                         title={service.videoSection.title}
-                        serviceName={service.title} // Mantiene contexto limpio en GA4
+                        serviceName={service.title}
                         text={service.videoSection.text}
                         imageDesktop={service.videoSection.imageDesktop}
                         alt={service.videoSection.alt}
                         trackLocation="commercial_profile"
                         imageSide={service.videoSection.imageSide}
                         vimeoId={service.videoSection.vimeoId}
-
-                        // 🟢 BOTÓN DEDICADO DE WHATSAPP (Saldrá primero en la interfaz)
                         showWhatsAppButton={true}
                         whatsAppButtonContent="Cotizar por WhatsApp"
                         whatsAppButtonLink={`https://wa.me/56988318443?text=Hola%20Expansis%20Pro%2C%20me%20interesa%20el%20servicio%20de%20${encodeURIComponent(service.title)}`}
-
-                        // 🔵 NUEVA CONFIGURACIÓN: BOTÓN DEDICADO DE CONTACTO (Saldrá segundo con tracking interno)
                         showContactButton={true}
                         contactButtonContent="Formulario de Contacto"
                         contactButtonVariant="outline"
-                        contactButtonLink="/contacto" // Puedes omitirlo porque ya tiene "/contacto" por defecto, pero dejarlo es más explícito
+                        contactButtonLink="/contacto"
                     />
                 )}
 
-                {/* SECCIÓN DE PRECIOS */}
+                {/* PRICING */}
                 <section id="pricing" className="section-padding bg-ghostWhite">
                     <div className="container-pro">
                         <div className="text-center mb-16 md:mb-20">
@@ -186,7 +173,6 @@ const ServicePage = () => {
 
                             <div className="relative z-10 p-6 md:p-14 lg:p-16">
                                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-
                                     <div className="lg:col-span-5 flex flex-col justify-center space-y-6 text-center lg:text-left">
                                         <div>
                                             <span className="bg-primario text-white px-4 py-1 rounded-full text-[10px] uppercase tracking-[0.2em] font-black mb-4 inline-block">
@@ -241,7 +227,6 @@ const ServicePage = () => {
                                             </ul>
                                         </div>
                                     </div>
-
                                 </div>
 
                                 <div className="mt-12 pt-8 border-t border-white/5 flex flex-col items-center w-full">
@@ -272,7 +257,6 @@ const ServicePage = () => {
                     </div>
                 </section>
 
-                {/* 2. SECCIÓN DE AUDIENCIA OBJETIVO (REFACTORIZADA) */}
                 {service.targetAudience && (
                     <section id="service-target-section">
                         <ImageTextCTA
@@ -284,11 +268,9 @@ const ServicePage = () => {
                             alt={service.targetAudience.alt}
                             trackLocation="client_profile"
                             imageSide={service.targetAudience.imageSide}
-                            // Configuración del botón secundario/sitio
                             buttonContent="Formulario de Contacto"
                             buttonLink="/contacto"
                             buttonVariant="outline"
-                            // 🟢 ACTIVACIÓN DEL NUEVO BOTÓN EXCLUSIVO DE WHATSAPP
                             showWhatsAppButton={true}
                             whatsAppButtonContent="Evaluar mi Negocio"
                             whatsAppButtonLink={`https://wa.me/56988318443?text=Hola%20Expansis%20Pro%2C%20quiero%20validar%20mi%20perfil%20para%20el%20servicio%20de%20${encodeURIComponent(service.title)}`}
@@ -296,7 +278,6 @@ const ServicePage = () => {
                     </section>
                 )}
 
-                {/* FASES DEL PROYECTO */}
                 <section id="phases" className="section-padding pt-32">
                     <div className="container-pro">
                         <h2 className="text-center mb-12 text-deepBlue">Fases del Proyecto</h2>
@@ -316,7 +297,6 @@ const ServicePage = () => {
 
                 <ProjectSection title="Casos de Éxito" subtitle={`Mira cómo hemos aplicado nuestra ingeniería en diversos ecosistemas.`} limit={3} />
 
-                {/* PREGUNTAS FRECUENTES */}
                 {!loadingFaqs && serviceFaqs.length > 0 && (
                     <section id="service-faq" className="section-padding">
                         <div className="container-pro">
@@ -336,12 +316,12 @@ const ServicePage = () => {
                     </section>
                 )}
 
-                <CallToAction title={`¿Interesado en ${service.title}?`} serviceName={service.title} description="Conversemos sobre tu proyecto and cómo podemos ayudarte a crecer." />
+                <CallToAction title={`¿Interesado en ${service.title}?`} serviceName={service.title} description="Conversemos sobre tu proyecto y cómo podemos ayudarte a crecer." />
 
                 <section className="pb-20">
                     <div className="container-pro">
                         <div className="flex justify-center">
-                            <Link to="/servicios" className="group relative flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-deepBlue/5 text-deepBlue rounded-2xl hover:border-primario hover:text-primario transition-all duration-300">
+                            <Link href="/servicios" className="group relative flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-deepBlue/5 text-deepBlue rounded-2xl hover:border-primario hover:text-primario transition-all duration-300">
                                 <i className="fa-solid fa-arrow-left transition-transform duration-300 group-hover:-translate-x-2"></i>
                                 <span className="tracking-tight">Explorar todas las <span className="text-primario">especialidades</span></span>
                                 <div className="absolute inset-0 rounded-2xl bg-primario/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -352,6 +332,4 @@ const ServicePage = () => {
             </div>
         </div>
     );
-};
-
-export default ServicePage;
+}

@@ -1,12 +1,13 @@
-// src/components/FaqItem.js
+'use client';
+
 import React from 'react';
 
 const FaqItem = ({ question, answer, isOpen, onToggle }) => {
     return (
         <div
             className={`transition-all duration-300 rounded-2xl mb-4 border ${isOpen
-                ? 'border-primario bg-ghostWhite shadow-sm'
-                : 'border-gray-200 bg-white hover:border-gray-300'
+                    ? 'border-primario bg-ghostWhite shadow-sm'
+                    : 'border-gray-200 bg-white hover:border-gray-300'
                 }`}
         >
             <button
@@ -14,8 +15,7 @@ const FaqItem = ({ question, answer, isOpen, onToggle }) => {
                 aria-expanded={isOpen}
                 className="w-full flex justify-between items-center text-left p-5 focus:outline-none"
             >
-                <span className={`text-lg font-medium transition-colors duration-300 ${isOpen ? 'text-primario' : 'text-deepBlue'
-                    }`}>
+                <span className={`text-lg font-medium transition-colors duration-300 ${isOpen ? 'text-primario' : 'text-deepBlue'}`}>
                     {question}
                 </span>
 

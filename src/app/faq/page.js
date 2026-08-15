@@ -1,31 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
-import FaqItem from '../components/FaqItem';
-import SecondaryHero from '../components/SecondaryHero';
-import CtaButton from '../components/CtaButton';
-import JsonLd from '../components/SEO/JsonLd';
-import SEO from '../components/SEO/SEO';
-import CallToAction from '../components/CallToAction';
+'use client';
 
-// Coloca aquí la URL de tu backend de Chatbot (ej: en producción o localhost)
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import FaqItem from '@/components/FaqItem';
+import SecondaryHero from '@/components/SecondaryHero';
+import JsonLd from '@/components/SEO/JsonLd';
+import CallToAction from '@/components/CallToAction';
+
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
 
-const Faqs = () => {
+export default function FaqsPage() {
     const [faqData, setFaqData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [openIndex, setOpenIndex] = useState(null);
     const [showAll, setShowAll] = useState(false);
     const initialFaqsToShow = 4;
 
-    const location = useLocation();
-    const baseUrl = 'https://expansispro.com';
-
-
-    // 1. LLAMADA EN VIVO AL CEREBRO DEL CHATBOT
     useEffect(() => {
-        window.scrollTo(0, 0);
-
         fetch(`${API_URL}/api/faq`)
             .then(res => res.json())
             .then(res => {
@@ -48,7 +39,6 @@ const Faqs = () => {
         setShowAll(!showAll);
     };
 
-    // --- MÉTODOS DE FORMATEO (Del Paso 1) ---
     const parseBoldText = (text) => {
         const parts = text.split(/(\*\*?.*?\*\*?)/g);
         return parts.map((part, i) => {
@@ -85,13 +75,6 @@ const Faqs = () => {
 
     return (
         <main className="min-h-screen">
-            {/* 🌟 CONTROL DE INMUNIDAD SEO */}
-            <SEO
-                title="Preguntas Frecuentes | Expansis Pro"
-                description="Resolvemos tus dudas sobre desarrollo web en React, tiendas online Shopify, administración con Strapi CMS, hosting y estrategias digitales en Chile."
-            />
-
-            {/* Solución en Faqs.js (Colócalo justo abajo del loading check) */}
             <JsonLd
                 id="faqs-page-schema"
                 data={{
@@ -121,7 +104,7 @@ const Faqs = () => {
                             <FaqItem
                                 key={faq.id || index}
                                 question={faq.pregunta}
-                                answer={formatResponseText(faq.respuesta)} // Inyección del formateador dinámico
+                                answer={formatResponseText(faq.respuesta)}
                                 isOpen={openIndex === index}
                                 onToggle={() => handleToggle(index)}
                             />
@@ -164,15 +147,15 @@ const Faqs = () => {
                         {faqData.length > initialFaqsToShow && (
                             <button
                                 onClick={handleShowAllToggle}
-                                className="group flex items-center gap-2 text-primario hover:text-deepBlue transition-colors"
+                                className="group flex items-center gap-2 text-primario hover:text-deepBlue transition-colors cursor-pointer"
                             >
                                 {showAll ? 'Ver menos preguntas' : 'Ver más preguntas'}
                                 <i className={`fa-solid fa-chevron-down transition-transform duration-300 ${showAll ? 'rotate-180' : ''}`}></i>
                             </button>
                         )}
-
                     </div>
                 </div>
+
                 <CallToAction
                     source="FAQs - Final de Página"
                     serviceName="Información General"
@@ -182,6 +165,4 @@ const Faqs = () => {
             </section>
         </main>
     );
-};
-
-export default Faqs;
+}

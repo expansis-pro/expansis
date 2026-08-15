@@ -1,6 +1,7 @@
-// src/components/CarouselItem.js
+'use client';
+
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import Link from 'next/link'; // 👈 Reemplazo de NavLink de react-router-dom
 
 const CarouselItem = ({
     title,
@@ -9,14 +10,12 @@ const CarouselItem = ({
     category,
     titleTag: TitleTag = 'h3'
 }) => {
-    // 🌟 El fallback apunta al banner original por si acaso
     const imagePath = `/assets/images/${slug}-hero.webp`;
 
     const handleImgError = (e) => {
         e.target.style.display = 'none';
     };
 
-    // 🌟 CORRECCIÓN ULTRA-LIMPIA: Las tarjetas leen directamente los nombres amigables
     const srcset = `
         /assets/images/${slug}-sm.webp 600w,
         /assets/images/${slug}-md.webp 800w,
@@ -24,11 +23,10 @@ const CarouselItem = ({
     `;
 
     return (
-        <NavLink
-            to={`/servicios/${slug}`}
+        <Link
+            href={`/servicios/${slug}`}
             className="block w-full h-[450px] bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1.5 hover:border-blue-100 transition-all duration-300 group text-left"
         >
-            {/* Contenedor de Imagen con Efecto Zoom */}
             <div className="w-full h-44 overflow-hidden bg-gray-50 relative">
                 <img
                     src={imagePath}
@@ -46,7 +44,6 @@ const CarouselItem = ({
                 )}
             </div>
 
-            {/* Bloque de Texto y Enfoque de Servicio */}
             <div className="p-6 flex flex-col h-[274px] justify-between">
                 <div>
                     <TitleTag className="text-deepBlue text-xl font-bold mb-3 leading-snug group-hover:text-primario transition-colors duration-300">
@@ -71,7 +68,7 @@ const CarouselItem = ({
                     </svg>
                 </div>
             </div>
-        </NavLink>
+        </Link>
     );
 };
 

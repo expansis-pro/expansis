@@ -1,25 +1,13 @@
-import { useEffect } from 'react';
+import React from 'react';
 
 export default function JsonLd({ data, id }) {
-    useEffect(() => {
-        if (!data) return;
+    if (!data) return null;
 
-        // Limpiar scripts antiguos con el mismo ID para evitar duplicados en SPA
-        const oldScript = document.getElementById(id);
-        if (oldScript) oldScript.remove();
-
-        // Crear e inyectar en el <head> de la página
-        const script = document.createElement('script');
-        script.id = id;
-        script.type = 'application/ld+json';
-        script.innerHTML = JSON.stringify(data);
-        document.head.appendChild(script);
-
-        return () => {
-            const currentScript = document.getElementById(id);
-            if (currentScript) currentScript.remove();
-        };
-    }, [data, id]);
-
-    return null; // No renderiza nada en el cuerpo (DOM visible)
+    return (
+        <script
+            id={id}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+        />
+    );
 }

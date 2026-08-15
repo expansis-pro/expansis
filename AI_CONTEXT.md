@@ -80,6 +80,6 @@ Al ejecutar el comando de construcción, el flujo de empaquetado opera en tres e
 
 El proyecto no depende únicamente de archivos estáticos locales; se conecta de forma dinámica con microservicios externos:
 
-- **Base de Conocimiento Core (`https://bot.expansispro.com/api/faq`):** Las FAQs se sincronizan en vivo desde la API del Chatbot de la agencia, utilizando la variable de entorno `process.env.REACT_APP_API_URL` (que en producción apunta a `https://bot.expansispro.com` y en desarrollo hace fallback a `http://localhost:3000`).
+- **Base de Conocimiento Core (`https://bot.expansispro.com/api/faq`):** Las FAQs se sincronizan en vivo desde la API del Chatbot de la agencia, utilizando la variable de entorno `process.env.NEXT_PUBLIC_API_URL` (que en producción apunta a `https://bot.expansispro.com` y en desarrollo hace fallback a `http://localhost:3000`).
   - **Estrategia en `Faqs.js`:** Consume el endpoint completo para listar todo el universo de preguntas disponibles. Cuenta con métodos internos de formateo (`formatResponseText` y `parseBoldText`) para procesar e inyectar sintaxis Markdown (`**` y `•`) directamente en elementos JSX.
   - **Estrategia en `ServicePage.js`:** Consume el mismo endpoint de forma asíncrona, pero aplica un filtro estricto en el cliente. Solo almacena y renderiza las FAQs cuyo array de `faq.tags` incluya el `slug` del servicio activo o la etiqueta compartida `general`.

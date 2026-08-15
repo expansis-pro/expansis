@@ -1,19 +1,18 @@
-// tailwind.config.js
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
       colors: {
-        'deepBlue': '#0F172A',   // Color de fondo del Hero
-        'primario': '#F27405',   // Color del botón principal
-        'ghostWhite': '#F8FAFC', // Color de las letras
-        'secundario': '#f4ad72',
-        'gris': '#cccccc',
-      },
-      fontFamily: {
-        sans: ['Montserrat', 'sans-serif'], // Montserrat como fuente principal
+        deepBlue: '#0F172A',   // Fondo principal
+        primario: '#F27405',   // Naranja corporativo
+        ghostWhite: '#F8FAFC', // Textos sobre fondo oscuro
+        secundario: '#f4ad72', //[cite: 3]
+        gris: '#cccccc',       //[cite: 3]
       },
     },
   },

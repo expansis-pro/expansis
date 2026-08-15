@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	body {
+		@apply font-sans font-light text-gray-800 bg-ghostWhite;
+	}
+	h1 {
+		@apply text-4xl sm:text-5xl md:text-4xl leading-tight;
+	}
+	h2 {
+		@apply text-3xl sm:text-3xl text-gray-900 mb-6;
+	}
+	h3 {
+		@apply text-xl mb-2;
+	}
+	button,
+	a {
+		@apply transition-all duration-300;
+	}
+}
+
+@layer components {
+	.hero-wrapper {
+		@apply flex flex-col items-start text-left md:items-center md:text-center w-full;
+	}
+	.hero-paragraph {
+		@apply mb-10 text-ghostWhite/90 text-lg md:text-xl font-light max-w-2xl md:mx-auto;
+	}
+	.hero-actions {
+		@apply flex flex-col sm:flex-row justify-start md:justify-center gap-4 w-full;
+	}
+	.section-subtitle {
+		@apply text-gray-600 text-lg md:text-xl font-light mx-auto leading-relaxed;
+	}
+	.service-card {
+		@apply bg-white p-8 h-full flex flex-col items-start text-left shadow-sm border border-gray-100 transition-all hover:shadow-md rounded-2xl overflow-hidden;
+	}
+	.container-pro {
+		@apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+	}
+	.section-padding {
+		@apply py-12 md:py-12;
+	}
+	.btn-primary {
+		@apply bg-primario text-ghostWhite py-4 px-10 rounded-xl transition-all duration-300 transform hover:scale-105 hover:brightness-110 text-center font-bold shadow-lg inline-flex items-center justify-center gap-3;
+	}
+	.btn-secondary {
+		@apply border-2 border-ghostWhite/20 text-ghostWhite bg-transparent py-4 px-10 rounded-xl transition-all duration-300 transform hover:bg-ghostWhite hover:text-deepBlue hover:border-ghostWhite text-center font-bold inline-flex items-center justify-center gap-3;
+	}
+	.btn-outline {
+		@apply border-2 border-deepBlue text-deepBlue bg-transparent py-4 px-10 rounded-xl transition-all duration-300 transform hover:bg-deepBlue hover:text-ghostWhite text-center font-bold inline-flex items-center justify-center gap-3;
+	}
+}
+
+@layer utilities {
+	.no-scrollbar::-webkit-scrollbar {
+		display: none;
+	}
+	.no-scrollbar {
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
+}
+
+/* --- ANIMACIONES RECUPERADAS --- */
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		backdrop-filter: blur(0px);
+	}
+	to {
+		opacity: 1;
+		backdrop-filter: blur(4px);
+	}
+}
+
+@keyframes slideUp {
+	from {
+		opacity: 0;
+		transform: scale(0.95) translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1) translateY(0);
+	}
+}
+
+.animate-fadeIn {
+	animation: fadeIn 0.25s ease-out forwards;
+}
+
+.animate-slideUp {
+	animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* --- ESTILO DE ETIQUETA STRONG --- */
+strong {
+	font-weight: 500 !important;
+	@apply text-deepBlue;
+}

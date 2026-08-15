@@ -1,21 +1,14 @@
-// src/components/PageTransition.js
+'use client';
+
 import React from 'react';
 import { motion } from 'framer-motion';
 
-// --- CAMBIO: Variantes de animación más suaves (fade) ---
 const pageVariants = {
-    initial: {
-        opacity: 0
-    },
-    in: {
-        opacity: 1
-    },
-    out: {
-        opacity: 0
-    }
+    initial: { opacity: 0 },
+    in: { opacity: 1 },
+    out: { opacity: 0 }
 };
 
-// --- CAMBIO: Transición ajustada para el fade ---
 const pageTransition = {
     type: "tween",
     ease: "easeInOut",

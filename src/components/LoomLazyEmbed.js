@@ -1,6 +1,5 @@
-// src/components/LoomLazyEmbed.js
+'use client';
 import React, { useState, useRef, useEffect } from 'react';
-
 export default function LoomLazyEmbed({ videoId, className = "" }) {
     const [shouldLoad, setShouldLoad] = useState(false);
     const containerRef = useRef(null);

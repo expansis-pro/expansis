@@ -1,4 +1,6 @@
-import React, { useEffect, useRef } from 'react';
+'use client'; // 👈 Directiva obligatoria para habilitar hooks y framer-motion en el cliente
+
+import React, { useRef, useEffect } from 'react'; // 👈 Añadido useEffect que faltaba en la importación
 import { motion } from 'framer-motion';
 
 const ProjectModal = ({ project, onClose, onContinue = null }) => {
@@ -28,7 +30,6 @@ const ProjectModal = ({ project, onClose, onContinue = null }) => {
             exit={{ opacity: 0 }}
             className="fixed inset-0 bg-deepBlue/80 z-[100] p-4 md:p-6 flex items-center justify-center backdrop-blur-sm"
         >
-            {/* Reducimos a max-w-4xl para que el formato vertical sea armónico y elegante */}
             <motion.div
                 ref={modalRef}
                 initial={{ scale: 0.9, opacity: 0 }}
@@ -37,7 +38,7 @@ const ProjectModal = ({ project, onClose, onContinue = null }) => {
                 transition={{ type: "spring", damping: 25, stiffness: 300 }}
                 className="bg-white rounded-3xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto relative flex flex-col"
             >
-                {/* BOTÓN CERRAR REDONDO (Mantiene su diseño perfecto para Mobile y Desktop) */}
+                {/* BOTÓN CERRAR REDONDO */}
                 <button
                     onClick={onClose}
                     className="absolute top-4 right-4 z-20 text-gray-400 hover:text-primario transition-all bg-white/95 w-10 h-10 rounded-full flex items-center justify-center shadow-md border border-gray-100 active:scale-95"
@@ -46,7 +47,7 @@ const ProjectModal = ({ project, onClose, onContinue = null }) => {
                     <i className="fa-solid fa-xmark text-lg"></i>
                 </button>
 
-                {/* 🌟 BLOQUE SUPERIOR: Imagen Panorámica 16:9 Real (Cero espacio gris, cero recortes) */}
+                {/* BLOQUE SUPERIOR: Imagen Panorámica 16:9 Real */}
                 <div className="w-full aspect-video shrink-0 bg-gray-50 overflow-hidden rounded-t-3xl border-b border-gray-100">
                     {project.image && (
                         <img
@@ -57,7 +58,7 @@ const ProjectModal = ({ project, onClose, onContinue = null }) => {
                     )}
                 </div>
 
-                {/* 🌟 BLOQUE INFERIOR: Detalles del Proyecto */}
+                {/* BLOQUE INFERIOR: Detalles del Proyecto */}
                 <div className="p-6 md:p-10 flex flex-col flex-grow">
                     <div className="mb-6 pb-4 border-b border-gray-100 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                         <div>
@@ -123,7 +124,6 @@ const ProjectModal = ({ project, onClose, onContinue = null }) => {
                             </a>
                         )}
                     </div>
-
                 </div>
             </motion.div>
         </motion.div>

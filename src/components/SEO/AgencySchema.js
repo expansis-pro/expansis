@@ -1,8 +1,8 @@
 // src/components/SEO/AgencySchema.js
 import React from 'react';
-import JsonLd from './JsonLd'; // 1. Importa tu inyector
-import { contactData } from '../../data/contactConfig';
-import { servicesData } from '../../data/servicesData'; // 🌟 Importamos tu data real de servicios
+import JsonLd from './JsonLd';
+import { contactData } from '@/data/contactConfig';
+import { servicesData } from '@/data/servicesData';
 
 export default function AgencySchema() {
     const agencyData = {

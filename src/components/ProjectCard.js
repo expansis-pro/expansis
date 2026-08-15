@@ -1,11 +1,12 @@
+'use client'; // 👈 Agrega esta línea al inicio del todo
+
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import ProjectModal from './ProjectModal'; // 🌟 Importamos el modal desde su nuevo archivo
+import ProjectModal from './ProjectModal';
 
 const ProjectCard = ({ project, index }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    // LÓGICA DE OPTIMIZACIÓN DE IMÁGENES
     const baseImagePath = project.image ? project.image.replace('.webp', '') : '';
     const imageSrcSet = project.image ? `
         ${baseImagePath}-sm.webp 480w,
@@ -21,7 +22,6 @@ const ProjectCard = ({ project, index }) => {
 
     return (
         <>
-            {/* --- TARJETA PREVIEW (Grilla) --- */}
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -30,7 +30,6 @@ const ProjectCard = ({ project, index }) => {
                 className="group border border-gray-100 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 bg-white flex flex-col h-full cursor-pointer"
                 onClick={openModal}
             >
-                {/* Contenedor de Imagen */}
                 <div className="relative w-full aspect-video overflow-hidden bg-deepBlue/5 shrink-0">
                     {project.image ? (
                         <img
@@ -49,7 +48,6 @@ const ProjectCard = ({ project, index }) => {
                     )}
                 </div>
 
-                {/* Cuerpo de la Tarjeta Preview */}
                 <div className="p-5 flex flex-col flex-grow justify-between">
                     <div className="flex flex-col gap-2.5">
                         <div className="flex flex-wrap">
@@ -75,7 +73,6 @@ const ProjectCard = ({ project, index }) => {
                 </div>
             </motion.div>
 
-            {/* --- MODAL EXTRAÍDO (Renderizado condicional controlado por AnimatePresence) --- */}
             <AnimatePresence>
                 {isModalOpen && (
                     <ProjectModal

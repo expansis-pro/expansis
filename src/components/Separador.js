@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 function Separador({ imageMobile, imageDesktop, alt }) {
     return (
         <picture className="separador">

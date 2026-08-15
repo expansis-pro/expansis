@@ -1,10 +1,11 @@
-// src/components/ContactForm.js
-import React, { useState, useEffect } from 'react'; // 1. Agregamos useEffect
+'use client'; // 👈 Necesario por useState, useEffect y manejadores de evento
+
+import React, { useState, useEffect } from 'react';
 import emailjs from 'emailjs-com';
 import ReCAPTCHA from "react-google-recaptcha";
 import axios from 'axios';
-import { trackFormSubmit } from '../utils/trackingUtils';
-import { servicesData } from '../data/servicesData';
+import { trackFormSubmit } from '@/utils/trackingUtils';
+import { servicesData } from '@/data/servicesData';
 
 const ContactForm = () => {
     const [formData, setFormData] = useState({
@@ -19,16 +20,15 @@ const ContactForm = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [statusMessage, setStatusMessage] = useState("");
     const [captchaVerified, setCaptchaVerified] = useState(false);
-    const [captchaToken, setCaptchaToken] = useState(""); // 🟢 NUEVO: Estado para guardar el token string real
-    const [isMounted, setIsMounted] = useState(false); // 🔵 NUEVO: Control para matar el error #418 de hidratación
+    const [captchaToken, setCaptchaToken] = useState("");
+    const [isMounted, setIsMounted] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
 
-    // Ejecutamos tras el primer render en el navegador real
     useEffect(() => {
         setIsMounted(true);
     }, []);
 
-    const siteKey = process.env.REACT_APP_RECAPTCHA_SITE_KEY;
+    const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -46,7 +46,7 @@ const ContactForm = () => {
     };
 
     const handleCaptcha = (value) => {
-        setCaptchaToken(value || ""); // 🟢 Guardamos la cadena de texto limpia que exige EmailJS
+        setCaptchaToken(value || "");
         setCaptchaVerified(!!value);
     };
 
@@ -61,32 +61,28 @@ const ContactForm = () => {
         setIsSubmitting(true);
         setStatusMessage("");
 
-        // Preparamos los parámetros
         const templateParams = {
             ...formData,
             company: formData.company ? formData.company : "No especificada",
             serviceType: formData.serviceType.length > 0 ? formData.serviceType.join(", ") : "Ninguno seleccionado",
-            'g-recaptcha-response': captchaToken // 🟢 CRÍTICO: Adjuntamos el token con el nombre exacto que EmailJS espera
+            'g-recaptcha-response': captchaToken
         };
 
         try {
-            // A. Envío a SheetDB (Google Sheets)
-            if (process.env.REACT_APP_SHETDB_API_URL) {
-                await axios.post(process.env.REACT_APP_SHETDB_API_URL, {
+            if (process.env.NEXT_PUBLIC_SHETDB_API_URL) {
+                await axios.post(process.env.NEXT_PUBLIC_SHETDB_API_URL, {
                     ...templateParams,
                     timestamp: new Date().toLocaleString('es-CL')
                 });
             }
 
-            // B. Envío a EmailJS
             await emailjs.send(
-                process.env.REACT_APP_EMAILJS_SERVICE_ID,
-                process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+                process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+                process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
                 templateParams,
-                process.env.REACT_APP_EMAILJS_USER_ID
+                process.env.NEXT_PUBLIC_EMAILJS_USER_ID
             );
 
-            // C. Disparo de Conversión en Google Ads / GA4
             trackFormSubmit('contacto_main_form', {
                 'servicio_seleccionado': formData.serviceType.length > 0 ? formData.serviceType.join(", ") : "Información General"
             });
@@ -191,7 +187,6 @@ const ContactForm = () => {
             </div>
 
             <div className="flex flex-col items-center gap-4 pt-2">
-                {/* 🔵 SOLUCIÓN 418: Solo renderiza el reCAPTCHA si está montado en el cliente real */}
                 {isMounted && siteKey && (
                     <div className="overflow-hidden max-w-full flex justify-center">
                         <ReCAPTCHA sitekey={siteKey} onChange={handleCaptcha} />

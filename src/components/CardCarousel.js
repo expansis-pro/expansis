@@ -1,4 +1,5 @@
-// src/components/CardCarousel.js
+'use client';
+
 import React, { useState, useRef } from 'react';
 
 const CardCarousel = ({ children }) => {
@@ -25,8 +26,6 @@ const CardCarousel = ({ children }) => {
                 className="flex w-full overflow-x-auto snap-x snap-mandatory gap-6 py-6 no-scrollbar px-0 md:max-w-7xl md:mx-auto md:px-6 lg:px-8 md:overflow-x-visible md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
                 style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
-                {/* 🗑️ SE ELIMINÓ EL BLOQUE <style> QUE ESTABA AQUÍ */}
-
                 {React.Children.map(children, (child, idx) => (
                     <div
                         key={idx}
@@ -37,7 +36,6 @@ const CardCarousel = ({ children }) => {
                 ))}
             </div>
 
-            {/* --- INDICADORES (PUNTITOS) --- */}
             <div className="mt-2 flex justify-center items-center gap-2 md:hidden">
                 {Array.from({ length: totalItems }).map((_, idx) => (
                     <div

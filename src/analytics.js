@@ -9,7 +9,7 @@ const analytics = Analytics({
         ? []
         : [
             googleAnalytics({
-                measurementIds: [process.env.REACT_APP_GA_MEASUREMENT_ID]
+                measurementIds: [process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID]
             })
         ]
 });

@@ -1,4 +1,5 @@
-// src/components/ImageTextCTA.js
+'use client';
+
 import React, { useState, useEffect } from 'react';
 import CtaButton from './CtaButton';
 import ReadMoreParagraphs from './ReadMoreParagraphs';
@@ -22,11 +23,9 @@ const ImageTextCTA = ({
     imageShape = 'video',
     showLinkedIn = false,
     showPersonalWeb = false,
-    // Controladores de WhatsApp
     showWhatsAppButton = false,
     whatsAppButtonContent = "Chatear por WhatsApp",
     whatsAppButtonLink = "https://wa.me/56988318443",
-    // Controladores del nuevo botón dedicado de Contacto
     showContactButton = false,
     contactButtonContent = "Formulario de Contacto",
     contactButtonLink = "/contacto",
@@ -53,7 +52,6 @@ const ImageTextCTA = ({
         ? 'aspect-square max-w-sm mx-auto rounded-[60px_10px_60px_10px]'
         : 'aspect-video w-full rounded-[60px_10px_60px_10px]';
 
-    // 🟢 TELEMETRÍA EXCLUSIVA WHATSAPP
     const handleDedicatedWhatsAppClick = () => {
         const cleanLocation = trackLocation ? `image_text_cta_${trackLocation}` : 'image_text_cta_generic';
 
@@ -78,7 +76,6 @@ const ImageTextCTA = ({
         }
     };
 
-    // 🟢 TELEMETRÍA EXCLUSIVA FORMULARIO DE CONTACTO
     const handleDedicatedContactClick = () => {
         const cleanLocation = trackLocation ? `image_text_cta_${trackLocation}` : 'image_text_cta_generic';
 
@@ -104,7 +101,6 @@ const ImageTextCTA = ({
             <div className="container-pro">
                 <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-20">
 
-                    {/* Contenedor de Imagen */}
                     <div className={`${imageSide === 'left' ? 'lg:order-1' : 'lg:order-2'} flex justify-center w-full`}>
                         <div
                             className={`relative bg-[#E2E8F0] overflow-hidden flex items-center justify-center shadow-2xl ${imageContainerClasses} ${vimeoId ? 'cursor-pointer group/video' : ''}`}
@@ -130,7 +126,6 @@ const ImageTextCTA = ({
                         </div>
                     </div>
 
-                    {/* Contenedor de Texto */}
                     <div className={`text-left ${imageSide === 'left' ? 'lg:order-2' : 'lg:order-1'}`}>
                         {subtitle && <span className="block text-primario uppercase tracking-widest mb-4 text-sm font-bold">{subtitle}</span>}
                         {title && <h2>{title}</h2>}
@@ -152,7 +147,7 @@ const ImageTextCTA = ({
                                         {secondaryButtonContent}
                                     </CtaButton>
                                 )}
-                                {/* Botón dedicado de WhatsApp */}
+
                                 {showWhatsAppButton && (
                                     <a
                                         href={whatsAppButtonLink}
@@ -165,7 +160,7 @@ const ImageTextCTA = ({
                                         {whatsAppButtonContent}
                                     </a>
                                 )}
-                                {/* Botón dedicado de formulario interno */}
+
                                 {showContactButton && (
                                     <CtaButton
                                         to={contactButtonLink}
@@ -176,8 +171,6 @@ const ImageTextCTA = ({
                                         {contactButtonContent}
                                     </CtaButton>
                                 )}
-
-
                             </div>
                         )}
 
@@ -217,7 +210,6 @@ const ImageTextCTA = ({
                 </div>
             </div>
 
-            {/* Modal de video */}
             {vimeoId && isModalOpen && (
                 <div
                     className="fixed inset-0 z-[9999] bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 md:p-10 animate-fadeIn"
