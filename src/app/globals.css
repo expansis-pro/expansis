@@ -7,7 +7,7 @@
 		@apply font-sans font-light text-gray-800 bg-ghostWhite;
 	}
 	h1 {
-		@apply text-4xl sm:text-5xl md:text-4xl leading-tight;
+		@apply text-4xl sm:text-4xl md:text-4xl leading-tight;
 	}
 	h2 {
 		@apply text-3xl sm:text-3xl text-gray-900 mb-6;

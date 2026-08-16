@@ -36,9 +36,9 @@ export default function Home() {
                         transition={{ duration: 0.8, ease: "easeOut" }}
                         className="hero-wrapper"
                     >
-                        <h1 className="text-ghostWhite drop-shadow-lg text-3xl md:text-5xl leading-tight">
+                        <h1 className="text-ghostWhite drop-shadow-lg text-3xl md:text-4xl leading-tight">
                             Agencia de Desarrollo Web y Marketing Digital<br />
-                            <span className="text-primario italic font-semibold text-2xl md:text-4xl">Estructuras digitales sólidas para tu negocio</span>
+                            <span className="text-primario italic font-semibold text-2xl md:text-3xl">Estructuras digitales sólidas para tu negocio</span>
                         </h1>
 
                         <p className="hero-paragraph">
