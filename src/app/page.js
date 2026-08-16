@@ -42,7 +42,7 @@ export default function Home() {
                         </h1>
 
                         <p className="hero-paragraph">
-                            En Expansis Pro desarrollamos sitios ecosistemas digitales a medida para empresas y marcas que necesitan transmitir confianza real.
+                            En Expansis Pro desarrollamos canales digitales a medida para empresas y marcas que necesitan transmitir confianza real.
                         </p>
 
                         <div className="hero-actions">
