@@ -21,6 +21,10 @@ const Faqs = lazy(() => import('./pages/Faqs'));
 const Contact = lazy(() => import('./pages/Contact'));
 const ProjectsPage = lazy(() => import('./pages/ProjectsPage'));
 
+// 1. IMPORTACIONES DEL BLOG
+const Blog = lazy(() => import('./pages/Blog'));
+const BlogPost = lazy(() => import('./pages/BlogPost'));
+
 function App() {
   const location = useLocation();
 
@@ -31,9 +35,8 @@ function App() {
       <ScrollToTop />
 
       <div className="flex flex-col min-h-screen">
-
         <Navbar />
-        {/* --- CAMBIO: Se añadió padding horizontal (px-4 sm:px-6 lg:px-8) --- */}
+
         <main className="flex-grow bg-deepBlue">
           <Suspense fallback={<LoadingPage />}>
             <AnimatePresence mode="wait">
@@ -94,13 +97,33 @@ function App() {
                       <Contact />
                     </PageTransition>
                   }
-                /><Route path="/proyectos" element={<ProjectsPage />} />
+                />
+
+                {/* 2. RUTAS NUEVAS PARA EL BLOG */}
+                <Route
+                  path="/blog"
+                  element={
+                    <PageTransition>
+                      <Blog />
+                    </PageTransition>
+                  }
+                />
+                <Route
+                  path="/blog/:slug"
+                  element={
+                    <PageTransition>
+                      <BlogPost />
+                    </PageTransition>
+                  }
+                />
+
                 <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
               </Routes>
             </AnimatePresence>
           </Suspense>
         </main>
-        <WhatsAppFloating /> {/* 2. COLÓCALO AQUÍ (Se renderizará en todo el sitio) */}
+
+        <WhatsAppFloating />
         <Footer />
       </div>
     </>

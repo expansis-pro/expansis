@@ -38,6 +38,11 @@ const Footer = () => {
 						<li><Link href="/quienes-somos" onClick={() => handleFooterLinkClick('Link Sobre', '/quienes-somos')} className="hover:text-primario transition-colors">Sobre Expansis</Link></li>
 						<li><Link href="/contacto" onClick={() => handleFooterLinkClick('Link Contacto', '/contacto')} className="hover:text-primario transition-colors">Contacto</Link></li>
 						<li><Link href="/faq" onClick={() => handleFooterLinkClick('Link FAQ', '/faq')} className="hover:text-primario transition-colors">Preguntas Frecuentes</Link></li>
+						<li>
+							<Link href="/blog" onClick={() => handleFooterLinkClick('Link Blog', '/blog')} className="hover:text-primario transition-colors">
+								Artículos
+							</Link>
+						</li>
 					</ul>
 				</div>
 

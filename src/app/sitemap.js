@@ -1,4 +1,5 @@
 import { servicesData } from '@/data/servicesData';
+import { blogPosts } from '@/data/blogData';
 
 export default async function sitemap() {
     const baseUrl = 'https://expansispro.com';
@@ -11,6 +12,7 @@ export default async function sitemap() {
         '/quienes-somos',
         '/contacto',
         '/faq',
+        '/blog',
     ].map((route) => ({
         url: `${baseUrl}${route}`,
         lastModified: new Date().toISOString(),
@@ -26,5 +28,13 @@ export default async function sitemap() {
         priority: 0.9,
     }));
 
-    return [...routes, ...serviceRoutes];
+    const blogRoutes = blogPosts
+        .filter((post) => post.status === "aprobado")
+        .map((post) => ({
+            url: `${baseUrl}/blog/${post.slug}`,
+            lastModified: new Date().toISOString(),
+            changeFrequency: 'monthly',
+            priority: 0.7,
+        }));
+    return [...routes, ...serviceRoutes, ...blogRoutes];
 }

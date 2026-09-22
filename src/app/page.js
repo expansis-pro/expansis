@@ -9,6 +9,7 @@ import CardCarousel from '@/components/CardCarousel';
 import ImageTextCTA from '@/components/ImageTextCTA';
 import CtaButton from '@/components/CtaButton';
 import CallToAction from '@/components/CallToAction';
+import RecentPosts from '@/components/RecentPosts';
 
 export default function Home() {
     return (
@@ -124,7 +125,7 @@ export default function Home() {
                 selectedIds={["estudio-brkovic", "2v-express", "lobos-miniexcavadoras"]}
                 showCta={true}
             />
-
+            <RecentPosts />
             <section id="about-teaser">
                 <ImageTextCTA
                     imageDesktop="/assets/images/expansisPro_aboutus.webp"

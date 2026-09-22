@@ -196,6 +196,19 @@ const Navbar = () => {
 							FAQ
 						</Link>
 					</li>
+
+
+
+					{/* Agrega esta etiqueta li dentro del menú de escritorio */}
+					<li>
+						<Link
+							href="/blog"
+							className={`font-medium transition-colors ${pathname.startsWith('/blog') ? 'text-primario' : 'text-ghostWhite hover:text-primario'}`}
+							onClick={() => handleNavLinkClick('Blog')}
+						>
+							Blog
+						</Link>
+					</li>
 					<li>
 						<button
 							onClick={() => trackWhatsAppClick('nav_desktop', 'Información General')}
@@ -262,6 +275,11 @@ const Navbar = () => {
 							<li><Link href="/quienes-somos" className="text-ghostWhite block text-lg" onClick={() => handleNavLinkClick('Sobre Expansis')}>Sobre Expansis</Link></li>
 							<li><Link href="/contacto" className="text-ghostWhite block text-lg" onClick={() => handleNavLinkClick('Contacto')}>Contacto</Link></li>
 							<li><Link href="/faq" className="text-ghostWhite block text-lg" onClick={() => handleNavLinkClick('FAQ')}>FAQ</Link></li>
+							<li>
+								<Link href="/blog" className="text-ghostWhite block text-lg" onClick={() => handleNavLinkClick('Blog')}>
+									Blog
+								</Link>
+							</li>
 							<li className="pt-4">
 								<button
 									className="btn-primary w-full py-5 text-xl shadow-primario/20 cursor-pointer"
@@ -274,6 +292,8 @@ const Navbar = () => {
 									Cotizar ahora
 								</button>
 							</li>
+
+
 						</ul>
 					</motion.div>
 				)}
