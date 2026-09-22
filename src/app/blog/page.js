@@ -46,58 +46,54 @@ export default function BlogPage() {
             <section className="section-padding bg-ghostWhite">
                 <div className="container-pro">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {
+                        {approvedPosts.map((post) => (
+                            <Link
+                                key={post.id}
+                                href={`/blog/${post.slug}`}
+                                className="group bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col h-full cursor-pointer"
+                            >
+                                <div className="relative aspect-video overflow-hidden bg-deepBlue/5">
+                                    <BlogImage
+                                        src={post.image}
+                                        alt={post.title}
+                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                                    />
+                                    <span className="absolute top-4 left-4 bg-deepBlue/90 backdrop-blur-sm text-ghostWhite text-[9px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                                        {post.category}
+                                    </span>
+                                </div>
 
-                            approvedPosts.map((post) => (
-                                <article
-                                    key={post.id}
-                                    className="group bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col h-full"
-                                >
-                                    <div className="relative aspect-video overflow-hidden bg-deepBlue/5">
-                                        <BlogImage
-                                            src={post.image}
-                                            alt={post.title}
-                                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                                        />
-                                        <span className="absolute top-4 left-4 bg-deepBlue/90 backdrop-blur-sm text-ghostWhite text-[9px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                                            {post.category}
-                                        </span>
+                                <div className="p-6 md:p-8 flex flex-col flex-grow justify-between">
+                                    <div>
+                                        <div className="flex items-center gap-2 text-xs text-gray-400 font-light mb-3">
+                                            <span>{post.date}</span>
+                                            <span>&bull;</span>
+                                            <span>{post.readTime}</span>
+                                        </div>
+                                        <h2 className="text-deepBlue text-xl font-bold mb-3 group-hover:text-primario transition-colors leading-snug">
+                                            {post.title}
+                                        </h2>
+                                        <p className="text-gray-500 text-sm font-light leading-relaxed line-clamp-3 mb-6">
+                                            {post.excerpt}
+                                        </p>
                                     </div>
 
-                                    <div className="p-6 md:p-8 flex flex-col flex-grow justify-between">
-                                        <div>
-                                            <div className="flex items-center gap-2 text-xs text-gray-400 font-light mb-3">
-                                                <span>{post.date}</span>
-                                                <span>&bull;</span>
-                                                <span>{post.readTime}</span>
-                                            </div>
-                                            <h2 className="text-deepBlue text-xl font-bold mb-3 group-hover:text-primario transition-colors leading-snug">
-                                                <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-                                            </h2>
-                                            <p className="text-gray-500 text-sm font-light leading-relaxed line-clamp-3 mb-6">
-                                                {post.excerpt}
-                                            </p>
+                                    <div>
+                                        <div className="flex flex-wrap gap-1.5 mb-6">
+                                            {post.tags.map((tag) => (
+                                                <span key={tag} className="text-[9px] bg-gray-100 text-gray-500 px-2.5 py-1 rounded font-bold uppercase tracking-wider">
+                                                    {tag}
+                                                </span>
+                                            ))}
                                         </div>
-
-                                        <div>
-                                            <div className="flex flex-wrap gap-1.5 mb-6">
-                                                {post.tags.map((tag) => (
-                                                    <span key={tag} className="text-[9px] bg-gray-100 text-gray-500 px-2.5 py-1 rounded font-bold uppercase tracking-wider">
-                                                        {tag}
-                                                    </span>
-                                                ))}
-                                            </div>
-                                            <Link
-                                                href={`/blog/${post.slug}`}
-                                                className="w-full inline-flex items-center justify-between pt-4 border-t border-gray-100 text-xs font-bold text-primario uppercase tracking-wider group-hover:text-deepBlue transition-colors"
-                                            >
-                                                <span>Leer artículo completo</span>
-                                                <i className="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1.5 transition-transform"></i>
-                                            </Link>
+                                        <div className="w-full inline-flex items-center justify-between pt-4 border-t border-gray-100 text-xs font-bold text-primario uppercase tracking-wider group-hover:text-deepBlue transition-colors">
+                                            <span>Leer artículo completo</span>
+                                            <i className="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1.5 transition-transform"></i>
                                         </div>
                                     </div>
-                                </article>
-                            ))}
+                                </div>
+                            </Link>
+                        ))}
                     </div>
                 </div>
             </section>

@@ -35,7 +35,7 @@ export const blogPosts = [
             "<ul><li><strong>Vencer la página en blanco:</strong> Usar la IA para generar una estructura inicial o lluvia de ideas cuando no sabes cómo arrancar un proyecto.</li><li><strong>Reducir notas caóticas:</strong> Transformar apuntes rápidos de una reunión o un audio en un correo claro para clientes o proveedores.</li><li><strong>Aprovechar las funciones de voz:</strong> Dictar ideas mientras te desplazas o practicar la presentación de una propuesta en voz alta para recibir retroalimentación.</li></ul>",
             "Una vez que dominas estas tareas simples, puedes avanzar hacia configuraciones más estructuradas (como GPTs personalizados o proyectos) para automatizar procesos repetitivos.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
             "<h3>Principios de Redacción de Prompts (Anthropic & OpenAI)</h3>",
-            "Para obtener respuestas precisas a la primera, los estándares de ingeniería de prompts recomiendan aplicar estas reglas de comunicación:<sup><a href='#fuente-2' class='text-primario font-bold ml-1'>[2]</a></sup>",
+            "Para obtener respuestas precisas a la primera, los estándares de ingeniería de prompts recomiendan aplicar estas reglas de comunicación:<sup><a href='#fuente-2' class='text-primario font-bold ml-1'></a></sup>",
             "<ul><li><strong>Trátala como un empleado nuevo brillante:</strong> Posee alta capacidad analítica, pero cero contexto sobre tu empresa. Explícale quién eres, qué vendes y cuál es tu objetivo.</li><li><strong>La Regla de Oro:</strong> Muestra tu prompt a un colega sin contexto previo. Si a él le confunde tu indicación, a la IA también.</li><li><strong>Estructura clara:</strong> Delimita tu instrucción asignando un rol, contexto, tarea concreta y el formato de salida deseado.</li></ul>",
             "<h3>💡 El Prompt de Descubrimiento para Emprendedores</h3>",
             "Si no sabes por dónde empezar a usar la IA en tu trabajo diario, copia y pega esta instrucción en el chat adaptando tus datos:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
@@ -64,20 +64,82 @@ export const blogPosts = [
             },
             {
                 num: 2,
-                name: "Google Data Analytics Professional Certificate",
-                title: "Foundations: Data, Data, Everywhere - Data Analysis Process Framework",
-                url: "https://www.coursera.org/learn/data-data-everywhere"
+                name: "Grow with Google / Coursera",
+                title: "Google Data Analytics Professional Certificate Program",
+                url: "https://www.coursera.org/professional-certificates/google-data-analytics"
             }
         ],
         content: [
             "<strong>El análisis de datos no consiste en abrir planillas llenas de números sin sentido; consiste en seguir un proceso metodológico para responder preguntas comerciales concretas.</strong>",
             "En el Certificado Profesional de Análisis de Datos de Google se establece que cualquier proyecto analítico exitoso —desde optimizar un embudo de ventas hasta mejorar la retención de clientes— debe transitar por un ciclo de vida de 6 etapas bien definidas.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
             "<h3>Las 6 Fases del Análisis de Datos de Google</h3>",
-            "Para evitar perderte entre métricas vanidosas, la metodología de Google organiza el trabajo analítico en este orden secuencial:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup><sup><a href='#fuente-2' class='text-primario font-bold ml-1'>[2]</a></sup>",
+            "Para evitar perderte entre métricas vanidosas, la metodología de Google organiza el trabajo analítico en este orden secuencial:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup><sup><a href='#fuente-2' class='text-primario font-bold ml-1'></a></sup>",
             "<ol><li><strong>1. Preguntar (Ask):</strong> Todo empieza definiendo el problema real y las expectativas del negocio. Implica hacer las preguntas correctas a los involucrados para entender qué se necesita resolver antes de tocar cualquier dato.</li><li><strong>2. Preparar (Prepare):</strong> Identificar y recolectar la información necesaria. En esta fase se define qué datos se requieren (métricas web, encuestas, ventas), dónde se almacenarán y cómo se protegerá la privacidad.</li><li><strong>3. Procesar (Process):</strong> Limpiar y verificar los datos. Significa eliminar duplicados, corregir inconsistencias y asegurar que la información sea completa, correcta y relevante antes de trabajar con ella.</li><li><strong>4. Analizar (Analyze):</strong> Descubrir patrones y relaciones. Mediante cálculos, consultas y modelos, los datos procesados se transforman en hallazgos útiles para responder las preguntas iniciales.</li><li><strong>5. Compartir (Share):</strong> Comunicar los resultados. Se crean visualizaciones de datos y reportes claros para que los tomadores de decisiones entiendan las conclusiones dentro del contexto del negocio.</li><li><strong>6. Actuar (Act):</strong> Implementar soluciones. Es la etapa final donde se ejecutan los cambios estratégicos en la empresa respaldados por los hallazgos del análisis.</li></ol>",
             "<h3>💡 ¿Para qué te sirve esto como emprendedor?</h3>",
             "<ul><li><strong>Evita perderte en datos inútiles:</strong> Definir la pregunta correcta (Fase 1) evita que gastes días mirando Google Analytics sin saber qué estás buscando.</li><li><strong>Asegura decisiones de bajo riesgo:</strong> No implementas cambios por corazonadas; actúas (Fase 6) solo cuando el análisis (Fase 4) respalda la inversión.</li><li><strong>Estructura cualquier área de tu empresa:</strong> Esta misma metodología de 6 pasos aplica para analizar el rendimiento de tu pauta publicitaria, mejorar la atención por WhatsApp o reducir costos operativos.</li></ul>",
             "<strong>Conclusión:</strong> El verdadero valor de los datos no está en su acumulación, sino en la disciplina con la que los transformas en decisiones rentables."
+        ]
+    }, {
+        id: 3,
+        slug: "perspectivas-ciclo-de-vida-de-datos",
+        title: "Las Perspectivas del Ciclo de Vida de Datos: Dell EMC, Google/CRISP-DM, SAS y Big Data",
+        category: "Estrategia & Datos",
+        excerpt: "Comparamos los marcos metodológicos más influyentes de la industria (Ciencia de Datos, BI, AI Lifecycle y Big Data) para que elijas el adecuado según tu proyecto.",
+        author: "Gonzalo Lobos",
+        authorRole: "Founder & Lead Engineer",
+        date: "26 Septiembre 2026",
+        readTime: "7 min de lectura",
+        image: "/assets/images/expansisPro_target.webp",
+        status: "aprobado",
+        tags: ["Analítica de Datos", "Dell EMC", "CRISP-DM", "SAS", "Big Data", "Thomas Erl"],
+        sources: [
+            {
+                num: 1,
+                name: "Wiley Online Library / EMC",
+                title: "Data Science and Big Data Analytics - Chapter 2: Data Analytics Lifecycle (David Dietrich)",
+                url: "https://onlinelibrary.wiley.com/doi/book/10.1002/9781119183686"
+            },
+            {
+                num: 2,
+                name: "Pingax / Vignesh Prajapati",
+                title: "Data Analytics Project Life Cycle: 6 Phases, Frameworks & Real-World Playbook",
+                url: "https://pingax.com/understanding-data-analytics-project-life-cycle/"
+            },
+            {
+                num: 3,
+                name: "InformIT / Pearson Education",
+                title: "Big Data Fundamentals: Concepts, Drivers & Techniques - Chapter 3: Big Data Analytics Lifecycle (Thomas Erl et al.)",
+                url: "https://www.informit.com/articles/article.aspx?p=2473128&seqNum=11"
+            },
+            {
+                num: 4,
+                name: "SAS Communities / SAS Institute",
+                title: "Data-Driven Analytics in SAS Viya – The AI and Analytics Lifecycle",
+                url: "https://communities.sas.com/t5/SAS-Communities-Library/Data-Driven-Analytics-in-SAS-Viya-The-AI-and-Analytics-Lifecycle/ta-p/923042"
+            }
+        ],
+        content: [
+            "<strong>Elegir la metodología de datos adecuada para tu empresa es el paso definitivo para estructurar proyectos eficientes, evitar la sobreingeniería y tomar decisiones comerciales rentables.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup></strong>",
+            "Tanto si se aborda la analítica desde la Ciencia de Datos, la Inteligencia de Negocios (BI), el desarrollo de IA o el Big Data, la industria se organiza principalmente en torno a marcos metodológicos consolidados.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup><sup><a href='#fuente-2' class='text-primario font-bold ml-1'>[2]</a></sup><sup><a href='#fuente-3' class='text-primario font-bold ml-1'>[3]</a></sup><sup><a href='#fuente-4' class='text-primario font-bold ml-1'>[4]</a></sup>",
+            "<h3>1. La Perspectiva de Ciencia de Datos: El Ciclo Cíclico de Dell EMC</h3>",
+            "Desarrollado por David Dietrich para EMC Corporation (hoy Dell EMC), este marco organiza los proyectos de analítica avanzada en 6 fases interconectadas:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<ol><li><strong>1. Descubrimiento (Discovery)</strong></li><li><strong>2. Preprocesamiento de datos</strong></li><li><strong>3. Planificación del modelo</strong></li><li><strong>4. Construcción del modelo</strong></li><li><strong>5. Comunicación de resultados</strong></li><li><strong>6. Operacionalización</strong></li></ol>",
+            "<strong>Enfoque principal:</strong> Diseñado para Ciencia de Datos e Inteligencia Artificial, enfatiza la formulación previa de hipótesis, la preparación en entornos <em>sandbox</em> y la validación técnica de modelos predictivos antes de su despliegue en producción.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<h3>2. La Perspectiva de Negocios y BI: El Estándar Google / CRISP-DM</h3>",
+            "Alineado con el marco de Google (enseñado en Coursera) y el estándar global CRISP-DM desarrollado por IBM, sintetiza el trabajo analítico en 6 etapas orientadas a decisiones comerciales rápidas:<sup><a href='#fuente-2' class='text-primario font-bold ml-1'>[2]</a></sup>",
+            "<ol><li><strong>1. Preguntar (Ask / Business Understanding)</strong></li><li><strong>2. Preparar (Prepare / Data Understanding)</strong></li><li><strong>3. Procesar (Process / Data Preparation)</strong></li><li><strong>4. Analizar (Analyse / Modeling)</strong></li><li><strong>5. Compartir (Share / Evaluation)</strong></li><li><strong>6. Actuar (Act / Deployment)</strong></li></ol>",
+            "<strong>Enfoque principal:</strong> Resuelve problemas del negocio estructurando metas SMART, identificando causas raíz con técnicas como los '5 Porqués' y alineando tempranamente a los involucrados para asegurar un retorno de inversión rápido.<sup><a href='#fuente-2' class='text-primario font-bold ml-1'>[2]</a></sup>",
+            "<h3>3. La Perspectiva de IA y Modelado Cíclico: El Enfoque SAS (AI & Analytics Lifecycle)</h3>",
+            "Basado en la metodología de analítica e IA de SAS Institute, propone un flujo continuo centrado en la exploración profunda e ingeniería de variables:<sup><a href='#fuente-4' class='text-primario font-bold ml-1'>[4]</a></sup>",
+            "<ul><li><strong>1. Exploración profunda de datos ('Know Thy Data')</strong></li><li><strong>2. Tratamiento de nulos e imputación</strong></li><li><strong>3. Transformación de variables (escalado/logaritmos)</strong></li><li><strong>4. Desarrollo e iteración de modelos predictivos</strong></li><li><strong>5. Despliegue y evaluación continua en producción</strong></li></ul>",
+            "<strong>Enfoque principal:</strong> Prioriza la preparación técnica y limpieza de variables antes de entrenar algoritmos, conectando el análisis exploratorio con la analítica visual y la gobernanza de modelos en producción.<sup><a href='#fuente-4' class='text-primario font-bold ml-1'>[4]</a></sup>",
+            "<h3>4. La Perspectiva de Big Data e Ingeniería Avanzada: El Ciclo de Thomas Erl</h3>",
+            "Diseñado por Thomas Erl, Paul Buhler y Wajid Khattak, este marco desglosa el trabajo en 9 etapas para gestionar proyectos con volumen, velocidad y variedad de datos:<sup><a href='#fuente-3' class='text-primario font-bold ml-1'>[3]</a></sup>",
+            "<ol><li><strong>1. Evaluación del caso de negocio</strong></li><li><strong>2. Identificación de datos</strong></li><li><strong>3. Adquisición y filtrado</strong></li><li><strong>4. Extracción</strong></li><li><strong>5. Validación y limpieza</strong></li><li><strong>6. Agregación y representación</strong></li><li><strong>7. Análisis de datos</strong></li><li><strong>8. Visualización</strong></li><li><strong>9. Utilización de resultados</strong></li></ol>",
+            "<strong>Enfoque principal:</strong> Prioriza la ingeniería de datos, el filtrado automatizado de ruido, la preservación de metadatos de procedencia y la integración de fuentes no estructuradas en repositorios estandarizados.<sup><a href='#fuente-3' class='text-primario font-bold ml-1'>[3]</a></sup>",
+            "<h3>💡 ¿Para qué te sirve esto como emprendedor?</h3>",
+            "<ul><li><strong>Para seleccionar el marco adecuado según tu meta:</strong> Usa Google/CRISP-DM para decisiones comerciales cotidianas;<sup><a href='#fuente-2' class='text-primario font-bold ml-1'>[2]</a></sup> Dell EMC o SAS si vas a entrenar algoritmos de predicción o IA con datos que requieren exploración profunda;<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup><sup><a href='#fuente-4' class='text-primario font-bold ml-1'>[4]</a></sup> y Thomas Erl si tu infraestructura procesa grandes volúmenes de datos no estructurados.<sup><a href='#fuente-3' class='text-primario font-bold ml-1'>[3]</a></sup></li><li><strong>Para dimensionar el esfuerzo de ingeniería:</strong> Mientras las metodologías de BI simplifican la preparación, los marcos de SAS y Big Data profundizan en la imputación, filtrado y validación previa para evitar que datos corruptos distorsionen los modelos.<sup><a href='#fuente-3' class='text-primario font-bold ml-1'>[3]</a></sup><sup><a href='#fuente-4' class='text-primario font-bold ml-1'>[4]</a></sup></li><li><strong>Para conectar el análisis con los resultados:</strong> Todos los marcos coinciden en que un proyecto no finaliza con la creación de un informe, sino con la operacionalización o utilización directa de los resultados en la operación de la empresa.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup><sup><a href='#fuente-2' class='text-primario font-bold ml-1'>[2]</a></sup><sup><a href='#fuente-3' class='text-primario font-bold ml-1'>[3]</a></sup><sup><a href='#fuente-4' class='text-primario font-bold ml-1'>[4]</a></sup></li></ul>",
+            "<strong>Conclusión:</strong> Comprender estas distintas perspectivas te permite elegir el nivel de profundidad exacto que requiere tu proyecto, garantizando decisiones informadas y sostenibles."
         ]
     }
 ];

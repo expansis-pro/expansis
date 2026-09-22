@@ -28,10 +28,10 @@ export default function BlogImage({
                     <div className="w-10 h-10 rounded-xl bg-primario/10 border border-primario/30 flex items-center justify-center mb-1">
                         <i className="fa-solid fa-newspaper text-primario text-lg"></i>
                     </div>
-                    <span className="text-ghostWhite font-extrabold text-lg sm:text-xl tracking-wider uppercase">
+                    <span className="text-ghostWhite text-lg sm:text-xl tracking-wider">
                         Expansis <span className="text-primario">Pro</span>
                     </span>
-                    <span className="text-gray-400 text-xs font-light tracking-widest uppercase">
+                    <span className="text-gray-400 text-xs font-light tracking-widest ">
                         Blog &amp; Recursos Digitales
                     </span>
                 </div>

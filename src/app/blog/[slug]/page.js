@@ -5,6 +5,7 @@ import NotFound from '@/app/not-found';
 import JsonLd from '@/components/SEO/JsonLd';
 import CallToAction from '@/components/CallToAction';
 import BlogImage from '@/components/BlogImage';
+import BlogContent from '@/components/BlogContent'; // 👈 Importamos el nuevo componente
 
 export async function generateMetadata({ params }) {
     const resolvedParams = await params;
@@ -51,7 +52,6 @@ export default async function BlogPostPage({ params }) {
     const resolvedParams = await params;
     const slug = resolvedParams.slug;
 
-    // 1. CORRECCIÓN: Filtramos el post activo solo si su estado es "aprobado"
     const post = blogPosts.find((p) => p.slug === slug && p.status === "aprobado");
 
     if (!post) {
@@ -60,14 +60,12 @@ export default async function BlogPostPage({ params }) {
 
     const baseUrl = 'https://expansispro.com';
 
-    // 2. CORRECCIÓN: Filtramos los artículos relacionados para que SOLO incluyan "aprobado"
     const relatedPosts = blogPosts
         .filter((p) => p.slug !== slug && p.status === "aprobado")
         .slice(0, 2);
 
     return (
         <main className="min-h-screen bg-ghostWhite scroll-smooth">
-            {/* Schema de Entrada de Blog en Formato JSON-LD */}
             <JsonLd
                 id={`blog-post-schema-${post.slug}`}
                 data={{
@@ -122,7 +120,6 @@ export default async function BlogPostPage({ params }) {
             {/* Cuerpo del Artículo */}
             <article className="section-padding">
                 <div className="max-w-3xl mx-auto px-4">
-                    {/* Imagen principal: Solo se muestra si existe y carga correctamente */}
                     <BlogImage
                         src={post.image}
                         alt={post.title}
@@ -133,11 +130,10 @@ export default async function BlogPostPage({ params }) {
                     />
 
                     <div className="bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100 space-y-6 text-gray-700 text-lg font-light leading-relaxed">
-                        {post.content.map((paragraph, index) => (
-                            <div key={index} dangerouslySetInnerHTML={{ __html: paragraph }} />
-                        ))}
+                        {/* 👈 Renderizado interactivo del contenido con citas */}
+                        <BlogContent content={post.content} sources={post.sources} />
 
-                        {/* BLOQUE ESTILO ACADÉMICO / UNIVERSITARIO DE REFERENCIAS */}
+                        {/* BLOQUE DE REFERENCIAS BIBLIOGRÁFICAS */}
                         {post.sources && post.sources.length > 0 && (
                             <div className="mt-12 pt-8 border-t border-gray-100 bg-gray-50/80 p-6 md:p-8 rounded-2xl">
                                 <h4 className="text-xs uppercase tracking-widest text-deepBlue font-bold mb-4 flex items-center gap-2">
@@ -149,7 +145,7 @@ export default async function BlogPostPage({ params }) {
                                         <li
                                             id={`fuente-${src.num}`}
                                             key={src.num}
-                                            className="flex items-start gap-3 p-2 rounded-lg transition-colors hover:bg-white border border-transparent hover:border-gray-100"
+                                            className="flex items-start gap-3 p-2 rounded-lg transition-all duration-500 hover:bg-white border border-transparent hover:border-gray-100"
                                         >
                                             <span className="font-extrabold text-primario bg-primario/10 px-2 py-0.5 rounded text-[11px] shrink-0">
                                                 [{src.num}]
@@ -186,7 +182,7 @@ export default async function BlogPostPage({ params }) {
                 </div>
             </article>
 
-            {/* Artículos Relacionados (SOLO MOSTRARÁ APROBADOS) */}
+            {/* Artículos Relacionados */}
             {relatedPosts.length > 0 && (
                 <section className="pb-16 px-4">
                     <div className="max-w-4xl mx-auto">

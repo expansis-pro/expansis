@@ -40,7 +40,7 @@ const Footer = () => {
 						<li><Link href="/faq" onClick={() => handleFooterLinkClick('Link FAQ', '/faq')} className="hover:text-primario transition-colors">Preguntas Frecuentes</Link></li>
 						<li>
 							<Link href="/blog" onClick={() => handleFooterLinkClick('Link Blog', '/blog')} className="hover:text-primario transition-colors">
-								Artículos
+								Blog
 							</Link>
 						</li>
 					</ul>

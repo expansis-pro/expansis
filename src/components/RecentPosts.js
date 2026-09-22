@@ -2,11 +2,10 @@
 import React from 'react';
 import Link from 'next/link';
 import { blogPosts } from '@/data/blogData';
+import BlogImage from '@/components/BlogImage'; // 👈 Importamos el componente
 
 export default function RecentPosts() {
     const recent = blogPosts.filter((post) => post.status === "aprobado").slice(0, 3);
-
-    const DEFAULT_IMAGE = "/assets/images/expansisPro_target.webp";
 
     return (
         <section id="recent-posts" className="section-padding bg-ghostWhite">
@@ -34,18 +33,14 @@ export default function RecentPosts() {
                         <Link
                             key={post.id}
                             href={`/blog/${post.slug}`}
-                            className="group bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col h-full"
+                            className="group bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col h-full cursor-pointer"
                         >
                             <div className="relative aspect-video overflow-hidden bg-deepBlue/5">
-                                <img
-                                    src={post.image || DEFAULT_IMAGE}
+                                {/* Componente BlogImage optimizado */}
+                                <BlogImage
+                                    src={post.image}
                                     alt={post.title}
                                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                                    loading="lazy"
-                                    onError={(e) => {
-                                        e.currentTarget.onerror = null;
-                                        e.currentTarget.src = DEFAULT_IMAGE;
-                                    }}
                                 />
                                 <span className="absolute top-4 left-4 bg-deepBlue/90 backdrop-blur-sm text-ghostWhite text-[9px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
                                     {post.category}
@@ -65,7 +60,7 @@ export default function RecentPosts() {
                                         {post.excerpt}
                                     </p>
                                 </div>
-                                <div className="pt-4 border-t border-gray-100 flex items-center justify-between text-xs font-bold text-primario uppercase tracking-wider">
+                                <div className="pt-4 border-t border-gray-100 flex items-center justify-between text-xs font-bold text-primario uppercase tracking-wider group-hover:text-deepBlue transition-colors">
                                     <span>Leer artículo</span>
                                     <i className="fa-solid fa-chevron-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
                                 </div>
