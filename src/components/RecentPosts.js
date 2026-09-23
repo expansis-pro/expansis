@@ -60,7 +60,7 @@ export default function RecentPosts() {
                                         {post.excerpt}
                                     </p>
                                 </div>
-                                <div className="pt-4 border-t border-gray-100 flex items-center justify-between text-xs font-bold text-primario uppercase tracking-wider group-hover:text-deepBlue transition-colors">
+                                <div className="pt-4 border-t border-gray-100 flex items-center justify-between text-xs font-bold uppercase tracking-wider group-hover:text-primario text-deepBlue transition-colors">
                                     <span>Leer artículo</span>
                                     <i className="fa-solid fa-chevron-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
                                 </div>
