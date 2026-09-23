@@ -47,11 +47,11 @@ export const blogPosts = [
         slug: "las-6-fases-del-analisis-de-datos-metodologia-google",
         title: "Las 6 Fases del Análisis de Datos según Google",
         category: "Estrategia & Datos",
-        excerpt: "Conoce el marco de trabajo oficial de 6 pasos de Google (Preguntar, Preparar, Procesar, Analizar, Compartir y Actuar) para transformar datos caóticos en crecimiento real para tu empresa.",
+        excerpt: "Conoce la ruta metodológica oficial de Google (Ask, Prepare, Process, Analyze, Share y Act) para transformar datos caóticos en decisiones comerciales rentables.",
         author: "Gonzalo Lobos",
         authorRole: "Founder & Lead Engineer",
         date: "23 Septiembre 2026",
-        readTime: "6 min de lectura",
+        readTime: "7 min de lectura",
         image: "/assets/images/expansisPro_target.webp",
         status: "aprobado",
         tags: ["Análisis de Datos", "Metodología Google", "Business Intelligence", "Toma de Decisiones", "Estrategia"],
@@ -65,19 +65,21 @@ export const blogPosts = [
             {
                 num: 2,
                 name: "Grow with Google / Coursera",
-                title: "Google Data Analytics Professional Certificate Program",
+                title: "Google Data Analytics Professional Certificate Program - The Data Analysis Process",
                 url: "https://www.coursera.org/professional-certificates/google-data-analytics"
             }
         ],
         content: [
-            "<strong>El análisis de datos no consiste en abrir planillas llenas de números sin sentido; consiste en seguir un proceso metodológico para responder preguntas comerciales concretas.</strong>",
-            "En el Certificado Profesional de Análisis de Datos de Google se establece que cualquier proyecto analítico exitoso —desde optimizar un embudo de ventas hasta mejorar la retención de clientes— debe transitar por un ciclo de vida de 6 etapas bien definidas.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
-            "<h3>Las 6 Fases del Análisis de Datos de Google</h3>",
-            "Para evitar perderte entre métricas vanidosas, la metodología de Google organiza el trabajo analítico en este orden secuencial:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup><sup><a href='#fuente-2' class='text-primario font-bold ml-1'></a></sup>",
-            "<ol><li><strong>1. Preguntar (Ask):</strong> Todo empieza definiendo el problema real y las expectativas del negocio. Implica hacer las preguntas correctas a los involucrados para entender qué se necesita resolver antes de tocar cualquier dato.</li><li><strong>2. Preparar (Prepare):</strong> Identificar y recolectar la información necesaria. En esta fase se define qué datos se requieren (métricas web, encuestas, ventas), dónde se almacenarán y cómo se protegerá la privacidad.</li><li><strong>3. Procesar (Process):</strong> Limpiar y verificar los datos. Significa eliminar duplicados, corregir inconsistencias y asegurar que la información sea completa, correcta y relevante antes de trabajar con ella.</li><li><strong>4. Analizar (Analyze):</strong> Descubrir patrones y relaciones. Mediante cálculos, consultas y modelos, los datos procesados se transforman en hallazgos útiles para responder las preguntas iniciales.</li><li><strong>5. Compartir (Share):</strong> Comunicar los resultados. Se crean visualizaciones de datos y reportes claros para que los tomadores de decisiones entiendan las conclusiones dentro del contexto del negocio.</li><li><strong>6. Actuar (Act):</strong> Implementar soluciones. Es la etapa final donde se ejecutan los cambios estratégicos en la empresa respaldados por los hallazgos del análisis.</li></ol>",
+            "<strong>El análisis de datos no consiste en abrir planillas llenas de números sin sentido; consiste en seguir una ruta metodológica para responder preguntas comerciales concretas.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup></strong>",
+            "En el Certificado Profesional de Análisis de Datos de Google se establece que cualquier proyecto analítico exitoso —desde optimizar un embudo de ventas hasta mejorar la retención de clientes— debe transitar por un ciclo de 6 etapas secuenciales.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup><sup><a href='#fuente-2' class='text-primario font-bold ml-1'>[2]</a></sup>",
+            "<h3>Gobernanza vs. Proceso de Análisis: La Diferencia Clave</h3>",
+            "Es común confundir el <em>Ciclo de Vida de los Datos</em> (que gestiona la infraestructura, almacenamiento y destrucción de la información como activo corporativo) con el <em>Proceso de Análisis de Datos</em>. Este último es la hoja de ruta operativa del analista para resolver un problema puntual de negocio desde la pregunta inicial hasta la solución.<sup><a href='#fuente-2' class='text-primario font-bold ml-1'>[2]</a></sup>",
+            "<h3>Las 6 Fases de la Metodología de Google</h3>",
+            "Para evitar perderte entre métricas vanidosas, el marco de Google organiza el trabajo analítico en este flujo estructurado:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup><sup><a href='#fuente-2' class='text-primario font-bold ml-1'>[2]</a></sup>",
+            "<ol><li><strong>1. Preguntar (Ask):</strong> Definir el problema comercial alineando el estado actual con el ideal. Implica calificar las expectativas de los involucrados (stakeholders) para entender qué necesitan, cuándo y por qué antes de tocar cualquier dato.</li><li><strong>2. Preparar (Prepare):</strong> Identificar y recolectar la información necesaria para responder las preguntas del proyecto, garantizando que los datos sean objetivos, imparciales y libres de sesgos.</li><li><strong>3. Procesar (Process):</strong> Refinar y limpiar los datos. Significa eliminar errores, corregir inconsistencias, remover valores atípicos (outliers) y transformar formatos usando herramientas como SQL y hojas de cálculo.</li><li><strong>4. Analizar (Analyze):</strong> Descubrir patrones, tendencias y relaciones. Mediante cálculos, consultas SQL y lenguajes de programación como Python, los datos limpios se transforman en hallazgos útiles para el negocio.</li><li><strong>5. Compartir (Share):</strong> Interpretar los resultados y comunicarlos a los tomadores de decisiones mediante visualizaciones de datos claras, construyendo una narrativa convincente y fácil de entender.</li><li><strong>6. Actuar (Act):</strong> Poner en práctica los hallazgos ejecutando cambios estratégicos, recomendaciones operativas o proyectos de alto impacto respaldados por evidencia.</li></ol>",
             "<h3>💡 ¿Para qué te sirve esto como emprendedor?</h3>",
-            "<ul><li><strong>Evita perderte en datos inútiles:</strong> Definir la pregunta correcta (Fase 1) evita que gastes días mirando Google Analytics sin saber qué estás buscando.</li><li><strong>Asegura decisiones de bajo riesgo:</strong> No implementas cambios por corazonadas; actúas (Fase 6) solo cuando el análisis (Fase 4) respalda la inversión.</li><li><strong>Estructura cualquier área de tu empresa:</strong> Esta misma metodología de 6 pasos aplica para analizar el rendimiento de tu pauta publicitaria, mejorar la atención por WhatsApp o reducir costos operativos.</li></ul>",
-            "<strong>Conclusión:</strong> El verdadero valor de los datos no está en su acumulación, sino en la disciplina con la que los transformas en decisiones rentables."
+            "<ul><li><strong>Evita perderte en datos inútiles:</strong> Calificar las expectativas y la pregunta correcta (Fase Ask) evita que gastes días mirando métricas que no impactan en tus ventas.</li><li><strong>Asegura decisiones de bajo riesgo:</strong> La fase de procesamiento (Process) te protege de tomar decisiones críticas de inversión basándote en datos duplicados o sesgados.</li><li><strong>Alinea a tu equipo gerencial:</strong> La combinación de visualización e interpretación (Fases Share y Act) facilita la comunicación de estrategias complejas a socios o inversionistas sin modismos técnicos.</li></ul>",
+            "<strong>Conclusión:</strong> El verdadero valor de los datos no está en su acumulación, sino en la disciplina metodológica con la que los transformas en decisiones rentables y sostenibles."
         ]
     }, {
         id: 3,
@@ -252,6 +254,142 @@ export const blogPosts = [
             "<h3>💡 ¿Para qué te sirve esto como emprendedor?</h3>",
             "<ul><li><strong>Para eliminar barreras de comunicación:</strong> Hablar la terminología precisa te permite definir requerimientos claros ante consultores, agencias de tecnología o desarrolladores.<sup></sup></li><li><strong>Para evaluar la madurez de tu empresa:</strong> Te permite auditar si tu organización cuenta con un verdadero ecosistema de datos o solo trabaja con archivos aislados sin estrategia.<sup></sup></li><li><strong>Para liderar con criterio:</strong> Distinguir entre conceptos como análisis de datos, ciencia de datos y decisiones data-driven evita que contrates perfiles o compres software innecesario para la etapa actual de tu negocio.<sup></sup></li></ul>",
             "<strong>Conclusión:</strong> Comprender este marco conceptual otorga la base necesaria para articular proyectos analíticos sostenibles, garantizando que cada iniciativa de datos impulse el crecimiento real de tu empresa."
+        ]
+    }, {
+        id: 7,
+        slug: "ciclo-de-vida-de-los-datos-etapas-y-variaciones",
+        title: "El Ciclo de Vida de los Datos: De la Planificación a la Destrucción",
+        category: "Estrategia & Datos",
+        excerpt: "Gestiona la información como un activo estratégico. Comparamos el modelo estándar de 6 etapas con el marco de 8 pasos de Harvard (Wing & HBS) y sus variaciones en la industria.",
+        author: "Gonzalo Lobos",
+        authorRole: "Founder & Lead Engineer",
+        date: "26 Septiembre 2026",
+        readTime: "9 min de lectura",
+        image: "/assets/images/expansisPro_target.webp",
+        status: "aprobado",
+        tags: ["Ciclo de Vida de Datos", "Gobernanza de Datos", "Data Management", "Harvard Data Science", "Estrategia de Datos"],
+        sources: [
+            {
+                num: 1,
+                name: "Google Data Analytics Certificate / Coursera",
+                title: "Foundations: Data, Data Everywhere - The 6 Stages of the Data Life Cycle",
+                url: "https://www.coursera.org/professional-certificates/google-data-analytics"
+            },
+            {
+                num: 2,
+                name: "Harvard Data Science Review / Jeannette M. Wing",
+                title: "The Data Life Cycle (Columbia University / MIT Press)",
+                url: "https://doi.org/10.1162/99608f92.e26845b4"
+            },
+            {
+                num: 3,
+                name: "Harvard Business School Online / Tim Stobierski",
+                title: "8 Steps in the Data Life Cycle",
+                url: "https://online.hbs.edu/blog/post/data-life-cycle"
+            },
+            {
+                num: 4,
+                name: "U.S. Fish and Wildlife Service (USFWS)",
+                title: "Data Management Life Cycle Framework",
+                url: "https://www.fws.gov/program/data-management/data-management-life-cycle"
+            },
+            {
+                num: 5,
+                name: "U.S. Geological Survey (USGS)",
+                title: "USGS Science Data Lifecycle Model (SDLM)",
+                url: "https://www.usgs.gov/products/data-and-tools/data-management/data-lifecycle"
+            }
+        ],
+        content: [
+            "<strong>Tratar los datos como activos corporativos exige gestionar todo su ciclo de existencia, garantizando su precisión, seguridad y ética desde la primera interacción hasta su eliminación.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup><sup><a href='#fuente-2' class='text-primario font-bold ml-1'>[2]</a></sup></strong>",
+            "A diferencia del proceso analítico puntual (diseñado para responder preguntas de negocio), el ciclo de vida de los datos establece el marco de gobernanza continuo con el que la organización custodia y extrae valor de la información.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup><sup><a href='#fuente-2' class='text-primario font-bold ml-1'>[2]</a></sup>",
+            "<h3>1. El Ciclo de Vida Estándar de 6 Etapas</h3>",
+            "El modelo general de gestión de datos organiza la gobernanza en seis fases secuenciales:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<ol><li><strong>1. Planificar (Plan):</strong> Definir qué datos se necesitan, cómo se administrarán, bajo qué estándares y quiénes serán los responsables (stewards) de su custodia.</li><li><strong>2. Capturar (Capture):</strong> Recolectar la información desde diversas fuentes (formularios web, ventas, sensores o compras de datos).</li><li><strong>3. Gestionar (Manage):</strong> Mantenimiento activo de la información: almacenamiento, limpieza de registros, respaldos y protección de datos sensibles.</li><li><strong>4. Analizar (Analyze):</strong> Utilizar los datos procesados para responder preguntas, predecir tendencias y tomar decisiones comerciales.</li><li><strong>5. Archivar (Archive):</strong> Guardar datos históricos que ya no se usan a diario en repositorios seguros a largo plazo.</li><li><strong>6. Destruir (Destroy):</strong> Depurar de forma segura la información obsoleta o duplicada para cumplir con normas de privacidad.</li></ol>",
+            "<h3>2. El Enfoque Extendido de Harvard (8 Pasos + Ética Transversal)</h3>",
+            "Desarrollado por Jeannette M. Wing (Columbia University / Harvard Data Science Review) y respaldado por Harvard Business School, este modelo expande la perspectiva técnica a 8 pasos orientados a extraer valor y comunicar resultados:<sup><a href='#fuente-2' class='text-primario font-bold ml-1'>[2]</a></sup><sup><a href='#fuente-3' class='text-primario font-bold ml-1'>[3]</a></sup>",
+            "<ol><li><strong>1. Generación (Generation):</strong> Creación continua de datos crudos por usuarios, sensores o transacciones digitales.</li><li><strong>2. Recolección (Collection):</strong> Selección de qué datos generados vale la pena capturar según los objetivos del proyecto.</li><li><strong>3. Procesamiento (Processing):</strong> Limpieza (wrangling), compresión, cifrado y estructuración de la información.</li><li><strong>4. Almacenamiento (Storage):</strong> Guardado físico o en la nube estableciendo redundancias de seguridad.</li><li><strong>5. Gestión (Management):</strong> Organización, control de accesos, auditoría de cambios y metadatos a lo largo del tiempo.</li><li><strong>6. Análisis (Analysis):</strong> Aplicación de técnicas estadísticas, exploración (EDA) y modelos de Machine Learning.</li><li><strong>7. Visualización (Visualization):</strong> Creación de representaciones gráficas comprensibles para audiencias no técnicas.</li><li><strong>8. Interpretación (Interpretation):</strong> Traducción de los hallazgos gráficos en una narrativa con implicaciones claras para el negocio.</li></ol>",
+            "<strong>Privacidad y Ética Transversal:</strong> Como enfatiza la Dra. Jeannette Wing, la privacidad y la responsabilidad ética no son una etapa final, sino una consideración obligatoria presente en cada una de las 8 fases del ciclo.<sup><a href='#fuente-2' class='text-primario font-bold ml-1'>[2]</a></sup>",
+            "<h3>3. Adaptaciones del Ciclo de Vida en Otras Industrias</h3>",
+            "Las organizaciones adaptan estas etapas según sus requisitos regulatorios y metas operativas:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup><sup><a href='#fuente-4' class='text-primario font-bold ml-1'>[4]</a></sup><sup><a href='#fuente-5' class='text-primario font-bold ml-1'>[5]</a></sup>",
+            "<ul><li><strong>Sector Financiero:</strong> Prioriza la auditoría y depuración rápida. Incorpora etapas de validación (Qualify), transformación (Transform) y purga (Purge) para alinearse con normativas bancarias.</li><li><strong>Organismos Científicos (USFWS / USGS):</strong> Enfocados en la preservación histórica, aplican controles de calidad (QA/QC), preservación (Preserve) y publicación transparente (Publish/Share) en portales públicos.</li></ul>",
+            "<h3>💡 ¿Para qué te sirve esto como emprendedor?</h3>",
+            "<ul><li><strong>Para controlar costos de infraestructura:</strong> Definir cuándo archivar o purgar datos evita pagos excesivos de almacenamiento en servidores cloud.</li><li><strong>Para mitigar riesgos legales:</strong> Integrar ética y privacidad en la fase de captura y almacenamiento reduce el riesgo de multas o filtraciones de datos sensibles de clientes.</li><li><strong>Para asegurar la continuidad del negocio:</strong> Designar encargados de datos (Data Stewards) garantiza que existan respaldos, metadatos y controles de acceso en cada etapa.</li></ul>",
+            "<strong>Conclusión:</strong> Gobernar los datos a lo largo de todo su ciclo de vida asegura que la información permanezca precisa, protegida y lista para generar valor sostenible en tu empresa."
+        ]
+    }, {
+        id: 8,
+        slug: "las-herramientas-clave-de-un-analista-de-datos",
+        title: "Las Herramientas Clave de un Analista de Datos",
+        category: "Estrategia & Datos",
+        excerpt: "Conoce el stack tecnológico esencial de la analítica, compara cuándo usar planillas vs. bases de datos y descubre cómo combinar herramientas según la escala de tu empresa.",
+        author: "Gonzalo Lobos",
+        authorRole: "Founder & Lead Engineer",
+        date: "26 Septiembre 2026",
+        readTime: "8 min de lectura",
+        image: "/assets/images/expansisPro_target.webp",
+        status: "aprobado",
+        tags: ["Herramientas de Datos", "SQL", "Excel", "Tableau", "Looker", "Python", "Business Intelligence"],
+        sources: [
+            {
+                num: 1,
+                name: "Google Data Analytics Certificate / Coursera",
+                title: "Foundations: Data, Data Everywhere - Key Data Analyst Tools & Selection Framework",
+                url: "https://www.coursera.org/professional-certificates/google-data-analytics"
+            }
+        ],
+        content: [
+            "<strong>El valor de la analítica no reside en acumular software costoso, sino en saber elegir la herramienta adecuada para cada etapa del proyecto y escala de datos.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup></strong>",
+            "Los analistas rara vez utilizan una sola aplicación; la clave del éxito operativo radica en construir un ecosistema donde las planillas, las bases de datos SQL, los paneles de BI y la programación en Python se complementen entre sí.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<h3>1. Las 4 Categorías del Stack de Datos</h3>",
+            "En la industria moderna, las herramientas se dividen según su función técnica dentro del proceso de análisis:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<ul><li><strong>Planillas de Cálculo (Excel / Google Sheets):</strong> Ideales para recopilar, limpiar y explorar conjuntos de datos pequeños o medianos rápidamente mediante tablas dinámicas y gráficos inmediatos.</li><li><strong>Bases de Datos y SQL (MySQL, BigQuery, SQL Server):</strong> Indispensables para almacenar, filtrar y consultar volúmenes gigantescos de transacciones con alta velocidad.</li><li><strong>Herramientas de Visualización / BI (Looker, Tableau):</strong> Diseñadas para transformar números complejos en paneles ejecutivos interactivos que comunican historias claras a los stakeholders.</li><li><strong>Lenguajes de Programación (Python, R):</strong> Permiten automatizar flujos de trabajo repetitivos, realizar análisis estadístico avanzado y construir modelos predictivos.</li></ul>",
+            "<h3>2. Comparativa: Planillas vs. Bases de Datos (SQL)</h3>",
+            "Elegir entre una hoja de cálculo y una base de datos depende del volumen de información, el control de acceso y los usuarios concurrentes que requiere el proyecto:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<div class='overflow-x-auto my-6'><table class='w-full text-xs text-left text-gray-700 border border-gray-200 rounded-xl overflow-hidden'><thead class='bg-deepBlue text-ghostWhite uppercase text-[10px] tracking-wider'><tr><th class='p-3 border-b'>Criterio / Característica</th><th class='p-3 border-b'>Planillas (Excel / Google Sheets)</th><th class='p-3 border-b'>Bases de Datos (SQL)</th></tr></thead><tbody class='divide-y divide-gray-100'><tr class='hover:bg-gray-50'><td class='p-3 font-bold text-deepBlue'>Acceso y Control</td><td class='p-3'>Mediante aplicación de software controlada por el usuario.</td><td class='p-3'>Mediante lenguaje de consulta (SQL) gestionado por un sistema (DBMS).</td></tr><tr class='hover:bg-gray-50'><td class='p-3 font-bold text-deepBlue'>Estructura de Datos</td><td class='p-3'>Formato de filas, columnas y celdas individuales.</td><td class='p-3'>Estructuras complejas mediante reglas y relaciones relacionales.</td></tr><tr class='hover:bg-gray-50'><td class='p-3 font-bold text-deepBlue'>Capacidad de Datos</td><td class='p-3'>Volúmenes limitados (se congela con cientos de miles de filas).</td><td class='p-3'>Millones de registros masivos almacenados eficientemente.</td></tr><tr class='hover:bg-gray-50'><td class='p-3 font-bold text-deepBlue'>Entrada de Datos</td><td class='p-3'>Ingreso manual y propenso a errores tipográficos.</td><td class='p-3'>Entrada estricta, automatizada y con validación consistente.</td></tr><tr class='hover:bg-gray-50'><td class='p-3 font-bold text-deepBlue'>Colaboración</td><td class='p-3'>Generalmente un usuario a la vez (o colaborativo básico en nube).</td><td class='p-3'>Múltiples usuarios y sistemas conectados simultáneamente.</td></tr></tbody></table></div>",
+            "<h3>3. El Flujo de Trabajo Híbrido: Cómo Combinar las Herramientas</h3>",
+            "En la práctica real no se trata de elegir una herramienta y descartar las demás; los analistas combinan plataformas según la necesidad técnica de cada fase:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<ul><li><strong>De SQL a Planillas:</strong> Se consultan millones de filas en una base de datos con SQL para extraer únicamente un resumen filtrado de 500 filas, el cual se exporta a Excel para un análisis ágil.</li><li><strong>De Planilla a Base de Datos:</strong> Un proyecto que inicia registrando ventas en Google Sheets se importa a una base de datos SQL cuando el volumen supera la capacidad de la hoja de cálculo.</li><li><strong>Conexión Directa a BI:</strong> Plataformas como Looker se conectan directamente a la base de datos para mantener los dashboards de gestión actualizados en tiempo real sin intervención manual.</li></ul>",
+            "<h3>💡 ¿Para qué te sirve esto como emprendedor?</h3>",
+            "<ul><li><strong>Para optimizar tu presupuesto de software:</strong> No gastes en licencias costosas de BI si tu negocio aún está en etapa de validación y se administra limpiamente en Google Sheets.</li><li><strong>Para planificar la escalabilidad tecnológica:</strong> Diseña tus procesos pensando en que los datos recopilados hoy en planillas puedan migrarse sin fricción a una base de datos SQL cuando tu empresa crezca.</li><li><strong>Para contratar el talento adecuado:</strong> Exige a tus analistas o agencias el dominio de flujos híbridos (SQL + BI o Python), asegurando que sepan extraer la información de tus servidores y presentarla en paneles sencillos para la toma de decisiones.</li></ul>",
+            "<strong>Conclusión:</strong> Conocer las fortalezas de cada herramienta te permite construir un ecosistema de analítica flexible y escalable, garantizando que tu empresa responda rápido ante cada oportunidad de mercado."
+        ]
+    }, {
+        id: 10,
+        slug: "glosario-de-herramientas-y-terminos-de-analitica",
+        title: "Glosario de Herramientas y Términos de Analítica",
+        category: "Estrategia & Datos",
+        excerpt: "Domina el vocabulario técnico esencial de la analítica operativa: desde planillas, fórmulas y funciones hasta bases de datos, consultas SQL y gestión de stakeholders.",
+        author: "Gonzalo Lobos",
+        authorRole: "Founder & Lead Engineer",
+        date: "26 Septiembre 2026",
+        readTime: "5 min de lectura",
+        image: "/assets/images/expansisPro_target.webp",
+        status: "aprobado",
+        tags: ["Glosario de Datos", "SQL", "Bases de Datos", "Excel", "Stakeholders", "Herramientas Digitales"],
+        sources: [
+            {
+                num: 1,
+                name: "Google Data Analytics Certificate / Coursera",
+                title: "Foundations: Data, Data Everywhere - Terms and Definitions Glossary (Module 2)",
+                url: "https://www.coursera.org/professional-certificates/google-data-analytics"
+            }
+        ],
+        content: [
+            "<strong>Para comunicarse eficazmente con equipos técnicos e implementar proyectos de datos sin fricción, es indispensable dominar los conceptos operativos de la analítica digital.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup></strong>",
+            "En este glosario explicamos los 8 términos clave que estructuran el trabajo diario con planillas, bases de datos y gestión de proyectos.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<h3>1. Entorno de Planillas de Cálculo</h3>",
+            "Los conceptos fundamentales para manipular datos en herramientas como Excel o Google Sheets incluyen:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<ol><li><strong>1. Planilla de Cálculo (Spreadsheet):</strong> Hoja de trabajo digital estructurada en filas y columnas que permite almacenar, organizar y manipular datos.</li><li><strong>2. Fórmula (Formula):</strong> Conjunto de instrucciones y operaciones matemáticas ingresadas manualmente por el usuario para realizar cálculos específicos usando los datos de la planilla.</li><li><strong>3. Función (Function):</strong> Comando predefinido e integrado en el software que ejecuta automáticamente un cálculo o proceso complejo (como SUMA, PROMEDIO o BUSCARV).</li></ol>",
+            "<h3>2. Bases de Datos y Consultas SQL</h3>",
+            "Cuando la información escala y requiere sistemas de almacenamiento masivo y estructurado:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<ol><li><strong>4. Base de Datos (Database):</strong> Colección organizada de datos estructurados almacenada electrónicamente en un sistema informático.</li><li><strong>5. Consulta (Query):</strong> Solicitud específica de datos e información enviada a una base de datos para extraer o manipular registros.</li><li><strong>6. Lenguaje de Consulta (Query Language):</strong> Lenguaje de programación diseñado para comunicarse directamente con una base de datos.</li><li><strong>7. SQL (Structured Query Language):</strong> El lenguaje de programación estándar utilizado universalmente para consultar, agregar, actualizar y administrar bases de datos relacionales.</li></ol>",
+            "<h3>3. Gestión Estratégica del Negocio</h3>",
+            "El componente humano y directivo que da sentido al proyecto analítico:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<ol><li><strong>8. Partes Interesadas (Stakeholders):</strong> Personas, líderes o inversionistas que aportan recursos, tiempo e interés en el proyecto y cuyo éxito depende directamente de sus resultados.</li></ol>",
+            "<h3>💡 ¿Para qué te sirve esto como emprendedor?</h3>",
+            "<ul><li><strong>Para definir requerimientos precisos:</strong> Conocer la diferencia entre una fórmula manual y una función o una consulta SQL te permite pedir reportes claros a tu equipo sin ambigüedades.</li><li><strong>Para liderar a tus stakeholders:</strong> Identificar tempranamente a las partes interesadas garantiza que los dashboards y análisis respondan a los objetivos reales de la gerencia.</li><li><strong>Para escalar tu infraestructura:</strong> Entender qué es una base de datos y cómo se consulta mediante SQL facilita la transición cuando tus planillas tradicionales ya no soporten el volumen de tu negocio.</li></ul>",
+            "<strong>Conclusión:</strong> Manejar con precisión la terminología técnica fortalece la colaboración entre las áreas comerciales y de ingeniería, acelerando la toma de decisiones basada en datos."
         ]
     }
 ];
