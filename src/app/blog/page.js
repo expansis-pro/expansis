@@ -86,7 +86,7 @@ export default function BlogPage() {
                                                 </span>
                                             ))}
                                         </div>
-                                        <div className="w-full inline-flex items-center justify-between pt-4 border-t border-gray-100 text-xs font-bold text-primario uppercase tracking-wider group-hover:text-deepBlue transition-colors">
+                                        <div className="w-full inline-flex items-center justify-between pt-4 border-t border-gray-100 text-xs font-bold uppercase tracking-wider text-deepBlue group-hover:text-primario transition-colors">
                                             <span>Leer artículo completo</span>
                                             <i className="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1.5 transition-transform"></i>
                                         </div>
