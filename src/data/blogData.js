@@ -391,5 +391,266 @@ export const blogPosts = [
             "<ul><li><strong>Para definir requerimientos precisos:</strong> Conocer la diferencia entre una fórmula manual y una función o una consulta SQL te permite pedir reportes claros a tu equipo sin ambigüedades.</li><li><strong>Para liderar a tus stakeholders:</strong> Identificar tempranamente a las partes interesadas garantiza que los dashboards y análisis respondan a los objetivos reales de la gerencia.</li><li><strong>Para escalar tu infraestructura:</strong> Entender qué es una base de datos y cómo se consulta mediante SQL facilita la transición cuando tus planillas tradicionales ya no soporten el volumen de tu negocio.</li></ul>",
             "<strong>Conclusión:</strong> Manejar con precisión la terminología técnica fortalece la colaboración entre las áreas comerciales y de ingeniería, acelerando la toma de decisiones basada en datos."
         ]
+    }, {
+        id: 11,
+        slug: "introduccion-a-sql-guia-basica-de-consultas",
+        title: "Introducción a SQL: La Guía Básica de Consultas",
+        category: "Estrategia & Datos",
+        excerpt: "Aprende los fundamentos de SQL para comunicarte con tus bases de datos: estructura de consultas (SELECT, FROM, WHERE), filtros avanzados, alias, comentarios y buenas prácticas.",
+        author: "Gonzalo Lobos",
+        authorRole: "Founder & Lead Engineer",
+        date: "26 Septiembre 2026",
+        readTime: "8 min de lectura",
+        image: "/assets/images/expansisPro_target.webp",
+        status: "aprobado",
+        tags: ["SQL", "Bases de Datos", "BigQuery", "Consultas", "Business Intelligence", "Tutorial"],
+        sources: [
+            {
+                num: 1,
+                name: "Google Data Analytics Certificate / Coursera",
+                title: "Foundations: Data, Data Everywhere - SQL Guide: Getting Started & Endless SQL Possibilities",
+                url: "https://www.coursera.org/professional-certificates/google-data-analytics"
+            }
+        ],
+        content: [
+            "<strong>Structured Query Language (SQL) es el lenguaje estándar universal que permite a los analistas comunicarse directamente con las bases de datos corporativas para extraer respuestas en segundos.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup></strong>",
+            "A diferencia de una planilla de cálculo que se frena con grandes volúmenes de información, una consulta SQL permite investigar bases de datos masivas, rastrear texto (strings) y filtrar métricas precisas con alta velocidad y eficiencia.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<h3>1. Estructura Básica y Formato de Sintaxis</h3>",
+            "Toda consulta SQL sigue una sintaxis predeterminada de palabras clave que estructuran la petición. Escribir en mayúsculas las palabras reservadas, indentar los campos y finalizar con punto y coma (<code>;</code>) facilita la lectura y auditoría del código:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<ul><li><strong>SELECT:</strong> Especifica las columnas o campos exactos de los que se desea recuperar información.</li><li><strong>FROM:</strong> Indica la tabla y el dataset donde se encuentran almacenados los datos. En entornos cloud como BigQuery, la ruta se especifica como <code>dataset.tabla</code>.</li><li><strong>WHERE:</strong> Establece los criterios o condiciones que deben cumplir los registros para ser incluidos.</li><li><strong>Punto y Coma (;):</strong> Es el terminador oficial de sentencias bajo el estándar ANSI SQL-92.</li></ul>",
+            "<h3>2. Filtros Avanzados, Comodines y Alias</h3>",
+            "SQL ofrece operadores flexibles para buscar patrones de texto, renombrar campos y combinar múltiples condiciones:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<ul><li><strong>Patrones con LIKE y Comodín (%):</strong> En lugar de buscar coincidencias exactas con <code>=</code>, la cláusula <code>WHERE apellido LIKE 'Ch%'</code> utiliza el porcentaje (<code>%</code>) como comodín para devolver apellidos que comiencen con esas letras (como Chavez o Chen).</li><li><strong>Conectores y Operador Desigual (&lt;&gt;):</strong> Se pueden combinar filtros usando <code>AND</code>, <code>OR</code> o excluir grupos específicos con el operador 'no es igual a' (<code>&lt;&gt;</code>).</li><li><strong>Alias con AS:</strong> Asigna nombres temporales a columnas o tablas (ejemplo: <code>SELECT nombre_real AS nombre_cliente</code>) para hacer el reporte más legible sin alterar la base de datos.</li></ul>",
+            "<h3>3. Precaución con SELECT * y Uso de Comentarios</h3>",
+            "Escribir consultas limpias exige cuidar el rendimiento del servidor y documentar la lógica de negocio:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<ul><li><strong>Cuidado con el asterisco (SELECT *):</strong> Seleccionar todas las columnas de una tabla mediante <code>*</code> debe usarse con precaución. En tablas corporativas masivas, extraer campos innecesarios causa lentitud y sobrecostos de procesamiento.</li><li><strong>Documentación con Comentarios:</strong> Agregar explicaciones usando dos guiones (<code>-- comentario</code>) o bloques (<code>/* comentario */</code>) permite recordar la intención de la consulta meses después y facilita la colaboración en equipo.</li></ul>",
+            "<h3>4. Caso Práctico: Análisis de Equidad Salarial</h3>",
+            "Imagina que una gerencia solicita revisar los salarios de empleados que ganan $30,000 o menos, excluyendo a los pasantes (código de trabajo <code>INT</code>). La consulta para extraer esta información de forma limpia se estructura así:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<code>-- Consulta para evaluar salarios full-time excluyendo pasantes<br>SELECT empID, firstName, lastName, jobCode, salary<br>FROM Company.EmployeeDB<br>WHERE salary &lt;= 30000 AND jobCode &lt;&gt; 'INT';</code>",
+            "Esta instrucción filtra los registros cumpliendo simultáneamente ambas condiciones, permitiendo a la dirección detectar discrepancias y tomar decisiones informadas sobre ajustes salariales.",
+            "<h3>💡 ¿Para qué te sirve esto como emprendedor?</h3>",
+            "<ul><li><strong>Para evitar sobrecostos en la nube:</strong> Exigir el uso de columnas específicas en lugar de <code>SELECT *</code> reduce directamente la factura de procesamiento en almacenes como BigQuery o Snowflake.</li><li><strong>Para garantizar la continuidad operativa:</strong> Fomentar el uso de comentarios (<code>--</code>) asegura que cualquier miembro de tu equipo pueda entender y mantener las consultas del negocio sin depender del creador original.</li><li><strong>Para tomar decisiones objetivas y rápidas:</strong> Dominar operadores como <code>&lt;&gt;</code> y <code>LIKE</code> te permite aislar segmentos de clientes o costos operativos específicos en segundos.</li></ul>",
+            "<strong>Conclusión:</strong> Comprender la sintaxis y las buenas prácticas de SQL transforma la interacción con los datos de tu empresa, garantizando consultas eficientes, seguras y de alto valor estratégico."
+        ]
+    }, {
+        id: 12,
+        slug: "planificacion-y-herramientas-de-visualizacion-de-datos",
+        title: "Planificación y Herramientas de Visualización de Datos",
+        category: "Estrategia & Datos",
+        excerpt: "Aprende el proceso de 3 pasos para planificar gráficos efectivos y descubre el toolkit esencial: desde planillas y Tableau hasta librerías de Python como Matplotlib, Seaborn y Plotly.",
+        author: "Gonzalo Lobos",
+        authorRole: "Founder & Lead Engineer",
+        date: "26 Septiembre 2026",
+        readTime: "8 min de lectura",
+        image: "/assets/images/expansisPro_target.webp",
+        status: "aprobado",
+        tags: ["Visualización de Datos", "Tableau", "Python", "Seaborn", "Plotly", "Business Intelligence", "Storytelling"],
+        sources: [
+            {
+                num: 1,
+                name: "Google Data Analytics Certificate / Coursera",
+                title: "Foundations: Data, Data Everywhere - Plan a Data Visualization & Toolkit Guide",
+                url: "https://www.coursera.org/professional-certificates/google-data-analytics"
+            }
+        ],
+        content: [
+            "<strong>Transformar tablas de números fríos en gráficos claros e interactivos es el paso definitivo para que los tomadores de decisiones entiendan el valor de un análisis.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup></strong>",
+            "La visualización de datos combina metodología de diseño y herramientas tecnológicas especializadas para convertir el diagnóstico técnico en una narrativa visual atractiva y fácil de interpretar.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<h3>1. Proceso de 3 Pasos para Planificar una Visualización</h3>",
+            "Antes de construir un dashboard, todo analista debe seguir tres etapas para asegurar que el mensaje responda a las necesidades del negocio:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<ol><li><strong>1. Explorar los datos en busca de patrones:</strong> Revisar los reportes transaccionales y analíticos para descubrir relaciones clave (como concentración geográfica de ventas o comportamiento en el sitio web).</li><li><strong>2. Planificar los elementos visuales:</strong> Definir qué métricas necesita ver la audiencia (tendencias en el tiempo, ubicación de clientes, embudos de conversión) y qué historia se quiere comunicar.</li><li><strong>3. Seleccionar los tipos de gráfico adecuados:</strong> Elegir la representación gráfica idónea según la variable que se desea analizar:</li></ol>",
+            "<ul><li><strong>Gráficos de Líneas:</strong> Para rastrear la evolución de ventas o tráfico a lo largo del tiempo.</li><li><strong>Mapas:</strong> Para conectar métricas comerciales con ubicaciones geográficas.</li><li><strong>Gráficos de Rosquilla (Donut):</strong> Para mostrar la proporción de segmentos de clientes.</li><li><strong>Gráficos de Barras:</strong> Para comparar el total de visitantes que convierten en compradores versus los que abandonan.</li></ul>",
+            "<h3>2. El Toolkit Tecnológico de Visualización</h3>",
+            "La elección de la herramienta depende de la escala de datos, el flujo de trabajo y el nivel de interactividad requerido por los stakeholders:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<ul><li><strong>Planillas (Excel / Google Sheets):</strong> Ideales para crear gráficos rápidos de barras, líneas y torta, así como diagramas más avanzados de cascada (waterfall) y embudo (funnel) sin complejidad técnica.</li><li><strong>Plataformas de BI (Tableau):</strong> Permiten conectar múltiples fuentes de datos masivas y diseñar tableros interactivos mediante funciones de arrastrar y soltar (drag-and-drop), facilitando la exploración dinámica.</li><li><strong>Librerías de Python (Matplotlib, Seaborn, Plotly):</strong><ul><li><em>Matplotlib:</em> La base para crear gráficos estáticos o personalizados con flexibilidad total.</li><li><em>Seaborn:</em> Diseñada para generar gráficos estadísticos pulidos e informativos con muy pocas líneas de código.</li><li><em>Plotly:</em> Perfecta para dashboards web interactivos donde el usuario puede hacer zoom, desplegar detalles al pasar el cursor (hover) y filtrar datos en tiempo real.</li></ul ></li><li><strong>Entornos R (Posit / RStudio):</strong> Entorno de desarrollo ampliamente utilizado en análisis científico y estadístico avanzado para la generación de gráficos de alta precisión.</li></ul> ",
+            "<h3>💡 ¿Para qué te sirve esto como emprendedor?</h3>",
+            "<ul><li><strong>Para comunicar mejor con inversionistas:</strong> Seleccionar el gráfico correcto te permite presentar la tracción de tu empresa en segundos sin abrumar con tablas de datos.</li><li><strong>Para escalar tus reportes gerenciales:</strong> Iniciar con planillas y evolucionar hacia Tableau o dashboards en Python con Plotly permite que tu equipo consulte métricas en tiempo real a medida que crece el negocio.</li><li><strong>Para evitar gráficos engañosos:</strong> Planificar el objetivo visual antes de diseñar evita usar gráficos inadecuados (como abusar de los gráficos de torta) que distorsionan las proporciones reales de tus ventas.</li></ul>",
+            "<strong>Conclusión:</strong> Dominar el proceso de planificación y seleccionar las herramientas de visualización adecuadas permite transmitir la historia detrás de tus datos de forma clara, ágil e impactante."
+        ]
+    }, {
+        id: 13,
+        slug: "introduccion-a-data-studio-looker-studio",
+        title: "Introducción a Data Studio: Reportes e Interactividad de Datos",
+        category: "Estrategia & Datos",
+        excerpt: "Descubre cómo transformar datos crudos en reportes interactivos con Data Studio (Looker Studio): beneficios, más de 1.000 conectores, combinación de fuentes (data blending) y catálogo de gráficos.",
+        author: "Gonzalo Lobos",
+        authorRole: "Founder & Lead Engineer",
+        date: "26 Septiembre 2026",
+        readTime: "8 min de lectura",
+        image: "/assets/images/expansisPro_target.webp",
+        status: "aprobado",
+        tags: ["Data Studio", "Looker Studio", "Business Intelligence", "Google Analytics", "Dashboards", "Visualización de Datos"],
+        sources: [
+            {
+                num: 1,
+                name: "Google Skills / Looker Studio",
+                title: "BI and Analytics with Looker - Introduction to Data Studio (Looker Studio)",
+                url: "https://www.skills.google/paths/28/course_templates/1379/video/643264?locale=es"
+            }
+        ],
+        content: [
+            "<strong>Data Studio (actualmente conocido como Looker Studio) es una herramienta web gratuita de Google que permite transformar datos crudos en reportes interactivos, personalizables y fáciles de compartir.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup></strong>",
+            "Su arquitectura gratuita y su interfaz intuitiva basada en arrastrar y soltar (drag-and-drop) la convierten en la opción ideal para democratizar el análisis de datos en cualquier organización.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<h3>1. Beneficios y Casos de Uso Empresariales</h3>",
+            "La plataforma destaca por su flexibilidad técnica y su capacidad para adaptarse a diversas áreas del negocio:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<ul><li><strong>Cero costo de licencia:</strong> Ofrece capacidades avanzadas de Business Intelligence sin requerir inversiones financieras significativas.</li><li><strong>Frecuencia de actualización programable:</strong> Permite configurar reglas de refresco de datos según la necesidad de la métrica (desde actualizaciones diarias para pauta publicitaria hasta múltiples refrescos por hora para analítica de redes sociales).</li><li><strong>Marketing y Analítica Digital:</strong> Monitoreo de tráfico con Google Analytics y métricas de rendimiento comercial (clics, impresiones, conversiones y ROI) desde Google Ads o Meta Ads.</li><li><strong>Ventas e Ingresos (CRM):</strong> Integración con Shopify, BigQuery o Salesforce para rastrear tasas de conversión de leads y costo por prospecto (CPL).</li><li><strong>Cadena de Suministro y Operaciones:</strong> Consolidación de datos de múltiples proveedores en un único panel para evaluar líneas de producción en tiempo real.</li></ul>",
+            "<h3>2. Conectores, Data Blending y Controles Interactivos</h3>",
+            "Data Studio va más allá de la visualización básica al permitir la unificación y filtrado de múltiples bases de datos:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<ul><li><strong>Más de 1.000 Conectores:</strong> Conexión nativa e inmediata con herramientas de Google (Google Sheets, BigQuery) y fuentes externas de terceros (Snowflake, Facebook Ads) mediante conectores de socios.</li><li><strong>Combinación de Datos (Data Blending):</strong> Posibilidad de fusionar hasta 5 tablas o fuentes de datos distintas en un solo gráfico sin necesidad de escribir consultas complejas en la base de datos.</li><li><strong>Controles y Filtros Dinámicos:</strong> Inserción de selecciones por rango de fechas, valores de dimensión o parámetros personalizados para que el usuario explore la información de manera interactiva.</li></ul>",
+            "<h3>3. Catálogo de Gráficos y Mapas Interactivos</h3>",
+            "Elegir el gráfico adecuado es clave para construir una narrativa visual (storytelling) efectiva:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<ul><li><strong>Tarjetas de Puntuación (Scorecards):</strong> Muestran un número o KPI crítico a simple vista (ejemplo: ventas totales del trimestre) antes de profundizar en los detalles.</li><li><strong>Tablas Detalladas y Dinámicas:</strong> Presentan datos granulares ordenados por filas y columnas, ideales para auditorías de transacciones.</li><li><strong>Gráficos de Barras y Columnas:</strong> Comparan categorías. Incluyen la función de agrupar los resultados fuera del límite 'Top N' bajo la etiqueta <em>'Otros'</em> para mantener el foco analítico.</li><li><strong>Series Temporales y Combinados (Combo):</strong> Muestran tendencias cronológicas o cruzan métricas con escalas distintas (como barras de ingresos junto a líneas de margen porcentual con doble eje Y).</li><li><strong>Integración con Google Maps:</strong> Soporta mapas de calor, de burbujas, de densidad y mapas de conexión o rutas con vista 3D interactiva para analizar el rendimiento geográfico.</li></ul>",
+            "<h3>💡 ¿Para qué te sirve esto como emprendedor?</h3>",
+            "<ul><li><strong>Para unificar tus métricas en un solo lugar:</strong> Usa Data Blending para ver en un único panel el gasto publicitario de Facebook Ads junto con las ventas reales registradas en tu CRM.</li><li><strong>Para ahorrar tiempo en reportes semanales:</strong> Al conectar tus fuentes en tiempo real, te olvidas de descargar archivos CSV y armar presentaciones manuales antes de cada reunión directiva.</li><li><strong>Para dar autonomía a tu equipo:</strong> Configurar filtros dinámicos permite que los jefes de área exploren los datos por región o producto sin depender de un analista técnico.</li></ul>",
+            "<strong>Conclusión:</strong> Integrar Data Studio en la operación diaria permite transformar datos dispersos en cuadros de mando interactivos que aceleran la toma de decisiones estratégicas."
+        ]
+    }, {
+        id: 14,
+        slug: "fuentes-de-datos-y-modelado-en-looker-studio",
+        title: "Fuentes de Datos y Modelado en Looker Studio",
+        category: "Estrategia & Datos",
+        excerpt: "Domina la arquitectura de Looker Studio: tipos de conectores, fuentes incrustadas vs. reutilizables, modos de conexión (Live vs. Extraída) y modelado con dimensiones y métricas.",
+        author: "Gonzalo Lobos",
+        authorRole: "Founder & Lead Engineer",
+        date: "26 Septiembre 2026",
+        readTime: "8 min de lectura",
+        image: "/assets/images/expansisPro_target.webp",
+        status: "aprobado",
+        tags: ["Looker Studio", "Data Studio", "Bases de Datos", "Modelado de Datos", "Business Intelligence", "Google Analytics"],
+        sources: [
+            {
+                num: 1,
+                name: "Google Skills / Looker Studio",
+                title: "BI and Analytics with Looker - Data Sources, Credentials & Data Modeling in Data Studio",
+                url: "https://www.skills.google/paths/28/course_templates/1379/video/643264?locale=es"
+            }
+        ],
+        content: [
+            "<strong>Para construir tableros confiables en Looker Studio no basta con diseñar gráficos; es necesario estructurar correctamente las conexiones, las credenciales de acceso y el modelado de los datos.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup></strong>",
+            "Entender la diferencia entre una conexión en vivo, un extracto estático y la definición de métricas garantiza reportes rápidos, seguros y alineados con los objetivos del negocio.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<h3>1. Conectores, Fuentes y Credenciales de Acceso</h3>",
+            "La integración de información en Looker Studio depende de tres componentes fundamentales:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<ul><li><strong>Conectores (+1.000 disponibles):</strong> Módulos que enlazan la plataforma con orígenes de datos de Google (BigQuery, Google Sheets, Google Analytics) y de terceros (Facebook Ads, Salesforce, Snowflake).</li><li><strong>Fuentes Incrustadas (Embedded):</strong> Creadas directamente dentro de un reporte. Se comparten y duplican junto con el informe, facilitando la colaboración rápida.</li><li><strong>Fuentes Reutilizables (Reusable):</strong> Creadas desde la página principal. Permiten definir un modelo de datos único y centralizado para compartirlo en múltiples reportes de la empresa.</li><li><strong>Gestión de Credenciales:</strong> Define quién puede ver la información. Las credenciales del <em>Dueño (Owner)</em> permiten mostrar datos a usuarios que no tienen acceso directo a la base de datos; las del <em>Visor (Viewer)</em> exigen permisos individuales; y las de <em>Cuenta de Servicio</em> autentican sistemas automáticos.</li></ul>",
+            "<h3>2. Métodos de Extracción: Live vs. Extractos estáticos</h3>",
+            "Looker Studio ofrece tres modalidades para recuperar información según los requerimientos de velocidad y rendimiento:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<ul><li><strong>Conexión en Vivo (Live Connection):</strong> Consulta la base de datos subyacente cada vez que el usuario interactúa con el reporte. Mantiene la información al día pero depende de la velocidad del servidor origen.</li><li><strong>Fuente Datos Extraída (Extracted Data):</strong> Crea una instantánea (snapshot) estática y cifrada dentro de Looker Studio. Maximiza la velocidad del dashboard y se puede programar para actualizarse periódicamente.</li><li><strong>Carga de Archivos (CSV):</strong> Permite subir planillas locales para visualizar datos no soportados por conectores estándar de forma manual.</li></ul>",
+            "<h3>3. Modelado de Datos: Tipos de Campos y Propiedades</h3>",
+            "El modelado de datos estandariza las definiciones del negocio para que todo el equipo interprete las métricas de la misma manera:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<ul><li><strong>Dimensiones (Campos Verdes):</strong> Datos no agregados que describen o categorizan la información (ejemplo: ciudad, categoría de producto, fecha).</li><li><strong>Métricas (Campos Azules):</strong> Datos agregados que miden dimensiones mediante funciones matemáticas (ejemplo: <code>SUM()</code> para ventas totales o <code>AVG()</code> para ticket promedio).</li><li><strong>Campos Calculados (Símbolo fx):</strong> Fórmulas personalizadas creadas con operadores o lógica condicional para derivar nuevas variables (ejemplo: <code>precio_venta - costo_compra = ganancia</code>).</li><li><strong>Parámetros:</strong> Valores definidos por el usuario que agregan interactividad personalizada o se pasan a consultas avanzadas de BigQuery.</li><li><strong>Propiedades del Campo:</strong> Configuración del nombre visible, tipo de dato (Número, Texto, Fecha), método de agregación por defecto y descripciones de metadatos.</li></ul>",
+            "<h3>💡 ¿Para qué te sirve esto como emprendedor?</h3>",
+            "<ul><li><strong>Para proteger la privacidad de tu negocio:</strong> Configurar credenciales del dueño permite compartir reportes ejecutivos con inversionistas o clientes sin darles acceso a tus bases de datos o cuentas publicitarias.</li><li><strong>Para acelerar la carga de tus dashboards:</strong> Utilizar fuentes extraídas (Extracted Data) evita que tus tableros se vuelvan lentos cuando consultas millones de registros de ventas.</li><li><strong>Para estandarizar el cálculo de márgenes:</strong> Definir campos calculados (<code>fx</code>) a nivel de fuente reutilizable garantiza que todo tu equipo comercial mida las ganancias exactamente con la misma fórmula.</li></ul>",
+            "<strong>Conclusión:</strong> Un modelado de datos bien estructurado en Looker Studio garantiza reportes ágiles, seguros y técnicamente consistentes para respaldar las decisiones de tu empresa."
+        ]
+    }, {
+        id: 15,
+        slug: "combinacion-de-datos-data-blending-en-looker-studio",
+        title: "Combinación de Datos (Data Blending) en Looker Studio",
+        category: "Estrategia & Datos",
+        excerpt: "Aprende a fusionar hasta 5 fuentes de datos distintas sin escribir código SQL: operadores de cruce (Joins), orden de evaluación, filtrado Pre/Post-blend y optimización de costos.",
+        author: "Gonzalo Lobos",
+        authorRole: "Founder & Lead Engineer",
+        date: "26 Septiembre 2026",
+        readTime: "8 min de lectura",
+        image: "/assets/images/expansisPro_target.webp",
+        status: "aprobado",
+        tags: ["Looker Studio", "Data Blending", "SQL Joins", "Business Intelligence", "BigQuery", "Dashboards"],
+        sources: [
+            {
+                num: 1,
+                name: "Google Skills / Looker Studio",
+                title: "BI and Analytics with Looker - Data Blending Basics & Advanced Concepts in Data Studio",
+                url: "https://www.skills.google/paths/28/course_templates/1379/video/643264?locale=es"
+            }
+        ],
+        content: [
+            "<strong>Unificar la información de clientes, ventas y campañas de marketing en un solo tablero sin necesidad de escribir código SQL es una de las mayores ventajas de Looker Studio.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup></strong>",
+            "Mediante la funcionalidad de Combinación de Datos (<em>Data Blending</em>), es posible vincular hasta 5 tablas provenientes de orígenes heterogéneos (como BigQuery, Google Analytics y planillas de Excel) en una vista consolidada.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<h3>1. ¿Qué es una Combinación (Blend) y cómo funciona?</h3>",
+            "Una combinación crea un recurso integrado dentro del reporte con características particulares de gobernanza:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<ul><li><strong>Recurso Incrustado:</strong> La combinación existe únicamente dentro del informe donde fue creada. Si copias el informe, la combinación se duplica manteniendo los gráficos operativos.</li><li><strong>Herencia de Propiedades:</strong> Una combinación no posee credenciales ni reglas de refresco propias; hereda automáticamente la configuración de las fuentes de datos originales.</li><li><strong>Desagregación de Métricas:</strong> Las métricas incluidas desde las fuentes subyacentes se convierten en dimensiones numéricas sin agregar dentro de la combinación, permitiendo aplicar nuevas agrupaciones según la necesidad del gráfico.</li></ul>",
+            "<h3>2. Los 5 Tipos de Cruces (Joins) en Looker Studio</h3>",
+            "Al igual que en las bases de datos relacionales, Looker Studio utiliza operadores de cruce basados en condiciones de igualdad entre campos (ejemplo: <code>ID_Cliente = ID_Cliente</code>):<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<div class='overflow-x-auto my-6'><table class='w-full text-xs text-left text-gray-700 border border-gray-200 rounded-xl overflow-hidden'><thead class='bg-deepBlue text-ghostWhite uppercase text-[10px] tracking-wider'><tr><th class='p-3 border-b'>Operador de Cruce</th><th class='p-3 border-b'>Descripción del Resultado</th><th class='p-3 border-b'>Caso de Uso Típico</th></tr></thead><tbody class='divide-y divide-gray-100'><tr class='hover:bg-gray-50'><td class='p-3 font-bold text-deepBlue'>Left Outer Join</td><td class='p-3'>Mantiene todas las filas de la tabla izquierda y solo las coincidentes de la derecha.</td><td class='p-3'>Ver todos los clientes registrados junto con sus compras (si existen).</td></tr><tr class='hover:bg-gray-50'><td class='p-3 font-bold text-deepBlue'>Right Outer Join</td><td class='p-3'>Mantiene todas las filas de la tabla derecha y solo las coincidentes de la izquierda.</td><td class='p-3'>Priorizar la tabla de pedidos y traer datos de perfil de cliente cuando coincidan.</td></tr><tr class='hover:bg-gray-50'><td class='p-3 font-bold text-deepBlue'>Inner Join</td><td class='p-3'>Devuelve exclusivamente las filas que tienen coincidencia exacta en ambas tablas.</td><td class='p-3'>Analizar únicamente a usuarios activos que realizaron transacciones verificadas.</td></tr><tr class='hover:bg-gray-50'><td class='p-3 font-bold text-deepBlue'>Full Outer Join</td><td class='p-3'>Devuelve todos los registros de ambas tablas, hayan coincidencia o no.</td><td class='p-3'>Auditorías globales donde se requiere detectar registros huérfanos en ambos lados.</td></tr><tr class='hover:bg-gray-50'><td class='p-3 font-bold text-deepBlue'>Cross Join</td><td class='p-3'>Genera el producto cartesiano (todas las combinaciones posibles de filas).</td><td class='p-3'>Modelos maticiales complejos (usar con precaución por impacto en rendimiento).</td></tr></tbody></table></div>",
+            "<h3>3. Rendimiento y Optimización: Pre-blend vs. Post-blend</h3>",
+            "El momento en que apliques un filtro o un rango de fechas altera drásticamente el rendimiento del tablero y el costo de procesamiento en plataformas como BigQuery:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<div class='overflow-x-auto my-6'><table class='w-full text-xs text-left text-gray-700 border border-gray-200 rounded-xl overflow-hidden'><thead class='bg-deepBlue text-ghostWhite uppercase text-[10px] tracking-wider'><tr><th class='p-3 border-b'>Tipo de Filtrado</th><th class='p-3 border-b'>Momento de Ejecución</th><th class='p-3 border-b'>Impacto en Rendimiento y Costo</th></tr></thead><tbody class='divide-y divide-gray-100'><tr class='hover:bg-gray-50'><td class='p-3 font-bold text-deepBlue'>Pre-blend (A nivel de tabla)</td><td class='p-3'>Se aplica a la tabla individual <strong>antes</strong> de realizar el cruce de datos.</td><td class='p-3'><strong>Óptimo:</strong> Reduce la cantidad de filas a procesar antes del Join, acelerando la consulta y reduciendo costos de BigQuery.</td></tr><tr class='hover:bg-gray-50'><td class='p-3 font-bold text-deepBlue'>Post-blend (A nivel de gráfico)</td><td class='p-3'>Se aplica sobre el resultado consolidado <strong>después</strong> de ejecutar el cruce.</td><td class='p-3'><strong>Exigente:</strong> El sistema calcula toda la combinación previa y luego filtra el resultado final, requiriendo mayor memoria.</td></tr></tbody></table></div>",
+            "<h3>4. Orden de Evaluación y Selección Estricta de Campos</h3>",
+            "Para evitar tableros lentos y sobrecostos operativos, aplica estas dos reglas de diseño avanzado:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<ul><li><strong>Selección Estricta de Campos:</strong> Incluye únicamente las dimensiones y métricas que realmente necesitas. Si creas una combinación con 10 campos pero solo usas 1 en el gráfico, Looker Studio procesará de todas formas los 10 campos en segundo plano.</li><li><strong>Evaluación de Izquierda a Derecha:</strong> En combinaciones de 3 o más tablas, Looker Studio evalúa primero el Join entre la Tabla 1 y la Tabla 2, y luego cruza ese resultado con la Tabla 3. Organiza tus tablas de izquierda a derecha desde la más específica hacia la más general.</li></ul>",
+            "<h3>💡 ¿Para qué te sirve esto como emprendedor?</h3>",
+            "<ul><li><strong>Para calcular el ROAS real de tu negocio:</strong> Cruza en un solo gráfico el gasto publicitario proveniente de Facebook Ads con los ingresos reales confirmados en la base de datos de tu pasarela de pagos.</li><li><strong>Para evitar facturas elevadas en BigQuery:</strong> Configurar filtros en fase <em>Pre-blend</em> reduce el volumen de gigabytes escaneados por consulta.</li><li><strong>Para auditar la calidad de tu base de clientes:</strong> Utiliza un <em>Inner Join</em> entre tus registros de registro web y tus transacciones de venta para medir cuántos usuarios registrados se convierten en compradores reales.</li></ul>",
+            "<strong>Conclusión:</strong> Dominar Data Blending en Looker Studio permite construir tableros ejecutivos multidisciplinarios de alto valor estratégico, optimizando la velocidad de respuesta y los recursos informáticos."
+        ]
+    }, {
+        id: 16,
+        slug: "controles-e-interactividad-en-looker-studio",
+        title: "Controles e Interactividad en Looker Studio",
+        category: "Estrategia & Datos",
+        excerpt: "Transforma reportes estáticos en dashboards dinámicos: aprende a configurar controles de dimensión y parámetros, filtros rápidos de exploración y botones de acción.",
+        author: "Gonzalo Lobos",
+        authorRole: "Founder & Lead Engineer",
+        date: "26 Septiembre 2026",
+        readTime: "8 min de lectura",
+        image: "/assets/images/expansisPro_target.webp",
+        status: "aprobado",
+        tags: ["Looker Studio", "Data Studio", "Interactividad", "Filtros", "Dashboards", "Business Intelligence"],
+        sources: [
+            {
+                num: 1,
+                name: "Google Skills / Looker Studio",
+                title: "BI and Analytics with Looker - Adding Interactivity & Exploring Data in Data Studio",
+                url: "https://www.skills.google/paths/28/course_templates/1379/video/643264?locale=es"
+            }
+        ],
+        content: [
+            "<strong>Convertir un reporte en un cuadro de mando verdaderamente interactivo permite a los tomadores de decisiones explorar hipótesis, filtrar métricas por contexto y ejecutar acciones sin depender de un analista técnico.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup></strong>",
+            "Looker Studio ofrece un ecosistema de controles dinámicos, filtros de exploración ad-hoc y botones operacionales que transforman la experiencia de consulta de datos en la empresa.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<h3>1. Tipos de Controles Interactivos: Filtros vs. Entradas de Parámetro</h3>",
+            "Los controles se dividen según su función en la manipulación del reporte:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<ul><li><strong>Controles basados en Dimensiones (Filtros de Datos):</strong> Incluyen listas desplegables, listas fijas, casillas de verificación, sliders y cajas de búsqueda avanzada. Filtran automáticamente todos los gráficos de la página que compartan la misma estructura o conector subyacente (por ejemplo, dimensiones globales de Google Analytics).</li><li><strong>Controles basados en Parámetros (Entradas del Usuario):</strong> Utilizan cajas de texto para que el usuario ingrese valores dinámicos. Permiten simular escenarios (ejemplo: cambiar la meta de ventas para recalcular una proyección) o pasar parámetros directos a consultas SQL de BigQuery.</li><li><strong>Controles Especializados:</strong> Selectores de rango de fechas, controles de fuente de datos, controles de dimensión y botones operacionales.</li><li><strong>Propiedad 'Nivel de Reporte' (Report-Level):</strong> Permite fijar un control en la misma posición exacta a lo largo de todas las páginas del informe para mantener una navegación uniforme.</li></ul>",
+            "<h3>2. Filtros Rápidos (Quick Filters) para Exploración Ad-Hoc</h3>",
+            "Para los analistas que necesitan investigar datos sin alterar la vista oficial de otros usuarios, Looker Studio ofrece la barra de filtros rápidos en modo edición:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<div class='overflow-x-auto my-6'><table class='w-full text-xs text-left text-gray-700 border border-gray-200 rounded-xl overflow-hidden'><thead class='bg-deepBlue text-ghostWhite uppercase text-[10px] tracking-wider'><tr><th class='p-3 border-b'>Característica</th><th class='p-3 border-b'>Controles Estándar del Reporte</th><th class='p-3 border-b'>Filtros Rápidos (Quick Filters)</th></tr></thead><tbody class='divide-y divide-gray-100'><tr class='hover:bg-gray-50'><td class='p-3 font-bold text-deepBlue'>Entorno de Uso</td><td class='p-3'>Visibles y operables tanto en Modo Vista como en Modo Edición.</td><td class='p-3'>Exclusivos del Modo Edición para análisis ad-hoc.</td></tr><tr class='hover:bg-gray-50'><td class='p-3 font-bold text-deepBlue'>Persistencia</td><td class='p-3'>Afectan la visualización pública del reporte según permisos.</td><td class='p-3'>No persisten en la vista pública ni alteran la configuración a terceros.</td></tr><tr class='hover:bg-gray-50'><td class='p-3 font-bold text-deepBlue'>Alcance de Aplicación</td><td class='p-3'>Aplica a la página, grupo o nivel global del reporte.</td><td class='p-3'>Aplica a todos los componentes de la página con la misma fuente.</td></tr><tr class='hover:bg-gray-50'><td class='p-3 font-bold text-deepBlue'>Soporte de Campos</td><td class='p-3'>Soporta dimensiones y parámetros.</td><td class='p-3'>Soporta exclusivamente dimensiones (no aplica a métricas).</td></tr></tbody></table></div>",
+            "<h3>3. Botones de Acción y Navegación Dinámica</h3>",
+            "Los botones agregan una capa de automatización e interacción directa para el usuario final:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<ul><li><strong>Acciones de Reporte:</strong> Botones preconfigurados para 'Descargar PDF', 'Obtener enlace del reporte', 'Invitar colaboradores' o 'Restablecer filtros' con un solo clic.</li><li><strong>Filtros Predefinidos (Preset Filters):</strong> Ejecutan lógicas de filtrado complejas de manera instantánea sobre los gráficos objetivo.</li><li><strong>Navegación Estática:</strong> Enlaces directos a páginas internas del reporte o a URLs externas de la empresa.</li><li><strong>Navegación Dinámica con Cross-Filtering:</strong> Permite construir enlaces dinámicos pasando dimensiones seleccionadas por el usuario mediante fórmulas como <code>concat('https://www.google.com/search?q=', País)</code>, abriendo búsquedas o sistemas externos según el elemento seleccionado en el gráfico.</li></ul>",
+            "<h3>💡 ¿Para qué te sirve esto como emprendedor?</h3>",
+            "<ul><li><strong>Para facilitar el consumo de datos a directivos:</strong> Crear botones de 'Descargar PDF' o 'Restablecer Filtros' permite que la gerencia obtenga reportes en un clic sin confundirse con la interfaz.</li><li><strong>Para simular escenarios de negocio:</strong> Utilizar cajas de entrada de parámetros permite que tu equipo comercial cambie el ticket promedio o la tasa de conversión estimada y vea la proyección de ingresos en tiempo real.</li><li><strong>Para agilizar la prospección comercial:</strong> Implementar botones con enlaces dinámicos te permite hacer clic en un cliente dentro del dashboard y abrir directamente su ficha en tu sistema CRM externo.</li></ul>",
+            "<strong>Conclusión:</strong> Diseñar un tablero con controles bien definidos y botones de acción estratégica transforma los datos pasivos en una herramienta de trabajo interactiva, ágil y cotidiana."
+        ]
+    }, {
+        id: 17,
+        slug: "equidad-en-el-analisis-de-datos-guias-y-buenas-practicas",
+        title: "Equidad en el Análisis de Datos: Guía para Evitar Sesgos",
+        category: "Estrategia & Datos",
+        excerpt: "Garantiza que tus análisis sean objetivos e imparciales. Descubre las 5 buenas prácticas clave para evitar sesgos: sobremuestreo, datos auto-reportados y equidad de principio a fin.",
+        author: "Gonzalo Lobos",
+        authorRole: "Founder & Lead Engineer",
+        date: "26 Septiembre 2026",
+        readTime: "7 min de lectura",
+        image: "/assets/images/expansisPro_target.webp",
+        status: "aprobado",
+        tags: ["Equidad en Datos", "Sesgos", "Análisis de Datos", "Muestreo", "Estrategia de Datos", "Business Intelligence"],
+        sources: [
+            {
+                num: 1,
+                name: "Google Data Analytics Certificate / Coursera",
+                title: "Foundations: Data, Data Everywhere - Consider Fairness (Best Practices & Bias Prevention)",
+                url: "https://www.coursera.org/professional-certificates/google-data-analytics"
+            }
+        ],
+        content: [
+            "<strong>El análisis de datos solo es valioso si es objetivo. Garantizar la equidad significa asegurar que tus conclusiones no creen ni refuercen sesgos que puedan conducir a decisiones comerciales engañosas o perjudiciales.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup></strong>",
+            "Aplicar la equidad como un principio metodológico constante evita que las preferencias o suposiciones del analista distorsionen la verdad operacional del negocio.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<h3>1. Las 5 Buenas Prácticas para un Análisis Equitativo</h3>",
+            "Para proteger la integridad de los hallazgos, la metodología de Google establece cinco estrategias fundamentales:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<ol><li><strong>1. Considerar todos los datos disponibles:</strong> No descartar información solo porque contradice las expectativas iniciales o parece incómoda. Ignorar variables clave (como el clima en un estudio de tráfico) genera diagnósticos incompletos.</li><li><strong>2. Identificar factores contextuales del entorno:</strong> Comprender las circunstancias externas que rodean a la población analizada. Por ejemplo, planificar turnos considerando calendarios culturales reales y no solo feriados bancarios tradicionales.</li><li><strong>3. Incluir datos auto-reportados:</strong> Recopilar información directamente desde la perspectiva del usuario (vía encuestas) para eliminar el 'sesgo del observador' que ocurre cuando un tercero asume atributos demográficos o comportamientos.</li><li><strong>4. Utilizar sobremuestreo (Oversampling) de forma efectiva:</strong> Incrementar intencionalmente el tamaño de la muestra de grupos no dominantes dentro de la población para garantizar que sus necesidades queden representadas estadísticamente en el modelo.</li><li><strong>5. Aplicar la equidad de principio a fin (End-to-End):</strong> Mantener el enfoque de equidad en cada etapa: recolección, limpieza, procesamiento, análisis y comunicación final a los tomadores de decisiones.</li></ol>",
+            "<h3>2. Matriz de Técnicas para la Mitigación de Sesgos</h3>",
+            "La siguiente tabla resume las técnicas clave de equidad y su impacto en la calidad del diagnóstico:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<div class='overflow-x-auto my-6'><table class='w-full text-xs text-left text-gray-700 border border-gray-200 rounded-xl overflow-hidden'><thead class='bg-deepBlue text-ghostWhite uppercase text-[10px] tracking-wider'><tr><th class='p-3 border-b'>Estrategia</th><th class='p-3 border-b'>Riesgo que previene</th><th class='p-3 border-b'>Ejemplo de Aplicación en Negocio</th></tr></thead><tbody class='divide-y divide-gray-100'><tr class='hover:bg-gray-50'><td class='p-3 font-bold text-deepBlue'>Integración Total de Datos</td><td class='p-3'>Sesgo de confirmación (seleccionar solo lo que conviene).</td><td class='p-3'>Analizar ventas incluyendo días con fallas de stock o eventos climáticos.</td></tr><tr class='hover:bg-gray-50'><td class='p-3 font-bold text-deepBlue'>Datos Auto-reportados</td><td class='p-3'>Sesgo del observador o suposiciones de personal de venta.</td><td class='p-3'>Levantar perfil de clientes en tienda vía encuestas en vez de percepciones de vendedores.</td></tr><tr class='hover:bg-gray-50'><td class='p-3 font-bold text-deepBlue'>Sobremuestreo (Oversampling)</td><td class='p-3'>Invisibilización de segmentos minoritarios pero relevantes.</td><td class='p-3'>Aumentar la muestra de usuarios mayores de 70 años al diseñar una app de salud.</td></tr><tr class='hover:bg-gray-50'><td class='p-3 font-bold text-deepBlue'>Comunicación Transparente</td><td class='p-3'>Interpretación sesgada por parte de los ejecutivos (stakeholders).</td><td class='p-3'>Explicar a la directiva qué ajustes de sobremuestreo se aplicaron y por qué.</td></tr></tbody></table></div>",
+            "<h3>💡 ¿Para qué te sirve esto como emprendedor?</h3>",
+            "<ul><li><strong>Para diseñar productos inclusivos y escalables:</strong> Aplicar sobremuestreo te permite adaptar tu producto a nichos de mercado valiosos que tus competidores suelen ignorar por falta de datos representativos.</li><li><strong>Para evitar inversiones basadas en supuestos falsos:</strong> Usar datos auto-reportados en investigaciones de mercado te protege de lanzar campañas publicitarias basadas en prejuicios de tu equipo interno.</li><li><strong>Para construir credibilidad ante inversionistas:</strong> Presentar análisis que declaren abiertamente sus variables de contexto y limitaciones demuestra rigor metodológico y madurez directiva.</li></ul>",
+            "<strong>Conclusión:</strong> Integrar la equidad en el análisis de datos previene sesgos costosos y garantiza que cada decisión comercial esté respaldada por una visión objetiva e inclusiva de tu mercado."
+        ]
     }
 ];
