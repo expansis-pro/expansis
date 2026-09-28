@@ -1,7 +1,4 @@
-'use client';
-
 import React from 'react';
-import { motion } from 'framer-motion';
 import { servicesData } from '@/data/servicesData';
 import CarouselItem from '@/components/CarouselItem';
 import ProjectSection from '@/components/ProjectSection';
@@ -10,6 +7,28 @@ import ImageTextCTA from '@/components/ImageTextCTA';
 import CtaButton from '@/components/CtaButton';
 import CallToAction from '@/components/CallToAction';
 import RecentPosts from '@/components/RecentPosts';
+import HeroAnimation from '@/components/HeroAnimation';
+
+export const metadata = {
+    title: "Expansis Pro | Agencia de Desarrollo Web y Marketing Digital en Chile",
+    description: "Estructuras digitales sólidas para tu negocio. Desarrollamos canales digitales a medida para empresas y marcas que necesitan transmitir confianza real con ingeniería técnica y estrategia de conversión.",
+    alternates: {
+        canonical: 'https://expansispro.com',
+    },
+    openGraph: {
+        title: "Expansis Pro | Agencia de Desarrollo Web y Marketing Digital en Chile",
+        description: "Estructuras digitales sólidas para tu negocio. Desarrollamos canales digitales a medida para empresas y marcas que necesitan transmitir confianza real.",
+        url: 'https://expansispro.com',
+        siteName: 'Expansis Pro',
+        locale: 'es_CL',
+        type: 'website',
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: "Expansis Pro | Agencia de Desarrollo Web y Marketing Digital en Chile",
+        description: "Estructuras digitales sólidas para tu negocio. Desarrollamos canales digitales a medida para empresas y marcas que necesitan transmitir confianza real.",
+    },
+};
 
 export default function Home() {
     return (
@@ -31,12 +50,7 @@ export default function Home() {
                 <div className="absolute inset-0 z-10 bg-gradient-to-b from-deepBlue/20 via-deepBlue/40 to-deepBlue"></div>
 
                 <div className="relative z-20 max-w-4xl md:mx-auto">
-                    <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="hero-wrapper"
-                    >
+                    <HeroAnimation>
                         <h1 className="text-ghostWhite drop-shadow-lg text-3xl md:text-4xl leading-tight">
                             Agencia de Desarrollo Web y Marketing Digital<br />
                             <span className="text-primario italic font-semibold text-2xl md:text-3xl">Estructuras digitales sólidas para tu negocio</span>
@@ -56,7 +70,7 @@ export default function Home() {
                                 Nuestros Servicios
                             </CtaButton>
                         </div>
-                    </motion.div>
+                    </HeroAnimation>
                 </div>
             </section>
 

@@ -652,5 +652,39 @@ export const blogPosts = [
             "<ul><li><strong>Para diseñar productos inclusivos y escalables:</strong> Aplicar sobremuestreo te permite adaptar tu producto a nichos de mercado valiosos que tus competidores suelen ignorar por falta de datos representativos.</li><li><strong>Para evitar inversiones basadas en supuestos falsos:</strong> Usar datos auto-reportados en investigaciones de mercado te protege de lanzar campañas publicitarias basadas en prejuicios de tu equipo interno.</li><li><strong>Para construir credibilidad ante inversionistas:</strong> Presentar análisis que declaren abiertamente sus variables de contexto y limitaciones demuestra rigor metodológico y madurez directiva.</li></ul>",
             "<strong>Conclusión:</strong> Integrar la equidad en el análisis de datos previene sesgos costosos y garantiza que cada decisión comercial esté respaldada por una visión objetiva e inclusiva de tu mercado."
         ]
+    }, {
+        id: 18,
+        slug: "roles-y-especializaciones-en-analitica-de-datos",
+        title: "Roles y Especializaciones en Analítica de Datos",
+        category: "Estrategia & Datos",
+        excerpt: "Aprende a decodificar ofertas laborales de datos: comparamos Data Analyst, Data Scientist y Data Specialist, y exploramos los perfiles por industria (Marketing, Finanzas, HR).",
+        author: "Gonzalo Lobos",
+        authorRole: "Founder & Lead Engineer",
+        date: "26 Septiembre 2026",
+        readTime: "8 min de lectura",
+        image: "/assets/images/expansisPro_target.webp",
+        status: "aprobado",
+        tags: ["Roles de Datos", "Data Analyst", "Data Scientist", "Business Analyst", "Carrera en Datos", "Especializaciones"],
+        sources: [
+            {
+                num: 1,
+                name: "Google Data Analytics Certificate / Coursera",
+                title: "Foundations: Data, Data Everywhere - Data Analyst Roles and Job Descriptions",
+                url: "https://www.coursera.org/professional-certificates/google-data-analytics"
+            }
+        ],
+        content: [
+            "<strong>El aumento en la generación de datos ha convertido a los profesionales analíticos en piezas estratégicas indispensables para la competitividad de empresas en cualquier sector.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup></strong>",
+            "Sin embargo, el mercado laboral suele solapar los títulos y exigencias de los cargos técnicos. Entender las diferencias entre cada perfil es fundamental tanto para quienes buscan contratar talento como para quienes construyen un equipo de datos eficiente.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<h3>1. Decodificando los Roles: Analyst vs. Scientist vs. Specialist</h3>",
+            "Aunque comparten habilidades transversales, cada cargo responde a un enfoque técnico y operacional distinto dentro de la empresa:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<div class='overflow-x-auto my-6'><table class='w-full text-xs text-left text-gray-700 border border-gray-200 rounded-xl overflow-hidden'><thead class='bg-deepBlue text-ghostWhite uppercase text-[10px] tracking-wider'><tr><th class='p-3 border-b'>Perfil Profesional</th><th class='p-3 border-b'>Resolución de Problemas</th><th class='p-3 border-b'>Enfoque de Análisis</th><th class='p-3 border-b'>Habilidades y Herramientas Clave</th></tr></thead><tbody class='divide-y divide-gray-100'><tr class='hover:bg-gray-50'><td class='p-3 font-bold text-deepBlue'>Data Analyst (Analista de Datos)</td><td class='p-3'>Utiliza métodos y herramientas existentes para resolver problemas con datos disponibles.</td><td class='p-3'>Analiza información recolectada para respaldar la toma de decisiones comerciales.</td><td class='p-3'>Consultas SQL, visualización de datos, tableros interactivos (BI), reportes y planillas.</td></tr><tr class='hover:bg-gray-50'><td class='p-3 font-bold text-deepBlue'>Data Scientist (Científico de Datos)</td><td class='p-3'>Crea nuevas herramientas y modelos, formula preguntas abiertas y recolecta nuevos tipos de datos.</td><td class='p-3'>Analiza e interpreta datos complejos para realizar predicciones de negocio avanzadas.</td><td class='p-3'>Estadística avanzada, Machine Learning, Deep Learning, optimización y programación (Python/R).</td></tr><tr class='hover:bg-gray-50'><td class='p-3 font-bold text-deepBlue'>Data Specialist (Especialista de Datos)</td><td class='p-3'>Aplica conocimientos profundos sobre bases de datos para gestionar e integrar la información.</td><td class='p-3'>Organiza volúmenes masivos de datos para su uso en analítica u operaciones internas.</td><td class='p-3'>Manipulación de datos, seguridad de la información, modelos de datos, escalabilidad y recuperación ante desastres.</td></tr></tbody></table></div>",
+            "<h3>2. Roles y Especializaciones por Industria</h3>",
+            "Además de los roles generales, el mercado ha generado especializaciones según el área estratégica donde se aplique el análisis:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<ul><li><strong>Business Analyst (Analista de Negocios):</strong> Se enfoca en evaluar flujos de trabajo, sistemas de gestión y procesos internos para mejorar la eficiencia operacional y el margen neto.</li><li><strong>Marketing Analyst:</strong> Analiza condiciones de mercado, rendimiento de campañas publicitarias y embudos de conversión para optimizar las ventas y el costo de adquisición de clientes.</li><li><strong>HR / Payroll Analyst:</strong> Evalúa datos de nómina, clima laboral y retención de personal para optimizar costos de contratación y detectar ineficiencias internas.</li><li><strong>Financial Analyst:</strong> Monitorea estados financieros, proyecciones de flujo de caja e inversiones para evaluar la salud económica de la organización.</li><li><strong>Risk Analyst (Analista de Riesgo):</strong> Audita documentos financieros, condiciones macroeconómicas y datos de clientes para determinar el nivel de riesgo en decisiones de inversión o crédito.</li><li><strong>Healthcare Analyst:</strong> Procesa datos médicos y operativos para mejorar la gestión administrativa y la atención al paciente en clínicas e instituciones de salud.</li></ul>",
+            "<h3>💡 ¿Para qué te sirve esto como emprendedor?</h3>",
+            "<ul><li><strong>Para definir descripciones de cargo precisas:</strong> Evita pedir un 'Data Scientist' con doctorado si tus necesidades inmediatas son organizar bases de datos en SQL y crear paneles en Looker Studio (tarea de un Data Analyst).</li><li><strong>Para contratar el perfil correcto según tu dolor actual:</strong> Si tu problema es la conversión de ventas, contrata un Marketing Analyst; si sufres fuga de caja o costos altos de producción, prioriza un Business o Financial Analyst.</li><li><strong>Para escalar tu equipo de forma eficiente:</strong> Te permite estructurar un flujo de trabajo donde el Data Specialist asegura la infraestructura, el Data Analyst genera reportes de gestión y el Data Scientist construye algoritmos predictivos cuando la empresa madura.</li></ul>",
+            "<strong>Conclusión:</strong> Comprender el espectro de roles en analítica previene contrataciones erróneas y permite estructurar un equipo alineado exactamente con los objetivos de crecimiento de tu empresa."
+        ]
     }
 ];

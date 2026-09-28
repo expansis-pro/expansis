@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { servicesData } from '@/data/servicesData';
 import CarouselItem from '@/components/CarouselItem';
@@ -8,6 +6,27 @@ import CardCarousel from '@/components/CardCarousel';
 import SecondaryHero from '@/components/SecondaryHero';
 import ImageTextCTA from '@/components/ImageTextCTA';
 import JsonLd from '@/components/SEO/JsonLd';
+
+export const metadata = {
+    title: "Nuestros Servicios de Ingeniería Digital | Expansis Pro",
+    description: "En Expansis Pro tratamos tu presencia digital como un ecosistema vivo e integrado. Conoce nuestras soluciones en Diseño Web, E-commerce y Marketing Digital.",
+    alternates: {
+        canonical: 'https://expansispro.com/servicios',
+    },
+    openGraph: {
+        title: "Nuestros Servicios de Ingeniería Digital | Expansis Pro",
+        description: "En Expansis Pro tratamos tu presencia digital como un ecosistema vivo e integrado. Conoce nuestras soluciones en Diseño Web, E-commerce y Marketing Digital.",
+        url: 'https://expansispro.com/servicios',
+        siteName: 'Expansis Pro',
+        locale: 'es_CL',
+        type: 'website',
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: "Nuestros Servicios de Ingeniería Digital | Expansis Pro",
+        description: "En Expansis Pro tratamos tu presencia digital como un ecosistema vivo e integrado. Conoce nuestras soluciones en Diseño Web, E-commerce y Marketing Digital.",
+    },
+};
 
 export default function ServicesPage() {
     const baseUrl = 'https://expansispro.com';
