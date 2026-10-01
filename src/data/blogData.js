@@ -650,7 +650,8 @@ export const blogPosts = [
             "<div class='overflow-x-auto my-6'><table class='w-full text-xs text-left text-gray-700 border border-gray-200 rounded-xl overflow-hidden'><thead class='bg-deepBlue text-ghostWhite uppercase text-[10px] tracking-wider'><tr><th class='p-3 border-b'>Estrategia</th><th class='p-3 border-b'>Riesgo que previene</th><th class='p-3 border-b'>Ejemplo de Aplicación en Negocio</th></tr></thead><tbody class='divide-y divide-gray-100'><tr class='hover:bg-gray-50'><td class='p-3 font-bold text-deepBlue'>Integración Total de Datos</td><td class='p-3'>Sesgo de confirmación (seleccionar solo lo que conviene).</td><td class='p-3'>Analizar ventas incluyendo días con fallas de stock o eventos climáticos.</td></tr><tr class='hover:bg-gray-50'><td class='p-3 font-bold text-deepBlue'>Datos Auto-reportados</td><td class='p-3'>Sesgo del observador o suposiciones de personal de venta.</td><td class='p-3'>Levantar perfil de clientes en tienda vía encuestas en vez de percepciones de vendedores.</td></tr><tr class='hover:bg-gray-50'><td class='p-3 font-bold text-deepBlue'>Sobremuestreo (Oversampling)</td><td class='p-3'>Invisibilización de segmentos minoritarios pero relevantes.</td><td class='p-3'>Aumentar la muestra de usuarios mayores de 70 años al diseñar una app de salud.</td></tr><tr class='hover:bg-gray-50'><td class='p-3 font-bold text-deepBlue'>Comunicación Transparente</td><td class='p-3'>Interpretación sesgada por parte de los ejecutivos (stakeholders).</td><td class='p-3'>Explicar a la directiva qué ajustes de sobremuestreo se aplicaron y por qué.</td></tr></tbody></table></div>",
             "<h3>💡 ¿Para qué te sirve esto como emprendedor?</h3>",
             "<ul><li><strong>Para diseñar productos inclusivos y escalables:</strong> Aplicar sobremuestreo te permite adaptar tu producto a nichos de mercado valiosos que tus competidores suelen ignorar por falta de datos representativos.</li><li><strong>Para evitar inversiones basadas en supuestos falsos:</strong> Usar datos auto-reportados en investigaciones de mercado te protege de lanzar campañas publicitarias basadas en prejuicios de tu equipo interno.</li><li><strong>Para construir credibilidad ante inversionistas:</strong> Presentar análisis que declaren abiertamente sus variables de contexto y limitaciones demuestra rigor metodológico y madurez directiva.</li></ul>",
-            "<strong>Conclusión:</strong> Integrar la equidad en el análisis de datos previene sesgos costosos y garantiza que cada decisión comercial esté respaldada por una visión objetiva e inclusiva de tu mercado."
+            "<strong>Conclusión:</strong> Integrar la equidad en el análisis de datos previene sesgos costosos y garantiza que cada decisión comercial esté respaldada por una visión objetiva e inclusiva de tu mercado.", "<h3>Glosario de Términos Clave</h3>",
+            "<ol><li><strong>1. Tarea de negocio (Business task):</strong> La pregunta o problema que el análisis de datos resuelve para una empresa.</li><li><strong>2. Equidad (Fairness):</strong> Calidad del análisis de datos que no crea ni refuerza sesgos.</li><li><strong>3. Sobremuestreo (Oversampling):</strong> Proceso de incrementar el tamaño de la muestra de grupos no dominantes en una población para representarlos mejor y corregir conjuntos de datos desbalanceados.</li><li><strong>4. Datos autorreportados (Self-reporting):</strong> Técnica de recolección de datos donde los participantes proporcionan información sobre sí mismos.</li></ol>"
         ]
     }, {
         id: 18,
@@ -685,6 +686,144 @@ export const blogPosts = [
             "<h3>💡 ¿Para qué te sirve esto como emprendedor?</h3>",
             "<ul><li><strong>Para definir descripciones de cargo precisas:</strong> Evita pedir un 'Data Scientist' con doctorado si tus necesidades inmediatas son organizar bases de datos en SQL y crear paneles en Looker Studio (tarea de un Data Analyst).</li><li><strong>Para contratar el perfil correcto según tu dolor actual:</strong> Si tu problema es la conversión de ventas, contrata un Marketing Analyst; si sufres fuga de caja o costos altos de producción, prioriza un Business o Financial Analyst.</li><li><strong>Para escalar tu equipo de forma eficiente:</strong> Te permite estructurar un flujo de trabajo donde el Data Specialist asegura la infraestructura, el Data Analyst genera reportes de gestión y el Data Scientist construye algoritmos predictivos cuando la empresa madura.</li></ul>",
             "<strong>Conclusión:</strong> Comprender el espectro de roles en analítica previene contrataciones erróneas y permite estructurar un equipo alineado exactamente con los objetivos de crecimiento de tu empresa."
+        ]
+    }, {
+        id: 19,
+        slug: "mas-alla-de-los-numeros-lecciones-anna-leach",
+        title: "Más allá de los Números: Lecciones Reales sobre el Análisis de Datos",
+        category: "Estrategia & Datos",
+        excerpt: "Descubre por qué ser un buen analista de datos va mucho más allá de las matemáticas y Excel. Lecciones de Anna Leach sobre sesgos, storytelling y el lado humano de los datos.",
+        author: "Gonzalo Lobos",
+        authorRole: "Founder & Lead Engineer",
+        date: "30 Septiembre 2026",
+        readTime: "5 min de lectura",
+        image: "/assets/images/expansisPro_target.webp",
+        status: "aprobado",
+        tags: ["Análisis de Datos", "TEDx", "Storytelling", "Soft Skills", "Business Intelligence"],
+        sources: [
+            {
+                num: 1,
+                name: "TEDx Talks (YouTube)",
+                title: "Más allá de los números: La trayectoria de un analista de datos | Anna Leach | TEDxPSU",
+                url: "https://www.youtube.com/watch?v=t2oOFs4WgI0"
+            }
+        ],
+        content: [
+            "<strong>El análisis de datos suele confundirse con la simple habilidad de operar hojas de cálculo o escribir código. Sin embargo, el verdadero valor de un analista reside en su capacidad para entender el lado humano y los procesos detrás de esos números.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup></strong>",
+            "En su charla TEDx, Anna Leach relata su evolución profesional, demostrando que extraer información de un sistema no tiene impacto real si no se conecta con las personas y las decisiones del negocio.",
+            "<div class='flex justify-center my-8 w-full'><iframe width='560' height='315' src='https://www.youtube.com/embed/t2oOFs4WgI0?si=QjPa8yWj4_unq8gO' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen class='rounded-xl shadow-lg max-w-full'></iframe></div>",
+            "<h3>1. Salir de la Hoja de Cálculo y Entender el Proceso</h3>",
+            "Un error común al iniciar en analítica es limitar el trabajo a sumar filas y aplicar fórmulas en Excel. Leach explica que, para realizar un análisis útil (como identificar un segmento específico de clientes en un sistema nuevo), el analista debe levantarse de su escritorio y hablar cara a cara con las personas de otros departamentos. Entender cómo ingresan los datos a la 'caja negra' es vital para saber cómo sacarlos.",
+            "<h3>2. El Peligro del Sesgo y el Ego Profesional</h3>",
+            "Muchos profesionales caen en la trampa de intentar hacerse 'irremplazables' acaparando conocimiento. Esta actitud genera dos problemas graves:",
+            "<ul><li><strong>Aislarse por miedo:</strong> No hacer preguntas para evitar parecer que no se domina un tema.</li><li><strong>Errores por prisa:</strong> Tratar de demostrar rapidez y eficiencia cometiendo fallos básicos de sintaxis matemática.</li></ul>",
+            "La lección es clara: es preferible invertir 10 minutos haciendo preguntas a los compañeros, que perder 3 horas de trabajo (y la confianza del equipo) corrigiendo un reporte.",
+            "<h3>3. Los Datos Deben Contar una Historia (Storytelling)</h3>",
+            "Extraer tablas de datos no es el fin del trabajo. El analista actúa como un traductor: toma la información técnica y la transforma en una narrativa o historia que responda a una pregunta comercial específica, permitiendo a los directivos visualizar soluciones.",
+            "<h3>4. El Analista como Puente Conector</h3>",
+            "En las organizaciones suelen existir silos de información. Por ejemplo, equipos que planifican estrategias teóricas y equipos operativos que ejecutan sin medir resultados. El análisis de datos tiene el propósito de cerrar esas brechas, uniendo a distintos grupos para compartir información validada y mejorar procesos de forma conjunta.",
+            "<strong>Conclusión:</strong> El análisis de datos es tanto un arte como una ciencia. Requiere levantar la vista de la pantalla, mirar debajo de las rocas, atreverse a preguntar y usar los números para fortalecer las relaciones y los resultados de la empresa."
+        ]
+    }, {
+        id: 20,
+        slug: "glosario-completo-terminos-analisis-de-datos",
+        title: "Glosario Completo: Términos y Definiciones Fundamentales en Análisis de Datos",
+        category: "Estrategia & Datos",
+        excerpt: "Una recopilación exhaustiva con todos los términos esenciales del análisis de datos, de la A a la Z. Ideal para repasar conceptos y fortalecer tu vocabulario técnico.",
+        author: "Gonzalo Lobos",
+        authorRole: "Founder & Lead Engineer",
+        date: "30 Septiembre 2026",
+        readTime: "9 min de lectura",
+        image: "/assets/images/expansisPro_target.webp",
+        status: "aprobado",
+        tags: ["Glosario de Datos", "Análisis de Datos", "Vocabulario Técnico", "Fundamentos", "SQL"],
+        sources: [
+            {
+                num: 1,
+                name: "Google Data Analytics Certificate",
+                title: "Terms and definitions from Course 1",
+                url: "#"
+            }
+        ],
+        content: [
+            "<strong>Dominar el vocabulario técnico es el primer paso para pensar y actuar como un analista profesional.</strong> Este glosario recopila las definiciones oficiales para que puedas consultarlas en cualquier momento durante tus proyectos de datos.",
+
+            "<ul>",
+            "<li><strong>Análisis de brechas (Gap analysis):</strong> Un método para examinar y evaluar el estado actual de un proceso a fin de identificar oportunidades de mejora en el futuro.</li>",
+            "<li><strong>Análisis de datos (Data analysis):</strong> La recolección, transformación y organización de datos para sacar conclusiones, hacer predicciones e impulsar la toma de decisiones informada.</li>",
+            "<li><strong>Analista de datos (Data analyst):</strong> Alguien que recopila, transforma y organiza datos para sacar conclusiones, hacer predicciones e impulsar la toma de decisiones informada.</li>",
+            "<li><strong>Analítica de datos (Data analytics):</strong> La ciencia de los datos.</li>",
+            "<li><strong>Atributo (Attribute):</strong> Una característica o cualidad de los datos utilizada para etiquetar una columna en una tabla.</li>",
+            "<li><strong>Autorreporte (Self-reporting):</strong> Una técnica de recolección de datos donde los participantes proporcionan información sobre sí mismos.</li>",
+            "<li><strong>Base de datos (Database):</strong> Una colección de datos almacenados en un sistema informático.</li>",
+            "<li><strong>Causa raíz (Root cause):</strong> La razón por la cual ocurre un problema.</li>",
+            "<li><strong>Ciencia de datos (Data science):</strong> Un campo de estudio que utiliza datos sin procesar para crear nuevas formas de modelar y comprender lo desconocido.</li>",
+            "<li><strong>Conjunto de datos (Dataset):</strong> Una colección de datos que puede ser manipulada o analizada como una sola unidad.</li>",
+            "<li><strong>Consulta (Query):</strong> Una solicitud de datos o información de una base de datos.</li>",
+            "<li><strong>Contexto (Context):</strong> La condición en la que algo existe o sucede.</li>",
+
+            "<li><strong>Datos (Data):</strong> Una colección de hechos.</li>",
+            "<li><strong>Diseño de datos (Data design):</strong> Cómo se organiza la información.</li>",
+            "<li><strong>Ecosistema de datos (Data ecosystem):</strong> Los diversos elementos que interactúan entre sí para producir, administrar, almacenar, organizar, analizar y compartir datos.</li>",
+            "<li><strong>Equidad (Fairness):</strong> Una cualidad del análisis de datos que no crea ni refuerza sesgos.</li>",
+            "<li><strong>Estrategia de datos (Data strategy):</strong> La gestión de las personas, procesos y herramientas utilizados en el análisis de datos.</li>",
+            "<li><strong>Fórmula (Formula):</strong> Un conjunto de instrucciones utilizadas para realizar un cálculo utilizando los datos en una hoja de cálculo.</li>",
+            "<li><strong>Función (Function):</strong> Un comando preestablecido que realiza automáticamente un proceso o tarea especificada utilizando los datos en una hoja de cálculo.</li>",
+            "<li><strong>Habilidades analíticas (Analytical skills):</strong> Cualidades y características asociadas con el uso de hechos para resolver problemas.</li>",
+            "<li><strong>Hoja de cálculo (Spreadsheet):</strong> Una hoja de trabajo digital.</li>",
+
+            "<li><strong>Lenguaje de consulta (Query language):</strong> Un lenguaje de programación informática utilizado para comunicarse con una base de datos.</li>",
+            "<li><strong>Lenguaje de consulta estructurado (Structured Query Language / SQL):</strong> Un lenguaje de programación informática utilizado para comunicarse con una base de datos.</li>",
+            "<li><strong>Mentalidad técnica (Technical mindset):</strong> La capacidad de dividir las cosas en pasos o piezas más pequeñas y trabajar con ellas de manera ordenada y lógica.</li>",
+            "<li><strong>Observación (Observation):</strong> Los atributos que describen un fragmento de datos contenido en una fila de una tabla.</li>",
+            "<li><strong>Partes interesadas (Stakeholders):</strong> Personas que invierten tiempo y recursos en un proyecto y están interesadas en su resultado.</li>",
+            "<li><strong>Pensamiento analítico (Analytical thinking):</strong> El proceso de identificar y definir un problema, y luego resolverlo usando datos de una manera organizada y paso a paso.</li>",
+
+            "<li><strong>Sobremuestreo (Oversampling):</strong> El proceso de aumentar el tamaño de la muestra de los grupos no dominantes en una población. Esto puede ayudar a representarlos mejor y abordar conjuntos de datos desequilibrados.</li>",
+            "<li><strong>Tarea de negocio (Business task):</strong> La pregunta o problema que el análisis de datos resuelve para una empresa.</li>",
+            "<li><strong>Toma de decisiones basada en datos (Data-driven decision-making):</strong> Uso de hechos para guiar la estrategia comercial.</li>",
+            "<li><strong>Visualización de datos (Data visualization / Visualization):</strong> La representación gráfica de datos.</li>",
+            "</ul>"
+        ]
+    }, {
+        id: 20,
+        slug: "glosario-maestro-analitica-de-datos",
+        title: "Glosario Maestro de Analítica: Conceptos Clave de A a Z",
+        category: "Estrategia & Datos",
+        excerpt: "Una guía de referencia con los términos indispensables de la analítica moderna: desde A/B Testing, Limpieza de Datos y Gobernanza hasta SQL, R, Tableau y Storytelling.",
+        author: "Gonzalo Lobos",
+        authorRole: "Founder & Lead Engineer",
+        date: "26 Septiembre 2026",
+        readTime: "10 min de lectura",
+        image: "/assets/images/expansisPro_target.webp",
+        status: "aprobado",
+        tags: ["Glosario de Datos", "Analítica de Datos", "SQL", "R", "Tableau", "Gobernanza", "Estrategia de Datos"],
+        sources: [
+            {
+                num: 1,
+                name: "Google Data Analytics Certificate / Coursera",
+                title: "Data Analytics Professional Certificate - Complete Course Glossary (A to Z)",
+                url: "https://www.coursera.org/professional-certificates/google-data-analytics"
+            }
+        ],
+        content: [
+            "<strong>El dominio de la analítica exige conocer el vocabulario técnico que conecta la ingeniería de datos con la estrategia de negocios.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup></strong>",
+            "Esta guía reúne y clasifica los términos y definiciones esenciales del programa profesional de Google para servir como diccionario de consulta rápida en tu empresa.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<h3>1. Fundamentos, Ética y Toma de Decisiones</h3>",
+            "Conceptos estratégicos sobre la gestión responsable de la información y la cultura basada en datos:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<ul><li><strong>A/B Testing:</strong> Proceso de probar dos variaciones de una página web o campaña para determinar cuál atrae mayor tráfico o genera más conversión.</li><li><strong>Prácticas de Equidad (Fairness):</strong> Calidad del análisis que evita crear o reforzar sesgos conscientes o inconscientes en los modelos.</li><li><strong>Gobernanza de Datos (Data Governance):</strong> Proceso formal para asegurar la gestión, seguridad y disponibilidad de los activos de datos de una organización.</li><li><strong>Ética de Datos (Data Ethics):</strong> Estándares morales que dictan cómo se recolecta, comparte y utiliza la información, respetando la privacidad (Data Privacy) y el consentimiento (Consent).</li><li><strong>Métrica de Negocio (Business Metric):</strong> Estándar cuantificable utilizado para medir el rendimiento y resolver problemas operativos.</li></ul>",
+            "<h3>2. Limpieza, Calidad y Estructuración de Datos</h3>",
+            "Principios fundamentales para transformar datos caóticos en fuentes de información confiables:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<ul><li><strong>Datos Limpios (Clean Data):</strong> Registros completos, correctos y relevantes para el problema de negocio que se intenta resolver.</li><li><strong>Datos Sucios (Dirty Data):</strong> Información incompleta, incorrecta o irrelevante que distorsiona las conclusiones del análisis.</li><li><strong>Integridad de Datos (Data Integrity):</strong> Precisión, consistencia y confiabilidad de la información a lo largo de todo su ciclo de vida.</li><li><strong>Metadatos (Metadata):</strong> Datos acerca de los datos; describen el origen, la estructura y el contenido de un archivo o base de datos.</li><li><strong>Validación de Datos (Data Validation):</strong> Proceso de verificación que asegura que la información ingresada cumpla con las restricciones de formato y calidad.</li></ul>",
+            "<h3>3. Bases de Datos, SQL y Programación</h3>",
+            "Comandos y conceptos clave para interactuar con bases de datos relacionales y lenguajes analíticos:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<ul><li><strong>Alias (Aliasing):</strong> Nombre temporal asignado a una tabla o columna mediante la cláusula <code>AS</code> para facilitar la lectura de la consulta.</li><li><strong>Sentencia CASE:</strong> Estructura condicional en SQL que devuelve valores según se cumplan reglas específicas (lógica If/Then).</li><li><strong>Función CAST:</strong> Operación que convierte un valor de un tipo de dato a otro dentro de una consulta.</li><li><strong>Operadores JOIN (Inner, Left, Right, Outer):</strong> Funciones SQL utilizadas para combinar filas de dos o más tablas basándose en una columna relacionada.</li><li><strong>Ecosistema R (Tidyverse, ggplot2):</strong> Lenguaje y conjunto de paquetes diseñados para análisis estadístico, manipulación de datos y visualización avanzada.</li></ul>",
+            "<h3>4. Visualización, Storytelling y Presentación</h3>",
+            "Técnicas y herramientas para comunicar hallazgos de forma visual e impactante a los tomadores de decisiones:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<ul><li><strong>Cuadro de Mando (Dashboard):</strong> Herramienta gráfica que monitorea y muestra métricas clave e información en tiempo real.</li><li><strong>Atributos Pre-atentivos:</strong> Elementos visuales (como color, tamaño o forma) que la mente humana reconoce automáticamente sin esfuerzo consciente.</li><li><strong>Data Storytelling:</strong> Arte de comunicar el significado de un conjunto de datos mediante una narrativa clara respaldada por gráficos efectivos.</li><li><strong>Anscombe’s Quartet:</strong> Conjunto de cuatro bases de datos con estadísticas descriptivas casi idénticas pero con gráficos radicalmente diferentes, demostrando la importancia de visualizar la información.</li></ul>",
+            "<h3>💡 ¿Para qué te sirve esto como emprendedor?</h3>",
+            "<ul><li><strong>Para estandarizar la cultura técnica de tu empresa:</strong> Contar con un diccionario unificado evita malos entendidos entre los equipos comerciales, analistas y desarrolladores.</li><li><strong>Para evaluar proveedores y contrataciones:</strong> Te permite medir el nivel técnico de agencias o postulantes evaluando su conocimiento de estos conceptos clave.</li><li><strong>Para tomar decisiones con rigor metodológico:</strong> Entender la diferencia entre métricas de rendimiento, ética de datos y sesgos previene errores estratégicos de alto costo.</li></ul>",
+            "<strong>Conclusión:</strong> Manejar este glosario integrado te otorga el marco conceptual necesario para liderar proyectos analíticos con rigor técnico y visión estratégica."
         ]
     }
 ];
