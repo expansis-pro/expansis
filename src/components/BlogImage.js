@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function BlogImage({
     src,
@@ -8,31 +8,33 @@ export default function BlogImage({
     className = "",
     containerClassName = "",
     priority = false,
-    hideOnFallback = false // <--- Si es true, oculta la imagen y el contenedor si falla
+    hideOnFallback = false
 }) {
     const [hasError, setHasError] = useState(false);
 
-    // Si falló la imagen o no viene src:
+    // Resetea el estado de error al cambiar la fuente (src)
+    useEffect(() => {
+        setHasError(false);
+    }, [src]);
+
+    // Si hay error de carga o src no existe, muestra el Fallback Genérico
     if (hasError || !src) {
-        if (hideOnFallback) {
-            return null; // No renderiza NADA (oculta el bloque)
-        }
+        if (hideOnFallback) return null;
 
-        // Respaldo genérico para el catálogo o Home
         return (
-            <div className={`w-full h-full bg-deepBlue flex flex-col items-center justify-center p-6 text-center relative overflow-hidden select-none ${className}`}>
-                <div className="absolute -top-12 -right-12 w-48 h-48 bg-primario/20 rounded-full blur-2xl pointer-events-none"></div>
-                <div className="absolute -bottom-12 -left-12 w-48 h-48 bg-primario/10 rounded-full blur-2xl pointer-events-none"></div>
+            <div className={`w-full h-full bg-deepBlue flex flex-col items-center justify-center p-4 text-center relative overflow-hidden select-none ${className}`}>
+                <div className="absolute -top-10 -right-10 w-28 h-28 bg-primario/20 rounded-full blur-2xl pointer-events-none"></div>
+                <div className="absolute -bottom-10 -left-10 w-28 h-28 bg-primario/10 rounded-full blur-2xl pointer-events-none"></div>
 
-                <div className="relative z-10 flex flex-col items-center gap-2">
-                    <div className="w-10 h-10 rounded-xl bg-primario/10 border border-primario/30 flex items-center justify-center mb-1">
-                        <i className="fa-solid fa-newspaper text-primario text-lg"></i>
+                <div className="relative z-10 flex flex-col items-center justify-center gap-1.5 w-full h-full">
+                    <div className="w-8 h-8 rounded-lg bg-primario/10 border border-primario/30 flex items-center justify-center shrink-0">
+                        <i className="fa-solid fa-newspaper text-primario text-sm"></i>
                     </div>
-                    <span className="text-ghostWhite text-lg sm:text-xl tracking-wider">
+                    <span className="text-ghostWhite text-xs font-bold tracking-wider leading-tight">
                         Expansis <span className="text-primario">Pro</span>
                     </span>
-                    <span className="text-gray-400 text-xs font-light tracking-widest ">
-                        Blog &amp; Recursos Digitales
+                    <span className="text-gray-400 text-[10px] font-light tracking-wider truncate max-w-[90%]">
+                        Blog &amp; Recursos
                     </span>
                 </div>
             </div>
@@ -49,7 +51,6 @@ export default function BlogImage({
         />
     );
 
-    // Si se especificó un contenedor, lo envuelve
     if (containerClassName) {
         return <div className={containerClassName}>{imageElement}</div>;
     }

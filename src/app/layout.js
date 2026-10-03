@@ -12,9 +12,20 @@ const montserrat = Montserrat({
 });
 
 export const metadata = {
-    title: 'Expansis Pro | Soluciones Digitales',
+    title: 'Expansis Pro | Agencia de Desarrollo Web y Marketing Digital en Chile',
     description: 'Soluciones digitales a marcas y personas individuales.',
     metadataBase: new URL('https://expansispro.com'),
+    icons: {
+        icon: [
+            { url: '/favicon.ico', sizes: 'any' },
+            { url: '/favicon/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+            { url: '/favicon/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+        ],
+        apple: [
+            { url: '/favicon/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+        ],
+    },
+    manifest: '/site.webmanifest',
 };
 
 export default function RootLayout({ children }) {

@@ -10,7 +10,7 @@ export const blogPosts = [
         authorRole: "Founder & Lead Engineer",
         date: "22 Septiembre 2026",
         readTime: "5 min de lectura",
-        image: "/assets/images/expansisPro_target.webp",
+        image: "https://images.unsplash.com/photo-1713345248737-2698000f143d?auto=format&fit=crop&w=1200&q=80",
         status: "aprobado",
         tags: ["Inteligencia Artificial", "ChatGPT", "Productividad", "Herramientas Digitales"],
         sources: [
@@ -45,16 +45,16 @@ export const blogPosts = [
     }, {
         id: 2,
         slug: "las-6-fases-del-analisis-de-datos-metodologia-google",
-        title: "Las 6 Fases del Análisis de Datos según Google",
+        title: "El Proceso de Análisis de Datos de Google: Las 6 Fases y el Pensamiento Estructurado",
         category: "Estrategia & Datos",
-        excerpt: "Conoce la ruta metodológica oficial de Google (Ask, Prepare, Process, Analyze, Share y Act) para transformar datos caóticos en decisiones comerciales rentables.",
+        excerpt: "Conoce la ruta metodológica oficial de Google (Ask, Prepare, Process, Analyze, Share y Act), sus preguntas clave de autoevaluación y las 4 actividades del Pensamiento Estructurado.",
         author: "Gonzalo Lobos",
         authorRole: "Founder & Lead Engineer",
         date: "23 Septiembre 2026",
-        readTime: "7 min de lectura",
-        image: "/assets/images/expansisPro_target.webp",
+        readTime: "9 min de lectura",
+        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
         status: "aprobado",
-        tags: ["Análisis de Datos", "Metodología Google", "Business Intelligence", "Toma de Decisiones", "Estrategia"],
+        tags: ["Análisis de Datos", "Metodología Google", "Pensamiento Estructurado", "Business Intelligence", "Toma de Decisiones"],
         sources: [
             {
                 num: 1,
@@ -70,78 +70,98 @@ export const blogPosts = [
             }
         ],
         content: [
-            "<strong>El análisis de datos no consiste en abrir planillas llenas de números sin sentido; consiste en seguir una ruta metodológica para responder preguntas comerciales concretas.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup></strong>",
-            "En el Certificado Profesional de Análisis de Datos de Google se establece que cualquier proyecto analítico exitoso —desde optimizar un embudo de ventas hasta mejorar la retención de clientes— debe transitar por un ciclo de 6 etapas secuenciales.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup><sup><a href='#fuente-2' class='text-primario font-bold ml-1'>[2]</a></sup>",
+            "<strong>Resolver problemas de negocio mediante datos exige seguir una ruta metodológica clara que guíe al analista desde la definición del problema hasta la ejecución de cambios estratégicos.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup><sup><a href='#fuente-2' class='text-primario font-bold ml-1'>[2]</a></sup></strong>",
             "<h3>Gobernanza vs. Proceso de Análisis: La Diferencia Clave</h3>",
-            "Es común confundir el <em>Ciclo de Vida de los Datos</em> (que gestiona la infraestructura, almacenamiento y destrucción de la información como activo corporativo) con el <em>Proceso de Análisis de Datos</em>. Este último es la hoja de ruta operativa del analista para resolver un problema puntual de negocio desde la pregunta inicial hasta la solución.<sup><a href='#fuente-2' class='text-primario font-bold ml-1'>[2]</a></sup>",
-            "<h3>Las 6 Fases de la Metodología de Google</h3>",
-            "Para evitar perderte entre métricas vanidosas, el marco de Google organiza el trabajo analítico en este flujo estructurado:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup><sup><a href='#fuente-2' class='text-primario font-bold ml-1'>[2]</a></sup>",
-            "<ol><li><strong>1. Preguntar (Ask):</strong> Definir el problema comercial alineando el estado actual con el ideal. Implica calificar las expectativas de los involucrados (stakeholders) para entender qué necesitan, cuándo y por qué antes de tocar cualquier dato.</li><li><strong>2. Preparar (Prepare):</strong> Identificar y recolectar la información necesaria para responder las preguntas del proyecto, garantizando que los datos sean objetivos, imparciales y libres de sesgos.</li><li><strong>3. Procesar (Process):</strong> Refinar y limpiar los datos. Significa eliminar errores, corregir inconsistencias, remover valores atípicos (outliers) y transformar formatos usando herramientas como SQL y hojas de cálculo.</li><li><strong>4. Analizar (Analyze):</strong> Descubrir patrones, tendencias y relaciones. Mediante cálculos, consultas SQL y lenguajes de programación como Python, los datos limpios se transforman en hallazgos útiles para el negocio.</li><li><strong>5. Compartir (Share):</strong> Interpretar los resultados y comunicarlos a los tomadores de decisiones mediante visualizaciones de datos claras, construyendo una narrativa convincente y fácil de entender.</li><li><strong>6. Actuar (Act):</strong> Poner en práctica los hallazgos ejecutando cambios estratégicos, recomendaciones operativas o proyectos de alto impacto respaldados por evidencia.</li></ol>",
+            "Es común confundir el <em>Ciclo de Vida de los Datos</em> (que gestiona la infraestructura, almacenamiento y destrucción de la información como activo corporativo) con el <em>Proceso de Análisis de Datos</em>. Este último es la hoja de ruta operativa del analista para resolver un problema puntual de negocio desde la pregunta inicial hasta la solución.",
+            "<h3>1. Las 6 Fases del Análisis y sus Preguntas Clave</h3>",
+            "Para evitar desviaciones y mantener el foco en aportar valor real a los involucrados (stakeholders), el marco de Google organiza el trabajo analítico en 6 etapas secuenciales respaldadas por preguntas de autoevaluación:",
+            "<ol><li><strong>1. Preguntar (Ask):</strong> Definir el problema comercial alineando el estado actual con el ideal. Implica calificar las expectativas de los stakeholders evaluando la situación global en su contexto.<br><em>Pregunta clave:</em> ¿Qué dicen los involucrados que es su problema y cómo puedo ayudarlos a resolver sus dudas?</li><li><strong>2. Preparar (Prepare):</strong> Identificar y recolectar la información necesaria para responder las preguntas del proyecto, ubicando repositorios y definiendo métricas sin sesgos.<br><em>Pregunta clave:</em> ¿Qué necesito averiguar para resolver este problema y qué investigación previa debo realizar?</li><li><strong>3. Procesar (Process):</strong> Refinar y limpiar los datos eliminando errores, duplicados e inconsistencias mediante funciones en planillas y consultas SQL.<br><em>Pregunta clave:</em> ¿Qué errores o imprecisiones en los datos pueden obstaculizar la respuesta correcta y cómo puedo estandarizarlos?</li><li><strong>4. Analizar (Analyze):</strong> Descubrir patrones, tendencias y relaciones mediante cálculos, consultas SQL y lenguajes de programación como Python o R.<br><em>Pregunta clave:</em> ¿Qué historia me están contando los datos y qué tipo de usuario o cliente se beneficia de mi servicio?</li><li><strong>5. Compartir (Share):</strong> Interpretar los resultados y comunicarlos a los tomadores de decisiones mediante visualizaciones de datos claras y dashboards interactivos.<br><em>Pregunta clave:</em> ¿Cómo puedo presentar los hallazgos de forma atractiva y entendible desde la perspectiva del oyente?</li><li><strong>6. Actuar (Act):</strong> Poner en práctica las conclusiones proporcionando recomendaciones concretas para ejecutar decisiones respaldadas por evidencia.<br><em>Pregunta clave:</em> ¿Cómo puedo usar el feedback recibido en la fase de compartición para cumplir las expectativas del negocio?</li></ol>",
+            "<h3>2. Pensamiento Estructurado (Structured Thinking)</h3>",
+            "Descomponer un proyecto de datos complejo en partes pequeñas y manejables se conoce como <strong>Pensamiento Estructurado</strong>. Esta habilidad metodológica articula 4 actividades fundamentales:<sup><a href='#fuente-2' class='text-primario font-bold ml-1'>[2]</a></sup>",
+            "<ul><li><strong>Reconocer el problema o situación actual:</strong> Diagnosticar el estado operativo presente sin asumir causas preconcebidas.</li><li><strong>Organizar la información disponible:</strong> Agrupar y clasificar las variables relevantes para el análisis.</li><li><strong>Revelar brechas y oportunidades:</strong> Identificar qué información falta y dónde residen las palancas de optimización.</li><li><strong>Identificar las opciones de acción:</strong> Trazar alternativas viables para que la gerencia seleccione la mejor estrategia.</li></ul>",
             "<h3>💡 ¿Para qué te sirve esto como emprendedor?</h3>",
-            "<ul><li><strong>Evita perderte en datos inútiles:</strong> Calificar las expectativas y la pregunta correcta (Fase Ask) evita que gastes días mirando métricas que no impactan en tus ventas.</li><li><strong>Asegura decisiones de bajo riesgo:</strong> La fase de procesamiento (Process) te protege de tomar decisiones críticas de inversión basándote en datos duplicados o sesgados.</li><li><strong>Alinea a tu equipo gerencial:</strong> La combinación de visualización e interpretación (Fases Share y Act) facilita la comunicación de estrategias complejas a socios o inversionistas sin modismos técnicos.</li></ul>",
-            "<strong>Conclusión:</strong> El verdadero valor de los datos no está en su acumulación, sino en la disciplina metodológica con la que los transformas en decisiones rentables y sostenibles."
+            "<ul><li><strong>Para evitar perderte en datos inútiles:</strong> Calificar las expectativas en la fase <em>Ask</em> evita que gastes días mirando métricas que no impactan en tus ventas.</li><li><strong>Para asegurar decisiones de bajo riesgo:</strong> La fase de procesamiento (<em>Process</em>) te protege de tomar decisiones críticas basándote en datos duplicados o sesgados.</li><li><strong>Para enfocar la inversión publicitaria:</strong> Las preguntas de la fase <em>Analyze</em> te permiten identificar con exactitud qué tipo de cliente compra realmente tu producto.</li><li><strong>Para garantizar que los análisis se implementen:</strong> La combinación de la fase <em>Share</em> con la fase <em>Act</em> asegura que las reuniones directivas terminen en acciones concretas y no en presentaciones olvidadas.</li></ul>",
+            "<strong>Conclusión:</strong> Integrar las 6 etapas del análisis de Google con el pensamiento estructurado transforma el desorden operativo en un flujo sistemático para tomar decisiones comerciales rentables y de bajo riesgo."
         ]
     }, {
         id: 3,
-        slug: "perspectivas-ciclo-de-vida-de-datos",
-        title: "Marcos del Ciclo de Vida de Datos: Dell EMC, Google, SAS y Big Data",
+        slug: "ciclo-de-vida-de-los-datos-etapas-y-variaciones",
+        title: "El Ciclo de Vida de los Datos: Gobernanza, Etapas y Comparativa de Marcos",
         category: "Estrategia & Datos",
-        excerpt: "Comparamos los marcos metodológicos más influyentes de la industria (Ciencia de Datos, BI, AI Lifecycle y Big Data) para que elijas el adecuado según tu proyecto.",
+        excerpt: "Gestiona la información como un activo estratégico. Comparamos el ciclo estándar de 6 etapas, el modelo de 8 pasos de Harvard (Wing & HBS) y los marcos metodológicos de Dell EMC, CRISP-DM, SAS y Big Data.",
         author: "Gonzalo Lobos",
         authorRole: "Founder & Lead Engineer",
         date: "26 Septiembre 2026",
-        readTime: "7 min de lectura",
-        image: "/assets/images/expansisPro_target.webp",
+        readTime: "10 min de lectura",
+        image: "https://images.unsplash.com/photo-1666875753105-c63a6f3bdc86?auto=format&fit=crop&w=1200&q=80",
         status: "aprobado",
-        tags: ["Analítica de Datos", "Dell EMC", "CRISP-DM", "SAS", "Big Data", "Thomas Erl"],
+        tags: ["Ciclo de Vida de Datos", "Gobernanza de Datos", "Dell EMC", "CRISP-DM", "SAS", "Big Data", "Harvard Data Science", "Thomas Erl"],
         sources: [
             {
                 num: 1,
+                name: "Google Data Analytics Certificate / Coursera",
+                title: "Foundations: Data, Data Everywhere - The 6 Stages of the Data Life Cycle",
+                url: "https://www.coursera.org/professional-certificates/google-data-analytics"
+            },
+            {
+                num: 2,
+                name: "Harvard Data Science Review / Jeannette M. Wing",
+                title: "The Data Life Cycle (Columbia University / MIT Press)",
+                url: "https://doi.org/10.1162/99608f92.e26845b4"
+            },
+            {
+                num: 3,
+                name: "Harvard Business School Online / Tim Stobierski",
+                title: "8 Steps in the Data Life Cycle",
+                url: "https://online.hbs.edu/blog/post/data-life-cycle"
+            },
+            {
+                num: 4,
                 name: "Wiley Online Library / EMC",
                 title: "Data Science and Big Data Analytics - Chapter 2: Data Analytics Lifecycle (David Dietrich)",
                 url: "https://onlinelibrary.wiley.com/doi/book/10.1002/9781119183686"
             },
             {
-                num: 2,
+                num: 5,
                 name: "Pingax / Vignesh Prajapati",
                 title: "Data Analytics Project Life Cycle: 6 Phases, Frameworks & Real-World Playbook",
                 url: "https://pingax.com/understanding-data-analytics-project-life-cycle/"
             },
             {
-                num: 3,
+                num: 6,
                 name: "InformIT / Pearson Education",
                 title: "Big Data Fundamentals: Concepts, Drivers & Techniques - Chapter 3: Big Data Analytics Lifecycle (Thomas Erl et al.)",
                 url: "https://www.informit.com/articles/article.aspx?p=2473128&seqNum=11"
             },
             {
-                num: 4,
+                num: 7,
                 name: "SAS Communities / SAS Institute",
                 title: "Data-Driven Analytics in SAS Viya – The AI and Analytics Lifecycle",
                 url: "https://communities.sas.com/t5/SAS-Communities-Library/Data-Driven-Analytics-in-SAS-Viya-The-AI-and-Analytics-Lifecycle/ta-p/923042"
+            },
+            {
+                num: 8,
+                name: "U.S. Geological Survey (USGS) & USFWS",
+                title: "Science Data Lifecycle Model & Data Management Life Cycle Framework",
+                url: "https://www.usgs.gov/products/data-and-tools/data-management/data-lifecycle"
             }
         ],
         content: [
-            "<strong>Elegir la metodología de datos adecuada para tu empresa es el paso definitivo para estructurar proyectos eficientes, evitar la sobreingeniería y tomar decisiones comerciales rentables.</strong>",
-            "Tanto si se aborda la analítica desde la Ciencia de Datos, la Inteligencia de Negocios (BI), el desarrollo de IA o el Big Data, la industria se organiza principalmente en torno a marcos metodológicos consolidados.",
-            "<h3>1. La Perspectiva de Ciencia de Datos: El Ciclo Cíclico de Dell EMC</h3>",
-            "Desarrollado por David Dietrich para EMC Corporation (hoy Dell EMC), este marco organiza los proyectos de analítica avanzada en 6 fases interconectadas:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
-            "<ol><li><strong>1. Descubrimiento (Discovery)</strong></li><li><strong>2. Preprocesamiento de datos</strong></li><li><strong>3. Planificación del modelo</strong></li><li><strong>4. Construcción del modelo</strong></li><li><strong>5. Comunicación de resultados</strong></li><li><strong>6. Operacionalización</strong></li></ol>",
-            "<strong>Enfoque principal:</strong> Diseñado para Ciencia de Datos e Inteligencia Artificial, enfatiza la formulación previa de hipótesis, la preparación en entornos <em>sandbox</em> y la validación técnica de modelos predictivos antes de su despliegue en producción.",
-            "<h3>2. La Perspectiva de Negocios y BI: El Estándar Google / CRISP-DM</h3>",
-            "Alineado con el marco de Google (enseñado en Coursera) y el estándar global CRISP-DM desarrollado por IBM, sintetiza el trabajo analítico en 6 etapas orientadas a decisiones comerciales rápidas:<sup><a href='#fuente-2' class='text-primario font-bold ml-1'>[2]</a></sup>",
-            "<ol><li><strong>1. Preguntar (Ask / Business Understanding)</strong></li><li><strong>2. Preparar (Prepare / Data Understanding)</strong></li><li><strong>3. Procesar (Process / Data Preparation)</strong></li><li><strong>4. Analizar (Analyse / Modeling)</strong></li><li><strong>5. Compartir (Share / Evaluation)</strong></li><li><strong>6. Actuar (Act / Deployment)</strong></li></ol>",
-            "<strong>Enfoque principal:</strong> Resuelve problemas del negocio estructurando metas SMART, identificando causas raíz con técnicas como los '5 Porqués' y alineando tempranamente a los involucrados para asegurar un retorno de inversión rápido.",
-            "<h3>3. La Perspectiva de IA y Modelado Cíclico: El Enfoque SAS (AI & Analytics Lifecycle)</h3>",
-            "Basado en la metodología de analítica e IA de SAS Institute, propone un flujo continuo centrado en la exploración profunda e ingeniería de variables:<sup><a href='#fuente-4' class='text-primario font-bold ml-1'>[4]</a></sup>",
-            "<ul><li><strong>1. Exploración profunda de datos ('Know Thy Data')</strong></li><li><strong>2. Tratamiento de nulos e imputación</strong></li><li><strong>3. Transformación de variables (escalado/logaritmos)</strong></li><li><strong>4. Desarrollo e iteración de modelos predictivos</strong></li><li><strong>5. Despliegue y evaluación continua en producción</strong></li></ul>",
-            "<strong>Enfoque principal:</strong> Prioriza la preparación técnica y limpieza de variables antes de entrenar algoritmos, conectando el análisis exploratorio con la analítica visual y la gobernanza de modelos en producción.",
-            "<h3>4. La Perspectiva de Big Data e Ingeniería Avanzada: El Ciclo de Thomas Erl</h3>",
-            "Diseñado por Thomas Erl, Paul Buhler y Wajid Khattak, este marco desglosa el trabajo en 9 etapas para gestionar proyectos con volumen, velocidad y variedad de datos:<sup><a href='#fuente-3' class='text-primario font-bold ml-1'>[3]</a></sup>",
-            "<ol><li><strong>1. Evaluación del caso de negocio</strong></li><li><strong>2. Identificación de datos</strong></li><li><strong>3. Adquisición y filtrado</strong></li><li><strong>4. Extracción</strong></li><li><strong>5. Validación y limpieza</strong></li><li><strong>6. Agregación y representación</strong></li><li><strong>7. Análisis de datos</strong></li><li><strong>8. Visualización</strong></li><li><strong>9. Utilización de resultados</strong></li></ol>",
-            "<strong>Enfoque principal:</strong> Prioriza la ingeniería de datos, el filtrado automatizado de ruido, la preservación de metadatos de procedencia y la integración de fuentes no estructuradas en repositorios estandarizados.",
+            "<strong>Tratar los datos como activos corporativos exige gestionar todo su ciclo de existencia, garantizando su precisión, seguridad y ética desde la primera interacción hasta su eliminación.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup><sup><a href='#fuente-2' class='text-primario font-bold ml-1'>[2]</a></sup></strong>",
+            "A diferencia del proceso analítico puntual (diseñado para responder preguntas de negocio inmediatas), el ciclo de vida de los datos establece el marco de gobernanza continuo con el que la organización custodia, transforma y extrae valor de la información a lo largo del tiempo.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup><sup><a href='#fuente-2' class='text-primario font-bold ml-1'>[2]</a></sup>",
+            "<h3>1. El Ciclo de Vida Estándar de 6 Etapas (Gobernanza General)</h3>",
+            "El modelo general de gestión de datos organiza la gobernanza operativa en seis fases secuenciales:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<ol><li><strong>1. Planificar (Plan):</strong> Definir qué datos se necesitan, cómo se administrarán, bajo qué estándares y quiénes serán los responsables (data stewards) de su custodia.</li><li><strong>2. Capturar (Capture):</strong> Recolectar la información desde diversas fuentes (formularios web, transacciones, sensores o compras de bases externas).</li><li><strong>3. Gestionar (Manage):</strong> Mantenimiento activo de la información: almacenamiento seguro, limpieza de registros, respaldos y protección de datos sensibles.</li><li><strong>4. Analizar (Analyze):</strong> Utilizar los datos procesados para responder preguntas comerciales, predecir tendencias y tomar decisiones estratégicas.</li><li><strong>5. Archivar (Archive):</strong> Guardar datos históricos que ya no se usan a diario en repositorios fríos a largo plazo para reducir costos de servidor.</li><li><strong>6. Destruir (Destroy):</strong> Depurar de forma segura y permanente la información obsoleta o duplicada para cumplir con normativas de privacidad.</li></ol>",
+            "<h3>2. El Enfoque Extendido de Harvard (8 Pasos + Ética Transversal)</h3>",
+            "Desarrollado por Jeannette M. Wing (Columbia University / Harvard Data Science Review) y respaldado por Harvard Business School, este modelo expande la perspectiva técnica a 8 pasos orientados a la creación de valor y comunicación:<sup><a href='#fuente-2' class='text-primario font-bold ml-1'>[2]</a></sup><sup><a href='#fuente-3' class='text-primario font-bold ml-1'>[3]</a></sup>",
+            "<ol><li><strong>1. Generación (Generation):</strong> Creación continua de datos crudos por usuarios, sensores o transacciones digitales.</li><li><strong>2. Recolección (Collection):</strong> Selección de qué datos generados vale la pena capturar según los objetivos del proyecto.</li><li><strong>3. Procesamiento (Processing):</strong> Limpieza (wrangling), compresión, cifrado y estructuración de la información.</li><li><strong>4. Almacenamiento (Storage):</strong> Guardado físico o en la nube estableciendo redundancias de seguridad.</li><li><strong>5. Gestión (Management):</strong> Organización, control de accesos, auditoría de cambios y gestión de metadatos.</li><li><strong>6. Análisis (Analysis):</strong> Aplicación de técnicas estadísticas, exploración (EDA) y modelos de Machine Learning.</li><li><strong>7. Visualización (Visualization):</strong> Creación de representaciones gráficas comprensibles para audiencias no técnicas.</li><li><strong>8. Interpretación (Interpretation):</strong> Traducción de los hallazgos visuales en una narrativa con implicaciones claras para el negocio.</li></ol>",
+            "<strong>Privacidad y Ética Transversal:</strong> Como enfatiza la Dra. Jeannette Wing, la privacidad y la responsabilidad ética no son una etapa final, sino una consideración obligatoria presente en cada una de las 8 fases del ciclo.<sup><a href='#fuente-2' class='text-primario font-bold ml-1'>[2]</a></sup>",
+            "<h3>3. Comparativa de Marcos Metodológicos según la Industria</h3>",
+            "Tanto si se aborda la analítica desde la Ciencia de Datos, la Inteligencia de Negocios (BI), el desarrollo de IA o el Big Data, la industria adapta estas etapas bajo marcos metodológicos específicos:",
+            "<ul><li><strong>Ciencia de Datos e IA (Ciclo Cíclico de Dell EMC):</strong> Desarrollado por David Dietrich para EMC Corporation, organiza el trabajo en 6 fases (Descubrimiento, Preprocesamiento, Planificación del modelo, Construcción del modelo, Comunicación de resultados y Operacionalización). Prioriza la formulación previa de hipótesis, la preparación en entornos <em>sandbox</em> y la validación técnica antes de desplegar en producción.<sup><a href='#fuente-4' class='text-primario font-bold ml-1'>[4]</a></sup></li><li><strong>Negocios y BI (Estándar Google / CRISP-DM):</strong> Alineado con el estándar global desarrollado por IBM, sintetiza el trabajo en 6 etapas orientadas a decisiones comerciales rápidas (Ask/Business Understanding, Prepare, Process, Analyze, Share, Act). Resuelve problemas del negocio identificando causas raíz y midiendo el retorno de inversión.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup><sup><a href='#fuente-5' class='text-primario font-bold ml-1'>[5]</a></sup></li><li><strong>Modelado de IA Continuo (Enfoque SAS):</strong> Propone un flujo continuo centrado en la exploración profunda e ingeniería de variables (Exploración 'Know Thy Data', Tratamiento e imputación de nulos, Transformación de variables, Desarrollo e iteración de modelos, Despliegue y evaluación continua).<sup><a href='#fuente-7' class='text-primario font-bold ml-1'>[7]</a></sup></li><li><strong>Big Data e Ingeniería Avanzada (Ciclo de Thomas Erl):</strong> Desglosa el trabajo en 9 etapas (Evaluación del caso de negocio, Identificación de datos, Adquisición y filtrado, Extracción, Validación y limpieza, Agregación y representación, Análisis, Visualización y Utilización). Prioriza el filtrado automatizado de ruido y la preservación de metadatos de procedencia en volúmenes masivos.<sup><a href='#fuente-6' class='text-primario font-bold ml-1'>[6]</a></sup></li><li><strong>Regulaciones y Sector Científico (USGS / Bancario):</strong> El sector financiero incorpora etapas de validación estricta (Qualify, Transform, Purge) para cumplir normativas bancarias, mientras que organismos como el USGS o USFWS priorizan controles de calidad (QA/QC), preservación histórica (Preserve) y publicación transparente (Publish/Share).<sup><a href='#fuente-8' class='text-primario font-bold ml-1'>[8]</a></sup></li></ul>",
             "<h3>💡 ¿Para qué te sirve esto como emprendedor?</h3>",
-            "<ul><li><strong>Para seleccionar el marco adecuado según tu meta:</strong> Usa Google/CRISP-DM para decisiones comerciales cotidianas, Dell EMC o SAS si vas a entrenar algoritmos de predicción o IA con datos que requieren exploración profunda, y Thomas Erl si tu infraestructura procesa grandes volúmenes de datos no estructurados.</li><li><strong>Para dimensionar el esfuerzo de ingeniería:</strong> Mientras las metodologías de BI simplifican la preparación, los marcos de SAS y Big Data profundizan en la imputación, filtrado y validación previa para evitar que datos corruptos distorsionen los modelos.</li><li><strong>Para conectar el análisis con los resultados:</strong> Todos los marcos coinciden en que un proyecto no finaliza con la creación de un informe, sino con la operacionalización o utilización directa de los resultados en la operación de la empresa.</li></ul>",
-            "<strong>Conclusión:</strong> Comprender estas distintas perspectivas te permite elegir el nivel de profundidad exacto que requiere tu proyecto, garantizando decisiones informadas y sostenibles."
+            "<ul><li><strong>Para seleccionar el marco adecuado según tu meta:</strong> Usa Google/CRISP-DM para decisiones comerciales cotidianas, Dell EMC o SAS si vas a entrenar algoritmos predictivos con datos complejos, y Thomas Erl si tu infraestructura procesa volúmenes masivos de datos no estructurados.</li><li><strong>Para controlar costos de infraestructura:</strong> Definir cuándo archivar o purgar datos evita pagos excesivos de almacenamiento en la nube.</li><li><strong>Para mitigar riesgos legales:</strong> Integrar ética y privacidad en la fase de captura y almacenamiento reduce el riesgo de multas o filtraciones de datos sensibles de clientes.</li><li><strong>Para asegurar la continuidad del negocio:</strong> Designar encargados de datos (Data Stewards) garantiza que existan respaldos, metadatos y controles de acceso en cada etapa.</li></ul>",
+            "<strong>Conclusión:</strong> Gobernar los datos a lo largo de todo su ciclo de vida y elegir el marco metodológico adecuado asegura que la información permanezca precisa, protegida y lista para generar valor comercial sostenible."
         ]
     }, {
         id: 4,
@@ -153,7 +173,7 @@ export const blogPosts = [
         authorRole: "Founder & Lead Engineer",
         date: "26 Septiembre 2026",
         readTime: "8 min de lectura",
-        image: "/assets/images/expansisPro_target.webp",
+        image: "https://images.unsplash.com/photo-1579226905180-636b76d96082",
         status: "aprobado",
         tags: ["Análisis de Datos", "Habilidades de Analista", "Caso de Estudio", "Estrategia de Datos", "Business Intelligence"],
         sources: [
@@ -190,7 +210,7 @@ export const blogPosts = [
         authorRole: "Founder & Lead Engineer",
         date: "26 Septiembre 2026",
         readTime: "8 min de lectura",
-        image: "/assets/images/expansisPro_target.webp",
+        image: "https://images.unsplash.com/photo-1603812079345-2fec46ae21b8?auto=format&fit=crop&w=1200&q=80",
         status: "aprobado",
         tags: ["Pensamiento Analítico", "Causa Raíz", "5 Porqués", "Gap Analysis", "Resolución de Problemas", "Estrategia de Datos"],
         sources: [
@@ -231,8 +251,8 @@ export const blogPosts = [
         authorRole: "Founder & Lead Engineer",
         date: "26 Septiembre 2026",
         readTime: "7 min de lectura",
-        image: "/assets/images/expansisPro_target.webp",
-        status: "aprobado",
+        image: "https://images.unsplash.com/photo-1583361704493-d4d4d1b1d70a?auto=format&fit=crop&w=1200&q=80",
+        status: "inactivo",
         tags: ["Glosario de Datos", "Analítica de Datos", "Data Driven", "Business Intelligence", "Estrategia de Datos", "Términos Clave"],
         sources: [
             {
@@ -265,7 +285,7 @@ export const blogPosts = [
         authorRole: "Founder & Lead Engineer",
         date: "26 Septiembre 2026",
         readTime: "9 min de lectura",
-        image: "/assets/images/expansisPro_target.webp",
+        image: "https://images.unsplash.com/photo-1640158615573-cd28feb1bf4e?auto=format&fit=crop&w=1200&q=80",
         status: "aprobado",
         tags: ["Ciclo de Vida de Datos", "Gobernanza de Datos", "Data Management", "Harvard Data Science", "Estrategia de Datos"],
         sources: [
@@ -313,6 +333,22 @@ export const blogPosts = [
             "<h3>3. Adaptaciones del Ciclo de Vida en Otras Industrias</h3>",
             "Las organizaciones adaptan estas etapas según sus requisitos regulatorios y metas operativas:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup><sup><a href='#fuente-4' class='text-primario font-bold ml-1'>[4]</a></sup><sup><a href='#fuente-5' class='text-primario font-bold ml-1'>[5]</a></sup>",
             "<ul><li><strong>Sector Financiero:</strong> Prioriza la auditoría y depuración rápida. Incorpora etapas de validación (Qualify), transformación (Transform) y purga (Purge) para alinearse con normativas bancarias.</li><li><strong>Organismos Científicos (USFWS / USGS):</strong> Enfocados en la preservación histórica, aplican controles de calidad (QA/QC), preservación (Preserve) y publicación transparente (Publish/Share) en portales públicos.</li></ul>",
+            "<h3>1. La Perspectiva de Ciencia de Datos: El Ciclo Cíclico de Dell EMC</h3>",
+            "Desarrollado por David Dietrich para EMC Corporation (hoy Dell EMC), este marco organiza los proyectos de analítica avanzada en 6 fases interconectadas:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<ol><li><strong>1. Descubrimiento (Discovery)</strong></li><li><strong>2. Preprocesamiento de datos</strong></li><li><strong>3. Planificación del modelo</strong></li><li><strong>4. Construcción del modelo</strong></li><li><strong>5. Comunicación de resultados</strong></li><li><strong>6. Operacionalización</strong></li></ol>",
+            "<strong>Enfoque principal:</strong> Diseñado para Ciencia de Datos e Inteligencia Artificial, enfatiza la formulación previa de hipótesis, la preparación en entornos <em>sandbox</em> y la validación técnica de modelos predictivos antes de su despliegue en producción.",
+            "<h3>2. La Perspectiva de Negocios y BI: El Estándar Google / CRISP-DM</h3>",
+            "Alineado con el marco de Google (enseñado en Coursera) y el estándar global CRISP-DM desarrollado por IBM, sintetiza el trabajo analítico en 6 etapas orientadas a decisiones comerciales rápidas:<sup><a href='#fuente-2' class='text-primario font-bold ml-1'>[2]</a></sup>",
+            "<ol><li><strong>1. Preguntar (Ask / Business Understanding)</strong></li><li><strong>2. Preparar (Prepare / Data Understanding)</strong></li><li><strong>3. Procesar (Process / Data Preparation)</strong></li><li><strong>4. Analizar (Analyse / Modeling)</strong></li><li><strong>5. Compartir (Share / Evaluation)</strong></li><li><strong>6. Actuar (Act / Deployment)</strong></li></ol>",
+            "<strong>Enfoque principal:</strong> Resuelve problemas del negocio estructurando metas SMART, identificando causas raíz con técnicas como los '5 Porqués' y alineando tempranamente a los involucrados para asegurar un retorno de inversión rápido.",
+            "<h3>3. La Perspectiva de IA y Modelado Cíclico: El Enfoque SAS (AI & Analytics Lifecycle)</h3>",
+            "Basado en la metodología de analítica e IA de SAS Institute, propone un flujo continuo centrado en la exploración profunda e ingeniería de variables:<sup><a href='#fuente-4' class='text-primario font-bold ml-1'>[4]</a></sup>",
+            "<ul><li><strong>1. Exploración profunda de datos ('Know Thy Data')</strong></li><li><strong>2. Tratamiento de nulos e imputación</strong></li><li><strong>3. Transformación de variables (escalado/logaritmos)</strong></li><li><strong>4. Desarrollo e iteración de modelos predictivos</strong></li><li><strong>5. Despliegue y evaluación continua en producción</strong></li></ul>",
+            "<strong>Enfoque principal:</strong> Prioriza la preparación técnica y limpieza de variables antes de entrenar algoritmos, conectando el análisis exploratorio con la analítica visual y la gobernanza de modelos en producción.",
+            "<h3>4. La Perspectiva de Big Data e Ingeniería Avanzada: El Ciclo de Thomas Erl</h3>",
+            "Diseñado por Thomas Erl, Paul Buhler y Wajid Khattak, este marco desglosa el trabajo en 9 etapas para gestionar proyectos con volumen, velocidad y variedad de datos:<sup><a href='#fuente-3' class='text-primario font-bold ml-1'>[3]</a></sup>",
+            "<ol><li><strong>1. Evaluación del caso de negocio</strong></li><li><strong>2. Identificación de datos</strong></li><li><strong>3. Adquisición y filtrado</strong></li><li><strong>4. Extracción</strong></li><li><strong>5. Validación y limpieza</strong></li><li><strong>6. Agregación y representación</strong></li><li><strong>7. Análisis de datos</strong></li><li><strong>8. Visualización</strong></li><li><strong>9. Utilización de resultados</strong></li></ol>",
+            "<strong>Enfoque principal:</strong> Prioriza la ingeniería de datos, el filtrado automatizado de ruido, la preservación de metadatos de procedencia y la integración de fuentes no estructuradas en repositorios estandarizados.",
             "<h3>💡 ¿Para qué te sirve esto como emprendedor?</h3>",
             "<ul><li><strong>Para controlar costos de infraestructura:</strong> Definir cuándo archivar o purgar datos evita pagos excesivos de almacenamiento en servidores cloud.</li><li><strong>Para mitigar riesgos legales:</strong> Integrar ética y privacidad en la fase de captura y almacenamiento reduce el riesgo de multas o filtraciones de datos sensibles de clientes.</li><li><strong>Para asegurar la continuidad del negocio:</strong> Designar encargados de datos (Data Stewards) garantiza que existan respaldos, metadatos y controles de acceso en cada etapa.</li></ul>",
             "<strong>Conclusión:</strong> Gobernar los datos a lo largo de todo su ciclo de vida asegura que la información permanezca precisa, protegida y lista para generar valor sostenible en tu empresa."
@@ -327,7 +363,7 @@ export const blogPosts = [
         authorRole: "Founder & Lead Engineer",
         date: "26 Septiembre 2026",
         readTime: "8 min de lectura",
-        image: "/assets/images/expansisPro_target.webp",
+        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
         status: "aprobado",
         tags: ["Herramientas de Datos", "SQL", "Excel", "Tableau", "Looker", "Python", "Business Intelligence"],
         sources: [
@@ -365,7 +401,7 @@ export const blogPosts = [
         date: "26 Septiembre 2026",
         readTime: "5 min de lectura",
         image: "/assets/images/expansisPro_target.webp",
-        status: "aprobado",
+        status: "inactivo",
         tags: ["Glosario de Datos", "SQL", "Bases de Datos", "Excel", "Stakeholders", "Herramientas Digitales"],
         sources: [
             {
@@ -401,7 +437,7 @@ export const blogPosts = [
         authorRole: "Founder & Lead Engineer",
         date: "26 Septiembre 2026",
         readTime: "8 min de lectura",
-        image: "/assets/images/expansisPro_target.webp",
+        image: "https://images.unsplash.com/photo-1741958193874-6ef299f6b053?auto=format&fit=crop&w=1200&q=80",
         status: "aprobado",
         tags: ["SQL", "Bases de Datos", "BigQuery", "Consultas", "Business Intelligence", "Tutorial"],
         sources: [
@@ -442,7 +478,7 @@ export const blogPosts = [
         authorRole: "Founder & Lead Engineer",
         date: "26 Septiembre 2026",
         readTime: "8 min de lectura",
-        image: "/assets/images/expansisPro_target.webp",
+        image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?auto=format&fit=crop&w=1200&q=80",
         status: "aprobado",
         tags: ["Visualización de Datos", "Tableau", "Python", "Seaborn", "Plotly", "Business Intelligence", "Storytelling"],
         sources: [
@@ -471,13 +507,13 @@ export const blogPosts = [
         id: 13,
         slug: "introduccion-a-data-studio-looker-studio",
         title: "Introducción a Data Studio: Reportes e Interactividad de Datos",
-        category: "Estrategia & Datos",
+        category: "Data Studio",
         excerpt: "Descubre cómo transformar datos crudos en reportes interactivos con Data Studio (Looker Studio): beneficios, más de 1.000 conectores, combinación de fuentes (data blending) y catálogo de gráficos.",
         author: "Gonzalo Lobos",
         authorRole: "Founder & Lead Engineer",
         date: "26 Septiembre 2026",
         readTime: "8 min de lectura",
-        image: "/assets/images/expansisPro_target.webp",
+        image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=1200&q=80",
         status: "aprobado",
         tags: ["Data Studio", "Looker Studio", "Business Intelligence", "Google Analytics", "Dashboards", "Visualización de Datos"],
         sources: [
@@ -508,13 +544,13 @@ export const blogPosts = [
         id: 14,
         slug: "fuentes-de-datos-y-modelado-en-looker-studio",
         title: "Fuentes de Datos y Modelado en Looker Studio",
-        category: "Estrategia & Datos",
+        category: "Data Studio",
         excerpt: "Domina la arquitectura de Looker Studio: tipos de conectores, fuentes incrustadas vs. reutilizables, modos de conexión (Live vs. Extraída) y modelado con dimensiones y métricas.",
         author: "Gonzalo Lobos",
         authorRole: "Founder & Lead Engineer",
         date: "26 Septiembre 2026",
         readTime: "8 min de lectura",
-        image: "/assets/images/expansisPro_target.webp",
+        image: "https://images.unsplash.com/photo-1758691736483-5f600b509962?auto=format&fit=crop&w=1200&q=80",
         status: "aprobado",
         tags: ["Looker Studio", "Data Studio", "Bases de Datos", "Modelado de Datos", "Business Intelligence", "Google Analytics"],
         sources: [
@@ -545,13 +581,13 @@ export const blogPosts = [
         id: 15,
         slug: "combinacion-de-datos-data-blending-en-looker-studio",
         title: "Combinación de Datos (Data Blending) en Looker Studio",
-        category: "Estrategia & Datos",
+        category: "Data Studio",
         excerpt: "Aprende a fusionar hasta 5 fuentes de datos distintas sin escribir código SQL: operadores de cruce (Joins), orden de evaluación, filtrado Pre/Post-blend y optimización de costos.",
         author: "Gonzalo Lobos",
         authorRole: "Founder & Lead Engineer",
         date: "26 Septiembre 2026",
         readTime: "8 min de lectura",
-        image: "/assets/images/expansisPro_target.webp",
+        image: "https://images.unsplash.com/photo-1678845530864-18a666ca9762?auto=format&fit=crop&w=1200&q=80",
         status: "aprobado",
         tags: ["Looker Studio", "Data Blending", "SQL Joins", "Business Intelligence", "BigQuery", "Dashboards"],
         sources: [
@@ -585,13 +621,13 @@ export const blogPosts = [
         id: 16,
         slug: "controles-e-interactividad-en-looker-studio",
         title: "Controles e Interactividad en Looker Studio",
-        category: "Estrategia & Datos",
+        category: "Data Studio",
         excerpt: "Transforma reportes estáticos en dashboards dinámicos: aprende a configurar controles de dimensión y parámetros, filtros rápidos de exploración y botones de acción.",
         author: "Gonzalo Lobos",
         authorRole: "Founder & Lead Engineer",
         date: "26 Septiembre 2026",
         readTime: "8 min de lectura",
-        image: "/assets/images/expansisPro_target.webp",
+        image: "https://images.unsplash.com/photo-1781246435700-afec19012b45?auto=format&fit=crop&w=1200&q=80",
         status: "aprobado",
         tags: ["Looker Studio", "Data Studio", "Interactividad", "Filtros", "Dashboards", "Business Intelligence"],
         sources: [
@@ -628,7 +664,7 @@ export const blogPosts = [
         authorRole: "Founder & Lead Engineer",
         date: "26 Septiembre 2026",
         readTime: "7 min de lectura",
-        image: "/assets/images/expansisPro_target.webp",
+        image: "https://images.unsplash.com/photo-1586769852836-bc069f19e1b6?auto=format&fit=crop&w=1200&q=80",
         status: "aprobado",
         tags: ["Equidad en Datos", "Sesgos", "Análisis de Datos", "Muestreo", "Estrategia de Datos", "Business Intelligence"],
         sources: [
@@ -663,7 +699,7 @@ export const blogPosts = [
         authorRole: "Founder & Lead Engineer",
         date: "26 Septiembre 2026",
         readTime: "8 min de lectura",
-        image: "/assets/images/expansisPro_target.webp",
+        image: "https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?auto=format&fit=crop&w=1200&q=80",
         status: "aprobado",
         tags: ["Roles de Datos", "Data Analyst", "Data Scientist", "Business Analyst", "Carrera en Datos", "Especializaciones"],
         sources: [
@@ -735,7 +771,7 @@ export const blogPosts = [
         date: "30 Septiembre 2026",
         readTime: "9 min de lectura",
         image: "/assets/images/expansisPro_target.webp",
-        status: "aprobado",
+        status: "inactivo",
         tags: ["Glosario de Datos", "Análisis de Datos", "Vocabulario Técnico", "Fundamentos", "SQL"],
         sources: [
             {
@@ -786,7 +822,7 @@ export const blogPosts = [
             "</ul>"
         ]
     }, {
-        id: 20,
+        id: 21,
         slug: "glosario-maestro-analitica-de-datos",
         title: "Glosario Maestro de Analítica: Conceptos Clave de A a Z",
         category: "Estrategia & Datos",
@@ -795,7 +831,7 @@ export const blogPosts = [
         authorRole: "Founder & Lead Engineer",
         date: "26 Septiembre 2026",
         readTime: "10 min de lectura",
-        image: "/assets/images/expansisPro_target.webp",
+        image: "https://images.unsplash.com/photo-1583361704493-d4d4d1b1d70a?ixlib=rb-4.0.3&ixid=M3w5MTMyMXwwfDF8c2VhcmNofDJ8fGRhdGElMjBhbmFseXRpY3N8ZW58MHx8fHwxNjg4NzQ1OTQyf&auto=format&fit=crop&w=800&q=60  ",
         status: "aprobado",
         tags: ["Glosario de Datos", "Analítica de Datos", "SQL", "R", "Tableau", "Gobernanza", "Estrategia de Datos"],
         sources: [
@@ -825,5 +861,112 @@ export const blogPosts = [
             "<ul><li><strong>Para estandarizar la cultura técnica de tu empresa:</strong> Contar con un diccionario unificado evita malos entendidos entre los equipos comerciales, analistas y desarrolladores.</li><li><strong>Para evaluar proveedores y contrataciones:</strong> Te permite medir el nivel técnico de agencias o postulantes evaluando su conocimiento de estos conceptos clave.</li><li><strong>Para tomar decisiones con rigor metodológico:</strong> Entender la diferencia entre métricas de rendimiento, ética de datos y sesgos previene errores estratégicos de alto costo.</li></ul>",
             "<strong>Conclusión:</strong> Manejar este glosario integrado te otorga el marco conceptual necesario para liderar proyectos analíticos con rigor técnico y visión estratégica."
         ]
-    }
+    }, {
+        id: 22,
+        slug: "el-proceso-de-analisis-de-datos-6-etapas-y-pensamiento-estructurado",
+        title: "Cómo Resolver Problemas de Negocio con Datos: El Método de 6 Pasos de Google",
+        category: "Estrategia & Datos",
+        excerpt: "Aprende a descomponer problemas complejos en soluciones manejables mediante las 6 fases del análisis de Google (Ask, Prepare, Process, Analyze, Share y Act) y el Pensamiento Estructurado.",
+        author: "Gonzalo Lobos",
+        authorRole: "Founder & Lead Engineer",
+        date: "1 Octubre 2026",
+        readTime: "8 min de lectura",
+        image: "/assets/images/expansisPro_target.webp",
+        status: "inactivo",
+        tags: ["Análisis de Datos", "Metodología Google", "Pensamiento Estructurado", "Toma de Decisiones", "Business Intelligence"],
+        sources: [
+            {
+                num: 1,
+                name: "Google Data Analytics Certificate / Coursera",
+                title: "Foundations: Data, Data Everywhere - The Six Data Analysis Phases & Structured Thinking",
+                url: "https://www.coursera.org/professional-certificates/google-data-analytics"
+            }
+        ],
+        content: [
+            "<strong>Resolver problemas de negocio mediante datos exige seguir una ruta metodológica clara que guíe al analista desde la definición del problema hasta la ejecución de cambios estratégicos.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup></strong>",
+            "A diferencia del <em>Ciclo de Vida de los Datos</em> (que gestiona los cambios que sufre la información a lo largo de su existencia corporativa), el <em>Proceso de Análisis de Datos</em> organiza la resolución operativa de problemas en 6 etapas secuenciales.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<h3>1. Las 6 Etapas del Proceso Analítico y sus Preguntas Clave</h3>",
+            "Para evitar desviaciones y mantener el foco en aportar valor real a los involucrados (stakeholders), el flujo de Google propone las siguientes fases:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<ol><li><strong>1. Preguntar (Ask):</strong> Definir el problema real sin distracciones y alinear las expectativas de los stakeholders evaluando la situación global en su contexto.<br><em>Pregunta clave:</em> ¿Qué dicen los involucrados que es su problema y cómo puedo ayudarlos a resolver sus dudas?</li><li><strong>2. Preparar (Prepare):</strong> Decidir qué datos se necesitan recolectar, ubicar los repositorios correspondientes, definir métricas e implementar medidas de seguridad y privacidad.<br><em>Pregunta clave:</em> ¿Qué necesito averiguar para resolver este problema y qué investigación previa debo realizar?</li><li><strong>3. Procesar (Process):</strong> Limpiar la información eliminando errores, duplicados e inconsistencias mediante funciones en planillas y consultas SQL, controlando posibles sesgos.<br><em>Pregunta clave:</em> ¿Qué errores o imprecisiones en los datos pueden obstaculizar la respuesta correcta y cómo puedo estandarizarlos?</li><li><strong>4. Analizar (Analyze):</strong> Aplicar pensamiento analítico para ordenar, formatear, combinar fuentes y realizar cálculos que revelen patrones e historias ocultas.<br><em>Pregunta clave:</em> ¿Qué historia me están contando los datos y qué tipo de usuario o cliente se beneficia de mi servicio?</li><li><strong>5. Compartir (Share):</strong> Resumir y comunicar los resultados mediante visualizaciones e indicadores en dashboards interactivos para facilitar decisiones fundamentadas.<br><em>Pregunta clave:</em> ¿Cómo puedo presentar los hallazgos de forma atractiva y entendible desde la perspectiva del oyente?</li><li><strong>6. Actuar (Act):</strong> Poner en práctica las conclusiones proporcionando recomendaciones concretas para ejecutar decisiones respaldadas por evidencia.<br><em>Pregunta clave:</em> ¿Cómo puedo usar el feedback recibido en la fase de compartición para cumplir las expectativas del negocio?</li></ol>",
+            "<h3>2. Pensamiento Estructurado (Structured Thinking)</h3>",
+            "Descomponer un proyecto de datos complejo en partes pequeñas y manejables se conoce como <strong>Pensamiento Estructurado</strong>. Esta habilidad metodológica articula 4 actividades fundamentales:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<ul><li><strong>Reconocer el problema o situación actual:</strong> Diagnosticar el estado operativo presente sin asumir causas preconcebidas.</li><li><strong>Organizar la información disponible:</strong> Agrupar y clasificar las variables relevantes para el análisis.</li><li><strong>Revelar brechas y oportunidades:</strong> Identificar qué información falta y dónde residen las palancas de optimización.</li><li><strong>Identificar las opciones de acción:</strong> Trazar alternativas viables para que la gerencia seleccione la mejor estrategia.</li></ul>",
+            "<h3>💡 ¿Para qué te sirve esto como emprendedor?</h3>",
+            "<ul><li><strong>Para evitar sentirte abrumado:</strong> Seguir estas 6 etapas te devuelve el control cuando la cantidad de información de tu negocio parece inmanejable.</li><li><strong>Para enfocar la inversión publicitaria:</strong> Las preguntas de la fase <em>Analyze</em> te permiten identificar con exactitud qué tipo de cliente compra realmente tu producto.</li><li><strong>Para garantizar que los análisis se implementen:</strong> La combinación de la fase <em>Share</em> con la fase <em>Act</em> asegura que las reuniones directivas terminen en acciones concretas y no en presentaciones olvidadas.</li></ul>",
+            "<strong>Conclusión:</strong> Integrar las 6 etapas del análisis con el pensamiento estructurado transforma el desorden operativo en un flujo sistemático para tomar decisiones comerciales de bajo riesgo y alto impacto."
+        ]
+    }, {
+        id: 23,
+        slug: "los-6-tipos-de-problemas-comunes-en-analisis-de-datos",
+        title: "Los 6 Tipos de Problemas Comunes en Análisis de Datos",
+        category: "Estrategia & Datos",
+        excerpt: "El análisis de datos no consiste solo en usar herramientas, sino en resolver problemas. Conoce las 6 categorías clave de la metodología de Google para enfocar tus proyectos de negocio.",
+        author: "Gonzalo Lobos",
+        authorRole: "Founder & Lead Engineer",
+        date: "1 Octubre 2026",
+        readTime: "7 min de lectura",
+        image: "https://images.unsplash.com/photo-1705484229341-4f7f7519b718",
+        status: "aprobado",
+        tags: ["Análisis de Datos", "Resolución de Problemas", "Metodología Google", "Estrategia de Datos", "Business Intelligence"],
+        sources: [
+            {
+                num: 1,
+                name: "Google Data Analytics Certificate / Coursera",
+                title: "Foundations: Data, Data Everywhere - Six Common Problem Types",
+                url: "https://www.coursera.org/professional-certificates/google-data-analytics"
+            }
+        ],
+        content: [
+            "<strong>La analítica de datos es mucho más que ingresar información en una plataforma para obtener gráficos; se trata de una disciplina creativa orientada a resolver problemas concretos de negocio.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup></strong>",
+            "El primer paso fundamental de cualquier proyecto es comprender la naturaleza del problema. Identificar correctamente a cuál de los 6 tipos de problemas comunes pertenece la necesidad del negocio permite determinar qué datos recolectar, cómo transformarlos y de qué manera presentarlos a los stakeholders.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<h3>Los 6 Tipos de Problemas Analíticos según Google</h3>",
+            "En la metodología de Google, los problemas de datos se clasifican en seis categorías fundamentales:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<ol><li><strong>1. Hacer Predicciones (Making Predictions):</strong> Utiliza datos históricos de ubicación, canales y comportamiento para estimar resultados futuros. <em>Ejemplo:</em> Evaluar el rendimiento de campañas publicitarias pasadas para predecir la mejor ubicación de pauta y atraer nuevos clientes.</li><li><strong>2. Categorizar Cosas (Categorizing Things):</strong> Asigna elementos individuales a grupos definidos para organizar la información. <em>Ejemplo:</em> Clasificar llamadas de soporte al cliente según palabras clave o puntajes para medir el desempeño de ejecutivos y correlacionar acciones con satisfacción (CSAT).</li><li><strong>3. Detectar Elementos Inusuales (Spotting Something Unusual):</strong> Diseña algoritmos para alertar sobre valores que se desvían de las tendencias normales. <em>Ejemplo:</em> Relojes inteligentes que analizan métricas de salud agregadas para activar alarmas cuando detectan lecturas cardíacas anómalas.</li><li><strong>4. Identificar Temas (Identifying Themes):</strong> Agrupa categorías en conceptos conceptuales más amplios para explorar creencias, prácticas y necesidades. <em>Ejemplo:</em> Equipos de experiencia de usuario (UX) que analizan interacción para agrupar hallazgos en temas e identificar qué funcionalidades priorizar en el producto.</li><li><strong>5. Descubrir Conexiones (Discovering Connections):</strong> Revela relaciones entre variables operativas para optimizar procesos. <em>Ejemplo:</em> Empresas de logística que analizan tiempos de espera en centros de distribución para ajustar horarios y aumentar las entregas a tiempo.</li><li><strong>6. Encontrar Patrones (Finding Patterns):</strong> Examina eventos repetitivos en el tiempo para prevenir fallas o cuellos de botella. <em>Ejemplo:</em> Mantenimiento predictivo en maquinaria industrial que descubre que la mayoría de las averías ocurren cuando el mantenimiento regular se retrasa más de 15 días.</li></ol>",
+            "<h3>Diferencia Clave: Categorizar vs. Identificar Temas</h3>",
+            "Es común confundir estas dos categorías en proyectos de investigación:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<ul><li><strong>Categorizar cosas:</strong> Consiste en asignar elementos específicos a categorías individuales (por ejemplo, etiquetar opiniones de clientes como 'Lentas' o 'Incompletas').</li><li><strong>Identificar temas:</strong> Toma esas categorías individuales y las agrupa en temas más amplios y profundos (por ejemplo, consolidar 'Lentas' e 'Incompletas' bajo el tema general de 'Fricción en la Experiencia de Entrega').</li></ul>",
+            "<h3>💡 ¿Para qué te sirve esto como emprendedor?</h3>",
+            "<ul><li><strong>Para definir requerimientos sin ambigüedad:</strong> Saber si necesitas predecir ventas, encontrar un patrón de fallas o clasificar tickets te ayuda a contratar el talento exacto o pedir el reporte adecuado a tu equipo.</li><li><strong>Para implementar mantenimiento predictivo:</strong> Encontrar patrones de tiempo en tus procesos operativos te permite actuar antes de que ocurran interrupciones costosas en el servicio.</li><li><strong>Para tomar decisiones alineadas con tus stakeholders:</strong> Encuadrar el análisis dentro de uno de estos 6 tipos garantiza soluciones prácticas que responden directamente a las expectativas de la gerencia.</li></ul>",
+            "<strong>Conclusión:</strong> Clasificar el problema desde la fase inicial aporta claridad metodológica, optimiza los recursos analíticos y asegura que las soluciones generen un impacto real en el negocio."
+        ]
+    }, {
+        id: 24,
+        slug: "preguntas-smart-guia-efectiva-analisis-datos",
+        title: "Preguntas SMART: Cómo Formular Consultas Efectivas para Tomar Decisiones Basadas en Datos",
+        category: "Estrategia & Datos",
+        excerpt: "Domina el arte de formular preguntas altamente efectivas aplicando el marco SMART (Específicas, Medibles, Accionables, Relevantes y Delimitadas en el tiempo) y evita errores comunes como las preguntas sesgadas o cerradas.",
+        author: "Gonzalo Lobos",
+        authorRole: "Founder & Lead Engineer",
+        date: "3 Octubre 2026",
+        readTime: "7 min de lectura",
+        image: "https://images.unsplash.com/photo-1665789318391-6057c533005e?auto=format&fit=crop&w=1200&q=80",
+        status: "aprobado",
+        tags: ["Preguntas SMART", "Estrategia de Datos", "Toma de Decisiones", "Business Intelligence", "Metodología Google"],
+        sources: [
+            {
+                num: 1,
+                name: "Coursera / Google Data Analytics",
+                title: "Ask Questions to Make Data-Driven Decisions - More about SMART questions",
+                url: "https://www.coursera.org/learn/ask-questions-make-decisions/supplement/nULlj/more-about-smart-questions"
+            }
+        ],
+        content: [
+            "<strong>Sin importar qué tanta información poseas o qué tan avanzadas sean tus herramientas tecnológicas, tus datos no te proporcionarán respuestas útiles si no comienzas formulando las preguntas correctas<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>.</strong>",
+            "En el mundo del análisis de datos, plantear interrogantes estratégicas es el equivalente a investigar un caso con la evidencia adecuada antes de interrogar a los sospechosos principales.",
+            "<h3>1. Las 5 Dimensiones de las Preguntas SMART</h3>",
+            "Para que una consulta aporte valor real a un proyecto analítico, debe cumplir con cinco criterios fundamentales:",
+            "<ul><li><strong>Specific (Específica):</strong> ¿La pregunta aborda directamente el problema con contexto suficiente y descubre la información necesaria?</li><li><strong>Measurable (Medible):</strong> ¿Permite obtener respuestas cuantitativas o métricas que se puedan evaluar numéricamente?</li><li><strong>Action-oriented (Accionable):</strong> ¿Los resultados proporcionan información útil para diseñar un plan estratégico o comercial?</li><li><strong>Relevant (Relevante):</strong> ¿Está estrictamente vinculada al problema particular que intentas resolver?</li><li><strong>Time-bound (Delimitada en el tiempo):</strong> ¿Los datos y respuestas corresponden al periodo temporal específico que se está estudiando?</li></ul>",
+            "<h3>2. Ejemplo Práctico: Transformando una Pregunta Tradicional</h3>",
+            "Imagina que el problema inicial de negocio es: <em>¿Qué características buscan las personas al comprar un auto nuevo?</em> Aplicando el filtro SMART, podemos desglosar el análisis de la siguiente manera:",
+            "<ul><li><strong>Específica:</strong> ¿Se enfoca en un atributo particular del vehículo (como la tracción en las cuatro ruedas)?</li><li><strong>Medible:</strong> ¿Utiliza una escala de calificación numérica para evaluar la importancia del atributo?</li><li><strong>Accionable:</strong> ¿Ayuda a influir en el diseño de nuevos paquetes de características comerciales?</li><li><strong>Relevante:</strong> ¿Identifica si ese factor determina o no la decisión de compra?</li><li><strong>Delimitada en el tiempo:</strong> ¿Valida los datos sobre popularidad de características de los últimos tres años?</li></ul>",
+            "A partir de este desglose, las preguntas orientadas a la acción deben formularse de manera <strong>abierta</strong> para calificar o descalificar soluciones:",
+            "<ul><li><em>Ejemplo 1:</em> 'En una escala del 1 al 10, ¿qué tan importante es que tu auto tenga tracción en las cuatro ruedas? Explica.'</li><li><em>Ejemplo 2:</em> '¿Cuáles son las cinco características principales que te gustaría encontrar en un paquete de equipamiento vehicular?'</li></ul>",
+            "<h3>3. Prácticas que Debes Evitar al Preguntar</h3>",
+            "Para mantener la objetividad del análisis, la metodología desaconseja tres tipos de redacciones defectuosas:",
+            "<ul><li><strong>Preguntas Sesgadas o Dirigidas (Leading questions):</strong> Inducen una respuesta específica (ejemplo: <em>'Este producto es demasiado caro, ¿verdad?'</em>). Una alternativa neutral es preguntar: <em>'¿Cuál es tu opinión sobre este producto?'</em> o <em>'¿Qué rango de precios considerarías adecuado?'</em></li><li><strong>Preguntas Cerradas (Closed-ended questions):</strong> Limitan la respuesta a un 'sí', 'no' o una sola palabra, eliminando el contexto detallado. En su lugar, es mejor indagar: <em>'¿Qué aprendiste sobre la experiencia del usuario durante la prueba?'</em></li><li><strong>Preguntas Vagas (Vague questions):</strong> Carecen de contexto o parámetros de medición claros (ejemplo: <em>'¿Te funciona la herramienta?'</em>). Se deben formular con referencias concretas: <em>'En comparación con el sistema anterior, ¿la nueva herramienta de entrada de datos es más rápida o más lenta, y cuánto tiempo ahorras?'</em></li></ul>",
+            "<h3>💡 ¿Para qué te sirve esto como emprendedor?</h3>",
+            "<ul><li><strong>Para mejorar tus encuestas de mercado:</strong> Diseñar cuestionarios SMART evita que obtengas datos complacientes o sesgados por parte de tus clientes actuales.</li><li><strong>Para alinear a tus equipos de trabajo:</strong> Exigir preguntas estructuradas antes de iniciar un análisis de datos reduce drásticamente el tiempo perdido en reportes que no solucionan los dolores reales del negocio.</li><li><strong>Para tomar decisiones libres de intuiciones falsas:</strong> Al asegurar que las preguntas sean medibles y relevantes, garantizas que cada dólar invertido se apoye en evidencia objetiva.</li></ul>",
+            "<strong>Conclusión:</strong> Dominar la formulación de preguntas SMART transforma la recolección de datos de un proceso reactivo a una herramienta estratégica para el crecimiento sostenible de tu empresa."
+        ]
+    },
 ];
