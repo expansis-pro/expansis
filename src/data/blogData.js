@@ -242,40 +242,6 @@ export const blogPosts = [
             "<strong>Conclusión:</strong> El pensamiento analítico es un hábito metodológico que combina el diagnóstico profundo de causa raíz con la visión estratégica, permitiendo a las empresas evolucionar de forma sostenida y basada en evidencia."
         ]
     }, {
-        id: 6,
-        slug: "glosario-fundamental-analitica-de-datos",
-        title: "Glosario Fundamental de Analítica de Datos",
-        category: "Estrategia & Datos",
-        excerpt: "Desmitificamos el vocabulario clave de la industria. Descubre los 17 conceptos esenciales desde 'Data Ecosystem' hasta 'Gap Analysis' para comunicarte con fluidez y liderar con datos.",
-        author: "Gonzalo Lobos",
-        authorRole: "Founder & Lead Engineer",
-        date: "26 Septiembre 2026",
-        readTime: "7 min de lectura",
-        image: "https://images.unsplash.com/photo-1583361704493-d4d4d1b1d70a?auto=format&fit=crop&w=1200&q=80",
-        status: "inactivo",
-        tags: ["Glosario de Datos", "Analítica de Datos", "Data Driven", "Business Intelligence", "Estrategia de Datos", "Términos Clave"],
-        sources: [
-            {
-                num: 1,
-                name: "Google Data Analytics Certificate / Coursera",
-                title: "Foundations: Data, Data Everywhere - Terms and Definitions Glossary (Module 1)",
-                url: "https://www.coursera.org/professional-certificates/google-data-analytics"
-            }
-        ],
-        content: [
-            "<strong>Dominar el lenguaje de los datos es el primer paso indispensable para liderar la transformación digital de tu empresa, alinear equipos técnicos y tomar decisiones comerciales basadas en evidencia.<sup></sup></strong>",
-            "En esta guía compilamos y explicamos los 17 conceptos fundamentales de la analítica moderna, estructurados de manera clara para que los incorpores de inmediato en la gestión estratégica de tu negocio.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
-            "<h3>1. Conceptos Fundamentales sobre Datos y su Ciencia</h3>",
-            "<ol><li><strong>1. Datos (Data):</strong> Colección de hechos, cifras, mediciones o valores cuantitativos y cualitativos sobre un fenómeno.<sup></sup></li><li><strong>2. Conjunto de Datos (Dataset):</strong> Colección de datos organizados que se pueden manipular o analizar como una sola unidad.<sup></sup></li><li><strong>3. Ecosistema de Datos (Data Ecosystem):</strong>El conjunto de elementos e infraestructuras interconectadas que producen, gestionan, almacenan, analizan y comparten información en una organización.<sup></sup></li><li><strong>4. Analítica de Datos (Data Analytics):</strong> La ciencia y disciplina general del estudio de los datos.<sup></sup></li><li><strong>5. Análisis de Datos (Data Analysis):</strong> El proceso de recolección, transformación y organización de datos para extraer conclusiones, realizar predicciones e impulsar decisiones informadas.<sup></sup></li><li><strong>6. Ciencia de Datos (Data Science):</strong> Campo interdisciplinario que utiliza datos crudos y algoritmos avanzados para crear nuevas formas de modelar y comprender lo desconocido.<sup></sup></li></ol>",
-            "<h3>2. Habilidades, Roles y Cultura Data-Driven</h3>",
-            "<ol><li><strong>7. Analista de Datos (Data Analyst):</strong> Profesional encargado de recolectar, transformar y organizar la información para descubrir hallazgos y respaldar la toma de decisiones.<sup></sup></li><li><strong>8. Toma de Decisiones Basada en Datos (Data-driven decision-making):</strong> Práctica estratégica que utiliza hechos reales comprobables para guiar el rumbo del negocio en lugar de la intuición.<sup></sup></li><li><strong>9. Habilidades Analíticas (Analytical skills):</strong> Cualidades y características personales o profesionales asociadas al uso objetivo de hechos para resolver problemas.<sup></sup></li><li><strong>10. Pensamiento Analítico (Analytical thinking):</strong> Proceso estructurado e iterativo para identificar y definir un problema, resolviéndolo mediante datos de forma ordenada y paso a paso.<sup></sup></li><li><strong>11. Mentalidad Técnica (Technical mindset):</strong> La habilidad lógica para descomponer problemas o sistemas complejos en partes más pequeñas e interconectadas.<sup></sup></li><li><strong>12. Contexto (Context):</strong> El entorno, las condiciones o la situación específica en la que algo existe u ocurre, indispensable para interpretar correctamente el significado del dato.<sup></sup></li></ol>",
-            "<h3>3. Estrategia, Arquitectura y Diagnóstico</h3>",
-            "<ol><li><strong>13. Diseño de Datos (Data design):</strong> La forma y estructura lógica en que se organiza la información para facilitar su posterior análisis.<sup></sup></li><li><strong>14. Visualización de Datos (Data visualization):</strong> Representación gráfica e interactiva de la información para comunicar patrones e insights con claridad.<sup></sup></li><li><strong>15. Estrategia de Datos (Data strategy):</strong> La administración y alineación integral de las personas, los procesos y las herramientas que participan en la analítica de una empresa.<sup></sup></li><li><strong>16. Análisis de Brechas (Gap analysis):</strong> Metodología de evaluación del estado actual de un proceso frente a su estado deseado para identificar oportunidades concretas de mejora.<sup></sup></li><li><strong>17. Causa Raíz (Root cause):La razón primaria o el motivo fundamental por el cual ocurre un problema u oportunidad operativa.<sup></sup></li></ol>",
-            "<h3>💡 ¿Para qué te sirve esto como emprendedor?</h3>",
-            "<ul><li><strong>Para eliminar barreras de comunicación:</strong> Hablar la terminología precisa te permite definir requerimientos claros ante consultores, agencias de tecnología o desarrolladores.<sup></sup></li><li><strong>Para evaluar la madurez de tu empresa:</strong> Te permite auditar si tu organización cuenta con un verdadero ecosistema de datos o solo trabaja con archivos aislados sin estrategia.<sup></sup></li><li><strong>Para liderar con criterio:</strong> Distinguir entre conceptos como análisis de datos, ciencia de datos y decisiones data-driven evita que contrates perfiles o compres software innecesario para la etapa actual de tu negocio.<sup></sup></li></ul>",
-            "<strong>Conclusión:</strong> Comprender este marco conceptual otorga la base necesaria para articular proyectos analíticos sostenibles, garantizando que cada iniciativa de datos impulse el crecimiento real de tu empresa."
-        ]
-    }, {
         id: 7,
         slug: "ciclo-de-vida-de-los-datos-etapas-y-variaciones",
         title: "El Ciclo de Vida de los Datos: De la Planificación a la Destrucción",
@@ -389,43 +355,6 @@ export const blogPosts = [
             "<h3>💡 ¿Para qué te sirve esto como emprendedor?</h3>",
             "<ul><li><strong>Para optimizar tu presupuesto de software:</strong> No gastes en licencias costosas de BI si tu negocio aún está en etapa de validación y se administra limpiamente en Google Sheets.</li><li><strong>Para planificar la escalabilidad tecnológica:</strong> Diseña tus procesos pensando en que los datos recopilados hoy en planillas puedan migrarse sin fricción a una base de datos SQL cuando tu empresa crezca.</li><li><strong>Para contratar el talento adecuado:</strong> Exige a tus analistas o agencias el dominio de flujos híbridos (SQL + BI o Python), asegurando que sepan extraer la información de tus servidores y presentarla en paneles sencillos para la toma de decisiones.</li></ul>",
             "<strong>Conclusión:</strong> Conocer las fortalezas de cada herramienta te permite construir un ecosistema de analítica flexible y escalable, garantizando que tu empresa responda rápido ante cada oportunidad de mercado."
-        ]
-    }, {
-        id: 10,
-        slug: "glosario-de-herramientas-y-terminos-de-analitica",
-        title: "Glosario de Herramientas y Términos de Analítica",
-        category: "Estrategia & Datos",
-        excerpt: "Domina el vocabulario técnico esencial de la analítica operativa: desde planillas, fórmulas y funciones hasta bases de datos, consultas SQL y gestión de stakeholders.",
-        author: "Gonzalo Lobos",
-        authorRole: "Founder & Lead Engineer",
-        date: "26 Septiembre 2026",
-        readTime: "5 min de lectura",
-        image: "/assets/images/expansisPro_target.webp",
-        status: "inactivo",
-        tags: ["Glosario de Datos", "SQL", "Bases de Datos", "Excel", "Stakeholders", "Herramientas Digitales"],
-        sources: [
-            {
-                num: 1,
-                name: "Google Data Analytics Certificate / Coursera",
-                title: "Foundations: Data, Data Everywhere - Terms and Definitions Glossary (Module 2)",
-                url: "https://www.coursera.org/professional-certificates/google-data-analytics"
-            }
-        ],
-        content: [
-            "<strong>Para comunicarse eficazmente con equipos técnicos e implementar proyectos de datos sin fricción, es indispensable dominar los conceptos operativos de la analítica digital.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup></strong>",
-            "En este glosario explicamos los 8 términos clave que estructuran el trabajo diario con planillas, bases de datos y gestión de proyectos.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
-            "<h3>1. Entorno de Planillas de Cálculo</h3>",
-            "Los conceptos fundamentales para manipular datos en herramientas como Excel o Google Sheets incluyen:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
-            "<ol><li><strong>1. Planilla de Cálculo (Spreadsheet):</strong> Hoja de trabajo digital estructurada en filas y columnas que permite almacenar, organizar y manipular datos.</li><li><strong>2. Fórmula (Formula):</strong> Conjunto de instrucciones y operaciones matemáticas ingresadas manualmente por el usuario para realizar cálculos específicos usando los datos de la planilla.</li><li><strong>3. Función (Function):</strong> Comando predefinido e integrado en el software que ejecuta automáticamente un cálculo o proceso complejo (como SUMA, PROMEDIO o BUSCARV).</li></ol>",
-            "<h3>2. Bases de Datos y Consultas SQL</h3>",
-            "Cuando la información escala y requiere sistemas de almacenamiento masivo y estructurado:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
-            "<ol><li><strong>4. Base de Datos (Database):</strong> Colección organizada de datos estructurados almacenada electrónicamente en un sistema informático.</li><li><strong>5. Consulta (Query):</strong> Solicitud específica de datos e información enviada a una base de datos para extraer o manipular registros.</li><li><strong>6. Lenguaje de Consulta (Query Language):</strong> Lenguaje de programación diseñado para comunicarse directamente con una base de datos.</li><li><strong>7. SQL (Structured Query Language):</strong> El lenguaje de programación estándar utilizado universalmente para consultar, agregar, actualizar y administrar bases de datos relacionales.</li></ol>",
-            "<h3>3. Gestión Estratégica del Negocio</h3>",
-            "El componente humano y directivo que da sentido al proyecto analítico:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
-            "<ol><li><strong>8. Partes Interesadas (Stakeholders):</strong> Personas, líderes o inversionistas que aportan recursos, tiempo e interés en el proyecto y cuyo éxito depende directamente de sus resultados.</li></ol>",
-            "<h3>💡 ¿Para qué te sirve esto como emprendedor?</h3>",
-            "<ul><li><strong>Para definir requerimientos precisos:</strong> Conocer la diferencia entre una fórmula manual y una función o una consulta SQL te permite pedir reportes claros a tu equipo sin ambigüedades.</li><li><strong>Para liderar a tus stakeholders:</strong> Identificar tempranamente a las partes interesadas garantiza que los dashboards y análisis respondan a los objetivos reales de la gerencia.</li><li><strong>Para escalar tu infraestructura:</strong> Entender qué es una base de datos y cómo se consulta mediante SQL facilita la transición cuando tus planillas tradicionales ya no soporten el volumen de tu negocio.</li></ul>",
-            "<strong>Conclusión:</strong> Manejar con precisión la terminología técnica fortalece la colaboración entre las áreas comerciales y de ingeniería, acelerando la toma de decisiones basada en datos."
         ]
     }, {
         id: 11,
@@ -761,67 +690,6 @@ export const blogPosts = [
             "<strong>Conclusión:</strong> El análisis de datos es tanto un arte como una ciencia. Requiere levantar la vista de la pantalla, mirar debajo de las rocas, atreverse a preguntar y usar los números para fortalecer las relaciones y los resultados de la empresa."
         ]
     }, {
-        id: 20,
-        slug: "glosario-completo-terminos-analisis-de-datos",
-        title: "Glosario Completo: Términos y Definiciones Fundamentales en Análisis de Datos",
-        category: "Estrategia & Datos",
-        excerpt: "Una recopilación exhaustiva con todos los términos esenciales del análisis de datos, de la A a la Z. Ideal para repasar conceptos y fortalecer tu vocabulario técnico.",
-        author: "Gonzalo Lobos",
-        authorRole: "Founder & Lead Engineer",
-        date: "30 Septiembre 2026",
-        readTime: "9 min de lectura",
-        image: "/assets/images/expansisPro_target.webp",
-        status: "inactivo",
-        tags: ["Glosario de Datos", "Análisis de Datos", "Vocabulario Técnico", "Fundamentos", "SQL"],
-        sources: [
-            {
-                num: 1,
-                name: "Google Data Analytics Certificate",
-                title: "Terms and definitions from Course 1",
-                url: "#"
-            }
-        ],
-        content: [
-            "<strong>Dominar el vocabulario técnico es el primer paso para pensar y actuar como un analista profesional.</strong> Este glosario recopila las definiciones oficiales para que puedas consultarlas en cualquier momento durante tus proyectos de datos.",
-
-            "<ul>",
-            "<li><strong>Análisis de brechas (Gap analysis):</strong> Un método para examinar y evaluar el estado actual de un proceso a fin de identificar oportunidades de mejora en el futuro.</li>",
-            "<li><strong>Análisis de datos (Data analysis):</strong> La recolección, transformación y organización de datos para sacar conclusiones, hacer predicciones e impulsar la toma de decisiones informada.</li>",
-            "<li><strong>Analista de datos (Data analyst):</strong> Alguien que recopila, transforma y organiza datos para sacar conclusiones, hacer predicciones e impulsar la toma de decisiones informada.</li>",
-            "<li><strong>Analítica de datos (Data analytics):</strong> La ciencia de los datos.</li>",
-            "<li><strong>Atributo (Attribute):</strong> Una característica o cualidad de los datos utilizada para etiquetar una columna en una tabla.</li>",
-            "<li><strong>Autorreporte (Self-reporting):</strong> Una técnica de recolección de datos donde los participantes proporcionan información sobre sí mismos.</li>",
-            "<li><strong>Base de datos (Database):</strong> Una colección de datos almacenados en un sistema informático.</li>",
-            "<li><strong>Causa raíz (Root cause):</strong> La razón por la cual ocurre un problema.</li>",
-            "<li><strong>Ciencia de datos (Data science):</strong> Un campo de estudio que utiliza datos sin procesar para crear nuevas formas de modelar y comprender lo desconocido.</li>",
-            "<li><strong>Conjunto de datos (Dataset):</strong> Una colección de datos que puede ser manipulada o analizada como una sola unidad.</li>",
-            "<li><strong>Consulta (Query):</strong> Una solicitud de datos o información de una base de datos.</li>",
-            "<li><strong>Contexto (Context):</strong> La condición en la que algo existe o sucede.</li>",
-
-            "<li><strong>Datos (Data):</strong> Una colección de hechos.</li>",
-            "<li><strong>Diseño de datos (Data design):</strong> Cómo se organiza la información.</li>",
-            "<li><strong>Ecosistema de datos (Data ecosystem):</strong> Los diversos elementos que interactúan entre sí para producir, administrar, almacenar, organizar, analizar y compartir datos.</li>",
-            "<li><strong>Equidad (Fairness):</strong> Una cualidad del análisis de datos que no crea ni refuerza sesgos.</li>",
-            "<li><strong>Estrategia de datos (Data strategy):</strong> La gestión de las personas, procesos y herramientas utilizados en el análisis de datos.</li>",
-            "<li><strong>Fórmula (Formula):</strong> Un conjunto de instrucciones utilizadas para realizar un cálculo utilizando los datos en una hoja de cálculo.</li>",
-            "<li><strong>Función (Function):</strong> Un comando preestablecido que realiza automáticamente un proceso o tarea especificada utilizando los datos en una hoja de cálculo.</li>",
-            "<li><strong>Habilidades analíticas (Analytical skills):</strong> Cualidades y características asociadas con el uso de hechos para resolver problemas.</li>",
-            "<li><strong>Hoja de cálculo (Spreadsheet):</strong> Una hoja de trabajo digital.</li>",
-
-            "<li><strong>Lenguaje de consulta (Query language):</strong> Un lenguaje de programación informática utilizado para comunicarse con una base de datos.</li>",
-            "<li><strong>Lenguaje de consulta estructurado (Structured Query Language / SQL):</strong> Un lenguaje de programación informática utilizado para comunicarse con una base de datos.</li>",
-            "<li><strong>Mentalidad técnica (Technical mindset):</strong> La capacidad de dividir las cosas en pasos o piezas más pequeñas y trabajar con ellas de manera ordenada y lógica.</li>",
-            "<li><strong>Observación (Observation):</strong> Los atributos que describen un fragmento de datos contenido en una fila de una tabla.</li>",
-            "<li><strong>Partes interesadas (Stakeholders):</strong> Personas que invierten tiempo y recursos en un proyecto y están interesadas en su resultado.</li>",
-            "<li><strong>Pensamiento analítico (Analytical thinking):</strong> El proceso de identificar y definir un problema, y luego resolverlo usando datos de una manera organizada y paso a paso.</li>",
-
-            "<li><strong>Sobremuestreo (Oversampling):</strong> El proceso de aumentar el tamaño de la muestra de los grupos no dominantes en una población. Esto puede ayudar a representarlos mejor y abordar conjuntos de datos desequilibrados.</li>",
-            "<li><strong>Tarea de negocio (Business task):</strong> La pregunta o problema que el análisis de datos resuelve para una empresa.</li>",
-            "<li><strong>Toma de decisiones basada en datos (Data-driven decision-making):</strong> Uso de hechos para guiar la estrategia comercial.</li>",
-            "<li><strong>Visualización de datos (Data visualization / Visualization):</strong> La representación gráfica de datos.</li>",
-            "</ul>"
-        ]
-    }, {
         id: 21,
         slug: "glosario-maestro-analitica-de-datos",
         title: "Glosario Maestro de Analítica: Conceptos Clave de A a Z",
@@ -860,40 +728,6 @@ export const blogPosts = [
             "<h3>💡 ¿Para qué te sirve esto como emprendedor?</h3>",
             "<ul><li><strong>Para estandarizar la cultura técnica de tu empresa:</strong> Contar con un diccionario unificado evita malos entendidos entre los equipos comerciales, analistas y desarrolladores.</li><li><strong>Para evaluar proveedores y contrataciones:</strong> Te permite medir el nivel técnico de agencias o postulantes evaluando su conocimiento de estos conceptos clave.</li><li><strong>Para tomar decisiones con rigor metodológico:</strong> Entender la diferencia entre métricas de rendimiento, ética de datos y sesgos previene errores estratégicos de alto costo.</li></ul>",
             "<strong>Conclusión:</strong> Manejar este glosario integrado te otorga el marco conceptual necesario para liderar proyectos analíticos con rigor técnico y visión estratégica."
-        ]
-    }, {
-        id: 22,
-        slug: "el-proceso-de-analisis-de-datos-6-etapas-y-pensamiento-estructurado",
-        title: "Cómo Resolver Problemas de Negocio con Datos: El Método de 6 Pasos de Google",
-        category: "Estrategia & Datos",
-        excerpt: "Aprende a descomponer problemas complejos en soluciones manejables mediante las 6 fases del análisis de Google (Ask, Prepare, Process, Analyze, Share y Act) y el Pensamiento Estructurado.",
-        author: "Gonzalo Lobos",
-        authorRole: "Founder & Lead Engineer",
-        date: "1 Octubre 2026",
-        readTime: "8 min de lectura",
-        image: "/assets/images/expansisPro_target.webp",
-        status: "inactivo",
-        tags: ["Análisis de Datos", "Metodología Google", "Pensamiento Estructurado", "Toma de Decisiones", "Business Intelligence"],
-        sources: [
-            {
-                num: 1,
-                name: "Google Data Analytics Certificate / Coursera",
-                title: "Foundations: Data, Data Everywhere - The Six Data Analysis Phases & Structured Thinking",
-                url: "https://www.coursera.org/professional-certificates/google-data-analytics"
-            }
-        ],
-        content: [
-            "<strong>Resolver problemas de negocio mediante datos exige seguir una ruta metodológica clara que guíe al analista desde la definición del problema hasta la ejecución de cambios estratégicos.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup></strong>",
-            "A diferencia del <em>Ciclo de Vida de los Datos</em> (que gestiona los cambios que sufre la información a lo largo de su existencia corporativa), el <em>Proceso de Análisis de Datos</em> organiza la resolución operativa de problemas en 6 etapas secuenciales.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
-            "<h3>1. Las 6 Etapas del Proceso Analítico y sus Preguntas Clave</h3>",
-            "Para evitar desviaciones y mantener el foco en aportar valor real a los involucrados (stakeholders), el flujo de Google propone las siguientes fases:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
-            "<ol><li><strong>1. Preguntar (Ask):</strong> Definir el problema real sin distracciones y alinear las expectativas de los stakeholders evaluando la situación global en su contexto.<br><em>Pregunta clave:</em> ¿Qué dicen los involucrados que es su problema y cómo puedo ayudarlos a resolver sus dudas?</li><li><strong>2. Preparar (Prepare):</strong> Decidir qué datos se necesitan recolectar, ubicar los repositorios correspondientes, definir métricas e implementar medidas de seguridad y privacidad.<br><em>Pregunta clave:</em> ¿Qué necesito averiguar para resolver este problema y qué investigación previa debo realizar?</li><li><strong>3. Procesar (Process):</strong> Limpiar la información eliminando errores, duplicados e inconsistencias mediante funciones en planillas y consultas SQL, controlando posibles sesgos.<br><em>Pregunta clave:</em> ¿Qué errores o imprecisiones en los datos pueden obstaculizar la respuesta correcta y cómo puedo estandarizarlos?</li><li><strong>4. Analizar (Analyze):</strong> Aplicar pensamiento analítico para ordenar, formatear, combinar fuentes y realizar cálculos que revelen patrones e historias ocultas.<br><em>Pregunta clave:</em> ¿Qué historia me están contando los datos y qué tipo de usuario o cliente se beneficia de mi servicio?</li><li><strong>5. Compartir (Share):</strong> Resumir y comunicar los resultados mediante visualizaciones e indicadores en dashboards interactivos para facilitar decisiones fundamentadas.<br><em>Pregunta clave:</em> ¿Cómo puedo presentar los hallazgos de forma atractiva y entendible desde la perspectiva del oyente?</li><li><strong>6. Actuar (Act):</strong> Poner en práctica las conclusiones proporcionando recomendaciones concretas para ejecutar decisiones respaldadas por evidencia.<br><em>Pregunta clave:</em> ¿Cómo puedo usar el feedback recibido en la fase de compartición para cumplir las expectativas del negocio?</li></ol>",
-            "<h3>2. Pensamiento Estructurado (Structured Thinking)</h3>",
-            "Descomponer un proyecto de datos complejo en partes pequeñas y manejables se conoce como <strong>Pensamiento Estructurado</strong>. Esta habilidad metodológica articula 4 actividades fundamentales:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
-            "<ul><li><strong>Reconocer el problema o situación actual:</strong> Diagnosticar el estado operativo presente sin asumir causas preconcebidas.</li><li><strong>Organizar la información disponible:</strong> Agrupar y clasificar las variables relevantes para el análisis.</li><li><strong>Revelar brechas y oportunidades:</strong> Identificar qué información falta y dónde residen las palancas de optimización.</li><li><strong>Identificar las opciones de acción:</strong> Trazar alternativas viables para que la gerencia seleccione la mejor estrategia.</li></ul>",
-            "<h3>💡 ¿Para qué te sirve esto como emprendedor?</h3>",
-            "<ul><li><strong>Para evitar sentirte abrumado:</strong> Seguir estas 6 etapas te devuelve el control cuando la cantidad de información de tu negocio parece inmanejable.</li><li><strong>Para enfocar la inversión publicitaria:</strong> Las preguntas de la fase <em>Analyze</em> te permiten identificar con exactitud qué tipo de cliente compra realmente tu producto.</li><li><strong>Para garantizar que los análisis se implementen:</strong> La combinación de la fase <em>Share</em> con la fase <em>Act</em> asegura que las reuniones directivas terminen en acciones concretas y no en presentaciones olvidadas.</li></ul>",
-            "<strong>Conclusión:</strong> Integrar las 6 etapas del análisis con el pensamiento estructurado transforma el desorden operativo en un flujo sistemático para tomar decisiones comerciales de bajo riesgo y alto impacto."
         ]
     }, {
         id: 23,
@@ -956,17 +790,267 @@ export const blogPosts = [
             "<h3>1. Las 5 Dimensiones de las Preguntas SMART</h3>",
             "Para que una consulta aporte valor real a un proyecto analítico, debe cumplir con cinco criterios fundamentales:",
             "<ul><li><strong>Specific (Específica):</strong> ¿La pregunta aborda directamente el problema con contexto suficiente y descubre la información necesaria?</li><li><strong>Measurable (Medible):</strong> ¿Permite obtener respuestas cuantitativas o métricas que se puedan evaluar numéricamente?</li><li><strong>Action-oriented (Accionable):</strong> ¿Los resultados proporcionan información útil para diseñar un plan estratégico o comercial?</li><li><strong>Relevant (Relevante):</strong> ¿Está estrictamente vinculada al problema particular que intentas resolver?</li><li><strong>Time-bound (Delimitada en el tiempo):</strong> ¿Los datos y respuestas corresponden al periodo temporal específico que se está estudiando?</li></ul>",
-            "<h3>2. Ejemplo Práctico: Transformando una Pregunta Tradicional</h3>",
+            "<h3>2. Ejemplo Práctico: Transformando una Pregunta Tradicional (Retail Automotriz)</h3>",
             "Imagina que el problema inicial de negocio es: <em>¿Qué características buscan las personas al comprar un auto nuevo?</em> Aplicando el filtro SMART, podemos desglosar el análisis de la siguiente manera:",
-            "<ul><li><strong>Específica:</strong> ¿Se enfoca en un atributo particular del vehículo (como la tracción en las cuatro ruedas)?</li><li><strong>Medible:</strong> ¿Utiliza una escala de calificación numérica para evaluar la importancia del atributo?</li><li><strong>Accionable:</strong> ¿Ayuda a influir en el diseño de nuevos paquetes de características comerciales?</li><li><strong>Relevante:</strong> ¿Identifica si ese factor determina o no la decisión de compra?</li><li><strong>Delimitada en el tiempo:</strong> ¿Valida los datos sobre popularidad de características de los últimos tres años?</li></ul>",
+            "<ul><li><strong>Específica:</strong> ¿Se enfoca en un atributo particular del vehículo (como la tracción en las cuatro ruedas)?</li><li><strong>Medible:</strong> ¿Utiliza una escala de calificación numérica para evaluar la importancia del atributo?</li><li><strong>Action-oriented:</strong> ¿Ayuda a influir en el diseño de nuevos paquetes de características comerciales?</li><li><strong>Relevant:</strong> ¿Identifica si ese factor determina o no la decisión de compra?</li><li><strong>Time-bound:</strong> ¿Valida los datos sobre popularidad de características de los últimos tres años?</li></ul>",
             "A partir de este desglose, las preguntas orientadas a la acción deben formularse de manera <strong>abierta</strong> para calificar o descalificar soluciones:",
             "<ul><li><em>Ejemplo 1:</em> 'En una escala del 1 al 10, ¿qué tan importante es que tu auto tenga tracción en las cuatro ruedas? Explica.'</li><li><em>Ejemplo 2:</em> '¿Cuáles son las cinco características principales que te gustaría encontrar en un paquete de equipamiento vehicular?'</li></ul>",
-            "<h3>3. Prácticas que Debes Evitar al Preguntar</h3>",
+            "<h3>3. Ejemplo Práctico para Negocios Tradicionales que Empiezan a Digitalizarse</h3>",
+            "Cuando trabajas con clientes o comercios locales que operan de forma analógica (con cuadernos o registros manuales) y buscan dar el salto hacia una página web o ecommerce, aplicar el marco SMART ayuda a estructurar una conversación empática y sin jerga técnica:",
+            "<ul><li><strong>Specific (Específica):</strong> ¿Qué parte de tu negocio actual (como el registro de ventas o la búsqueda manual de productos) te quita más tiempo y te gustaría simplificar con una página web?</li><li><strong>Measurable (Medible):</strong> ¿Cuántas horas a la semana estimas que pierdes realizando tareas manuales o cuántos clientes crees que se pierden por no tener presencia online?</li><li><strong>Action-oriented (Accionable):</strong> Si tuvieras una tienda online sencilla donde tus clientes pudieran ver tus productos directamente, ¿qué cambiarías de tu rutina para atender esos nuevos pedidos digitales?</li><li><strong>Relevant (Relevante):</strong> ¿Cómo impacta el hecho de no tener canales digitales en la cantidad de ventas y en las expectativas de comodidad de tus clientes actuales?</li><li><strong>Time-bound (Delimitada en el tiempo):</strong> ¿Te parecería realista dar el primer paso y lanzar tu primera página web o catálogo online durante los próximos dos meses?</li></ul>",
+            "<h3>4. Prácticas que Debes Evitar al Preguntar</h3>",
             "Para mantener la objetividad del análisis, la metodología desaconseja tres tipos de redacciones defectuosas:",
             "<ul><li><strong>Preguntas Sesgadas o Dirigidas (Leading questions):</strong> Inducen una respuesta específica (ejemplo: <em>'Este producto es demasiado caro, ¿verdad?'</em>). Una alternativa neutral es preguntar: <em>'¿Cuál es tu opinión sobre este producto?'</em> o <em>'¿Qué rango de precios considerarías adecuado?'</em></li><li><strong>Preguntas Cerradas (Closed-ended questions):</strong> Limitan la respuesta a un 'sí', 'no' o una sola palabra, eliminando el contexto detallado. En su lugar, es mejor indagar: <em>'¿Qué aprendiste sobre la experiencia del usuario durante la prueba?'</em></li><li><strong>Preguntas Vagas (Vague questions):</strong> Carecen de contexto o parámetros de medición claros (ejemplo: <em>'¿Te funciona la herramienta?'</em>). Se deben formular con referencias concretas: <em>'En comparación con el sistema anterior, ¿la nueva herramienta de entrada de datos es más rápida o más lenta, y cuánto tiempo ahorras?'</em></li></ul>",
+            "<h3>📚 Glosario Fundamental SMART</h3>",
+            "Para reforzar los conceptos teóricos revisados en este artículo, te compartimos el vocabulario oficial de referencia:",
+            "<ul>",
+            "<li><strong>Cloud:</strong> Un lugar para guardar datos en línea, en lugar del disco duro de una computadora.</li>",
+            "<li><strong>Data analysis process:</strong> Las seis fases de preguntar, preparar, procesar, analizar, compartir y actuar, cuyo propósito es obtener información para impulsar la toma de decisiones informada.</li>",
+            "<li><strong>Data life cycle:</strong> La secuencia de etapas que experimentan los datos, que incluyen planificar, capturar, gestionar, analizar, archivar y destruir.</li>",
+            "<li><strong>Leading question:</strong> Una pregunta que guía a las personas hacia una respuesta determinada.</li>",
+            "<li><strong>Measurable question:</strong> Una pregunta cuyas respuestas se pueden cuantificar y evaluar.</li>",
+            "<li><strong>Problem types:</strong> Los diversos problemas que encuentran los analistas de datos, incluyendo categorizar cosas, descubrir conexiones, encontrar patrones, identificar temas, hacer predicciones y detectar algo inusual.</li>",
+            "<li><strong>Relevant question:</strong> Una pregunta que tiene importancia para el problema que se debe resolver.</li>",
+            "<li><strong>SMART methodology:</strong> Una herramienta para determinar la efectividad de una pregunta basándose en si es específica, medible, orientada a la acción, relevante y delimitada en el tiempo.</li>",
+            "<li><strong>Specific question:</strong> Una pregunta que es simple, significativa y se enfoca en un solo tema o en pocas ideas estrechamente relacionadas.</li>",
+            "<li><strong>Structured thinking:</strong> El proceso de reconocer el problema o situación actual, organizar la información disponible, revelar brechas y oportunidades, e identificar opciones.</li>",
+            "<li><strong>Time-bound question:</strong> Una pregunta que especifica un marco de tiempo para ser estudiado.</li>",
+            "<li><strong>Unfair question:</strong> Una pregunta que hace suposiciones o es difícil de responder honestamente.</li>",
+            "</ul>",
             "<h3>💡 ¿Para qué te sirve esto como emprendedor?</h3>",
-            "<ul><li><strong>Para mejorar tus encuestas de mercado:</strong> Diseñar cuestionarios SMART evita que obtengas datos complacientes o sesgados por parte de tus clientes actuales.</li><li><strong>Para alinear a tus equipos de trabajo:</strong> Exigir preguntas estructuradas antes de iniciar un análisis de datos reduce drásticamente el tiempo perdido en reportes que no solucionan los dolores reales del negocio.</li><li><strong>Para tomar decisiones libres de intuiciones falsas:</strong> Al asegurar que las preguntas sean medibles y relevantes, garantizas que cada dólar invertido se apoye en evidencia objetiva.</li></ul>",
-            "<strong>Conclusión:</strong> Dominar la formulación de preguntas SMART transforma la recolección de datos de un proceso reactivo a una herramienta estratégica para el crecimiento sostenible de tu empresa."
+            "<ul><li><strong>Para mejorar tus encuestas de mercado:</strong> Diseñar cuestionarios SMART evita que obtengas datos complacientes o sesgados por parte de tus clientes actuales.</li><li><strong>Para guiar a clientes no digitalizados:</strong> Traducir la teoría SMART a preguntas cotidianas permite acompañar a pequeños comerciantes en su transición hacia páginas web y canales de ecommerce sin abrumarlos.</li><li><strong>Para tomar decisiones libres de intuiciones falsas:</strong> Al asegurar que las preguntas sean medibles y relevantes, garantizas que cada esfuerzo de desarrollo se apoye en evidencia objetiva.</li></ul>",
+            "<strong>Conclusión:</strong> Dominar la formulación de preguntas SMART transforma la recolección de datos de un proceso abstracto a una herramienta estratégica indispensable para el crecimiento digital de cualquier negocio."
         ]
-    },
+    }, {
+        id: 25,
+        slug: "decisiones-basadas-vs-inspiradas-en-datos-casos-reales",
+        title: "Decisiones Basadas vs. Inspiradas en Datos: Éxitos, Fracasos y el Lado Humano de la Analítica",
+        category: "Estrategia & Datos",
+        excerpt: "Analizamos la diferencia crítica entre decisiones Data-Driven y Data-Inspired a través de casos reales de PepsiCo, Coca-Cola y la NASA, y cómo combinar datos cuantitativos y cualitativos para no errar.",
+        author: "Gonzalo Lobos",
+        authorRole: "Founder & Lead Engineer",
+        date: "5 Octubre 2026",
+        readTime: "9 min de lectura",
+        image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80",
+        status: "aprobado",
+        tags: ["Toma de Decisiones", "Data Driven", "Data Inspired", "Datos Cuantitativos", "Datos Cualitativos", "Estrategia de Datos"],
+        sources: [
+            {
+                num: 1,
+                name: "Google Data Analytics Certificate / Coursera",
+                title: "Foundations: Data, Data Everywhere - Data Trials and Triumphs & Qualitative/Quantitative Data in Business",
+                url: "https://www.coursera.org/professional-certificates/google-data-analytics"
+            },
+            {
+                num: 2,
+                name: "GE-International Journal of Management Research / ResearchGate",
+                title: "Don't Mess with Coca-Cola: Introducing New Coke Reveals Flaws in Decision-Making within The Coca-Cola Company (Kimberly Jones et al.)",
+                url: "https://www.researchgate.net/publication/316255186_Don't_Mess_with_Coca-Cola_Introducing_New_Coke_Reveals_Flaws_in_Decision-Making_within_the_Coca-Cola_Company"
+            },
+            {
+                num: 3,
+                name: "Databricks Engineering & Enterprise Case Studies",
+                title: "How PepsiCo Established an Enterprise-Grade Data Intelligence Platform Powered by Databricks Unity Catalog",
+                url: "https://www.databricks.com/blog/how-pepsico-established-enterprise-grade-data-intelligence-platform-powered-databricks-unity"
+            }, {
+                num: 4,
+                name: "NASA Lessons Learned Information System (LLIS)",
+                title: "Mars Climate Orbiter Mishap Board Phase I Report & Unit Conversion Analysis",
+                url: "https://llis.nasa.gov/lesson/641"
+            }
+        ],
+        content: [
+            "<strong>El rol fundamental de un profesional de datos no es solo acumular métricas o construir planillas, sino proporcionar la información precisa para guiar decisiones estratégicas y enmarcarlas de forma que los líderes tomen la mejor opción posible.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup></strong>",
+            "Sin embargo, los datos por sí solos no toman decisiones; mejoran la elección humana. Comprender la diferencia entre tomar decisiones strictly <em>basadas en datos (Data-Driven)</em> o <em>inspiradas en datos (Data-Inspired)</em> es lo que separa a las empresas que crecen de aquellas que cometen errores millonarios.",
+
+            "<h3>1. Decisiones Basadas en Datos (Data-Driven) vs. Inspiradas (Data-Inspired)</h3>",
+            "Ambos enfoques reconocen que la información es indispensable, pero difieren en la amplitud con la que interpretan el entorno:",
+            "<ul><li><strong>Decisiones Data-Driven:</strong> Utilizan hechos y registros directamente para llegar a una conclusión. Su éxito depende al 100% de la cantidad y calidad de los datos disponibles. <em>Peligros principales:</em> Sobredependencia de datos históricos, ignorar percepciones cualitativas y sesgos en la recolección.</li><li><strong>Decisiones Data-Inspired:</strong> Integran datos cuantitativos pero añaden capas de complejidad: consideran comparaciones conceptuales, valoran emociones, experiencias previas y cualidades de mercado difíciles de medir numéricamente, evitando análisis rígidos.</li></ul>",
+
+            "<h3>2. Casos de Éxito y Fracasos Históricos de la Industria</h3>",
+            "Para entender el impacto de aplicar mal o bien la analítica, examinemos tres escenarios reales:",
+            "<ul><li><strong>El Triunfo de PepsiCo (Data-Inspired + Arquitectura Cloud):</strong> PepsiCo transformó su estrategia comercial centralizando sus datos sobre la plataforma <strong>Databricks Lakehouse</strong> y la capa de gobernanza <strong>Unity Catalog</strong>, eliminando silos de información entre sus unidades globales. Esta infraestructura unificada en la nube les permitió integrar fuentes internas y externas de mercado para democratizar la analítica, entrenar modelos de IA y construir un entendimiento holístico del consumidor que anticipa la intención de compra.<sup><a href='#fuente-3' class='text-primario font-bold ml-1'>[3]</a></sup></li><li><strong>El Fracaso de New Coke en 1985 (Datos incompletos y sesgo de reemplazo):</strong> Coca-Cola invirtió $4 millones de dólares en I+D y realizó pruebas de sabor a ciegas con 200,000 personas, confirmando que la nueva fórmula superaba a Pepsi. Sin embargo, cometieron un error analítico crítico: en las pruebas no informaron a los consumidores que 'New Coke' <em>reemplazaría por completo</em> a la Coca-Cola original. Al eliminar el producto clásico, desencadenaron una reacción de <em>reactancia psicológica</em> (el rechazo masivo cuando se priva una libertad de elección) e ignoraron la conexión emocional y cultural con la marca, perdiendo decenas de millones de dólares antes de reintroducir la versión 'Classic'.<sup><a href='#fuente-2' class='text-primario font-bold ml-1'>[2]</a></sup></li><li><strong>La Pérdida del Mars Climate Orbiter en 1999 (Errores de interpretación y comunicación):</strong> NASA perdió una nave espacial de $125 millones de dólares a pesar de tener datos 100% precisos. El equipo de navegación calculaba la fuerza de empuje en Newtons (Sistema Internacional), mientras que los ingenieros de fabricación usaban Libras-fuerza (Sistema Inglés). Ningún equipo validó la conversión de unidades, causando que la nave se quemara al ingresar a la atmósfera marciana por una falla en la interpretación de los datos.<sup><a href='#fuente-4' class='text-primario font-bold ml-1'>[4]</a></sup></li></ul>",
+
+            "<h3>3. Datos Cuantitativos y Cualitativos: El 'Qué' vs. El 'Por qué'</h3>",
+            "Toda decisión equilibrada exige combinar métricas numéricas con comprensión humana:",
+            "<div class='overflow-x-auto my-6'><table class='w-full text-xs text-left text-gray-700 border border-gray-200 rounded-xl overflow-hidden'><thead class='bg-deepBlue text-ghostWhite uppercase text-[10px] tracking-wider'><tr><th class='p-3 border-b'>Tipo de Dato</th><th class='p-3 border-b'>Pregunta que Responde</th><th class='p-3 border-b'>Herramientas de Recolección</th><th class='p-3 border-b'>Ejemplo Práctico (Cines)</th></tr></thead><tbody class='divide-y divide-gray-100'><tr class='hover:bg-gray-50'><td class='p-3 font-bold text-deepBlue'>Cuantitativo (Métricas)</td><td class='p-3'>Responde al <strong>¿Qué?</strong> (Tendencias, volúmenes, cifras).</td><td class='p-3'>Encuestas estructuradas, análisis transaccional y sensores.</td><td class='p-3'>Medir que la asistencia promedio es de 550 personas/mes y sube a 1,600 en festivos.</td></tr><tr class='hover:bg-gray-50'><td class='p-3 font-bold text-deepBlue'>Cualitativo (Contexto)</td><td class='p-3'>Responde al <strong>¿Por qué?</strong> (Motivaciones, emociones).</td><td class='p-3'>Grupos focales, entrevistas, preguntas abiertas y redes sociales.</td><td class='p-3'>Entender que los clientes eligen funciones nocturnas porque cenan antes en restaurantes cercanos.</td></tr></tbody></table></div>",
+
+            "<h3>💡 ¿Para qué te sirve esto como emprendedor?</h3>",
+            "<ul><li><strong>Para construir un ecosistema de datos escalable:</strong> Como demuestra PepsiCo con Databricks, centralizar los datos en una arquitectura limpia en la nube es indispensable antes de intentar entrenar modelos de IA o automatizar reportes.</li><li><strong>Para no enamorarte de un solo número:</strong> Las pruebas cuantitativas son vitales, pero siempre debes auditar el contexto emocional y cualitativo de tus clientes.</li><li><strong>Para evitar suposiciones entre equipos:</strong> Estandarizar métricas y unidades de medida (como en el caso de la NASA) evita fallas operativas devastadoras entre las áreas comerciales y técnicas.</li></ul>",
+            "<strong>Conclusión:</strong> El análisis exitoso exige mantener una mentalidad abierta, formular preguntas constantes, experimentar con hipótesis y combinar la lógica matemática con la empatía humana."
+        ]
+    }, {
+        id: 17,
+        slug: "introduccion-a-google-analytics-y-crecimiento-de-negocio",
+        title: "Introducción a Google Analytics: Cómo Medir y Escalar Tu Negocio con Datos Reales",
+        category: "Google Analytics",
+        excerpt: "Descubre cómo funciona Google Analytics (recolección, procesamiento y permanencia de datos), cómo alinear tus métricas a objetivos comerciales reales y cómo adaptarte a la nueva era de la privacidad.",
+        author: "Gonzalo Lobos",
+        authorRole: "Founder & Lead Engineer",
+        date: "5 Octubre 2026",
+        readTime: "8 min de lectura",
+        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+        status: "aprobado",
+        tags: ["Google Analytics", "Analítica Digital", "Métricas", "Estrategia de Datos", "Business Intelligence", "Privacidad"],
+        sources: [
+            {
+                num: 1,
+                name: "Google Analytics Certification / Google Skillshop",
+                title: "Understand Google Analytics and Its Role in Business Growth",
+                url: "https://skillshop.exceedlms.com/student/path/18323-google-analytics-certification"
+            }
+        ],
+        content: [
+            "<strong>Saber tomar decisiones informadas sobre dónde invertir los recursos de tu empresa es la diferencia entre el crecimiento sostenido y el desperdicio de presupuesto en marketing.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup></strong>",
+            "La analítica digital nos permite pasar de suposiciones frágiles como <em>'creo que el sitio web va bien'</em> a certezas numéricas concretas como <em>'ayer 500 usuarios de Santiago visitaron la página de producto desde teléfonos móviles'</em>. Google Analytics es la plataforma central para recopilar estos hechos y optimizar tu estrategia comercial.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+
+            "<h3>1. ¿Cómo Funciona Google Analytics por Dentro?</h3>",
+            "Para medir una plataforma web se instala un código JavaScript en cada página, mientras que en aplicaciones móviles se utiliza el SDK de Firebase. A partir de ahí, el proceso consta de 4 etapas clave:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<ul><li><strong>Recolección Pseudónima:</strong> Cada interacción del usuario envía datos sin identificar a la persona de forma individual (protegiendo su identidad). Recopila información del navegador, dispositivo, idioma y canal de origen (anuncios, Google, correo).<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup></li><li><strong>Procesamiento y Configuración:</strong> Los datos crudos se agrupan y organizan. En esta fase se aplican filtros (como excluir el tráfico interno de los empleados de tu empresa) para no distorsionar las métricas.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup></li><li><strong>Regla de Permanencia en la Base de Datos:</strong> Una vez que los datos son procesados y guardados en la base de datos de los reportes estándar, <strong>no se pueden modificar de forma retroactiva</strong>. Por eso, una correcta configuración inicial es crítica.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup></li><li><strong>Generación de Reportes:</strong> La información procesada alimenta los paneles ejecutivos para transformar eventos técnicos en hallazgos comerciales.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup></li></ul>",
+
+            "<h3>2. Midiendo para tus Objetivos de Negocio Reales</h3>",
+            "La analítica solo es útil si responde a una meta comercial clara. Dependiendo de la naturaleza de tu empresa, los indicadores clave de rendimiento (KPIs) varían:<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "<div class='overflow-x-auto my-6'><table class='w-full text-xs text-left text-gray-700 border border-gray-200 rounded-xl overflow-hidden'><thead class='bg-deepBlue text-ghostWhite uppercase text-[10px] tracking-wider'><tr><th class='p-3 border-b'>Modelo de Negocio</th><th class='p-3 border-b'>Objetivo Comercial</th><th class='p-3 border-b'>Métricas a Medir en Analytics</th></tr></thead><tbody class='divide-y divide-gray-100'><tr class='hover:bg-gray-50'><td class='p-3 font-bold text-deepBlue'>Servicios / Captación (Leads)</td><td class='p-3'>Aumentar clientes potenciales.</td><td class='p-3'>Formularios completados, canales de origen, costo por lead (CPL) y valor del lead.</td></tr><tr class='hover:bg-gray-50'><td class='p-3 font-bold text-deepBlue'>E-commerce / Ventas</td><td class='p-3'>Aumentar margen y rentabilidad.</td><td class='p-3'>Transacciones, productos más populares y tasa de conversión del carrito.</td></tr><tr class='hover:bg-gray-50'><td class='p-3 font-bold text-deepBlue'>SaaS / Aplicaciones</td><td class='p-3'>Incrementar suscripciones activas.</td><td class='p-3'>Descargas de la app, frecuencia de uso de funciones clave y tasa de renovación.</td></tr></tbody></table></div>",
+
+            "<h3>3. El Nuevo Paradigma: Medición en la Era de la Privacidad</h3>",
+            "El entorno digital ha cambiado drásticamente debido a tres factores: mayores expectativas de privacidad por parte de los usuarios, normativas globales estrictas (GDPR, leyes de protección de datos) y la eliminación progresiva de las cookies de terceros en los navegadores.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+            "Para evitar lagunas de información sin vulnerar la privacidad, plataformas como Google Analytics han incorporado tecnologías avanzadas como el <strong>Consent Mode (Modo de Consentimiento)</strong>, permitiendo modelar tendencias de tráfico respetando la decisión del usuario.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup>",
+
+            "<h3>💡 ¿Para qué te sirve esto como emprendedor?</h3>",
+            "<ul><li><strong>Para auditorías preventivas:</strong> Saber que la base de datos de Analytics es permanente te exige auditar la configuración del etiquetado antes de lanzar una gran campaña publicitaria.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup></li><li><strong>Para evaluar el retorno real (ROI):</strong> Te permite rastrear exactamente qué canal de origen trae clientes que compran vs. tráfico que abandona sin interactuar.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup></li><li><strong>Para cumplir con la regulación:</strong> Configurar herramientas como Consent Mode protege a tu empresa de multas y genera confianza en tus usuarios.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup></li></ul>",
+            "<strong>Conclusión:</strong> Google Analytics no es solo una herramienta de medición de visitas; es el motor que conecta las interacciones web con la rentabilidad real de tu empresa."
+        ]
+    }, {
+        id: 18,
+        slug: "arquitectura-y-recoleccion-de-datos-en-google-analytics-4",
+        title: "Arquitectura y Recolección en GA4: Eventos, Flujos de Datos y Objetivos de Negocio",
+        category: "Google Analytics",
+        excerpt: "Aprende cómo GA4 mide interacciones web y móviles (GTM, etiquetas y Firebase SDK), los métodos de instalación, la medición mejorada, la jerarquía de cuentas y cómo verificar la recolección en tiempo real.",
+        author: "Gonzalo Lobos",
+        authorRole: "Founder & Lead Engineer",
+        date: "5 Octubre 2026",
+        readTime: "11 min de lectura",
+        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+        status: "aprobado",
+        tags: ["Google Analytics", "GA4", "Eventos", "Flujos de Datos", "Tag Manager", "Medición Mejorada", "Realtime Report"],
+        sources: [
+            {
+                num: 1,
+                name: "Google Analytics Certification / Google Skillshop",
+                title: "GA4 Data Collection, Account Structure, Tagging Methods & Data Verification",
+                url: "https://skillshop.exceedlms.com/student/path/18323-google-analytics-certification"
+            }
+        ],
+        content: [
+            "<strong>Comprender cómo fluyen, se procesan y se estructuran los datos en Google Analytics 4 es el paso indispensable para construir un ecosistema analítico confiable e integrar la actividad web y móvil en un solo idioma.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup></strong>",
+            "A diferencia de las versiones tradicionales de analítica, GA4 unifica todas las interacciones bajo un modelo de <strong>Eventos</strong> y permite organizar el rastreo adaptándose exactamente a la estructura corporativa de tu empresa.",
+
+            "<h3>1. Modelo de Eventos y Medición Mejorada en GA4</h3>",
+            "La recolección de interacciones depende del entorno donde interactúa el usuario y del tipo de evento capturado:",
+            "<ul><li><strong>Sitios Web (Etiquetas & GTM):</strong> Se implementa un código JavaScript (Google tag) o se gestiona mediante Google Tag Manager. Captura automáticamente eventos como la primera visita (<code>first_visit</code>), vistas de página o clics salientes.</li><li><strong>Aplicaciones Móviles (Firebase SDK):</strong> Se integra el Kit de Desarrollo de Software (SDK) de Firebase en la app iOS o Android. Registra eventos como la primera apertura (<code>first_open</code>), compras in-app o niveles alcanzados.</li><li><strong>Medición Mejorada (Enhanced Measurement):</strong> Funcionalidad nativa que mide interacciones comunes automáticamente sin necesidad de editar código adicional. Rastrea desplazaemientos (scrolls), reproducciones de video, búsquedas internas y descargas de archivos. Cada evento se puede activar o desactivar individualmente desde la consola.</li><li><strong>Eventos Personalizados:</strong> Permiten registrar acciones únicas del negocio, como suscripciones al boletín, solicitudes de cotización o interacción con elementos interactivos.</li><li><strong>Permanencia del Procesamiento:</strong> Una vez que GA4 procesa la información y la guarda en la base de datos de reportes estándar (proceso que toma entre 24 y 48 horas para consolidarse), <strong>no se puede modificar de forma retroactiva</strong>. Nunca excluyas datos en la configuración inicial si planeas analizarlos después.</li></ul>",
+
+            "<h3>2. Métodos para Conectar Tu Sitio Web (Google Tag & ID de Medición)</h3>",
+            "Para conectar un sitio web debes crear un Flujo de Datos Web, lo que genera un ID de medición único (<code>G-XXXXXXXXXX</code>) y una etiqueta de Google. Existen 3 alternativas para implementar esta etiqueta según la infraestructura técnica de la empresa:",
+            "<ul><li><strong>Con Google Tag Manager (Recomendado):</strong> La opción ideal para gestionar etiquetas de Google y terceros desde una interfaz visual sin tocar código. Permite agregar y actualizar conversores de marketing de forma ágil y autónoma.</li><li><strong>Inserción Manual en Código:</strong> Para sitios administrados por desarrolladores. Se copia el fragmento de JavaScript y se pega directamente en el código de cada página, inmediatamente después del elemento <code>&lt;head&gt;</code>. Útil para implementaciones estáticas simples.</li><li><strong>Integración con CMS o Website Builders:</strong> En plataformas como WordPress o Shopify, basta con pegar el ID de medición (`G-XXXXXXXXXX`) o utilizar las integraciones nativas para instalar el código automáticamente.</li></ul>",
+
+            "<h3>3. Jerarquía de Cuenta y Objetivos de Negocio</h3>",
+            "Para evitar desorden en el rastreo, GA4 organiza la información en tres niveles jerárquicos: <strong>Cuenta (Account)</strong> ➔ <strong>Propiedad (Property)</strong> ➔ <strong>Flujo de Datos (Data Stream)</strong>. Mapear esta estructura según el modelo de negocio garantiza la consistencia de los reportes:",
+            "<div class='overflow-x-auto my-6'><table class='w-full text-xs text-left text-gray-700 border border-gray-200 rounded-xl overflow-hidden'><thead class='bg-deepBlue text-ghostWhite uppercase text-[10px] tracking-wider'><tr><th class='p-3 border-b'>Tipo de Empresa</th><th class='p-3 border-b'>Estructura Recomendada</th><th class='p-3 border-b'>Flujos de Datos (Data Streams)</th></tr></thead><tbody class='divide-y divide-gray-100'><tr class='hover:bg-gray-50'><td class='p-3 font-bold text-deepBlue'>Blog de Contenido o Pyme</td><td class='p-3'>1 Cuenta ➔ 1 Propiedad</td><td class='p-3'>1 Flujo Web.</td></tr><tr class='hover:bg-gray-50'><td class='p-3 font-bold text-deepBlue'>Empresa de Juegos Móviles</td><td class='p-3'>1 Cuenta ➔ 1 Propiedad</td><td class='p-3'>2 Flujos de App (1 Android y 1 iOS).</td></tr><tr class='hover:bg-gray-50'><td class='p-3 font-bold text-deepBlue'>Plataforma de Delivery (Dos audiencias)</td><td class='p-3'>1 Cuenta ➔ 2 Propiedades (Clientes y Repartidores)</td><td class='p-3'>Cada propiedad tiene 3 flujos (Web, App Android y App iOS).</td></tr></tbody></table></div>",
+            "Además, al configurar la propiedad, seleccionar el objetivo comercial correcto (Generar leads, Impulsar ventas, Reconocimiento de marca o Examinar comportamiento) genera automáticamente reportes personalizados específicos para las metas del negocio.",
+
+            "<h3>4. Verificación, Depuración y Umbrales de Datos</h3>",
+            "Una vez instalada la etiqueta, es fundamental auditar que los datos estén llegando correctamente:",
+            "<ul><li><strong>Reporte en Tiempo Real (Realtime Report):</strong> Muestra la actividad de los últimos 30 minutos en cuestión de segundos. Permite interactuar con la tarjeta de <em>Event count by Event name</em>, hacer clic en un evento (como <code>page_view</code>) y revisar sus parámetros (como <code>page_location</code>) para verificar las URLs exactas visitadas.</li><li><strong>Depuración con Tag Assistant:</strong> Extensión y herramienta oficial de diagnóstico de Google que permite navegar por el sitio web mientras muestra en tiempo real qué etiquetas se están disparando y qué variables se están enviando.</li><li><strong>Resolución de Problemas (No veo datos):</strong> Si no hay tráfico en tiempo real, verifica errores de sintaxis en el código, filtros de IP que estén bloqueando tu prueba o la conectividad del dispositivo.</li><li><strong>Umbrales de Datos (Data Thresholding):</strong> Cuando un sitio o informe tiene bajo volumen de usuarios, Analytics aplica umbrales automáticos para proteger la privacidad e impedir la identificación de personas individuales. Se identifica mediante el ícono de calidad de datos junto al título del reporte.</li></ul>",
+
+            "<h3>💡 ¿Para qué te sirve esto como emprendedor?</h3>",
+            "<ul><li><strong>Para validar campañas antes de invertir:</strong> Utilizar el Reporte en Tiempo Real e inspeccionar parámetros (`page_location`) te permite confirmar que el píxel de conversión está midiendo la compra antes de encender pauta publicitaria masiva.</li><li><strong>Para ahorrar en desarrollo técnico:</strong> Activar la <em>Medición Mejorada</em> te otorga datos de clics, descargas y reproducciones de video sin pagar horas de programación web.</li><li><strong>Para evitar reportes distorsionados:</strong> Conocer los <em>umbrales de datos</em> evita alarmas innecesarias cuando revises paneles de bajo tráfico en periodos iniciales de un proyecto.</li></ul>",
+            "<strong>Conclusión:</strong> Google Analytics 4 unifica la medición de sitios y aplicaciones móviles bajo un esquema flexible de eventos, flujos y depuración en tiempo real, garantizando un control analítico completo para escalar tu empresa."
+        ]
+    }, {
+        id: 19,
+        slug: "dimensiones-metricas-eventos-clave-y-conversiones-ga4",
+        title: "Dimensiones, Métricas y Eventos Clave en GA4: Cómo Interpretar tus Reportes",
+        category: "Google Analytics",
+        excerpt: "Comprende la estructura de los reportes en GA4: aprende la diferencia entre dimensiones y métricas, parámetros de eventos, propiedades de usuario y la distinción crítica entre Eventos Clave y Conversiones.",
+        author: "Gonzalo Lobos",
+        authorRole: "Founder & Lead Engineer",
+        date: "5 Octubre 2026",
+        readTime: "9 min de lectura",
+        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+        status: "aprobado",
+        tags: ["Google Analytics", "GA4", "Dimensiones y Métricas", "Eventos Clave", "Conversiones", "Google Ads"],
+        sources: [
+            {
+                num: 1,
+                name: "Google Analytics Certification / Google Skillshop",
+                title: "Power Your Reports with Dimensions and Metrics & Understand Key Events and Conversions",
+                url: "https://skillshop.exceedlms.com/student/path/18323-google-analytics-certification"
+            }
+        ],
+        content: [
+            "<strong>Detrás de cada gráfico o tabla en Google Analytics 4 existe un flujo de datos estructurado que transforma interacciones crudas en respuestas estratégicas para tu negocio.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup></strong>",
+            "Para interpretar los informes sin confundirse entre números y atributos, es fundamental entender cómo se combinan los eventos, sus parámetros, las propiedades de usuario y la distinción esencial entre un <strong>Evento Clave</strong> y una <strong>Conversión</strong>.",
+
+            "<h3>1. Dimensiones vs. Métricas: ¿Quién/Qué? vs. ¿Cuánto?</h3>",
+            "Para presentar los datos visualmente en los reportes, GA4 organiza la información en dos componentes fundamentales:",
+            "<ul><li><strong>Dimensiones (Atributos cualitativos):</strong> Describen los datos y responden a las preguntas <em>¿Quién?, ¿Qué? o ¿Dónde?</em>. Suelen ser texto y no números. <em>Ejemplos:</em> Nombre del evento (<code>click</code>), País (<code>Chile</code>), Dispositivo (<code>Mobile</code>) o Fuente de tráfico (<code>Google Ads</code>).</li><li><strong>Métricas (Mediciones cuantitativas):</strong> Miden los datos de forma numérica y responden a la pregunta <em>¿Cuántos/Cuánto?</em>. A las métricas se les pueden aplicar operaciones matemáticas (sumas, promedios, porcentajes). <em>Ejemplos:</em> Total de eventos (<code>event_count</code>), Número de usuarios, Tasa de conversión o Ingresos totales.</li></ul>",
+
+            "<h3>2. Los 3 Bloques de Recolección de Datos</h3>",
+            "Cada vez que un usuario interactúa con tu sitio web o aplicación, GA4 recopila tres tipos de información complementaria para armar los reportes:",
+            "<div class='overflow-x-auto my-6'><table class='w-full text-xs text-left text-gray-700 border border-gray-200 rounded-xl overflow-hidden'><thead class='bg-deepBlue text-ghostWhite uppercase text-[10px] tracking-wider'><tr><th class='p-3 border-b'>Componente de Datos</th><th class='p-3 border-b'>Descripción</th><th class='p-3 border-b'>Ejemplo Práctico</th></tr></thead><tbody class='divide-y divide-gray-100'><tr class='hover:bg-gray-50'><td class='p-3 font-bold text-deepBlue'>Propiedades de Usuario (User Properties)</td><td class='p-3'>Atributos sobre la persona o su entorno que ayudan a segmentar audiencias.</td><td class='p-3'>Ubicación geográfica (<code>México</code>), Idioma del navegador o Dispositivo (<code>Tablet</code>).</td></tr><tr class='hover:bg-gray-50'><td class='p-3 font-bold text-deepBlue'>Eventos (Events)</td><td class='p-3'>La acción o interacción específica realizada en la plataforma.</td><td class='p-3'>Hacer clic en reproducir video (<code>video_start</code>) o suscribirse (<code>subscribe</code>).</td></tr><tr class='hover:bg-gray-50'><td class='p-3 font-bold text-deepBlue'>Parámetros de Evento (Event Parameters)</td><td class='p-3'>Detalles contextuales adicionales enviados junto con el evento.</td><td class='p-3'>Nombre del video reproducido (<code>video_title</code>) o frecuencia de suscripción (<code>weekly</code>).</td></tr></tbody></table></div>",
+
+            "<h3>3. La Jerarquía en GA4: Eventos ➔ Eventos Clave ➔ Conversiones</h3>",
+            "No todas las interacciones tienen la misma importancia estratégica. En las versiones modernas de GA4 existe una distinción clara en el flujo de trabajo:",
+            "<ol><li><strong>1. Evento (Event):</strong> La unidad básica de recolección (ej. <code>scroll</code>, <code>page_view</code>, <code>generate_lead</code>).</li><li><strong>2. Evento Clave (Key Event):</strong> Un evento que el administrador marca en la consola (<code>Administración > Eventos</code>) como crítico para evaluar el comportamiento del usuario y la efectividad del sitio (ej. registrarse al newsletter o completar un formulario de contacto).</li><li><strong>3. Conversión (Conversion):</strong> Un Evento Clave que se vincula con plataformas de publicidad (como Google Ads) para medir el rendimiento de campañas pagadas y optimizar estrategias de puja automática (Smart Bidding). Exige tener vinculada una cuenta publicitaria.</li></ol>",
+
+            "<h3>4. ¿Dónde Analizar Cada Elemento en GA4?</h3>",
+            "GA4 divide su interfaz en espacios de trabajo especializados según el objetivo de tu consulta:",
+            "<ul><li><strong>Sección Informes (Reports Workspace):</strong> Ideal para analizar <strong>Eventos Clave</strong> y entender el comportamiento de los usuarios, tráfico orgánico y retención general.</li><li><strong>Sección Publicidad (Advertising Workspace):</strong> Enfocado exclusivamente en medir el rendimiento de tus campañas pagadas, atribución y el impacto directo de tus <strong>Conversiones</strong> de Google Ads.</li><li><strong>Sección Exploraciones (Explore Workspace):</strong> Permite realizar análisis avanzados a medida cruzando dimensiones y métricas personalizadas registradas previamente.</li></ul>",
+
+            "<h3>💡 ¿Para qué te sirve esto como emprendedor?</h3>",
+            "<ul><li><strong>Para alinear a tus equipos de Marketing y Ventas:</strong> Analizar los <em>Eventos Clave</em> en Informes ayuda a UX a mejorar el sitio, mientras que compartir las <em>Conversiones</em> con Google Ads optimiza la inversión publicitaria.</li><li><strong>Para no perder métricas personalizadas:</strong> Recordar que los parámetros de eventos personalizados deben registrarse como Dimensiones o Métricas Personalizadas en la consola antes de que aparezcan en tus reportes.</li><li><strong>Para pedir reportes precisos:</strong> Exigir a tus analistas o agencias que reporten combinando Dimensiones (<em>¿Qué canal atrae tráfico?</em>) con Métricas cuantitativas reales (<em>¿Cuántas ventas netas generó?</em>).</li></ul>",
+            "<strong>Conclusión:</strong> Comprender la interacción entre dimensiones, métricas, eventos clave y conversiones en GA4 te permite transformar gráficos estáticos en decisiones comerciales rentables y de alto impacto."
+        ]
+    }, {
+        id: 20,
+        slug: "menu-de-administracion-roles-y-permisos-en-google-analytics-4",
+        title: "Menú de Administración en GA4: Gestión de Usuarios, Roles y Gobernanza de Datos",
+        category: "Estrategia & Datos",
+        excerpt: "Aprende a controlar la seguridad de tu cuenta en GA4: descubre la jerarquía de roles (Administrador, Editor, Marketer, Analista, Lector), restricciones de métricas sensibles y reglas de retención de datos.",
+        author: "Gonzalo Lobos",
+        authorRole: "Founder & Lead Engineer",
+        date: "5 Octubre 2026",
+        readTime: "9 min de lectura",
+        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+        status: "aprobado",
+        tags: ["Google Analytics", "GA4", "Administración", "Roles y Permisos", "Seguridad de Datos", "Gobernanza"],
+        sources: [
+            {
+                num: 1,
+                name: "Google Analytics Certification / Google Skillshop",
+                title: "Navigating the Admin Menu, User Roles & Data Governance Settings in GA4",
+                url: "https://skillshop.exceedlms.com/student/path/18323-google-analytics-certification"
+            }
+        ],
+        content: [
+            "<strong>El Menú de Administración es el centro neurálgico de Google Analytics 4: la herramienta fundamental para gestionar accesos, proteger la privacidad de datos financieros y asegurar la gobernanza corporativa de la cuenta.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup></strong>",
+            "A medida que tu empresa crece e integra colaboradores, agencias o consultores externos, saber asignar los permisos correctos evita filtraciones de información sensible y previene modificaciones no autorizadas en tu configuración analítica.",
+
+            "<h3>1. Jerarquía de Roles y Permisos de Usuario</h3>",
+            "GA4 utiliza un modelo de permisos acumulativos: los roles de nivel superior heredan automáticamente todas las facultades de los roles inferiores. Los accesos asignados a nivel de **Cuenta** se aplican por defecto a todas sus **Propiedades**, aunque también es posible otorgar acceso únicamente a una propiedad específica.",
+            "<div class='overflow-x-auto my-6'><table class='w-full text-xs text-left text-gray-700 border border-gray-200 rounded-xl overflow-hidden'><thead class='bg-deepBlue text-ghostWhite uppercase text-[10px] tracking-wider'><tr><th class='p-3 border-b'>Rol de Usuario</th><th class='p-3 border-b'>Alcance y Capacidades Principales</th><th class='p-3 border-b'>Nivel de Herencia</th></tr></thead><tbody class='divide-y divide-gray-100'><tr class='hover:bg-gray-50'><td class='p-3 font-bold text-deepBlue'>Administrador (Administrator)</td><td class='p-3'>Control total del sistema: gestión de usuarios, asignación de roles, eliminación de propiedades y configuraciones globales.</td><td class='p-3'>Incluye todos los permisos de Editor, Marketer, Analista y Lector.</td></tr><tr class='hover:bg-gray-50'><td class='p-3 font-bold text-deepBlue'>Editor (Editor)</td><td class='p-3'>Control total de los ajustes de cuenta y propiedades (crear flujos, editar eventos), pero <strong>no puede gestionar usuarios</strong>.</td><td class='p-3'>Incluye permisos de Marketer, Analista y Lector.</td></tr><tr class='hover:bg-gray-50'><td class='p-3 font-bold text-deepBlue'>Marketer (Mercadólogo)</td><td class='p-3'>Crea, edita y elimina audiencias, conversiones, modelos de atribución, eventos y ventanas de retrospección.</td><td class='p-3'>Incluye permisos de Analista y Lector.</td></tr><tr class='hover:bg-gray-50'><td class='p-3 font-bold text-deepBlue'>Analista (Analyst)</td><td class='p-3'>Crea, edita y colabora en activos compartidos de la propiedad, como informes personalizados y exploraciones avanzadas.</td><td class='p-3'>Incluye permisos de Lector.</td></tr><tr class='hover:bg-gray-50'><td class='p-3 font-bold text-deepBlue'>Lector (Viewer)</td><td class='p-3'>Consulta reportes y configuraciones existentes. Puede agregar comparaciones o dimensiones secundarias sin alterar la vista pública.</td><td class='p-3'>No puede realizar cambios estructurales ni modificar la navegación.</td></tr></tbody></table></div>",
+
+            "<h3>2. Restricción de Datos Sensibles: Costos e Ingresos</h3>",
+            "En ocasiones, un analista o diseñador necesita revisar patrones de tráfico pero no debe tener visibilidad sobre el volumen de facturación o el gasto en pauta publicitaria. GA4 permite aplicar dos restricciones de datos de manera independiente a cualquier rol:",
+            "<ul><li><strong>Sin métricas de costo (No cost metrics):</strong> Oculta automáticamente los datos de inversión en marketing y pauta provenientes de plataformas vinculadas como Google Ads.</li><li><strong>Sin métricas de ingresos (No revenue metrics):</strong> Oculta los valores monetarios de compras de comercio electrónico, ingresos in-app y valor total del cliente.</li></ul>",
+
+            "<h3>3. Retención de Datos, Historial y Papelera de Reciclaje</h3>",
+            "El menú de administración ofrece herramientas de auditoría y respaldo esenciales para garantizar la continuidad operativa de la empresa:",
+            "<ul><li><strong>Retención de Datos de Usuario:</strong> Permite configurar el periodo en que los datos asociados a cookies, identificadores de usuario o de publicidad se conservan antes de borrarse. Es clave destacar que esta regla <strong>no afecta a los reportes estándar</strong> (que utilizan datos agregados), pero sí altera la disponibilidad de información en herramientas avanzadas como <em>Exploraciones (Explore)</em>.</li><li><strong>Papelera de Reciclaje (Ventana de 35 Días):</strong> Al eliminar un flujo de datos, propiedad o cuenta completa, el elemento no se borra inmediatamente; se mueve a la Papelera de Reciclaje durante <strong>35 días</strong>. Durante este lapso, cualquier administrador puede restaurar la información antes de su eliminación permanente.</li><li><strong>Historial de Cambios de la Cuenta:</strong> Registro de auditoría que guarda un historial detallado de todas las modificaciones realizadas por los usuarios (cambios de permisos, edición de etiquetas, vinculaciones de Google Ads) identificando al responsable y la hora exacta.</li></ul>",
+
+            "<h3>💡 ¿Para qué te sirve esto como emprendedor?</h3>",
+            "<ul><li><strong>Para colaborar con agencias sin riesgo:</strong> Asignar roles como <em>Marketer</em> o <em>Analista</em> restringiendo métricas de costo/ingresos te permite trabajar con agencias externas sin revelar tus márgenes financieros.</li><li><strong>Para reaccionar ante errores humanos:</strong> Conocer la regla de los 35 días de la Papelera de Reciclaje te da tranquilidad para recuperar una propiedad borrada por accidente.</li><li><strong>Para auditar configuraciones dudosas:</strong> Consultar el <em>Historial de Cambios</em> te permite saber quién cambió una conversión o un filtro cuando notas fluctuaciones extrañas en tus métricas.</li></ul>",
+            "<strong>Conclusión:</strong> Configurar estratégicamente los permisos de usuario y la retención de datos en el Menú de Administración garantiza un entorno seguro, ordenado y preparado para escalar tu analítica digital."
+        ]
+    }
 ];
