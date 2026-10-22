@@ -32,15 +32,15 @@ const ServiceItem = ({ icon, title, description, slug }) => {
             {isLink && (
                 <div className="mt-auto flex flex-col gap-3 w-full">
                     <button
-                        onClick={() => trackWhatsAppClick('service_item', title)}
+                        onClick={() => window.dispatchEvent(new Event('open-contact-drawer'))}
                         className="btn-primary w-full text-sm py-3 flex items-center justify-center gap-2 cursor-pointer"
                     >
-                        <i className="fa-brands fa-whatsapp text-lg"></i>
-                        Conversemos
+                        <i className="fa-regular fa-paper-plane text-lg"></i>
+                        Solicitar Cotización
                     </button>
 
                     <Link
-                        href={`/servicios/${slug}`}
+                        href={`/soluciones/${slug}`}
                         className="btn-secondary w-full text-center"
                     >
                         Ver más

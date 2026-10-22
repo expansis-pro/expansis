@@ -13,7 +13,7 @@ const sendWhatsAppMessageBase = (servicio = "Información General", metadata = {
         "Desarrollo Web": "potenciar mi negocio con un *Desarrollo Web* a medida",
         "Marketing Digital": "mejorar mi visibilidad online con *Marketing Digital*",
         "Consultoría Digital": "agendar una *Consultoría Digital* para mi empresa",
-        "Información General": "recibir información general sobre sus servicios"
+        "Información General": "recibir información general sobre sus soluciones"
     };
 
     const accionTexto = frasesContexto[servicio] || `saber más sobre el servicio de *${servicio}*`;

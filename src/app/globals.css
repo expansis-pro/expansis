@@ -3,21 +3,26 @@
 @tailwind utilities;
 
 @layer base {
+	html {
+		background-color: #07090e;
+		color: #ffffff;
+	}
 	body {
-		@apply font-sans font-light text-gray-800 bg-ghostWhite;
+		@apply font-sans font-light text-white bg-[#07090e];
+		background-color: #07090e;
 	}
 	h1 {
-		@apply text-4xl sm:text-4xl md:text-4xl leading-tight;
+		@apply text-4xl sm:text-4xl md:text-5xl leading-tight;
 	}
 	h2 {
-		@apply text-3xl sm:text-3xl text-gray-900 mb-6;
+		@apply text-3xl sm:text-3xl text-white mb-6;
 	}
 	h3 {
 		@apply text-xl font-bold mb-2;
 	}
 	button,
 	a {
-		@apply transition-all duration-300;
+		@apply transition-all duration-200;
 	}
 }
 
@@ -35,22 +40,24 @@
 		@apply text-gray-600 text-lg md:text-xl font-light mx-auto leading-relaxed;
 	}
 	.service-card {
-		@apply bg-white p-8 h-full flex flex-col items-start text-left shadow-sm border border-gray-100 transition-all hover:shadow-md rounded-2xl overflow-hidden;
+		@apply bg-white p-8 h-full flex flex-col items-start text-left shadow-sm border border-gray-200 rounded-none transition-all hover:border-gray-400;
 	}
 	.container-pro {
 		@apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
 	}
 	.section-padding {
-		@apply py-12 md:py-12;
+		@apply py-16 md:py-24;
 	}
+
+	/* BOTONES CON BORDES RECTOS Y TIPOGRAFÍA TÉCNICA */
 	.btn-primary {
-		@apply bg-primario text-ghostWhite py-4 px-10 rounded-xl transition-all duration-300 transform hover:scale-105 hover:brightness-110 text-center font-bold shadow-lg inline-flex items-center justify-center gap-3;
+		@apply bg-primario text-white py-3.5 px-8 rounded-none border border-primario transition-all duration-200 text-center font-mono text-xs uppercase tracking-[0.18em] font-medium shadow-none inline-flex items-center justify-center gap-3 hover:bg-primario/90 hover:border-primario/90 cursor-pointer;
 	}
 	.btn-secondary {
-		@apply border-2 border-ghostWhite/20 text-ghostWhite bg-transparent py-4 px-10 rounded-xl transition-all duration-300 transform hover:bg-ghostWhite hover:text-deepBlue hover:border-ghostWhite text-center font-bold inline-flex items-center justify-center gap-3;
+		@apply border border-white/20 text-ghostWhite bg-transparent py-3.5 px-8 rounded-none transition-all duration-200 hover:bg-white hover:text-black hover:border-white text-center font-mono text-xs uppercase tracking-[0.18em] font-medium inline-flex items-center justify-center gap-3 cursor-pointer;
 	}
 	.btn-outline {
-		@apply border-2 border-deepBlue text-deepBlue bg-transparent py-4 px-10 rounded-xl transition-all duration-300 transform hover:bg-deepBlue hover:text-ghostWhite text-center font-bold inline-flex items-center justify-center gap-3;
+		@apply border border-deepBlue text-deepBlue bg-transparent py-3.5 px-8 rounded-none transition-all duration-200 hover:bg-deepBlue hover:text-white text-center font-mono text-xs uppercase tracking-[0.18em] font-medium inline-flex items-center justify-center gap-3 cursor-pointer;
 	}
 }
 
@@ -64,39 +71,21 @@
 	}
 }
 
-/* --- ANIMACIONES RECUPERADAS --- */
+/* --- ANIMACIONES --- */
 @keyframes fadeIn {
 	from {
 		opacity: 0;
-		backdrop-filter: blur(0px);
 	}
 	to {
 		opacity: 1;
-		backdrop-filter: blur(4px);
-	}
-}
-
-@keyframes slideUp {
-	from {
-		opacity: 0;
-		transform: scale(0.95) translateY(20px);
-	}
-	to {
-		opacity: 1;
-		transform: scale(1) translateY(0);
 	}
 }
 
 .animate-fadeIn {
-	animation: fadeIn 0.25s ease-out forwards;
+	animation: fadeIn 0.2s ease-out forwards;
 }
 
-.animate-slideUp {
-	animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-/* --- ESTILO DE ETIQUETA STRONG --- */
 strong {
-	font-weight: 500 !important;
-	@apply text-deepBlue;
+	font-weight: 600 !important;
+	@apply text-ghostWhite;
 }

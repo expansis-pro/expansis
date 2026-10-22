@@ -1,39 +1,24 @@
-'use client'; // 👈 1. Directiva obligatoria para usar useRef, useState y framer-motion
+// src/components/Navbar.js
+'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import Link from 'next/link'; // 👈 2. Importación nativa de Next.js
-import { usePathname } from 'next/navigation'; // 👈 3. Hook nativo para saber la ruta activa
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { servicesData } from '@/data/servicesData';
-import { trackWhatsAppClick } from '@/utils/trackingUtils';
+import { solutionsData } from '@/data/solutionsData';
 
-const Navbar = () => {
+export default function Navbar() {
 	const [menuOpen, setMenuOpen] = useState(false);
-	const [servicesMenuOpen, setServicesMenuOpen] = useState(false);
-	const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+	const [solutionsMenuOpen, setSolutionsMenuOpen] = useState(false);
+	const [mobileSolutionsOpen, setMobileSolutionsOpen] = useState(false);
 	const [scrolled, setScrolled] = useState(false);
 	const navRef = useRef(null);
-	const servicesNavRef = useRef(null);
-	const pathname = usePathname(); // Reemplaza a location.pathname
-
-	const desktopDropdownVariants = {
-		open: { opacity: 1, y: 0, transition: { duration: 0.2 } },
-		closed: { opacity: 0, y: -10, transition: { duration: 0.2 } },
-	};
-
-	const mobileMenuVariants = {
-		closed: { opacity: 0, height: 0, transition: { duration: 0.3, ease: "easeInOut" } },
-		open: { opacity: 1, height: "auto", transition: { duration: 0.3, ease: "easeInOut" } }
-	};
-
-	const subMenuVariants = {
-		closed: { opacity: 0, height: 0, transition: { duration: 0.2 } },
-		open: { opacity: 1, height: "auto", transition: { duration: 0.2 } }
-	};
+	const solutionsNavRef = useRef(null);
+	const pathname = usePathname();
 
 	useEffect(() => {
 		const handleScroll = () => {
-			setScrolled(window.scrollY > 50);
+			setScrolled(window.scrollY > 40);
 		};
 		window.addEventListener('scroll', handleScroll);
 		return () => window.removeEventListener('scroll', handleScroll);
@@ -44,175 +29,193 @@ const Navbar = () => {
 			if (navRef.current && !navRef.current.contains(event.target)) {
 				setMenuOpen(false);
 			}
-			if (servicesNavRef.current && !servicesNavRef.current.contains(event.target)) {
-				setServicesMenuOpen(false);
+			if (solutionsNavRef.current && !solutionsNavRef.current.contains(event.target)) {
+				setSolutionsMenuOpen(false);
 			}
 		}
-		document.addEventListener("mousedown", handleClickOutside);
-		return () => document.removeEventListener("mousedown", handleClickOutside);
+		document.addEventListener('mousedown', handleClickOutside);
+		return () => document.removeEventListener('mousedown', handleClickOutside);
 	}, []);
-
-	const handleLogoClick = () => {
-		if (typeof window.gtag === 'function') {
-			window.gtag('event', 'click_navegacion', {
-				event_category: 'Navegacion',
-				event_label: 'Logo Expansis Pro'
-			});
-		}
-		setMenuOpen(false);
-		setServicesMenuOpen(false);
-		window.scrollTo({ top: 0, behavior: 'smooth' });
-	};
 
 	const handleNavLinkClick = (linkName) => {
 		if (typeof window.gtag === 'function') {
 			window.gtag('event', 'click_navegacion', {
 				event_category: scrolled ? 'Navegacion Escritorio Scrolled' : 'Navegacion Escritorio Top',
-				event_label: linkName
+				event_label: linkName,
 			});
 		}
-		setServicesMenuOpen(false);
+		setSolutionsMenuOpen(false);
 		setMenuOpen(false);
 	};
 
-	const navClasses = `fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled || menuOpen ? "bg-deepBlue shadow-lg py-2" : "bg-transparent py-4"
+	const navClasses = `fixed top-0 left-0 w-full z-50 transition-all duration-200 border-b ${scrolled || menuOpen
+			? 'bg-[#07090e]/95 backdrop-blur-md border-white/15 py-3'
+			: 'bg-transparent border-transparent py-5'
 		}`;
 
 	return (
 		<nav className={navClasses} ref={navRef}>
-			<div className="container-pro flex justify-between items-center">
-
+			<div className="container-pro max-w-6xl mx-auto px-4 flex justify-between items-center">
 				{/* LOGO */}
 				<Link
 					href="/"
-					className="text-2xl text-ghostWhite transition-colors"
-					onClick={handleLogoClick}
+					className="text-xl font-light text-white tracking-tight flex items-center gap-2"
+					onClick={() => {
+						setMenuOpen(false);
+						setSolutionsMenuOpen(false);
+						window.scrollTo({ top: 0, behavior: 'smooth' });
+					}}
 				>
-					Expansis <span className="text-primario">Pro</span>
+					<span className="w-2 h-2 bg-primario" />
+					<span>Expansis Pro</span>
 				</Link>
 
-				{/* BOTÓN HAMBURGUESA */}
+				{/* BOTÓN HAMBURGUESA MÓVIL */}
 				<button
-					className="md:hidden text-ghostWhite text-4xl focus:outline-none"
+					className="md:hidden text-white font-mono text-sm px-3 py-1.5 border border-white/20 focus:outline-none cursor-pointer"
 					onClick={() => setMenuOpen(!menuOpen)}
-					aria-label="Toggle menu"
+					aria-label="Alternar menú"
 				>
-					{menuOpen ? '✕' : '☰'}
+					{menuOpen ? '[✕]' : '[MENU]'}
 				</button>
 
-				{/* MENU DESKTOP */}
-				<ul className="hidden md:flex items-center space-x-8">
+				{/* MENÚ ESCRITORIO */}
+				<ul className="hidden md:flex items-center space-x-8 font-mono text-xs uppercase tracking-[0.15em]">
 					<li>
 						<Link
 							href="/"
-							className={`font-medium transition-colors ${pathname === '/' ? 'text-primario' : 'text-ghostWhite hover:text-primario'}`}
+							className={`transition-colors ${pathname === '/' ? 'text-primario font-semibold' : 'text-zinc-400 hover:text-white'
+								}`}
 							onClick={() => handleNavLinkClick('Inicio')}
 						>
 							Inicio
 						</Link>
 					</li>
 
-					<li className="relative group py-2"
-						ref={servicesNavRef}
-						onMouseEnter={() => setServicesMenuOpen(true)}
-						onMouseLeave={() => setServicesMenuOpen(false)}>
-						<Link
-							href="/servicios"
-							className={`flex items-center gap-1 font-medium transition-colors ${pathname.startsWith('/servicios') ? 'text-primario' : 'text-ghostWhite hover:text-primario'}`}
-							onClick={() => handleNavLinkClick('Sección Servicios General')}
-						>
-							Servicios
-							<motion.i
-								className="fa-solid fa-chevron-down text-xs"
-								animate={{ rotate: servicesMenuOpen ? 180 : 0 }}
-							/>
-						</Link>
+					{/* DROPDOWN SOLUCIONES */}
+					<li
+						className="relative py-2"
+						ref={solutionsNavRef}
+						onMouseEnter={() => setSolutionsMenuOpen(true)}
+						onMouseLeave={() => setSolutionsMenuOpen(false)}
+					>
+						<div className="flex items-center gap-1.5">
+							<Link
+								href="/soluciones"
+								className={`transition-colors uppercase ${pathname.startsWith('/soluciones') ? 'text-primario font-semibold' : 'text-zinc-400 hover:text-white'
+									}`}
+								onClick={() => handleNavLinkClick('Soluciones Hub')}
+							>
+								Soluciones
+							</Link>
+							<button
+								onClick={() => setSolutionsMenuOpen(!solutionsMenuOpen)}
+								className="text-[10px] text-zinc-500 hover:text-white cursor-pointer"
+								aria-label="Abrir opciones de soluciones"
+							>
+								{solutionsMenuOpen ? '▲' : '▼'}
+							</button>
+						</div>
 
 						<AnimatePresence>
-							{servicesMenuOpen && (
+							{solutionsMenuOpen && (
 								<motion.div
-									variants={desktopDropdownVariants}
-									initial="closed" animate="open" exit="closed"
-									className="absolute top-full left-1/2 -translate-x-1/2 w-64 bg-deepBlue border border-gray-700 rounded-2xl shadow-2xl py-3 overflow-hidden"
+									initial={{ opacity: 0, y: 4 }}
+									animate={{ opacity: 1, y: 0 }}
+									exit={{ opacity: 0, y: 4 }}
+									transition={{ duration: 0.15 }}
+									className="absolute top-full left-0 w-80 bg-[#0d121d] border border-white/15 divide-y divide-white/10 shadow-2xl p-0"
 								>
-									{servicesData.map(service => (
+									{/* ENLACE DIRECTO AL HUB */}
+									<Link
+										href="/soluciones"
+										className="block p-4 bg-white/[0.02] hover:bg-white/[0.06] transition-colors group text-left border-b border-white/10"
+										onClick={() => handleNavLinkClick('Ver Todas las Soluciones')}
+									>
+										<span className="font-mono text-[9px] uppercase tracking-[0.2em] text-primario block mb-1">
+											[ CATÁLOGO GENERAL ]
+										</span>
+										<span className="font-sans text-xs font-medium text-white block">
+											Hub de Soluciones →
+										</span>
+									</Link>
+
+									{solutionsData.map((sol) => (
 										<Link
-											key={service.slug}
-											href={`/servicios/${service.slug}`}
-											className="block px-6 py-2 text-ghostWhite/70 hover:bg-white/5 hover:text-primario transition-colors text-sm"
-											onClick={() => handleNavLinkClick(service.title)}
+											key={sol.slug}
+											href={`/soluciones/${sol.slug}`}
+											className="block p-4 hover:bg-white/[0.03] transition-colors group text-left"
+											onClick={() => handleNavLinkClick(sol.title)}
 										>
-											{service.title}
+											<span className="font-mono text-[9px] uppercase tracking-[0.2em] text-zinc-500 group-hover:text-primario block mb-1">
+												[ {sol.badge} ]
+											</span>
+											<span className="font-sans text-xs font-normal text-zinc-200 group-hover:text-white block">
+												{sol.title}
+											</span>
 										</Link>
 									))}
 
-									<div className="mt-2 pt-2 border-t border-gray-700 px-3">
-										<Link
-											href="/servicios"
-											className="flex items-center justify-center gap-2 w-full py-2 bg-primario/10 text-primario rounded-xl text-xs font-bold uppercase tracking-widest hover:bg-primario hover:text-white transition-all"
-											onClick={() => handleNavLinkClick('Ver Todos')}
-										>
-											Ver todos los servicios
-											<i className="fa-solid fa-arrow-right text-[10px]"></i>
-										</Link>
-									</div>
+									<Link
+										href="/#planes-ecosistema"
+										className="block p-3.5 bg-black/40 hover:bg-primario hover:text-white transition-colors text-center font-mono text-[10px] text-zinc-400 tracking-widest uppercase"
+										onClick={() => handleNavLinkClick('Comparar Planes')}
+									>
+										Comparar Precios &amp; Estructura →
+									</Link>
 								</motion.div>
 							)}
 						</AnimatePresence>
 					</li>
+
 					<li>
 						<Link
 							href="/proyectos"
-							className={`font-medium transition-colors ${pathname === '/proyectos' ? 'text-primario' : 'text-ghostWhite hover:text-primario'}`}
+							className={`transition-colors ${pathname === '/proyectos' ? 'text-primario font-semibold' : 'text-zinc-400 hover:text-white'
+								}`}
 							onClick={() => handleNavLinkClick('Proyectos')}
 						>
-							Proyectos
+							Casos
 						</Link>
 					</li>
+
 					<li>
 						<Link
 							href="/quienes-somos"
-							className={`font-medium transition-colors ${pathname === '/quienes-somos' ? 'text-primario' : 'text-ghostWhite hover:text-primario'}`}
+							className={`transition-colors ${pathname === '/quienes-somos' ? 'text-primario font-semibold' : 'text-zinc-400 hover:text-white'
+								}`}
 							onClick={() => handleNavLinkClick('Sobre Expansis')}
 						>
-							Sobre Expansis
+							Filosofía
 						</Link>
 					</li>
+
 					<li>
 						<Link
-							href="/contacto"
-							className={`font-medium transition-colors ${pathname === '/contacto' ? 'text-primario' : 'text-ghostWhite hover:text-primario'}`}
-							onClick={() => handleNavLinkClick('Contacto')}
+							href="/blog"
+							className={`transition-colors ${pathname.startsWith('/blog') ? 'text-primario font-semibold' : 'text-zinc-400 hover:text-white'
+								}`}
+							onClick={() => handleNavLinkClick('Blog')}
 						>
-							Contacto
+							Blog
 						</Link>
 					</li>
+
 					<li>
 						<Link
 							href="/faq"
-							className={`font-medium transition-colors ${pathname === '/faq' ? 'text-primario' : 'text-ghostWhite hover:text-primario'}`}
+							className={`transition-colors ${pathname === '/faq' ? 'text-primario font-semibold' : 'text-zinc-400 hover:text-white'
+								}`}
 							onClick={() => handleNavLinkClick('FAQ')}
 						>
 							FAQ
 						</Link>
 					</li>
 
-
-
-					{/* Agrega esta etiqueta li dentro del menú de escritorio */}
-					<li>
-						<Link
-							href="/blog"
-							className={`font-medium transition-colors ${pathname.startsWith('/blog') ? 'text-primario' : 'text-ghostWhite hover:text-primario'}`}
-							onClick={() => handleNavLinkClick('Blog')}
-						>
-							Blog
-						</Link>
-					</li>
 					<li>
 						<button
-							onClick={() => trackWhatsAppClick('nav_desktop', 'Información General')}
-							className="btn-primary py-2.5 px-6 text-sm cursor-pointer"
+							onClick={() => window.dispatchEvent(new Event('open-contact-drawer'))}
+							className="py-2.5 px-5 bg-primario text-white text-[11px] font-mono uppercase tracking-[0.2em] font-medium hover:bg-primario/90 transition-colors cursor-pointer border border-primario"
 						>
 							Cotizar Proyecto
 						</button>
@@ -220,86 +223,101 @@ const Navbar = () => {
 				</ul>
 			</div>
 
-			{/* MENÚ MOBILE */}
+			{/* MENÚ MÓVIL */}
 			<AnimatePresence>
 				{menuOpen && (
 					<motion.div
-						variants={mobileMenuVariants}
-						initial="closed"
-						animate="open"
-						exit="closed"
-						className="md:hidden bg-deepBlue border-t border-gray-800 overflow-hidden"
+						initial={{ opacity: 0, height: 0 }}
+						animate={{ opacity: 1, height: 'auto' }}
+						exit={{ opacity: 0, height: 0 }}
+						className="md:hidden bg-[#07090e] border-t border-white/10"
 					>
-						<ul className="flex flex-col p-8 space-y-8">
-							<li>
-								<Link href="/" className="text-ghostWhite block text-2xl" onClick={() => handleNavLinkClick('Inicio')}>
+						<ul className="flex flex-col p-6 space-y-4 font-mono text-xs uppercase tracking-widest text-left divide-y divide-white/10">
+							<li className="pt-2">
+								<Link href="/" className="text-zinc-300 block py-1" onClick={() => handleNavLinkClick('Inicio')}>
 									Inicio
 								</Link>
 							</li>
-							<li className="space-y-4">
-								<button
-									onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-									className="text-ghostWhite w-full flex justify-between items-center text-2xl font-bold focus:outline-none"
-								>
-									Servicios
-									<motion.i
-										className="fa-solid fa-chevron-down text-xl text-primario"
-										animate={{ rotate: mobileServicesOpen ? 180 : 0 }}
-									/>
-								</button>
 
-								<AnimatePresence>
-									{mobileServicesOpen && (
-										<motion.div
-											variants={subMenuVariants} initial="closed" animate="open" exit="closed"
-											className="grid grid-cols-1 gap-6 ml-2 border-l border-gray-800 pl-6 overflow-hidden"
+							<li className="pt-3">
+								<div className="flex justify-between items-center py-1">
+									<Link
+										href="/soluciones"
+										className="text-white font-mono uppercase"
+										onClick={() => handleNavLinkClick('Hub Soluciones Móvil')}
+									>
+										Soluciones (Hub)
+									</Link>
+									<button
+										onClick={() => setMobileSolutionsOpen(!mobileSolutionsOpen)}
+										className="text-primario px-2 py-1"
+									>
+										{mobileSolutionsOpen ? '▲' : '▼'}
+									</button>
+								</div>
+
+								{mobileSolutionsOpen && (
+									<div className="pl-4 mt-2 space-y-2 border-l border-white/15 py-2">
+										<Link
+											href="/soluciones"
+											className="block text-primario py-1 font-mono text-[11px]"
+											onClick={() => handleNavLinkClick('Ver Catálogo')}
 										>
-											{servicesData.map(service => (
-												<Link key={service.slug} href={`/servicios/${service.slug}`} className="text-ghostWhite/70 text-xl font-light" onClick={() => handleNavLinkClick(service.title)}>
-													{service.title}
-												</Link>
-											))}
-											<Link href="/servicios" className="text-primario font-bold text-lg flex items-center gap-2 pt-4 border-t border-gray-800/50" onClick={() => handleNavLinkClick('Ver Todos')}>
-												Ver todos los servicios <i className="fa-solid fa-arrow-right"></i>
+											→ Ver Todas las Soluciones
+										</Link>
+										{solutionsData.map((sol) => (
+											<Link
+												key={sol.slug}
+												href={`/soluciones/${sol.slug}`}
+												className="block text-zinc-400 hover:text-white py-1 font-sans text-xs capitalize"
+												onClick={() => handleNavLinkClick(sol.title)}
+											>
+												{sol.title}
 											</Link>
-										</motion.div>
-									)}
-								</AnimatePresence>
+										))}
+									</div>
+								)}
 							</li>
 
-							<li>
-								<Link href="/proyectos" className="text-ghostWhite block text-lg" onClick={() => handleNavLinkClick('Proyectos')}>
-									Proyectos
+							<li className="pt-3">
+								<Link href="/proyectos" className="text-zinc-300 block py-1" onClick={() => handleNavLinkClick('Proyectos')}>
+									Casos de Éxito
 								</Link>
 							</li>
-							<li><Link href="/quienes-somos" className="text-ghostWhite block text-lg" onClick={() => handleNavLinkClick('Sobre Expansis')}>Sobre Expansis</Link></li>
-							<li><Link href="/contacto" className="text-ghostWhite block text-lg" onClick={() => handleNavLinkClick('Contacto')}>Contacto</Link></li>
-							<li><Link href="/faq" className="text-ghostWhite block text-lg" onClick={() => handleNavLinkClick('FAQ')}>FAQ</Link></li>
-							<li>
-								<Link href="/blog" className="text-ghostWhite block text-lg" onClick={() => handleNavLinkClick('Blog')}>
-									Blog
+
+							<li className="pt-3">
+								<Link href="/quienes-somos" className="text-zinc-300 block py-1" onClick={() => handleNavLinkClick('Sobre Expansis')}>
+									Filosofía
 								</Link>
 							</li>
+
+							<li className="pt-3">
+								<Link href="/blog" className="text-zinc-300 block py-1" onClick={() => handleNavLinkClick('Blog')}>
+									Blog &amp; Recursos
+								</Link>
+							</li>
+
+							<li className="pt-3">
+								<Link href="/faq" className="text-zinc-300 block py-1" onClick={() => handleNavLinkClick('FAQ')}>
+									Preguntas Frecuentes
+								</Link>
+							</li>
+
 							<li className="pt-4">
 								<button
-									className="btn-primary w-full py-5 text-xl shadow-primario/20 cursor-pointer"
+									className="w-full py-4 bg-primario text-white text-xs font-mono uppercase tracking-[0.2em] font-medium"
 									onClick={() => {
 										setMenuOpen(false);
-										trackWhatsAppClick('nav_mobile', 'Información General');
+										window.dispatchEvent(new Event('open-contact-drawer'));
 									}}
 								>
-									<i className="fa-brands fa-whatsapp text-2xl"></i>
-									Cotizar ahora
+									Iniciar Diagnóstico →
 								</button>
 							</li>
-
-
 						</ul>
 					</motion.div>
 				)}
 			</AnimatePresence>
 		</nav>
 	);
-};
-
-export default Navbar;
+}

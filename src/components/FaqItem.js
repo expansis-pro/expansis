@@ -1,50 +1,50 @@
+// src/components/FaqItem.js
 'use client';
 
 import React from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { formatResponseText } from '@/utils/faqFormatter';
 
-const FaqItem = ({ question, answer, isOpen, onToggle }) => {
+export default function FaqItem({ question, answer, isOpen, onToggle, index }) {
+    const formattedIndex = typeof index === 'number' ? (index + 1).toString().padStart(2, '0') : null;
+
     return (
-        <div
-            className={`transition-all duration-300 rounded-2xl mb-4 border ${isOpen
-                    ? 'border-primario bg-ghostWhite shadow-sm'
-                    : 'border-gray-200 bg-white hover:border-gray-300'
-                }`}
-        >
+        <div className={`border transition-all duration-200 ${isOpen ? 'border-white/30 bg-[#0f1420]' : 'border-white/10 bg-[#0d121d] hover:border-white/20'}`}>
             <button
                 onClick={onToggle}
                 aria-expanded={isOpen}
-                className="w-full flex justify-between items-center text-left p-5 focus:outline-none"
+                className="w-full flex justify-between items-start text-left p-6 sm:p-7 focus:outline-none cursor-pointer gap-4"
             >
-                <span className={`text-lg font-medium transition-colors duration-300 ${isOpen ? 'text-primario' : 'text-deepBlue'}`}>
-                    {question}
-                </span>
-
-                <span className={`flex-shrink-0 ml-4 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}>
-                    <svg
-                        className={`w-6 h-6 ${isOpen ? 'text-primario' : 'text-gray-400'}`}
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                    >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
+                <div className="flex items-start gap-4">
+                    {formattedIndex && (
+                        <span className="font-mono text-xs text-primario mt-0.5 select-none shrink-0">
+                            {formattedIndex}.
+                        </span>
+                    )}
+                    <h3 className={`text-base sm:text-lg font-normal tracking-wide transition-colors ${isOpen ? 'text-white font-medium' : 'text-zinc-200'}`}>
+                        {question}
+                    </h3>
+                </div>
+                <span className={`font-mono text-xs mt-1 shrink-0 ${isOpen ? 'text-primario' : 'text-zinc-500'}`}>
+                    {isOpen ? '[—]' : '[+]'}
                 </span>
             </button>
 
-            <div
-                className={`grid transition-all duration-500 ease-in-out ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
-                    }`}
-            >
-                <div className="overflow-hidden">
-                    <div className="px-5 pb-6 text-gray-600 font-light leading-relaxed">
-                        <div className="pt-4 border-t border-gray-100">
-                            {answer}
+            <AnimatePresence initial={false}>
+                {isOpen && (
+                    <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.22, ease: 'easeOut' }}
+                        className="overflow-hidden"
+                    >
+                        <div className="px-6 pb-6 sm:px-7 sm:pb-7 pt-2 border-t border-white/5 text-zinc-300 font-light text-xs sm:text-sm leading-relaxed space-y-3">
+                            {formatResponseText ? formatResponseText(answer) : <p>{answer}</p>}
                         </div>
-                    </div>
-                </div>
-            </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </div>
     );
-};
-
-export default FaqItem;
+}

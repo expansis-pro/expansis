@@ -1,0 +1,22 @@
+// src/app/template.js
+'use client';
+
+import React from 'react';
+import { motion } from 'framer-motion';
+
+export default function Template({ children }) {
+    return (
+        <motion.div
+            initial={{ opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -6 }}
+            transition={{
+                duration: 0.28,
+                ease: [0.22, 1, 0.36, 1], // Curva de desaceleración suave
+            }}
+            className="w-full flex-grow flex flex-col bg-[#07090e]"
+        >
+            {children}
+        </motion.div>
+    );
+}

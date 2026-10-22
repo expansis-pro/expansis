@@ -139,8 +139,8 @@
 .animate-slideUp {
 	animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; /* Curva suave de desaceleración */
 }
-/* 🚀 FUERZA EL PESO CORPORATIVO PREMIUM PARA TODAS LAS ETIQUETAS STRONG DEL SITIO */
+/* ✅ Por esto (Blanco corporativo con alto contraste y peso nítido): */
 strong {
-	font-weight: 500 !important; /* Fuerza el grosor Bold (700) sin importar el contenedor */
-	@apply text-deepBlue; /* Opcional: Le da tu color corporativo para que resalte aún más */
+	font-weight: 600 !important;
+	@apply text-ghostWhite;
 }

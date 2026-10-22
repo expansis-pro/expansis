@@ -1,9 +1,8 @@
+// src/app/faq/page.js
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import FaqItem from '@/components/FaqItem';
-import SecondaryHero from '@/components/SecondaryHero';
 import JsonLd from '@/components/SEO/JsonLd';
 import CallToAction from '@/components/CallToAction';
 
@@ -14,14 +13,17 @@ export default function FaqsPage() {
     const [loading, setLoading] = useState(true);
     const [openIndex, setOpenIndex] = useState(null);
     const [showAll, setShowAll] = useState(false);
-    const initialFaqsToShow = 4;
+    const initialFaqsToShow = 5;
 
     useEffect(() => {
         fetch(`${API_URL}/api/faq`)
             .then(res => res.json())
             .then(res => {
-                if (res.success) {
+                // ✅ Extraemos el arreglo de res.data, igual que lo tenías originalmente
+                if (res.success && Array.isArray(res.data)) {
                     setFaqData(res.data);
+                } else {
+                    setFaqData([]);
                 }
                 setLoading(false);
             })
@@ -35,134 +37,98 @@ export default function FaqsPage() {
         setOpenIndex(openIndex === index ? null : index);
     };
 
-    const handleShowAllToggle = () => {
-        setShowAll(!showAll);
-    };
+    const displayedFaqs = showAll ? faqData : faqData.slice(0, initialFaqsToShow);
 
-    const parseBoldText = (text) => {
-        const parts = text.split(/(\*\*?.*?\*\*?)/g);
-        return parts.map((part, i) => {
-            if (part.startsWith('*') && part.endsWith('*')) {
-                return <strong key={i} className="font-semibold text-gray-900">{part.replace(/\*/g, '')}</strong>;
-            }
-            return part;
-        });
-    };
-
-    const formatResponseText = (text) => {
-        if (!text) return null;
-        return text.split('\n').map((line, index) => {
-            let trimmed = line.trim();
-            if (!trimmed) return <div key={index} className="h-2" />;
-            if (trimmed.startsWith('•')) {
-                return (
-                    <ul key={index} className="list-disc pl-5 my-1 text-gray-700">
-                        <li>{parseBoldText(trimmed.substring(1).trim())}</li>
-                    </ul>
-                );
-            }
-            return <p key={index} className="text-justify mb-2 text-gray-700">{parseBoldText(trimmed)}</p>;
-        });
-    };
-
+    // Estado de Carga Oscuro
     if (loading) {
         return (
-            <div className="min-h-screen flex items-center justify-center bg-deepBlue text-white">
-                <p className="animate-pulse">Sincronizando base de conocimiento...</p>
-            </div>
+            <main className="min-h-screen bg-[#07090e] text-white flex flex-col items-center justify-center font-mono">
+                <div className="w-10 h-10 border-2 border-primario border-t-transparent animate-spin mb-4" />
+                <span className="text-xs uppercase tracking-[0.2em] text-zinc-500">
+                    Sincronizando Base de Preguntas...
+                </span>
+            </main>
         );
     }
 
     return (
-        <main className="min-h-screen">
+        <main className="min-h-screen bg-[#07090e] text-white">
+            {/* Schema SEO para Google FAQ */}
             <JsonLd
-                id="faqs-page-schema"
+                type="FAQPage"
                 data={{
-                    "@context": "https://schema.org",
-                    "@type": "FAQPage",
-                    "mainEntity": faqData.map(faq => ({
+                    mainEntity: faqData.map(item => ({
                         "@type": "Question",
-                        "name": faq.pregunta,
+                        "name": item.pregunta,
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": faq.respuesta
+                            "text": item.respuesta
                         }
                     }))
                 }}
             />
 
-            <SecondaryHero
-                title="Preguntas Frecuentes"
-                subtitle="Si no encuentras tu respuesta, no dudes en escribirnos. Estamos para ayudarte."
-                icon="fa-solid fa-circle-question"
-            />
+            {/* Cabecera Técnica */}
+            <section className="relative pt-36 pb-20 px-4 border-b border-white/10 bg-[#0a0d14] overflow-hidden">
+                <div className="container-pro max-w-4xl mx-auto relative z-10 text-left">
+                    <span className="font-mono text-xs uppercase tracking-[0.25em] text-primario block mb-3">
+                        [ CENTRO DE CONSULTA &amp; TRANSPARENCIA ]
+                    </span>
+                    <h1 className="text-3xl sm:text-5xl md:text-6xl font-light tracking-tight text-white mb-6">
+                        Preguntas Frecuentes
+                    </h1>
+                    <p className="text-sm sm:text-base text-zinc-400 font-light max-w-2xl leading-relaxed">
+                        Respuestas directas sobre nuestros programas de ingeniería web, modelos de cobro, gestión de pauta y entrega de repositorios.
+                    </p>
+                </div>
+            </section>
 
-            <section className="py-16 px-4 bg-white">
-                <div className="max-w-4xl mx-auto">
-                    <div className="space-y-2">
-                        {faqData.slice(0, initialFaqsToShow).map((faq, index) => (
+            {/* Listado de Preguntas */}
+            <section className="py-20 px-4 border-b border-white/10">
+                <div className="container-pro max-w-4xl mx-auto">
+                    <div className="flex items-center justify-between pb-6 mb-8 border-b border-white/10 font-mono text-xs">
+                        <span className="text-zinc-500 uppercase tracking-wider">
+                            REGISTROS DISPONIBLES: [{faqData.length}]
+                        </span>
+                        <span className="text-primario uppercase tracking-wider hidden sm:block">
+                            DESPLIEGUE MODULAR
+                        </span>
+                    </div>
+
+                    <div className="space-y-3">
+                        {displayedFaqs.map((faq, index) => (
                             <FaqItem
                                 key={faq.id || index}
+                                index={index}
                                 question={faq.pregunta}
-                                answer={formatResponseText(faq.respuesta)}
+                                answer={faq.respuesta}
                                 isOpen={openIndex === index}
                                 onToggle={() => handleToggle(index)}
                             />
                         ))}
-
-                        <AnimatePresence>
-                            {showAll && (
-                                <motion.div
-                                    key="extra-content"
-                                    initial={{ opacity: 0, height: 0 }}
-                                    animate={{
-                                        opacity: 1,
-                                        height: 'auto',
-                                        transition: { height: { duration: 0.5, ease: "easeInOut" }, opacity: { duration: 0.3 } }
-                                    }}
-                                    exit={{
-                                        opacity: 0,
-                                        height: 0,
-                                        transition: { height: { duration: 0.4, ease: "easeInOut" }, opacity: { duration: 0.2 } }
-                                    }}
-                                    className="overflow-hidden"
-                                >
-                                    <div className="space-y-2 pt-2">
-                                        {faqData.slice(initialFaqsToShow).map((faq, index) => (
-                                            <FaqItem
-                                                key={faq.id || (index + initialFaqsToShow)}
-                                                question={faq.pregunta}
-                                                answer={formatResponseText(faq.respuesta)}
-                                                isOpen={openIndex === (index + initialFaqsToShow)}
-                                                onToggle={() => handleToggle(index + initialFaqsToShow)}
-                                            />
-                                        ))}
-                                    </div>
-                                </motion.div>
-                            )}
-                        </AnimatePresence>
                     </div>
 
-                    <div className="text-center mt-12 flex flex-col items-center gap-8">
-                        {faqData.length > initialFaqsToShow && (
+                    {/* Botón de Expansión Estilo Terminal */}
+                    {faqData.length > initialFaqsToShow && (
+                        <div className="text-center mt-12">
                             <button
-                                onClick={handleShowAllToggle}
-                                className="group flex items-center gap-2 text-primario hover:text-deepBlue transition-colors cursor-pointer"
+                                onClick={() => setShowAll(!showAll)}
+                                className="py-3.5 px-8 border border-white/20 text-zinc-300 text-xs font-mono uppercase tracking-[0.18em] hover:bg-white hover:text-black transition-all cursor-pointer inline-flex items-center gap-3"
                             >
-                                {showAll ? 'Ver menos preguntas' : 'Ver más preguntas'}
-                                <i className={`fa-solid fa-chevron-down transition-transform duration-300 ${showAll ? 'rotate-180' : ''}`}></i>
+                                <span>{showAll ? 'Ver Menos Preguntas' : `Cargar Más Consultas (${faqData.length - initialFaqsToShow})`}</span>
+                                <span className="text-primario font-bold">{showAll ? '▲' : '▼'}</span>
                             </button>
-                        )}
-                    </div>
+                        </div>
+                    )}
                 </div>
-
-                <CallToAction
-                    source="FAQs - Final de Página"
-                    serviceName="Información General"
-                    title="¿No encontraste lo que buscabas?"
-                    description="Hablemos de tu proyecto. Elige la opción que más te acomode."
-                />
             </section>
+
+            <CallToAction
+                source="Página de Preguntas Frecuentes"
+                serviceName="Información General"
+                title="¿Tienes una duda técnica particular?"
+                description="Escríbenos directamente o agenda una sesión de evaluación para revisar la factibilidad de tu proyecto sin compromiso."
+            />
         </main>
     );
 }

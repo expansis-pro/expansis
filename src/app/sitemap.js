@@ -1,4 +1,4 @@
-import { servicesData } from '@/data/servicesData';
+import { solutionsData } from '@/data/solutionsData';
 import { blogPosts } from '@/data/blogData';
 
 export default async function sitemap() {
@@ -7,7 +7,7 @@ export default async function sitemap() {
     // Rutas estáticas principales
     const routes = [
         '',
-        '/servicios',
+        '/soluciones',
         '/proyectos',
         '/quienes-somos',
         '/contacto',
@@ -20,9 +20,9 @@ export default async function sitemap() {
         priority: route === '' ? 1.0 : 0.8,
     }));
 
-    // Rutas dinámicas de los servicios
-    const serviceRoutes = servicesData.map((service) => ({
-        url: `${baseUrl}/servicios/${service.slug}`,
+    // Rutas dinámicas de soluciones activas
+    const solutionRoutes = solutionsData.map((solution) => ({
+        url: `${baseUrl}/soluciones/${solution.slug}`,
         lastModified: new Date().toISOString(),
         changeFrequency: 'weekly',
         priority: 0.9,
@@ -36,5 +36,6 @@ export default async function sitemap() {
             changeFrequency: 'monthly',
             priority: 0.7,
         }));
-    return [...routes, ...serviceRoutes, ...blogRoutes];
+
+    return [...routes, ...solutionRoutes, ...blogRoutes];
 }

@@ -1,73 +1,82 @@
+// src/components/RecentPosts.js
 'use client';
 import React from 'react';
 import Link from 'next/link';
 import { blogPosts } from '@/data/blogData';
-import BlogImage from '@/components/BlogImage'; // 👈 Importamos el componente
+import BlogImage from '@/components/BlogImage';
 
 export default function RecentPosts() {
     const recent = blogPosts.filter((post) => post.status === "aprobado").slice(0, 3);
 
     return (
-        <section id="recent-posts" className="section-padding bg-ghostWhite">
-            <div className="container-pro">
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4">
+        <section id="recent-posts" className="py-24 bg-[#0a0d14] text-white border-b border-white/10">
+            <div className="container-pro max-w-6xl mx-auto px-4">
+
+                {/* Cabecera Técnica */}
+                <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-8 border-b border-white/10 gap-6">
                     <div>
-                        <span className="text-primario text-xs font-extrabold uppercase tracking-[0.2em] block mb-2">
-                            Artículos &amp; Estrategia
+                        <span className="font-mono text-xs uppercase tracking-[0.25em] text-primario block mb-2">
+                            [ DIVULGACIÓN TÉCNICA &amp; ESTRATEGIA ]
                         </span>
-                        <h2 className="text-deepBlue mb-0">
-                            Últimas Publicaciones del <span className="text-primario">Blog</span>
+                        <h2 className="text-3xl md:text-5xl font-light tracking-tight text-white">
+                            Publicaciones del Blog
                         </h2>
                     </div>
                     <Link
                         href="/blog"
-                        className="group inline-flex items-center gap-2 text-deepBlue font-bold hover:text-primario transition-colors text-sm uppercase tracking-wider"
+                        className="font-mono text-xs uppercase tracking-[0.18em] text-zinc-400 hover:text-white flex items-center gap-2 transition-colors"
                     >
-                        Ver todos los artículos
-                        <i className="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+                        <span>Ver Registro Completo</span>
+                        <span>→</span>
                     </Link>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {recent.map((post) => (
+                {/* Grilla Modular de Artículos */}
+                <div className="grid grid-cols-1 md:grid-cols-3 border border-white/15 divide-y md:divide-y-0 md:divide-x divide-white/15 bg-[#0f1420]">
+                    {recent.map((post, idx) => (
                         <Link
                             key={post.id}
                             href={`/blog/${post.slug}`}
-                            className="group bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col h-full cursor-pointer"
+                            className="group flex flex-col justify-between hover:bg-white/[0.02] transition-colors"
                         >
-                            <div className="relative aspect-video overflow-hidden bg-deepBlue/5">
-                                {/* Componente BlogImage optimizado */}
+                            {/* Imagen Rectangular */}
+                            <div className="relative aspect-[16/10] overflow-hidden border-b border-white/10 bg-black">
                                 <BlogImage
                                     src={post.image}
                                     alt={post.title}
-                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                                    className="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-300"
                                 />
-                                <span className="absolute top-4 left-4 bg-deepBlue/90 backdrop-blur-sm text-ghostWhite text-[9px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                                <span className="absolute top-3 left-3 bg-black/90 px-2 py-0.5 border border-white/20 font-mono text-[10px] uppercase tracking-wider text-zinc-300">
                                     {post.category}
                                 </span>
                             </div>
-                            <div className="p-6 flex flex-col flex-grow justify-between">
+
+                            {/* Contenido */}
+                            <div className="p-6 flex-1 flex flex-col justify-between">
                                 <div>
-                                    <div className="flex items-center gap-2 text-xs text-gray-400 font-light mb-3">
-                                        <span>{post.date}</span>
-                                        <span>&bull;</span>
+                                    <div className="font-mono text-[10px] text-zinc-500 uppercase tracking-widest mb-3 flex items-center justify-between">
+                                        <span>[0{idx + 1}]</span>
                                         <span>{post.readTime}</span>
                                     </div>
-                                    <h3 className="text-deepBlue text-xl font-bold mb-3 group-hover:text-primario transition-colors leading-snug">
+
+                                    <h3 className="text-base sm:text-lg font-normal text-white group-hover:text-primario transition-colors mb-3 leading-snug">
                                         {post.title}
                                     </h3>
-                                    <p className="text-gray-500 text-sm font-light leading-relaxed line-clamp-3 mb-4">
+
+                                    <p className="text-xs text-zinc-400 font-light leading-relaxed line-clamp-3 mb-6">
                                         {post.excerpt}
                                     </p>
                                 </div>
-                                <div className="pt-4 border-t border-gray-100 flex items-center justify-between text-xs font-bold uppercase tracking-wider group-hover:text-primario text-deepBlue transition-colors">
-                                    <span>Leer artículo</span>
-                                    <i className="fa-solid fa-chevron-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
+
+                                <div className="pt-4 border-t border-white/10 flex items-center justify-between font-mono text-[11px] text-zinc-500 group-hover:text-white transition-colors">
+                                    <span>LEER ARTÍCULO</span>
+                                    <span>→</span>
                                 </div>
                             </div>
                         </Link>
                     ))}
                 </div>
+
             </div>
         </section>
     );

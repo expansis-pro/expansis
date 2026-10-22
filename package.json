@@ -16,13 +16,13 @@
     "@testing-library/user-event": "^13.5.0",
     "analytics": "^0.8.16",
     "axios": "^1.16.0",
-    "emailjs-com": "^3.2.0",
     "firebase": "^11.3.1",
     "framer-motion": "^12.23.3",
     "next": "^16.3.1",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "react-google-recaptcha": "^3.1.0",
+    "resend": "^6.34.1",
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {

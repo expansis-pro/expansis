@@ -1,8 +1,10 @@
+// app/layout.js
 import { Montserrat } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import WhatsAppFloating from '@/components/WhatsAppFloating';
+import ContactFloating from '@/components/ContactFloating'; // 👈 Reemplazo de WhatsAppFloating
+import ContactDrawer from '@/components/ContactDrawer';     // 👈 Montaje del Panel Off-Canvas
 import AgencySchema from '@/components/SEO/AgencySchema';
 
 const montserrat = Montserrat({
@@ -15,25 +17,12 @@ export const metadata = {
     title: 'Expansis Pro | Agencia de Desarrollo Web y Marketing Digital en Chile',
     description: 'Soluciones digitales a marcas y personas individuales.',
     metadataBase: new URL('https://expansispro.com'),
-    icons: {
-        icon: [
-            { url: '/favicon.ico', sizes: 'any' },
-            { url: '/favicon/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-            { url: '/favicon/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-        ],
-        apple: [
-            { url: '/favicon/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
-        ],
-    },
-    manifest: '/site.webmanifest',
 };
 
 export default function RootLayout({ children }) {
     return (
         <html lang="es" className={montserrat.className}>
-
             <head>
-                {/* 🟢 INYECCIÓN DE FONT AWESOME PARA VISUALIZAR LOS ÍCONOS */}
                 <link
                     rel="stylesheet"
                     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -42,15 +31,14 @@ export default function RootLayout({ children }) {
                     referrerPolicy="no-referrer"
                 />
             </head>
-
-            {/* 🟢 CORRECCIÓN: Usamos bg-ghostWhite y text-gray-800 para recuperar el fondo claro original */}
-            <body className="bg-ghostWhite text-gray-800 min-h-screen flex flex-col antialiased">
+            <body className="bg-[#07090e] text-white min-h-screen flex flex-col antialiased selection:bg-primario selection:text-white">
                 <AgencySchema />
                 <Navbar />
-                <main className="flex-grow">
+                <main className="flex-grow flex flex-col bg-[#07090e]">
                     {children}
                 </main>
-                <WhatsAppFloating />
+                <ContactFloating />
+                <ContactDrawer />
                 <Footer />
             </body>
         </html>

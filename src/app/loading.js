@@ -1,3 +1,4 @@
+// src/app/loading.js
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -8,19 +9,19 @@ export default function Loading() {
     useEffect(() => {
         const timer = setTimeout(() => {
             setShowDelayedMessage(true);
-        }, 20000);
+        }, 15000);
 
         return () => clearTimeout(timer);
     }, []);
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen text-gray-700">
-            <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-primario mb-4"></div>
-            <p className="text-xl font-semibold">Cargando contenido...</p>
+        <div className="flex flex-col items-center justify-center min-h-[70vh] bg-[#07090e] text-zinc-300 font-mono">
+            <div className="animate-spin rounded-none h-12 w-12 border-2 border-primario border-t-transparent mb-4"></div>
+            <p className="text-xs uppercase tracking-[0.2em] text-zinc-400">Cargando infraestructura...</p>
 
             {showDelayedMessage && (
-                <p className="text-sm text-gray-400 mt-4 animate-fade-in">
-                    Esto puede demorar unos minutos en conexiones lentas.
+                <p className="text-[11px] text-zinc-600 mt-4 font-mono animate-fadeIn">
+                    [ CONEXIÓN LENTA: SINCRONIZANDO DATOS ]
                 </p>
             )}
         </div>

@@ -1,3 +1,4 @@
+// app/page.js
 import React from 'react';
 import { servicesData } from '@/data/servicesData';
 import CarouselItem from '@/components/CarouselItem';
@@ -8,16 +9,19 @@ import CtaButton from '@/components/CtaButton';
 import CallToAction from '@/components/CallToAction';
 import RecentPosts from '@/components/RecentPosts';
 import HeroAnimation from '@/components/HeroAnimation';
+import EcosystemFlow from '@/components/EcosystemFlow';
+import EcosystemPricing from '@/components/EcosystemPricing';
+import HomeSolutionsFinder from '@/components/HomeSolutionsFinder';
 
 export const metadata = {
-    title: "Expansis Pro | Agencia de Desarrollo Web y Marketing Digital en Chile",
-    description: "Estructuras digitales sólidas para tu negocio. Desarrollamos canales digitales a medida para empresas y marcas que necesitan transmitir confianza real con ingeniería técnica y estrategia de conversión.",
+    title: "Expansis Pro | Canales Digitales y Performance en Chile",
+    description: "Infraestructuras digitales completas: desarrollo web en React, captación con Google/Meta Ads y telemetría avanzada para especialistas, empresas B2B y comercio electrónico.",
     alternates: {
         canonical: 'https://expansispro.com',
     },
     openGraph: {
-        title: "Expansis Pro | Agencia de Desarrollo Web y Marketing Digital en Chile",
-        description: "Estructuras digitales sólidas para tu negocio. Desarrollamos canales digitales a medida para empresas y marcas que necesitan transmitir confianza real.",
+        title: "Expansis Pro | Ecosistemas Digitales para Empresas y Especialistas",
+        description: "Construimos canales digitales a medida donde tu infraestructura web y tus campañas publicitarias operan en conjunto para generar crecimiento predecible.",
         url: 'https://expansispro.com',
         siteName: 'Expansis Pro',
         locale: 'es_CL',
@@ -25,16 +29,16 @@ export const metadata = {
     },
     twitter: {
         card: 'summary_large_image',
-        title: "Expansis Pro | Agencia de Desarrollo Web y Marketing Digital en Chile",
-        description: "Estructuras digitales sólidas para tu negocio. Desarrollamos canales digitales a medida para empresas y marcas que necesitan transmitir confianza real.",
+        title: "Expansis Pro | Ecosistemas Digitales y Ads",
+        description: "Desarrollo web corporativo, adquisición pagada y analítica en tiempo real.",
     },
 };
 
 export default function Home() {
     return (
         <>
-            {/* --- HERO SECTION CON VIDEO --- */}
-            <section id="home" className="relative h-[85vh] min-h-[600px] flex items-center justify-start md:justify-center overflow-hidden bg-deepBlue px-6">
+            {/* --- 1. HERO SECTION CON VIDEO DE FONDO --- */}
+            <section id="home" className="relative h-[85vh] min-h-[620px] flex items-center justify-start md:justify-center overflow-hidden bg-[#07090e] px-6 border-b border-white/10">
                 <video
                     autoPlay
                     loop
@@ -42,104 +46,76 @@ export default function Home() {
                     playsInline
                     poster="/assets/images/hero-poster.webp"
                     fetchPriority="high"
-                    className="absolute inset-0 z-0 w-full h-full object-cover opacity-40 brightness-[0.7]"
+                    className="absolute inset-0 z-0 w-full h-full object-cover opacity-25 brightness-[0.6] grayscale"
                 >
                     <source src="/assets/videos/hero-expansis.mp4" type="video/mp4" />
                 </video>
 
-                <div className="absolute inset-0 z-10 bg-gradient-to-b from-deepBlue/20 via-deepBlue/40 to-deepBlue"></div>
+                {/* Filtro lineal sutil en lugar de degradado radial */}
+                <div className="absolute inset-0 z-10 bg-gradient-to-b from-[#07090e]/40 via-[#07090e]/70 to-[#07090e]"></div>
 
-                <div className="relative z-20 max-w-4xl md:mx-auto">
+                <div className="relative z-20 max-w-5xl md:mx-auto w-full">
                     <HeroAnimation>
-                        <h1 className="text-ghostWhite drop-shadow-lg text-3xl md:text-4xl leading-tight">
-                            Agencia de Desarrollo Web y Marketing Digital<br />
-                            <span className="text-primario italic font-semibold text-2xl md:text-3xl">Estructuras digitales sólidas para tu negocio</span>
+                        <div className="flex items-center gap-2 mb-6">
+                            <span className="w-2 h-2 bg-primario animate-pulse" />
+                            <span className="font-mono text-xs uppercase tracking-[0.25em] text-zinc-300">
+                                SISTEMA INTEGRAL DE ADQUISICIÓN &amp; DESARROLLO WEB
+                            </span>
+                        </div>
+
+                        <h1 className="text-white text-3xl sm:text-5xl md:text-6xl font-light tracking-tight leading-[1.1] mb-6">
+                            Canales digitales<br className="hidden sm:block" />{" "}
+                            <span className="text-white font-medium border-b-2 border-primario pb-0">sintonizados con tu objetivo</span>
                         </h1>
 
-                        <p className="hero-paragraph">
-                            En Expansis Pro desarrollamos canales digitales a medida para empresas y marcas que necesitan transmitir confianza real.
+                        <p className="text-zinc-400 text-base sm:text-lg mb-10 max-w-2xl font-light leading-relaxed">
+                            Desarrollo Web  en React y Shopify, captación activa en Google/Meta Ads y control de rentabilidad en tiempo real. Cero piezas sueltas: un solo ecosistema digital.
                         </p>
 
-                        <div className="hero-actions">
+                        <div className="flex flex-col sm:flex-row gap-4">
                             <CtaButton
-                                scrollTo="services-home"
+                                scrollTo="planes-ecosistema"
                                 variant="primary"
                                 category="Home"
-                                label="Boton Ver Servicios"
+                                label="Boton Ver Planes"
                             >
-                                Nuestros Servicios
+                                Soluciones →
+                            </CtaButton>
+
+                            <CtaButton
+                                scrollTo="ecosystem-flow"
+                                variant="secondary"
+                                category="Home"
+                                label="Boton Ver Metodologia"
+                            >
+                                Flujo de Trabajo →
                             </CtaButton>
                         </div>
                     </HeroAnimation>
                 </div>
             </section>
 
-            {/* --- SECCIÓN DE SERVICIOS --- */}
-            <section id="services-home" className="section-padding">
-                <div className="container-pro">
-                    <h2 className="mb-4">Servicios de Creación de Canales Digitales</h2>
-                    <p className="section-subtitle">
-                        Soluciones integrales para potenciar tu negocio en el mundo digital.
-                    </p>
-                </div>
+            {/* --- 2. EL MÉTODO: Flujo del Ecosistema --- */}
+            <div id="ecosystem-flow">
+                <EcosystemFlow />
+            </div>
 
-                <CardCarousel>
-                    {servicesData.map((service, index) => (
-                        <CarouselItem
-                            key={index}
-                            title={service.title}
-                            description={service.description}
-                            image={service.image}
-                            category={service.category}
-                            slug={service.slug}
-                        />
-                    ))}
-                </CardCarousel>
+            {/* --- 3. LA OFERTA PRINCIPAL: Planes por Perfil de Cliente --- */}
+            <EcosystemPricing />
 
-                <div className="mt-12 text-center">
-                    <CtaButton
-                        to="/servicios"
-                        variant="outline"
-                        category="Home"
-                        label="Boton Ver Todos Los Servicios"
-                        className="group inline-flex items-center gap-3"
-                    >
-                        Ver todos los servicios
-                        <i className="fa-solid fa-arrow-right transition-transform group-hover:translate-x-2"></i>
-                    </CtaButton>
-                </div>
-            </section>
 
-            {/* --- SECCIÓN AUDIENCIA Y VIDEO DEMO --- */}
-            <section id="home-target">
-                <ImageTextCTA
-                    imageDesktop="/assets/images/expansisPro_target.webp"
-                    alt="Público objetivo y clientes de la agencia Expansis Pro en Chile"
-                    subtitle="PERFIL COMERCIAL"
-                    title="Estructuras Digitales con Foco en la Conversión y el Negocio"
-                    trackLocation="commercial_profile"
-                    text={[
-                        "Expansis Pro impulsa a personas, marcas e instituciones que buscan iniciar o avanzar en su transformación digital mediante activos web de alta conversión. Desarrollamos canales a medida, optimizados para la difusión institucional o la automatización de ventas.",
-                        "Unificamos consultoría estratégica e ingeniería técnica para proyectar la solidez de tu operación, garantizando que tu ecosistema digital traduzca cada visita en oportunidades de negocio reales."
-                    ]}
-                    vimeoId="1196058571"
-                    imageSide="right"
-                    showWhatsAppButton={true}
-                    whatsAppButtonContent="Cotizar Proyecto"
-                    whatsAppButtonLink="https://wa.me/56988318443?text=Hola%20Expansis%20Pro%2C%20me%20gustar%C3%ADa%20saber%20si%20sus%20servicios%20se%20adaptan%20a%20mi%20modelo%20de%20negocio."
-                    secondaryButtonContent="Ver Especialidades"
-                    secondaryButtonLink="/servicios"
-                    secondaryButtonVariant="outline"
-                />
-            </section>
-
+            {/* --- 5. CASOS DE ÉXITO --- */}
             <ProjectSection
                 title="Casos de Éxito"
                 subtitle="Mira cómo hemos aplicado nuestra ingeniería en diversos ecosistemas digitales."
                 selectedIds={["estudio-brkovic", "2v-express", "lobos-miniexcavadoras"]}
                 showCta={true}
             />
+
+            {/* --- 6. ARTÍCULOS RECIENTES --- */}
             <RecentPosts />
+
+            {/* --- 7. DETRÁS DE LA ESTRATEGIA (TEASER) --- */}
             <section id="about-teaser">
                 <ImageTextCTA
                     imageDesktop="/assets/images/expansisPro_aboutus.webp"
@@ -161,15 +137,16 @@ export default function Home() {
                 />
             </section>
 
-            <section className="pb-8 px-4">
-                <div className="max-w-4xl mx-auto">
-                    <CallToAction
-                        source="Home - Final de Página"
-                        title="¿Listo para dar el salto?"
-                        description="Hablemos de tu proyecto. Elige la opción que más te acomode."
-                    />
-                </div>
-            </section>
+            {/* --- 8. CIERRE / FORMULARIO GLOBAL --- */}
+
+
+            <CallToAction
+                source="Home - Final de Página"
+                title="¿Listo para dar el salto?"
+                description="Hablemos de tu proyecto. Completa el formulario y analizaremos tu caso."
+            />
+
+
         </>
     );
 }

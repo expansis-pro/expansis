@@ -21,11 +21,11 @@ export const formatResponseText = (text) => {
         if (!trimmed) return <div key={index} className="h-2" />;
         if (trimmed.startsWith('•')) {
             return (
-                <ul key={index} className="list-disc pl-5 my-1 text-gray-700">
+                <ul key={index} className="list-disc pl-5 my-1">
                     <li>{parseBoldText(trimmed.substring(1).trim())}</li>
                 </ul>
             );
         }
-        return <p key={index} className="text-justify mb-2 text-gray-700">{parseBoldText(trimmed)}</p>;
+        return <p key={index} className="text-justify mb-2 ">{parseBoldText(trimmed)}</p>;
     });
 };

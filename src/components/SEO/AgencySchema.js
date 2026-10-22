@@ -30,7 +30,7 @@ export default function AgencySchema() {
         // 🌟 CORREGIDO: El catálogo ahora se genera SOLO con tus servicios activos en la data
         'hasOfferCatalog': {
             '@type': 'OfferCatalog',
-            'name': 'Servicios de Tecnología y Marketing Digital',
+            'name': 'Soluciones de Tecnología y Marketing Digital',
             'itemListElement': servicesData.map((service) => ({
                 '@type': 'Offer',
                 'itemOffered': {

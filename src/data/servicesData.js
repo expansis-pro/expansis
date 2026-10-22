@@ -4,330 +4,376 @@ export const servicesData = [
     {
         slug: "desarrollo-web",
         icon: "fa-solid fa-code",
-        title: "Desarrollo Web",
-        description: "Construimos tu activo digital más importante mediante un proceso de Arquitectura Coherente.",
-        longDescription: "En Expansis Pro co-construimos canales digitales de contacto diseñados como ecosistemas vivos que integran tu identidad real con plataformas digitales escalables, sostenibles y adaptables.",
-
-        // 🌟 1. CONTENIDO SEO
+        title: "Canal Digital Corporativo (React)",
+        description: "Construimos el activo digital central de tu negocio: interfaces rápidas, solemnes y diseñadas para convertir visitas en prospectos B2B.",
+        longDescription: "Diseñamos y programamos plataformas corporativas a medida en React. Eliminamos plantillas lentas y vulnerabilidades de CMS tradicionales, asegurando una infraestructura sólida que proyecta autoridad y maximiza la tasa de conversión.",
         seo: {
-            title: "Diseño y Desarrollo Web Profesional | Expansis Pro",
-            description: "Creamos tu sitio web corporativo a medida en React. Páginas rápidas, seguras y con optimización SEO base para Google en Chile."
+            title: "Desarrollo de Canales Digitales y Sitios Web en React | Expansis Pro",
+            description: "Infraestructura web corporativa de alto rendimiento en React. Carga ultrarrápida, SEO técnico y diseño centrado en captación de leads en Chile."
         },
-
-        // 🌟 2. SECCIÓN EXPLICATIVA DE VIDEO
         videoSection: {
             subtitle: "Ingeniería en React",
-            title: "Páginas Web en React: El Usuario al Centro del Negocio",
+            title: "El Activo Digital: La Base de Tu Operación Online",
             imageDesktop: "/assets/images/desarrollo-web.webp",
-            alt: "Desarrollo Web Profesional Expansis Pro",
+            alt: "Desarrollo de Canal Digital Corporativo Expansis Pro",
             imageSide: "left",
             vimeoId: "1196058571",
             text: [
-                "En Expansis Pro tratamos tu presencia digital como un ecosistema integrado, donde la velocidad de carga, la psicología de conversión y el posicionamiento trabajan bajo un mismo objetivo técnico.",
-                "Estructuramos sitios web corporativos limpios y optimizados a nivel de código para asegurar una carga instantánea, reduciendo la tasa de rebote y garantizando una base sólida para el SEO en Google."
+                "Un sitio web no es un folleto digital; es la infraestructura receptora donde converge toda tu inversión comercial. Si la web es lenta o confusa, el tráfico se pierde antes de interactuar.",
+                "Programamos código limpio en React con arquitectura desacoplada para garantizar tiempos de carga instantáneos, reduciendo la tasa de rebote y asegurando la base técnica para posicionar en Google."
             ]
         },
-
-        // 🌟 3. SECCIÓN DE AUDIENCIA OBJETIVO
         targetAudience: {
             subtitle: "PERFIL DE CLIENTE",
-            title: "¿Para quién está diseñado el Desarrollo Web?",
+            title: "¿Para quién está diseñado el Canal Corporativo?",
             imageDesktop: "/assets/images/desarrollo-web.webp",
-            alt: "Público objetivo para el desarrollo web en React de Expansis Pro",
+            alt: "Público objetivo para desarrollo corporativo Expansis Pro",
             imageSide: "right",
             text: [
-                "Este servicio se dirige a organizaciones y empresas que requieren validar su autoridad, difundir servicios complejos o captar leads calificados mediante una infraestructura de alta gama. Es ideal para negocios industriales, firmas legales o profesionales de servicios B2B que necesitan una carta de presentación solemne, veloz y libre de plantillas genéricas.",
-                "Si tu meta es educar al mercado, estructurar tu propuesta de valor bajo un código limpio en React y guiar al visitante hacia canales de contacto directo, aquí construimos el activo digital que sostendrá tu reputación."
+                "Ideal para empresas B2B, firmas legales, constructoras, servicios industriales y consultoras que requieren transmitir credibilidad institucional y captar prospectos calificados mediante formularios estructurados.",
+                "Si tu meta es ordenar tu propuesta de valor, validar tu autoridad de mercado y evitar que tus visitas abandonen la página por fricciones de carga, construimos tu infraestructura definitiva."
             ]
         },
         phases: [
             {
-                title: "Descubrimiento y Autoridad",
-                description: "Fase obligatoria: Aplicamos psicología estratégica para definir tu <strong>Relato Visceral</strong>. Antes de programar, desenterramos quién eres y qué valor aportas para asegurar que los cimientos de tu plataforma tengan peso real y coherencia."
+                title: "Diagnóstico y Relato Estratégico",
+                description: "Definimos la arquitectura de información y tu propuesta de valor antes de programar para asegurar coherencia con tu modelo de negocio real."
             },
             {
-                title: "Coherencia Visual y UX",
-                description: "Aquí definimos los <strong>Cimientos Visuales</strong> de la marca. Prototipamos tu web y creamos el journey del usuario para ir afinando el canal final. De esta manera obtendremos un lenguaje visual y una experiencia de usuario (UX) óptima y diseñada para guiar al visitante hacia la confianza y la conversión."
+                title: "Diseño UI/UX de Conversión",
+                description: "Prototipamos el recorrido del usuario para guiar al visitante con claridad hacia el formulario y los puntos de contacto clave."
             },
             {
-                title: "Construcción Técnica Integrada",
-                description: "Traducimos la estrategia a ingeniería de software utilizando tecnología React. Construimos una plataforma web rápida, segura y escalable, integrando el contenido y las funcionalidades necesarias bajo un código limpio y profesional."
-            }, {
-                title: "Validación y Lanzamiento",
-                description: "Realizamos auditorías de rendimiento y optimización SEO base para Google. Lanzamos tu activo digital al mercado con 30 días de soporte proactivo, garantizando que tu salida sea impecable y coherente con tu operación real."
-            }, {
-                "title": "Soporte Técnico Especializado",
-                "description": "Ofrecemos 30 días de respaldo post-lanzamiento ante caídas del servidor, fallas críticas del sistema o errores inesperados para que operes con total tranquilidad."
+                title: "Programación en React y Conexiones",
+                description: "Desarrollamos una plataforma rápida, responsiva y segura, integrando formularios con telemetría de analítica."
+            },
+            {
+                title: "Despliegue y Soporte Continuo",
+                description: "Auditorías de rendimiento, optimización SEO técnica base y 30 días de acompañamiento proactivo post-lanzamiento."
             }
         ],
         pricing: {
             from: "$350.000 CLP",
             maintenance: "$45.000 CLP / mes",
             features: [
-                "Tecnología moderna (React) para máxima velocidad",
+                "Arquitectura moderna en React para carga instantánea",
                 "Diseño UI/UX 100% personalizado a tu marca",
-                "Diseño responsivo para todos los dispositivos",
-                "Botón de WhatsApp",
-                "Formulario de contacto integrado",
-                "Optimización SEO base para Google",
-                "Integración con Google Analytics 4",
-                "30 días de soporte técnico ante caídas del sitio o fallas críticas"
-            ], scalability: {
-                title: "Escalabilidad Disponible",
-                description: "¿Necesitas más potencia? Podemos integrar: E-commerce, Paneles autogestionables, SEO avanzado o Integraciones con CRMs."
+                "Formularios de contacto y cotización estructurados",
+                "Optimización SEO base para Google Chile",
+                "Integración con Google Analytics 4 y GTM",
+                "Servidor de alta velocidad y certificados SSL",
+                "30 días de soporte técnico ante incidencias críticas"
+            ],
+            scalability: {
+                title: "Escalabilidad Modular",
+                description: "¿Tu empresa crece? Puedes integrar módulos de agendamiento automático, portafolios autogestionables o reportabilidad avanzada en Looker Studio."
             }
         },
         details: [
-            "Diseño de sitios web responsivos.",
-            "Desarrollo de E-commerce y carritos de compra.",
-            "Integración con pasarelas de pago.",
-            "Sistemas de gestión de contenido (CMS)."
+            "Arquitectura corporativa en React.",
+            "Formularios de captación de leads.",
+            "Optimización para SEO local y técnico.",
+            "Integraciones de analítica web."
         ]
     },
     {
         slug: "ecommerce",
         icon: "fa-solid fa-cart-shopping",
-        title: "E-commerce",
-        description: "Diseñamos canales digitales de ventas donde la transaccionalidad convive con el relato de marca.",
-        longDescription: "Somos una agencia experta en el desarrollo de tiendas online enfocadas en rentabilidad a corto, mediano y largo plazo.",
-
-        // 🌟 1. CONTENIDO SEO
+        title: "E-commerce (Shopify)",
+        description: "Diseñamos ecosistemas de venta donde la transaccionalidad, el control de inventario y la pauta publicitaria operan sin fricciones.",
+        longDescription: "Creamos tiendas online de alta conversión en Shopify integradas con pasarelas de pago chilenas, couriers y catálogos de anuncios para rentabilizar tu catálogo de productos.",
         seo: {
-            title: "Creación de Tiendas Online y E-commerce | Expansis Pro",
-            description: "Diseño de canales de e-commerce robustos y escalables en Chile. Integración de Webpay, Mercado Pago, control de inventario y alta conversión."
+            title: "Creación de Tiendas Online y E-commerce Shopify | Expansis Pro",
+            description: "Desarrollo de tiendas online de alto rendimiento. Integración de Webpay, Mercado Pago, couriers y sincronización con Google y Meta Ads."
         },
-
-        // 🌟 2. SECCIÓN EXPLICATIVA DE VIDEO
         videoSection: {
             subtitle: "Ecosistemas Transaccionales",
-            // 🌟 OPTIMIZADO: Título semántico con Keyword
-            title: "Tiendas Online Shopify: El Foco en la Conversión",
+            title: "Tiendas Online Shopify: Foco en la Rentabilidad",
             imageDesktop: "/assets/images/ecommerce.webp",
             alt: "E-commerce de Alta Conversión Expansis Pro",
             imageSide: "right",
             vimeoId: "1196058571",
             text: [
-                "En Expansis Pro creamos tu e-commerce en Shopify con integraciones de pasarelas de pago, gestión de inventario y automatizaciones clave para optimizar tu flujo de caja digital.",
-                "Contemplamos todo el viaje de compra: desde la captación y navegación del catálogo, hasta la integración de pasarelas de pago y la integración con couriers. De esta manera aseguramos un ecosistema comercial completamente integrado, sin dejar cabos sueltos en tu operación."
+                "Construimos canales de venta online integrando pasarelas de pago seguras, control de stock automatizado y recuperación de carritos para acelerar tu flujo de caja.",
+                "Estructuramos el checkout y la ficha de producto para brindar una experiencia de compra rápida tanto en móviles como en computadores de escritorio."
             ]
         },
-
-        // 🌟 3. SECCIÓN DE AUDIENCIA OBJETIVO
         targetAudience: {
             subtitle: "PERFIL DE CLIENTE",
             title: "¿Para quién está diseñado el E-commerce?",
             imageDesktop: "/assets/images/ecommerce.webp",
-            alt: "Público objetivo para tiendas online Shopify de Expansis Pro",
+            alt: "Público objetivo para tiendas online Shopify",
             imageSide: "left",
             text: [
-                "Solución pensada para comercios, marcas de retail y empresas operativas que buscan automatizar sus ventas de productos físicos o digitales y escalar su facturación sin generar caos administrativo. Nos dirigimos a emprendedores en pleno lanzamiento de su canal online y a empresas con experiencia que exigen migrar hacia ecosistemas transaccionales de alta conversión.",
-                "Si necesitas integrar pasarelas de pago de forma segura, sincronizar inventarios, coordinar couriers y aplicar psicología del consumidor para transformar visitas en clientes recurrentes, estructuramos tu tienda con la robustez técnica requerida."
+                "Marcas de retail, comercios y distribuidores que necesitan un canal online automatizado para vender productos físicos o digitales a escala sin generar caos administrativo.",
+                "Si requieres sincronizar pasarelas locales (Webpay, Mercado Pago), couriers de despacho y conectar tu catálogo con anuncios en Google y Meta, dejamos tu ecosistema operativo."
             ]
         },
         phases: [
             {
-                title: "Estrategia de Descubrimiento y Sentido",
-                description: "Fase obligatoria: Definimos el ángulo de venta y planificamos estrategiamente tu canal de venta digital. Analizamos cómo tu identidad  de marca debe guiar la compra para evitar que tu tienda sea solo un estante digital vacío de alma."
+                title: "Estructuración de Catálogo y Checkout",
+                description: "Configuración de categorías, variantes de producto y flujos de pago optimizados para minimizar el abandono del carrito."
             },
             {
-                title: "Ingeniería de Conversión (UX)",
-                description: "Diseñamos embudos de conversión optimizados. Aplicamos psicología del consumidor para crear un journey que transforme la desconfianza instintiva en una creación de valor para el ususario. De esta manera converstimos prospectos en compradores a traves de procesos de compra fluidos."
+                title: "Integración de Pasarelas y Despacho",
+                description: "Habilitación de Webpay Plus, Mercado Pago y reglas de tarificación de envíos según zonas geográficas."
             },
             {
-                title: "Integración y Automatización",
-                description: "Construimos con React y Shopify para asegurar una experiencia de compra fluida. Integramos pasarelas de pago locales/internacionales, sistemas de inventario y automatizamos procesos para que el canal soporte el peso de tu crecimiento sin generar caos."
+                title: "Conexión de Catálogos Publicitarios",
+                description: "Sincronización de inventario con Meta Commerce Manager y Google Merchant Center para pauta transaccional."
             },
             {
-                title: "Optimización de la plataforma y Lanzamiento",
-                description: "Testeamos el canal digital y lanzamos el proyectos. Realizamos auditorías and reportes para garantizar su rendimiento y asegurar que tu tienda sea una estructura robusta, segura y lista para recibir tráfico de alta calidad."
-            }, {
-                "title": "Soporte Técnico Especializado",
-                "description": "Ofrecemos 30 días de respaldo post-lanzamiento ante caídas del servidor, fallas críticas del sistema o errores inesperados para que operes con total tranquilidad."
+                title: "Lanzamiento y Automatizaciones",
+                description: "Pruebas de compra en vivo, emails de recuperación de carritos y entrega de panel autoadministrable."
             }
         ],
         pricing: {
             from: "$1.200.000 CLP",
             maintenance: "$45.000 CLP / mes",
             features: [
-                "Arquitectura técnica profesional basada en Shopify",
-                "Opción de desarrollo custom en React para proyectos robustos",
-                "Diseño de Embudos de Conversión personalizados",
-                "Integración de Pasarelas de Pago (Webpay, Mercado Pago, etc.)",
-                "Gestión de Inventario, Stock y Alertas automatizadas",
-                "Panel de administración Shopify 100% autogestionable",
-                "Optimización SEO para categorías y productos de alta rotación",
-                "30 días de soporte técnico ante caídas del sitio o fallas críticas"
+                "Arquitectura transaccional basada en Shopify",
+                "Integración de pasarelas de pago locales (Webpay, Mercado Pago)",
+                "Automatización de carritos abandonados por correo",
+                "Sincronización de catálogo con Meta y Google Shopping",
+                "Panel 100% autogestionable para stock y pedidos",
+                "Capacitación de uso de inventario y pedidos",
+                "30 días de soporte técnico prioritario"
             ],
             scalability: {
                 title: "Expansión Comercial",
-                description: "¿Tu negocio creció? Podemos implementar: Sistemas de suscripción, Integraciones con ERPs, Automatización de envíos o Marketing Automation avanzado."
+                description: "Sistemas de suscripción recurrente, integraciones con ERPs o automatización de marketing avanzada."
             }
         },
         details: [
-            "Consultoría de Ecosistema de Ventas Digital.",
-            "Desarrollo de tiendas online de alto rendimiento.",
-            "Automatización de procesos transaccionales.",
-            "Diseño de experiencia de usuario (UX) para conversión."
+            "Desarrollo y diseño de tiendas Shopify.",
+            "Integraciones de pago y despacho.",
+            "Flujos de checkout sin fricción.",
+            "Conexión con catálogo de Google y Meta."
         ]
     },
     {
         slug: "marketing-digital",
         icon: "fa-solid fa-bullhorn",
-        title: "Marketing Digital",
-        description: "Implementamos estrategias para aumentar tu visibilidad y generar clientes potenciales.",
-        longDescription: "Diseñamos e implementamos campañas de marketing digital enfocadas en resultados. Nos enfocaremos en la gestión de tu inversión publicitaria en Meta (Facebook, Instagram) y Google Ads para crear estrategias que aumenten tu visibilidad y atraigan nuevos clientes.",
-
-        // 🌟 1. CONTENIDO SEO
+        title: "Motor de Adquisición (Google & Meta Ads)",
+        description: "Inyectamos demanda calificada a tu canal digital combinando intención de búsqueda en Google con reconocimiento y retargeting en Meta.",
+        longDescription: "Gestionamos tu inversión publicitaria de forma profesional. Capturamos a los clientes que buscan tu servicio hoy en Google Search y multiplicamos el alcance de tu marca en Instagram y Facebook con retargeting continuo.",
         seo: {
-            title: "Gestión de Google Ads y Meta Ads | Expansis Pro",
-            description: "Agencia de marketing digital especializada en anuncios de pago. Optimizamos tus campañas en Instagram, Facebook y Google para captar clientes reales."
+            title: "Gestión de Campañas Google Ads y Meta Ads | Expansis Pro",
+            description: "Agencia de publicidad de pago en Chile. Campañas en Google Search y Meta Ads orientadas a maximizar tu retorno de inversión (ROAS)."
         },
-
-        // 🌟 2. SECCIÓN EXPLICATIVA DE VIDEO
         videoSection: {
-            subtitle: "Rendimiento Basado en Datos",
-            title: "Google Ads y Meta Ads: Una Campaña en Constante Crecimiento",
+            subtitle: "Tráfico de Alto Rendimiento",
+            title: "Google Ads y Meta Ads: Demanda Activa y Retargeting",
             imageDesktop: "/assets/images/marketing-digital.webp",
             alt: "Estrategias de Marketing Digital Expansis Pro",
             imageSide: "left",
             vimeoId: "1196058571",
             text: [
-                "En Expansis Pro diseñamos e implementamos estrategias de pauta publicitaria integrando Google Ads (Búsqueda y Shopping) para capturar la demanda existente, y Meta Ads (Instagram y Facebook) para escalar el alcance de tu marca en Chile.",
-                "El verdadero éxito de tu inversión radica en nuestra metodología de constante descubrimiento: un proceso continuo de auditoría, testeo de audiencias, optimización de copies y análisis de conversiones. Así aseguramos que tus campañas maduren, se estabilicen y mantengan un crecimiento en el tiempo enfocado en maximizar tu retorno real (ROAS)."
+                "Una plataforma web sin tráfico no genera ingresos. Diseñamos un embudo donde Google Search captura la demanda de quienes ya tienen intención de compra inmediata, mientras que Meta Ads genera credibilidad y recupera a los visitantes que no convirtieron en su primera sesión.",
+                "Auditamos permanentemente el costo por prospecto (CPL) y las conversiones reales para optimizar creativos y presupuestos hacia los canales con mayor rentabilidad."
             ]
         },
-
-        // 🌟 3. SECCIÓN DE AUDIENCIA OBJETIVO
         targetAudience: {
             subtitle: "PERFIL DE CLIENTE",
-            title: "¿Para quién está diseñado el Marketing Digital?",
+            title: "¿Para quién está diseñado el Motor de Adquisición?",
             imageDesktop: "/assets/images/marketing-digital.webp",
-            alt: "Público objetivo para pauta digital Google y Meta Ads de Expansis Pro",
+            alt: "Público objetivo para pauta publicitaria en Chile",
             imageSide: "right",
             text: [
-                "Diseñado para empresas y marcas comerciales que ya cuentan con un canal digital activo pero necesitan acelerar su visibilidad, capturar demanda latente y multiplicar la entrada de clientes potenciales de manera predecible. Es el servicio clave para negocios B2B o B2C que buscan delegar la gestión profesional de su inversión publicitaria en Google Ads y Meta Ads.",
-                "Si tu objetivo es dejar de improvisar con presupuestos en anuncios, implementar estrategias avanzadas de retargeting basadas en datos reales y optimizar continuamente tus piezas creativas para reducir el costo de adquisición, ejecutamos tu pauta."
+                "Empresas B2B o comerciales que ya cuentan con un sitio web o tienda online activa y necesitan un flujo constante y predecible de cotizaciones y pedidos.",
+                "Si buscas dejar de improvisar con el botón 'Promocionar' y profesionalizar tu inversión con estrategias de subasta, pruebas de creativos y audiencias personalizadas, gestionamos tu pauta."
             ]
         },
         phases: [
             {
-                title: "Definición de Audiencia",
-                description: "Junto a ti, identificaremos a tu cliente ideal y los canales más efectivos para llegar a él y conectar con sus necesidades."
+                title: "Auditoría de Conversión y Píxeles",
+                description: "Revisamos que la API de conversiones y las etiquetas de Google Tag Manager registren correctamente cada lead o compra."
             },
             {
-                title: "Implementación de Ecosistema",
-                description: "Configuración técnica de píxeles, API de conversiones y vinculación de canales en el Business Manager de Google y Meta."
+                title: "Estructuración de Campañas y Creativos",
+                description: "Redactamos anuncios de búsqueda con alta relevancia de palabras clave y diseñamos piezas para Meta Ads."
             },
             {
-                title: "Creación de Campañas",
-                description: "Diseñaremos y lanzaremos campañas publicitarias creativas y persuasivas en las plataformas que hayamos seleccionado."
+                title: "Activación y Segmentación",
+                description: "Lanzamos las campañas controlando pujas, segmentaciones geográficas y exclusión de tráfico no calificado."
             },
             {
-                title: "Optimización Continua",
-                description: "Monitorearemos los resultados en tiempo real y optimizaremos las campañas continuamente para maximizar el retorno de tu inversión."
+                title: "Optimización Continua y Escalamiento",
+                description: "Reasignamos presupuesto hacia los anuncios más rentables y ejecutamos retargeting para bajar el costo de adquisición."
             }
         ],
         pricing: {
             from: "$180.000 CLP / mes",
-            maintenance: "Sujeto a Inversión",
+            maintenance: "Sujeto a inversión publicitaria",
             features: [
-                "Gestión Profesional de 1 Plataforma (Meta Ads o Google Ads)",
-                "Pack Full (Ambas plataformas) por $300.000 CLP / mes",
-                "Configuración de Píxeles y Eventos de Conversión",
-                "Estrategia de Retargeting Avanzada",
-                "Reporte mensual de rendimiento y ventas generadas",
-                "Nota: No incluye presupuesto de inversión en publicidad."
-            ], scalability: {
+                "Gestión técnica de Google Ads o Meta Ads (Pack Dual por $300.000 CLP/mes)",
+                "Configuración de eventos de conversión y API de Meta",
+                "Estrategia de palabras clave negativas para evitar gasto inútil",
+                "Diseño y redacción de copys persuasivos",
+                "Campañas de retargeting para visitantes del sitio web",
+                "Reporte mensual de métricas comerciales (CPL, ROAS)",
+                "Nota: No incluye el presupuesto directo a las plataformas publicitarias"
+            ],
+            scalability: {
                 title: "Escalabilidad Disponible",
-                description: "Amplía tu impacto mediante: Publicidad en canales B2B (LinkedIn), Producción de contenido audiovisual o Gestión de embudos de fidelización."
+                description: "Publicidad en canales B2B como LinkedIn Ads, producción de piezas audiovisuales o integración directa con tableros en Looker Studio."
             }
         },
         details: [
-            "Estrategia y optimización de pauta publicitaria.",
-            "Automatización de marketing y captura de leads.",
-            "Analítica clara para la toma de decisiones comerciales.",
-            "Mejora continua de anuncios para bajar tus costos de adquisición."
+            "Gestión estratégica de Google Ads y Meta Ads.",
+            "Optimización continua de CPL y ROAS.",
+            "Configuración avanzada de eventos de conversión.",
+            "Estrategias de retargeting para rescatar tráfico."
         ]
     },
     {
         slug: "web-para-profesionales",
         icon: "fa-solid fa-user-tie",
-        title: "Web para Profesionales",
-        description: "Tu oficina digital en formato One-Page. Control total de tus contenidos con Strapi CMS, velocidad instantánea y cero complicaciones técnicas.",
-        longDescription: "Diseñado para médicos, abogados, coaches y consultores en Chile. Creamos tu oficina digital en una sola página (One-Page) de alta gama en React, conectada al panel moderno de Strapi para que gestiones tu contenido con total autonomía y sin el caos de WordPress.",
-
-        // 🌟 1. CONTENIDO SEO
+        title: "Canal de Autoridad (One-Page Strapi)",
+        description: "Tu oficina digital en una sola página: velocidad instantánea en React, diseño enfocado en tu reputación y panel Strapi autoadministrable.",
+        longDescription: "Diseñado para médicos, psicólogos, abogados y consultores en Chile. Creamos tu plataforma de presentación digital de alta gama en React, conectada a Strapi CMS para que actualices tus textos e imágenes con total autonomía.",
         seo: {
-            title: "Web para Profesionales | Expansis Pro",
-            description: "Potencia tu autoridad médica o legal. Sitios web One-Page en React, autoadministrables con Strapi CMS. Carga instantánea y SEO local en Chile."
+            title: "Webs para Profesionales y Marcas Personales | Expansis Pro",
+            description: "Sitios web One-Page en React con panel Strapi CMS en Chile. Velocidad de carga inmediata, posicionamiento de autoridad y cero desconfiguraciones."
         },
-
-        // 🌟 2. SECCIÓN EXPLICATIVA DE VIDEO
         videoSection: {
-            subtitle: "Estructuras de Autoridad Rápida",
-            title: "Tu Oficina Digital One-Page: Autonomía Real con Strapi CMS",
+            subtitle: "Presencia Digital Ágil",
+            title: "Tu Oficina Digital: Velocidad y Autonomía sin WordPress",
             imageDesktop: "/assets/images/web-para-profesionales.webp",
-            alt: "Sitios web autoadministrables con Strapi para profesionales independientes - Expansis Pro",
+            alt: "Sitios web con Strapi para profesionales independientes",
             imageSide: "left",
             vimeoId: "1196058571",
             text: [
-                "Para profesionales de la salud, las leyes o la consultoría, el tiempo es oro. Por ello, diseñamos una solución premium en formato One-Page (una sola página estructurada) conectada directamente a Strapi, un panel de administración independiente que te permite actualizar tus textos, imágenes y datos de contacto en minutos.",
-                "Al separar por completo el diseño técnico en React de tus contenidos en Strapi, eliminamos el riesgo típico de WordPress donde un clic erróneo puede desconfigurar toda la web. Aquí modificas lo que quieres, cuando quieres, garantizando una carga instantánea y la máxima seguridad."
+                "Para profesionales de la salud, el derecho y la consultoría, el tiempo es un recurso crítico. Desarrollamos una oficina digital One-Page en React conectada a Strapi CMS para editar información en segundos sin depender de un desarrollador.",
+                "Al separar la interfaz gráfica del panel de contenidos, eliminamos los errores comunes de plugins rotos de WordPress, garantizando seguridad y carga inmediata."
             ]
         },
-
-        // 🌟 3. SECCIÓN DE AUDIENCIA OBJETIVO
         targetAudience: {
             subtitle: "PERFIL DE CLIENTE",
-            title: "¿Para quién está diseñado el servicio de Marca Personal?",
+            title: "¿Para quién está diseñada la Web de Autoridad?",
             imageDesktop: "/assets/images/expansisPro_target.webp",
-            alt: "Público objetivo para sitios One-Page con Strapi en Chile",
+            alt: "Público objetivo para páginas One-Page profesionales",
             imageSide: "right",
             text: [
-                "Este servicio está pensado exclusivamente para especialistas que venden su conocimiento o servicios directos: psicólogos, abogados, asesores de negocios, médicos y conferencistas. Si requieres una tarjeta de presentación digital de primer nivel en una sola página fluida, que proyecte confianza inmediata y te otorgue control absoluto sobre tu información sin depender de un programador para cambios menores, esta es tu estructura."
+                "Especialistas independientes y consultores que venden conocimiento: psicólogos, abogados, médicos, peritos y asesores de empresas.",
+                "Si necesitas una carta de presentación que genere confianza inmediata, posicione tu trayectoria y canalice consultas directo a tu formulario, esta es la solución adecuada."
             ]
         },
         phases: [
             {
-                title: "Selección de Estructura One-Page",
-                description: "Elegimos el layout de una sola página que mejor se adapte a tu rubro. Nos entregas tu perfil, trayectoria y datos de contacto para estructurar un embudo de conversión enfocado en tu autoridad."
+                title: "Estructuración de Embudo One-Page",
+                description: "Definición de biografía, acreditaciones, servicios ofrecidos y llamada a la acción en una secuencia fluida."
             },
             {
-                title: "Personalización de Identidad",
-                description: "Adaptamos la interfaz a tus colores corporativos, tipografías y logotipos, asegurando que la estética de la One-Page sea un reflejo fiel de tu reputación profesional."
+                title: "Identidad Visual y Personalización",
+                description: "Adaptación del diseño a tu paleta corporativa y tipografías para reflejar solidez profesional."
             },
             {
-                title: "Montaje React y Conexión Strapi",
-                description: "Programamos tu sitio con código limpio en React y configuramos tu panel autogestionable en Strapi. Dejamos el sistema listo para que puedas editar tus textos de forma intuitiva, además de añadir el SEO local base para Google Chile."
+                title: "Programación React y Panel Strapi",
+                description: "Desarrollo del código web y configuración de accesos a Strapi para control de contenidos."
             },
             {
-                title: "Lanzamiento y Entrega de Control",
-                description: "Validamos los botones de WhatsApp y formularios. Ponemos tu web en vivo y te entregamos los accesos directos a tu panel de Strapi junto a tus 30 días de soporte técnico de respaldo."
+                title: "Entrega de Control y Soporte",
+                description: "Pruebas de formularios de contacto, entrega de credenciales y 30 días de respaldo técnico."
             }
         ],
         pricing: {
             from: "$250.000 CLP",
             maintenance: "$30.000 CLP / mes",
             features: [
-                "Estructura One-Page premium optimizada para scroll fluido y conversión",
-                "Panel autogestionable con Strapi CMS (Control total de textos y fotos sin romper el diseño)",
-                "Tecnología React para una velocidad de carga instantánea",
-                "Personalización visual de colores, tipografías y logotipo de marca",
-                "Secciones integradas: Perfil/Sobre Mí, Servicios, Testimonios y Contacto",
-                "Botón de WhatsApp directo y formulario de contacto",
+                "Estructura One-Page en React optimizada para móviles",
+                "Panel autogestionable moderno con Strapi CMS",
+                "Secciones: Perfil, Especialidades, Testimonios y Contacto",
+                "Formulario de contacto y canal directo integrado",
                 "Optimización SEO local base para Google Chile",
-                "30 días de soporte técnico gratuito ante caídas del sitio o fallas críticas"
+                "Servidor de alta velocidad y certificados de seguridad",
+                "30 días de soporte técnico ante incidencias críticas"
             ],
             scalability: {
                 title: "Evolución sin Límites",
-                description: "Tu web no es un callejón sin salida. Gracias a la flexibilidad de React y Strapi, en el futuro puedes transformar tu One-Page en un sitio multi-sección integrando: un blog de contenidos, sistemas de agendamiento automático o pasarelas de pago."
+                description: "Tu One-Page puede ampliarse a futuro con blog corporativo, integración de pasarelas de pago o sistemas de agendamiento online."
             }
         },
         details: [
-            "Diseño de landing page One-Page para marca personal.",
-            "Páginas web autoadministrables con Strapi (Sin WordPress).",
-            "Control total de contenidos para médicos, abogados y consultores.",
-            "Optimización de velocidad y SEO base local."
+            "Sitios One-Page para marcas personales.",
+            "Gestión autónoma con Strapi CMS.",
+            "Carga instantánea y alta seguridad.",
+            "Enfoque en autoridad y conversión directa."
+        ]
+    },
+    {
+        slug: "reportabilidad-looker-studio",
+        icon: "fa-solid fa-chart-line",
+        title: "Reportabilidad en Vivo (Looker Studio)",
+        description: "Centralizamos tus ventas, inversión en pauta publicitaria y analítica web en cuadros de mando interactivos en tiempo real.",
+        longDescription: "Diseñamos dashboards ejecutivos en Looker Studio conectando Google Analytics 4, Meta Ads, Google Ads y tu sistema de ventas para que audites el retorno de tu inversión (ROAS) y el costo por adquisición (CAC) en una sola pantalla.",
+        seo: {
+            title: "Dashboards en Looker Studio y Reportabilidad Digital | Expansis Pro",
+            description: "Centraliza tus métricas en tiempo real. Cuadros de mando interactivos en Looker Studio para Meta Ads, Google Ads, GA4 y ventas en Chile."
+        },
+        videoSection: {
+            subtitle: "Inteligencia de Negocios Ágil",
+            title: "Toma Decisiones con Datos en Vivo, No con Suposiciones",
+            imageDesktop: "/assets/images/expansisPro_target.webp",
+            alt: "Dashboards y Reportes Interactivos en Looker Studio por Expansis Pro",
+            imageSide: "left",
+            vimeoId: null,
+            text: [
+                "Gestionar un canal digital sin reportabilidad en vivo es operar a ciegas. Diseñamos tableros de control en Looker Studio donde convergen tus plataformas publicitarias, el comportamiento de tu web y tus transacciones de venta.",
+                "Mediante técnicas de combinación de datos (Data Blending), cruzamos el costo de adquisición publicitaria con los ingresos confirmados de tu negocio, permitiéndote detectar fugas de presupuesto y escalar las campañas más rentables de inmediato."
+            ]
+        },
+        targetAudience: {
+            subtitle: "PERFIL DE CLIENTE",
+            title: "¿Para quién está diseñada la Reportabilidad en Looker Studio?",
+            imageDesktop: "/assets/images/expansisPro_aboutus.webp",
+            alt: "Público objetivo para cuadros de mando en Looker Studio",
+            imageSide: "right",
+            text: [
+                "Pensado para gerencias, directores comerciales y líderes de marketing que invierten activamente en pauta digital (Meta o Google Ads) y buscan sustituir los reportes estáticos en PDF por un panel interactivo con datos actualizados.",
+                "Si necesitas una 'única fuente de la verdad' que tu equipo pueda filtrar por períodos, campañas, productos o regiones con un clic, estructuramos tu panel con la arquitectura requerida."
+            ]
+        },
+        phases: [
+            {
+                title: "Auditoría de Fuentes y Etiquetado",
+                description: "Revisamos la calidad de tus datos en GA4, píxeles de Meta y conversiones de Google Tag Manager para garantizar lecturas sin duplicados."
+            },
+            {
+                title: "Modelado y Data Blending",
+                description: "Conectamos las fuentes de datos (Meta Ads, Google Ads, GA4, Shopify o planillas) y estandarizamos fórmulas de ROAS, CAC y CPL."
+            },
+            {
+                title: "Diseño Visual de Dashboards",
+                description: "Estructuramos el panel con jerarquía clara: scorecards ejecutivos con KPIs clave arriba, tendencias temporales y filtros dinámicos."
+            },
+            {
+                title: "Automatización y Entrega",
+                description: "Configuración de permisos seguros, programación de resúmenes por correo e inducción práctica para interpretar el tablero."
+            }
+        ],
+        pricing: {
+            from: "$280.000 CLP",
+            maintenance: "$35.000 CLP / mes",
+            features: [
+                "Conexión con Google Analytics 4, Google Ads y Meta Ads",
+                "Data Blending (Cruce de gasto publicitario vs. ingresos reales)",
+                "Scorecards ejecutivos con KPIs clave (ROAS, CAC, CPL, Ventas)",
+                "Filtros interactivos por período, campaña y ubicación",
+                "Optimización de consultas para respuesta ágil",
+                "Envío programado automático de resúmenes por correo",
+                "Sesión de inducción técnica y entrega de accesos"
+            ],
+            scalability: {
+                title: "Escalabilidad Avanzada",
+                description: "¿Manejas volúmenes masivos de datos? Integramos consultas SQL en BigQuery, almacenamiento en almacenes cloud o reportes multi-sucursal."
+            }
+        },
+        details: [
+            "Diseño de tableros interactivos en Looker Studio.",
+            "Cruce de múltiples fuentes de datos sin código.",
+            "Auditoría y estandarización de etiquetado en GA4.",
+            "Monitoreo continuo de retorno publicitario y CAC."
         ]
     }
 ];

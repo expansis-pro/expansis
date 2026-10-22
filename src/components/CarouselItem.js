@@ -24,7 +24,7 @@ const CarouselItem = ({
 
     return (
         <Link
-            href={`/servicios/${slug}`}
+            href={`/soluciones/${slug}`}
             className="block w-full h-[450px] bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1.5 hover:border-blue-100 transition-all duration-300 group text-left"
         >
             <div className="w-full h-44 overflow-hidden bg-gray-50 relative">
