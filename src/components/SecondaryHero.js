@@ -37,7 +37,7 @@ export default function SecondaryHero({ title, subtitle, icon, img, badge }) {
                     <div className="flex items-center justify-center gap-3 mb-6">
                         <span className="w-1.5 h-1.5 bg-primario" />
                         <span className="font-mono text-xs uppercase tracking-[0.25em] text-primario">
-                            [ {badge || 'EXPANSIS PRO // ÍNDICE'} ]
+                            [ {badge || 'EXPANSIS PRO'} ]
                         </span>
                         {icon && (
                             <div className="w-7 h-7 border border-primario/30 bg-primario/10 text-primario flex items-center justify-center text-xs ml-1 rounded-none">

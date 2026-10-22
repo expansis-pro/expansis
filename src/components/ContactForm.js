@@ -15,7 +15,7 @@ export default function ContactForm() {
         phone: "",
         currentStatus: "",
         budgetRange: "",
-        serviceType: [],
+        serviceType: "",
         message: ""
     });
 
@@ -50,15 +50,15 @@ export default function ContactForm() {
         setFormData(prev => ({ ...prev, [name]: value }));
     };
 
-    const handleCheckboxChange = (e) => {
-        const { value, checked } = e.target;
-        setFormData(prev => ({
-            ...prev,
-            serviceType: checked
-                ? [...prev.serviceType, value]
-                : prev.serviceType.filter(item => item !== value)
-        }));
-    };
+    // const handleCheckboxChange = (e) => {
+    //     const { value, checked } = e.target;
+    //     setFormData(prev => ({
+    //         ...prev,
+    //         serviceType: checked
+    //             ? [...prev.serviceType, value]
+    //             : prev.serviceType.filter(item => item !== value)
+    //     }));
+    // };
 
     const handleCaptcha = (value) => {
         setCaptchaVerified(!!value);
@@ -130,7 +130,7 @@ export default function ContactForm() {
                 phone: formData.phone,
                 currentStatus: formData.currentStatus || "No indicado",
                 budgetRange: formData.budgetRange || "A evaluar",
-                serviceType: formData.serviceType.length > 0 ? formData.serviceType.join(", ") : "Diagnóstico General",
+                serviceType: formData.serviceType || "Diagnóstico General",
                 message: formData.message
             };
 
@@ -336,7 +336,9 @@ Quedo atento a la evaluación técnica.`;
                 </label>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                     {solutionsData.map((solution) => {
-                        const isChecked = formData.serviceType.includes(solution.title);
+                        // Ahora comparamos Strings directamente
+                        const isChecked = formData.serviceType === solution.title;
+
                         return (
                             <label
                                 key={solution.slug}
@@ -346,10 +348,11 @@ Quedo atento a la evaluación técnica.`;
                                     }`}
                             >
                                 <input
-                                    type="checkbox"
+                                    type="radio" // 👈 Cambiado a radio
+                                    name="serviceType" // 👈 Obligatorio para agrupar radios
                                     value={solution.title}
                                     checked={isChecked}
-                                    onChange={handleCheckboxChange}
+                                    onChange={handleChange} // 👈 Usa el manejador genérico
                                     className="mt-0.5 rounded-none accent-[#ff5c00]"
                                 />
                                 <span className="text-xs font-sans font-light leading-snug">

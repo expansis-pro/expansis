@@ -209,24 +209,37 @@ export default async function SolutionDetailPage({ params }) {
                 </div>
             </section>
 
+
             {/* 4. FASES DE IMPLEMENTACIÓN */}
             <section className="py-20 bg-[#080b11] border-b border-white/10">
                 <div className="container-pro max-w-5xl mx-auto px-4">
-                    <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-primario block mb-2">
-                        [ RUTA DE TRABAJO ]
-                    </span>
-                    <h2 className="text-2xl sm:text-3xl font-light text-white mb-12">
-                        Fases de Implementación
-                    </h2>
+                    <div className="flex items-end justify-between mb-8 sm:mb-12">
+                        <div>
+                            <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-primario block mb-2">
+                                [ RUTA DE TRABAJO ]
+                            </span>
+                            <h2 className="text-2xl sm:text-3xl font-light text-white">
+                                Fases de Implementación
+                            </h2>
+                        </div>
+                        <span className="font-mono text-[11px] text-zinc-500 sm:hidden">
+                            Desliza ↔
+                        </span>
+                    </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div className="flex md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 overflow-x-auto md:overflow-visible no-scrollbar snap-x snap-mandatory pb-4 md:pb-0">
                         {solution.phases.map((ph, idx) => (
-                            <div key={idx} className="p-6 border border-white/5 bg-[#0a0d14] hover:bg-[#0f1420] transition-colors group">
-                                <span className="font-mono text-3xl font-bold text-white/5 group-hover:text-primario/20 transition-colors block mb-4">
-                                    {ph.step}
-                                </span>
-                                <h3 className="text-sm font-medium text-white mb-3">{ph.name}</h3>
-                                <p className="text-xs text-zinc-400 font-light leading-relaxed">{ph.desc}</p>
+                            <div
+                                key={idx}
+                                className="p-6 border border-white/10 bg-[#0a0d14] hover:bg-[#0f1420] transition-colors group min-w-[240px] sm:min-w-[260px] md:min-w-0 shrink-0 snap-start flex flex-col justify-between"
+                            >
+                                <div>
+                                    <span className="font-mono text-3xl font-bold text-white/10 group-hover:text-primario/30 transition-colors block mb-4">
+                                        {ph.step}
+                                    </span>
+                                    <h3 className="text-sm font-medium text-white mb-3">{ph.name}</h3>
+                                    <p className="text-xs text-zinc-400 font-light leading-relaxed">{ph.desc}</p>
+                                </div>
                             </div>
                         ))}
                     </div>

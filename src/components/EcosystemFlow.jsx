@@ -72,10 +72,10 @@ export default function EcosystemFlow() {
 	const currentStep = ecosystemSteps.find((step) => step.id === activeStep) || ecosystemSteps[0];
 
 	return (
-		<section id='ecosystem-flow' className='py-24 bg-[#080b11] text-white border-b border-white/10'>
+		<section id='ecosystem-flow' className='py-20 md:py-24 bg-[#080b11] text-white border-b border-white/10'>
 			<div className='container-pro max-w-6xl mx-auto px-4'>
 				{/* Cabecera Técnica */}
-				<div className='flex flex-col md:flex-row md:items-end justify-between mb-16 pb-8 border-b border-white/10 gap-6'>
+				<div className='flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-16 pb-6 md:pb-8 border-b border-white/10 gap-4 md:gap-6'>
 					<div>
 						<span className='font-mono text-xs uppercase tracking-[0.25em] text-primario block mb-2'>[ FLUJO DE TRABAJO ]</span>
 						<h2 className='text-3xl md:text-5xl font-light tracking-tight text-white'>Un Proceso de Desarrollo Integral</h2>
@@ -86,29 +86,35 @@ export default function EcosystemFlow() {
 					</p>
 				</div>
 
-				{/* Grilla Modular: Lista a la izquierda + Panel a la derecha */}
+				{/* Guía visual móvil */}
+				<div className='flex items-center justify-between pb-2 mb-3 lg:hidden text-[11px] font-mono text-zinc-500'>
+					<span>FASES DE TRABAJO:</span>
+					<span className='text-primario flex items-center gap-1'>Desliza ↔</span>
+				</div>
+
+				{/* Grilla Modular: Riel corredizo en Mobile + Lista vertical en Desktop */}
 				<div className='grid grid-cols-1 lg:grid-cols-12 gap-8 items-start'>
-					{/* Lista de Fases (5 columnas) */}
-					<div className='lg:col-span-5 border border-white/15 divide-y divide-white/15 bg-[#0d121d]'>
+					{/* Selector de Fases */}
+					<div className='lg:col-span-5 flex lg:flex-col overflow-x-auto lg:overflow-visible no-scrollbar snap-x snap-mandatory border border-white/15 bg-[#0d121d] divide-x lg:divide-x-0 lg:divide-y divide-white/15'>
 						{ecosystemSteps.map((step) => {
 							const isActive = activeStep === step.id;
 							return (
 								<button
 									key={step.id}
 									onClick={() => setActiveStep(step.id)}
-									className={`w-full p-5 text-left transition-all flex items-start justify-between cursor-pointer ${
+									className={`min-w-[210px] sm:min-w-[240px] lg:min-w-0 lg:w-full p-4 sm:p-5 text-left transition-all flex items-start justify-between shrink-0 snap-start cursor-pointer ${
 										isActive ? 'bg-white text-black' : 'bg-transparent text-zinc-400 hover:text-white hover:bg-white/[0.02]'
 									}`}>
-									<div className='flex items-start gap-4'>
+									<div className='flex items-start gap-3 sm:gap-4'>
 										<span className={`font-mono text-xs font-semibold mt-0.5 ${isActive ? 'text-primario' : 'text-zinc-500'}`}>{step.number}</span>
 										<div>
-											<span className={`text-xs font-mono uppercase tracking-widest block mb-0.5 ${isActive ? 'text-zinc-600' : 'text-zinc-500'}`}>{step.code}</span>
-											<h3 className={`text-base font-normal tracking-wide ${isActive ? 'text-black font-medium' : 'text-zinc-200'}`}>{step.title}</h3>
-											<p className={`text-xs font-light mt-1 ${isActive ? 'text-zinc-700' : 'text-zinc-400'}`}>{step.shortDesc}</p>
+											<span className={`text-[10px] sm:text-xs font-mono uppercase tracking-widest block mb-0.5 ${isActive ? 'text-zinc-600' : 'text-zinc-500'}`}>{step.code}</span>
+											<h3 className={`text-sm sm:text-base font-normal tracking-wide ${isActive ? 'text-black font-medium' : 'text-zinc-200'}`}>{step.title}</h3>
+											<p className={`text-[11px] sm:text-xs font-light mt-1 ${isActive ? 'text-zinc-700' : 'text-zinc-400'}`}>{step.shortDesc}</p>
 										</div>
 									</div>
 
-									<div className='pt-1'>
+									<div className='pt-1 pl-2 shrink-0'>
 										<span className={`font-mono text-xs ${isActive ? 'text-black' : 'text-zinc-600'}`}>{isActive ? '●' : '○'}</span>
 									</div>
 								</button>
@@ -116,7 +122,7 @@ export default function EcosystemFlow() {
 						})}
 					</div>
 
-					{/* Detalle Dinámico de la Fase (7 columnas) con Imagen de Fondo y Alta Densidad */}
+					{/* Detalle Dinámico de la Fase */}
 					<div className='lg:col-span-7 lg:sticky lg:top-28'>
 						<AnimatePresence mode='wait'>
 							<motion.div
@@ -125,14 +131,9 @@ export default function EcosystemFlow() {
 								animate={{ opacity: 1, x: 0 }}
 								exit={{ opacity: 0, x: -10 }}
 								transition={{ duration: 0.2 }}
-								className='relative border border-white/15 bg-[#0f1420] p-8 sm:p-10 flex flex-col justify-between min-h-[460px] overflow-hidden'>
+								className='relative border border-white/15 bg-[#0f1420] p-6 sm:p-10 flex flex-col justify-between min-h-[420px] sm:min-h-[460px] overflow-hidden'>
 								{/* Capa de Imagen de Fondo */}
-								<img
-									src={currentStep.image}
-									alt={currentStep.title}
-									className='absolute inset-0 z-0 w-full h-full object-cover opacity-20 grayscale contrast-125 pointer-events-none'
-								/>
-								{/* Velo oscuro de alta opacidad para contraste */}
+								<img src={currentStep.image} alt={currentStep.title} className='absolute inset-0 z-0 w-full h-full object-cover opacity-20 contrast-125 pointer-events-none' />
 								<div className='absolute inset-0 z-0 bg-gradient-to-t from-[#0f1420] via-[#0f1420]/90 to-[#0f1420]/60 pointer-events-none' />
 
 								{/* Contenido en Primer Plano */}

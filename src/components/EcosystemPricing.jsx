@@ -34,10 +34,10 @@ export default function EcosystemPricing() {
 	const currentPlan = plans.find((p) => p.slug === activeTab) || plans[0];
 
 	return (
-		<section id='planes-ecosistema' className='py-24 bg-[#0a0d14] text-white border-t border-b border-white/10'>
+		<section id='planes-ecosistema' className='py-20 md:py-24 bg-[#0a0d14] text-white border-t border-b border-white/10'>
 			<div className='container-pro max-w-6xl mx-auto px-4'>
 				{/* Cabecera Técnica */}
-				<div className='flex flex-col md:flex-row md:items-end justify-between mb-16 pb-8 border-b border-white/10 gap-6'>
+				<div className='flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-16 pb-6 md:pb-8 border-b border-white/10 gap-4 md:gap-6'>
 					<div>
 						<span className='font-mono text-xs uppercase tracking-[0.25em] text-primario block mb-2'>[ Soluciones ]</span>
 						<h2 className='text-3xl md:text-5xl font-light tracking-tight text-white'>Planes de Canal Digital</h2>
@@ -48,22 +48,22 @@ export default function EcosystemPricing() {
 					</p>
 				</div>
 
-				{/* Selector de Pestañas */}
-				<div className='grid grid-cols-1 sm:grid-cols-3 border border-white/15 mb-12'>
+				{/* Selector de Pestañas: Corredizo en Mobile + Grilla 3 columnas en Desktop */}
+				<div className='flex sm:grid sm:grid-cols-3 overflow-x-auto sm:overflow-visible no-scrollbar snap-x snap-mandatory border border-white/15 mb-8 md:mb-12 bg-[#0d121d] divide-x divide-white/15'>
 					{plans.map((plan) => {
 						const isActive = activeTab === plan.slug;
 						return (
 							<button
 								key={plan.slug}
 								onClick={() => setActiveTab(plan.slug)}
-								className={`py-4 px-6 text-left transition-all relative border-b sm:border-b-0 sm:border-r last:border-r-0 border-white/15 cursor-pointer ${
+								className={`py-3.5 px-5 sm:py-4 sm:px-6 text-left transition-all relative shrink-0 snap-start min-w-[150px] sm:min-w-0 flex-1 cursor-pointer ${
 									isActive ? 'bg-white text-black' : 'bg-transparent text-zinc-400 hover:text-white hover:bg-white/[0.02]'
 								}`}>
 								<div className='flex items-center justify-between mb-1'>
-									<span className='font-mono text-[10px] tracking-widest uppercase opacity-60'>{plan.code}</span>
+									<span className={`font-mono text-[10px] tracking-widest uppercase ${isActive ? 'text-zinc-600' : 'text-zinc-500'}`}>{plan.code}</span>
 									{isActive && <span className='w-1.5 h-1.5 bg-primario' />}
 								</div>
-								<span className='text-sm font-medium tracking-wide block'>{plan.tabLabel}</span>
+								<span className='text-xs sm:text-sm font-medium tracking-wide block whitespace-nowrap'>{plan.tabLabel}</span>
 							</button>
 						);
 					})}
@@ -78,16 +78,12 @@ export default function EcosystemPricing() {
 						exit={{ opacity: 0, y: -8 }}
 						transition={{ duration: 0.18 }}
 						className='relative border border-white/15 bg-[#0f1420] overflow-hidden'>
-						<img
-							src={currentPlan.image}
-							alt={currentPlan.title}
-							className='absolute inset-0 z-0 w-full h-full object-cover opacity-15 grayscale contrast-125 pointer-events-none'
-						/>
+						<img src={currentPlan.image} alt={currentPlan.title} className='absolute inset-0 z-0 w-full h-full object-cover opacity-15 contrast-125 pointer-events-none' />
 						<div className='absolute inset-0 z-0 bg-gradient-to-r from-[#0f1420] via-[#0f1420]/90 to-[#0f1420]/75 pointer-events-none' />
 
 						<div className='relative z-10 grid grid-cols-1 lg:grid-cols-12 divide-y lg:divide-y-0 lg:divide-x divide-white/15'>
 							{/* Columna Izquierda: Información Financiera */}
-							<div className='lg:col-span-5 p-8 sm:p-10 flex flex-col justify-between'>
+							<div className='lg:col-span-5 p-6 sm:p-10 flex flex-col justify-between'>
 								<div>
 									<div className='flex items-center gap-2 mb-3 flex-wrap'>
 										<span className='font-mono text-[10px] uppercase tracking-widest text-primario bg-primario/10 px-2 py-0.5 border border-primario/30'>{currentPlan.badge}</span>
@@ -151,7 +147,7 @@ export default function EcosystemPricing() {
 							</div>
 
 							{/* Columna Derecha: Entregables Técnicos */}
-							<div className='lg:col-span-7 p-8 sm:p-10 flex flex-col justify-between'>
+							<div className='lg:col-span-7 p-6 sm:p-10 flex flex-col justify-between'>
 								<div>
 									<span className='font-mono text-xs uppercase tracking-[0.2em] text-zinc-400 block mb-6'>[ ALCANCE Y ENTREGABLES TÉCNICOS ]</span>
 									<ul className='divide-y divide-white/10 border-t border-b border-white/10 mb-8'>
@@ -174,7 +170,7 @@ export default function EcosystemPricing() {
 				</AnimatePresence>
 
 				{/* Términos y Transparencia */}
-				<div className='mt-12 p-6 border border-white/10 bg-black/40 text-xs text-zinc-400 font-light space-y-2'>
+				<div className='mt-8 md:mt-12 p-6 border border-white/10 bg-black/40 text-xs text-zinc-400 font-light space-y-2'>
 					<p>
 						<strong className='text-white font-mono font-medium'>[01. ALCANCE]</strong> Todos los valores de Setup y Mantención corresponden a montos netos (+ IVA). Representan una
 						base técnica de referencia y se confirman formalmente tras la sesión de diagnóstico inicial.
