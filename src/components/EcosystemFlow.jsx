@@ -81,7 +81,8 @@ export default function EcosystemFlow() {
 						<h2 className='text-3xl md:text-5xl font-light tracking-tight text-white'>Un Proceso de Desarrollo Integral</h2>
 					</div>
 					<p className='text-sm font-light text-zinc-400 max-w-md leading-relaxed'>
-						Nuestro metodo de trabajo contempla que cada fase alimenta sistemáticamente a la siguiente: desde el diagnóstico inicial hasta la medición de rentabilidad comercial.
+						Desde el diagnóstico inicial hasta la medición de rentabilidad, nuestras fases de trabajo alimentan sistemáticamente a la siguiente para generar estructuras digitales
+						robustas y con sentido claro.
 					</p>
 				</div>
 

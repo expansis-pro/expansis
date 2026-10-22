@@ -108,7 +108,7 @@ export default async function BlogPostPage({ params }) {
                         <img
                             src={post.image}
                             alt={post.title}
-                            className="absolute inset-0 z-0 w-full h-full object-cover opacity-20 grayscale contrast-125 pointer-events-none"
+                            className="absolute inset-0 z-0 w-full h-full object-cover opacity-25 pointer-events-none"
                         />
                         {/* Velo oscuro para contraste y legibilidad */}
                         <div className="absolute inset-0 z-0 bg-gradient-to-t from-[#07090e] via-[#0a0d14]/90 to-[#07090e]/75 pointer-events-none" />
@@ -147,7 +147,7 @@ export default async function BlogPostPage({ params }) {
                             <img
                                 src="/assets/images/Profile_Img_Expansis.webp"
                                 alt={post.author}
-                                className="w-full h-full object-cover grayscale opacity-90"
+                                className="w-full h-full object-cover"
                             />
                         </div>
                         <div>

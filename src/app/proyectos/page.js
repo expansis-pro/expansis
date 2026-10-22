@@ -1,10 +1,10 @@
+// src/app/proyectos/page.js
 import React from 'react';
 import { projectsData } from '@/data/projectsData';
 import SecondaryHero from '@/components/SecondaryHero';
 import ProjectSection from '@/components/ProjectSection';
 import CallToAction from '@/components/CallToAction';
 
-// 🌟 SEO NATIVO DE NEXT.JS
 export const metadata = {
     title: "Casos de Éxito y Portafolio de Ingeniería Digital | Expansis Pro",
     description: "Explora las plataformas web, e-commerce a medida y ecosistemas digitales que hemos diseñado y construido para marcas con autoridad en Chile.",
@@ -18,7 +18,6 @@ export default function ProjectsPage() {
 
     return (
         <div className="min-h-screen flex flex-col">
-            {/* 🌟 1. ItemList Avanzado con Tipos de Trabajo Específicos */}
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
@@ -49,7 +48,6 @@ export default function ProjectsPage() {
                 }}
             />
 
-            {/* 🌟 2. Breadcrumbs de jerarquía de navegación */}
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
@@ -71,8 +69,11 @@ export default function ProjectsPage() {
                 img="/assets/images/hero-projects.webp"
             />
 
+            {/* Catálogo con límite de 9 items antes de desplegar el botón 'Ver más' */}
             <ProjectSection
-                limit={null}
+                isCatalog={true}
+                initialCount={9}
+                showCta={false}
                 title="Nuestra Ingeniería en Acción"
                 subtitle="Un recorrido por los ecosistemas digitales que hemos diseñado y construido."
             />

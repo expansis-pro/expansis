@@ -107,7 +107,7 @@ export default function BlogPage() {
                                     <BlogImage
                                         src={post.image}
                                         alt={post.title}
-                                        className="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 transition-all duration-300"
+                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                                     />
                                     <span className="absolute top-3 left-3 bg-black/90 px-2 py-0.5 border border-white/20 font-mono text-[9px] uppercase tracking-wider text-zinc-300">
                                         {post.category}

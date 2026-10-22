@@ -1,13 +1,35 @@
-// src/components/ProjectSection.js (Rediseño Estilo Grilla Técnica)
+// src/components/ProjectSection.js
 'use client';
-import React from 'react';
+
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { projectsData } from '@/data/projectsData';
 
-export default function ProjectSection({ title, subtitle, selectedIds = [], showCta = true }) {
-    const displayedProjects = selectedIds.length > 0
+export default function ProjectSection({
+    title,
+    subtitle,
+    selectedIds = [],
+    showCta = true,
+    initialCount = 9,
+    isCatalog = false
+}) {
+    const [showAll, setShowAll] = useState(false);
+
+    // Si vienen IDs seleccionados (Home o Soluciones), filtramos por ellos;
+    // de lo contrario (página /proyectos), tomamos todo el catálogo.
+    const allEligibleProjects = selectedIds.length > 0
         ? projectsData.filter((p) => selectedIds.includes(p.id))
-        : projectsData.slice(0, 3);
+        : projectsData;
+
+    const baseProjects = isCatalog
+        ? allEligibleProjects
+        : (selectedIds.length > 0 ? allEligibleProjects : allEligibleProjects.slice(0, 3));
+
+    const displayedProjects = isCatalog && !showAll
+        ? baseProjects.slice(0, initialCount)
+        : baseProjects;
+
+    const remainingCount = baseProjects.length - initialCount;
 
     return (
         <section className="py-24 bg-[#0a0d14] text-white border-b border-white/10">
@@ -30,18 +52,21 @@ export default function ProjectSection({ title, subtitle, selectedIds = [], show
                     )}
                 </div>
 
-                {/* Grilla Modular de Proyectos */}
-                <div className="grid grid-cols-1 md:grid-cols-3 border border-white/15 divide-y md:divide-y-0 md:divide-x divide-white/15 bg-[#0f1420]">
+                {/* Grilla Modular */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {displayedProjects.map((project, idx) => (
-                        <div key={project.id} className="flex flex-col justify-between group">
-                            {/* Imagen Técnica */}
+                        <div
+                            key={project.id}
+                            className="border border-white/15 bg-[#0f1420] flex flex-col justify-between group hover:border-white/30 transition-colors"
+                        >
+                            {/* Imagen a Color con Zoom Suave */}
                             <div className="relative aspect-[16/10] overflow-hidden border-b border-white/10 bg-black">
                                 <img
                                     src={project.image}
                                     alt={project.title}
-                                    className="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-300"
+                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                                 />
-                                <div className="absolute top-3 left-3 bg-black/80 px-2 py-0.5 border border-white/20 font-mono text-[10px] uppercase tracking-wider text-zinc-300">
+                                <div className="absolute top-3 left-3 bg-black/80 px-2 py-0.5 border border-white/20 font-mono text-[10px] uppercase tracking-wider text-zinc-300 backdrop-blur-sm">
                                     {(idx + 1).toString().padStart(2, '0')} // {project.sector}
                                 </div>
                             </div>
@@ -64,7 +89,10 @@ export default function ProjectSection({ title, subtitle, selectedIds = [], show
                                 <div className="pt-4 border-t border-white/10 flex items-center justify-between">
                                     <div className="flex flex-wrap gap-1.5">
                                         {project.tags.slice(0, 2).map((tag, tIdx) => (
-                                            <span key={tIdx} className="font-mono text-[10px] text-zinc-500 bg-white/[0.03] px-2 py-0.5 border border-white/5">
+                                            <span
+                                                key={tIdx}
+                                                className="font-mono text-[10px] text-zinc-400 bg-white/[0.05] px-2 py-0.5 border border-white/10"
+                                            >
                                                 {tag}
                                             </span>
                                         ))}
@@ -83,7 +111,25 @@ export default function ProjectSection({ title, subtitle, selectedIds = [], show
                     ))}
                 </div>
 
-                {showCta && (
+                {/* Botón Ver Más interactivo para /proyectos */}
+                {isCatalog && baseProjects.length > initialCount && (
+                    <div className="mt-12 text-center">
+                        <button
+                            onClick={() => setShowAll(!showAll)}
+                            className="inline-flex items-center gap-3 py-3.5 px-8 border border-white/20 text-xs font-mono uppercase tracking-[0.2em] text-white hover:bg-white hover:text-black transition-all cursor-pointer"
+                        >
+                            <span>
+                                {showAll ? 'Ver menos proyectos' : `Cargar más proyectos (${remainingCount})`}
+                            </span>
+                            <span className="text-primario font-bold">
+                                {showAll ? '▲' : '▼'}
+                            </span>
+                        </button>
+                    </div>
+                )}
+
+                {/* Botón hacia /proyectos para la Home */}
+                {!isCatalog && showCta && (
                     <div className="mt-12 text-center">
                         <Link
                             href="/proyectos"
@@ -96,6 +142,6 @@ export default function ProjectSection({ title, subtitle, selectedIds = [], show
                 )}
 
             </div>
-        </section >
+        </section>
     );
 }

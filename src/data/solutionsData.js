@@ -27,9 +27,9 @@ export const solutionsData = [
             }
         ],
         pricing: {
-            setup: "Desde $450.000 CLP",
+            setup: "Desde $450.000 + IVA",
             setupNote: "Pago único de implementación base",
-            maintenance: "$250.000 CLP / mes",
+            maintenance: "$250.000 + IVA / mes",
             commitment: "Compromiso mínimo de 2 meses",
             adSpendSuggested: "$300.000 a $450.000 CLP / mes",
             adSpendPlatform: "Meta Ads (Instagram & Facebook)",
@@ -67,20 +67,7 @@ export const solutionsData = [
                 desc: "Auditamos las consultas entrantes y optimizamos los anuncios para reducir el costo por contacto agendado."
             }
         ],
-        faqs: [
-            {
-                question: "¿Puedo editar mis textos y fotos después de entregada la página?",
-                answer: "Sí. Te entregamos un panel autoadministrable moderno con Strapi CMS donde puedes actualizar tu biografía, agregar especialidades o cambiar imágenes en segundos sin riesgo de romper el diseño."
-            },
-            {
-                question: "¿La inversión de publicidad va incluida en la mensualidad?",
-                answer: "No. Los $250.000 CLP mensuales cubren nuestros honorarios profesionales (hosting, soporte técnico web, diseñador para tus creativos y el Growth Specialist). El saldo para circular tus anuncios ($300.000 a $450.000 CLP) se paga directo a Meta desde tu propia tarjeta."
-            },
-            {
-                question: "¿Por qué el compromiso mínimo es de 2 meses?",
-                answer: "Los algoritmos de pauta requieren un periodo de aprendizaje para identificar qué perfil de paciente o cliente responde mejor a tus anuncios. Sesenta días es la ventana técnica para recopilar datos, testear creativos y estabilizar tus costos de captación."
-            }
-        ],
+
         relatedProjects: ["estudio-brkovic", "claudia-gallardo", "gonzalo-lobos"]
     },
     {
@@ -109,9 +96,9 @@ export const solutionsData = [
             }
         ],
         pricing: {
-            setup: "Desde $750.000 CLP",
+            setup: "Desde $750.000 + IVA",
             setupNote: "Pago único de implementación base",
-            maintenance: "$250.000 CLP / mes",
+            maintenance: "$250.000 + IVA / mes",
             commitment: "Compromiso mínimo de 2 meses",
             adSpendSuggested: "$300.000 a $450.000 CLP / mes",
             adSpendPlatform: "Google Search Ads + Retargeting Meta",
@@ -149,20 +136,7 @@ export const solutionsData = [
                 desc: "Centralizamos la información en Looker Studio y refinamos palabras clave negativas para proteger tu rentabilidad."
             }
         ],
-        faqs: [
-            {
-                question: "¿Cómo se asegura que las cotizaciones sean de empresas reales?",
-                answer: "Estructuramos formularios con campos de validación corporativa (RUT/empresa, cargo y requerimiento específico) y configuramos palabras clave negativas en Google Ads para excluir búsquedas de estudiantes, empleos o servicios minoristas."
-            },
-            {
-                question: "¿La web incluye facturación electrónica y cumplimiento tributario?",
-                answer: "Emitimos factura electrónica por nuestros servicios profesionales de desarrollo y mantención. Los pagos de pauta publicitaria los factura directamente Google y Meta a tu razón social."
-            },
-            {
-                question: "¿Qué pasa si ya tenemos un sitio web?",
-                answer: "Evaluamos si es técnicamente viable rediseñarlo o si conviene migrar a una arquitectura limpia en React para asegurar velocidad de carga y telemetría de conversión confiable."
-            }
-        ],
+
         relatedProjects: ["2v-express", "lobos-miniexcavadoras", "estudio-brkovic"]
     },
     {
@@ -191,9 +165,11 @@ export const solutionsData = [
             }
         ],
         pricing: {
-            setup: "Desde $1.450.000 CLP",
-            setupNote: "Pago único de implementación base",
-            maintenance: "$250.000 CLP / mes",
+            promoTag: "50% OFF // Cupo Caso de Estudio",
+            originalSetup: "$1.450.000 + IVA",
+            setup: "$725.000 + IVA",
+            setupNote: "50% OFF promocional para primera marca seleccionada (Caso de Estudio)",
+            maintenance: "$250.000 + IVA / mes",
             commitment: "Compromiso mínimo de 2 meses",
             adSpendSuggested: "$300.000 a $450.000 CLP / mes",
             adSpendPlatform: "Google Shopping + Meta Commerce Ads",
@@ -231,20 +207,7 @@ export const solutionsData = [
                 desc: "Medimos el retorno sobre la inversión en pauta y optimizamos los productos con mayor margen de ganancia."
             }
         ],
-        faqs: [
-            {
-                question: "¿La tienda soporta pagos con tarjetas de débito y crédito en Chile?",
-                answer: "Sí. Dejamos operativas las pasarelas estándar del país (Webpay Plus vía Transbank y Mercado Pago), permitiendo cobros con débito Redcompra, crédito en cuotas y transferencias seguras."
-            },
-            {
-                question: "¿Cómo se calculan los costos de envío para regiones?",
-                answer: "Configuramos tablas automáticas de despacho por comunas o regiones, o conectamos aplicaciones de couriers chilenos para tarificar según peso y destino de forma transparente."
-            },
-            {
-                question: "¿Quién asume el costo mensual de la plataforma Shopify?",
-                answer: "El plan base de Shopify ($39 USD/mes aproximadamente) lo abona directamente el cliente a la plataforma mediante su tarjeta de crédito. Nuestros honorarios cubren la optimización, soporte y gestión de ventas."
-            }
-        ],
+
         relatedProjects: ["2v-express"]
     }
 ];

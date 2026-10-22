@@ -24,7 +24,7 @@ export default function ImageTextCTA({
                         <img
                             src={imageDesktop}
                             alt={alt}
-                            className="w-full h-full object-cover grayscale contrast-125"
+                            className="w-full h-full object-cover  contrast-125"
                         />
                         <div className="absolute top-4 left-4 font-mono text-[10px] uppercase tracking-widest bg-black/80 text-primario px-3 py-1 border border-primario/30">
                             INGENIERÍA &amp; ESTRATEGIA
