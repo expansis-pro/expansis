@@ -11,22 +11,7 @@ const nextConfig = {
     async redirects() {
         return [
             // ─────────────────────────────────────────────────────────
-            // 1. UNIFICACIÓN DE DOMINIO (www.expansispro.com -> expansispro.com)
-            // ─────────────────────────────────────────────────────────
-            {
-                source: '/:path*',
-                has: [
-                    {
-                        type: 'host',
-                        value: 'www.expansispro.com',
-                    },
-                ],
-                destination: 'https://expansispro.com/:path*',
-                permanent: true,
-            },
-
-            // ─────────────────────────────────────────────────────────
-            // 2. MAPEO DE RUTAS OBSOLETAS (/servicios -> /soluciones)
+            // 1. MAPEO DE RUTAS OBSOLETAS (/servicios -> /soluciones)
             // ─────────────────────────────────────────────────────────
             {
                 source: '/servicios/web-para-profesionales',
@@ -53,7 +38,6 @@ const nextConfig = {
                 destination: '/soluciones',
                 permanent: true,
             },
-            // Comodín de seguridad para cualquier otra subruta no contemplada de /servicios
             {
                 source: '/servicios/:path*',
                 destination: '/soluciones',
@@ -61,7 +45,7 @@ const nextConfig = {
             },
 
             // ─────────────────────────────────────────────────────────
-            // 3. ARTÍCULOS DE BLOG PREVIOS
+            // 2. ARTÍCULOS DE BLOG
             // ─────────────────────────────────────────────────────────
             {
                 source: '/blog/el-proceso-de-analisis-de-datos-6-etapas-y-pensamiento-estructurado',
