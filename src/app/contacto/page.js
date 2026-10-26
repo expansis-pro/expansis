@@ -40,35 +40,36 @@ export default function ContactPage() {
                 img="/assets/images/hero-contact.webp"
             />
 
-            <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-ghostWhite">
+
+            <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-[#0a0d14] border-t border-white/10">
                 <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
 
                     {/* COLUMNA IZQUIERDA: DIAGNÓSTICO Y DATOS INSTITUCIONALES (lg:col-span-5) */}
                     <div className="lg:col-span-5 space-y-10">
                         <div>
-                            <span className="text-primario uppercase tracking-widest text-xs font-bold block mb-2">
-                                Metodología de Inicio
+                            <span className="text-primario uppercase tracking-widest text-xs font-bold block mb-2 font-mono">
+                                [ METODOLOGÍA DE INICIO ]
                             </span>
-                            <h2 className="text-2xl md:text-3xl font-bold text-deepBlue mb-4">
+                            <h2 className="text-2xl md:text-3xl font-light text-white mb-4">
                                 ¿Qué ocurre tras enviar tu solicitud?
                             </h2>
-                            <p className="text-gray-600 font-light text-sm leading-relaxed">
+                            <p className="text-zinc-400 font-light text-sm leading-relaxed">
                                 No agendamos reuniones genéricas de venta. Antes de reunirnos, auditamos tu caso para llegar a la primera sesión con propuestas técnicas concretas.
                             </p>
                         </div>
 
                         {/* PASOS DE LA SESIÓN DE DIAGNÓSTICO */}
-                        <div className="space-y-6">
+                        <div className="space-y-4">
                             {diagnosisSteps.map((step, idx) => (
-                                <div key={idx} className="flex gap-4 items-start bg-white p-5 rounded-2xl border border-gray-100 shadow-sm">
-                                    <div className="w-10 h-10 rounded-xl bg-deepBlue text-ghostWhite flex items-center justify-center font-bold text-sm shrink-0">
+                                <div key={idx} className="flex gap-4 items-start bg-[#0f1420] p-5 border border-white/10">
+                                    <div className="w-10 h-10 bg-primario/10 border border-primario/30 text-primario flex items-center justify-center font-mono font-bold text-sm shrink-0">
                                         {step.number}
                                     </div>
                                     <div>
-                                        <h3 className="text-base font-bold text-deepBlue mb-1">
+                                        <h3 className="text-base font-medium text-white mb-1">
                                             {step.title}
                                         </h3>
-                                        <p className="text-xs text-gray-500 font-light leading-relaxed">
+                                        <p className="text-xs text-zinc-400 font-light leading-relaxed">
                                             {step.description}
                                         </p>
                                     </div>
@@ -77,43 +78,39 @@ export default function ContactPage() {
                         </div>
 
                         {/* CANALES FORMALES Y COBERTURA */}
-                        <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm space-y-4">
-                            <h3 className="text-xs uppercase tracking-widest font-bold text-deepBlue">
+                        <div className="bg-[#0f1420] p-6 border border-white/10 space-y-4">
+                            <h3 className="text-xs uppercase tracking-widest font-mono text-zinc-300">
                                 Cobertura & Canales Institucionales
                             </h3>
                             <ul className="space-y-3 text-sm">
-                                <li className="flex items-center gap-3 text-gray-600 font-light">
+                                <li className="flex items-center gap-3 text-zinc-400 font-light">
                                     <i className="fa-solid fa-location-dot text-primario text-base shrink-0 w-5 text-center"></i>
                                     <span>Santiago de Chile &bull; Cobertura nacional e internacional</span>
                                 </li>
-                                <li className="flex items-center gap-3 text-gray-600 font-light">
+                                <li className="flex items-center gap-3 text-zinc-400 font-light">
                                     <i className="fa-solid fa-envelope text-primario text-base shrink-0 w-5 text-center"></i>
                                     <a href={mailtoLink} className="hover:text-primario transition-colors break-all">
                                         {email}
                                     </a>
                                 </li>
-                                <li className="flex items-center gap-3 text-gray-600 font-light">
+                                <li className="flex items-center gap-3 text-zinc-400 font-light">
                                     <i className="fa-solid fa-clock text-primario text-base shrink-0 w-5 text-center"></i>
                                     <span>Lunes a Viernes: 09:00 - 19:00 hrs.</span>
                                 </li>
                             </ul>
-                            <div className="pt-2 border-t border-gray-100 flex items-center gap-2 text-[11px] text-gray-400 italic">
-                                <i className="fa-solid fa-shield-halved text-primario/80"></i>
-                                <span>Garantía de confidencialidad en el tratamiento de tus datos de negocio.</span>
-                            </div>
                         </div>
                     </div>
 
                     {/* COLUMNA DERECHA: FORMULARIO PRINCIPAL (lg:col-span-7) */}
-                    <div className="lg:col-span-7 bg-white p-8 md:p-12 rounded-[2.5rem] shadow-xl border border-gray-100 relative">
+                    <div className="lg:col-span-7 bg-[#0f1420] p-8 md:p-12 border border-white/15 relative">
                         <div className="mb-8">
-                            <span className="text-primario uppercase tracking-widest text-xs font-bold block mb-1">
-                                Formulario de Evaluación
+                            <span className="text-primario uppercase tracking-widest text-xs font-mono block mb-1">
+                                [ FORMULARIO DE EVALUACIÓN ]
                             </span>
-                            <h3 className="text-2xl md:text-3xl font-bold text-deepBlue">
+                            <h3 className="text-2xl md:text-3xl font-light text-white">
                                 Cuéntanos sobre tu negocio
                             </h3>
-                            <p className="text-gray-500 font-light text-sm mt-1">
+                            <p className="text-zinc-400 font-light text-sm mt-1">
                                 Completa el formulario para evaluar qué arquitectura digital se adapta mejor a tu meta comercial.
                             </p>
                         </div>
