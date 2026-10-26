@@ -7,19 +7,32 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request) {
     try {
-        // 1. Bloqueo en servidor mediante Cookie de Sesión
-        const cookieStore = await cookies();
-        const yaEnvio = cookieStore.get('expansis_lead_session');
+        // 1. Bloqueo temporal (Cooldown solo en producción)
+        if (process.env.NODE_ENV === 'production') {
+            const cookieStore = await cookies();
+            const yaEnvio = cookieStore.get('expansis_lead_session');
 
-        if (yaEnvio) {
-            return NextResponse.json(
-                { error: 'Ya hemos recibido tu solicitud en esta sesión. Para mensajes adicionales contáctanos por WhatsApp.' },
-                { status: 429 }
-            );
+            if (yaEnvio) {
+                return NextResponse.json(
+                    { error: 'Por favor espera 60 segundos antes de enviar otra solicitud.' },
+                    { status: 429 }
+                );
+            }
         }
 
         const body = await request.json();
-        const { name, company, websiteUrl, email, phone, currentStatus, budgetRange, timeline, message, serviceType } = body;
+        const {
+            name,
+            company,
+            websiteUrl,
+            email,
+            phone,
+            currentStatus,
+            budgetRange,
+            timeline,
+            message,
+            serviceType
+        } = body;
 
         // Validación de datos requeridos
         if (!name || !email || !phone || !message) {
@@ -29,11 +42,15 @@ export async function POST(request) {
             );
         }
 
-        const selectedServices = Array.isArray(serviceType) && serviceType.length > 0
-            ? serviceType.join(', ')
-            : 'Sin especificar';
+        // Normalización del programa o servicio de interés
+        let selectedServices = 'Sin especificar';
+        if (Array.isArray(serviceType) && serviceType.length > 0) {
+            selectedServices = serviceType.join(', ');
+        } else if (typeof serviceType === 'string' && serviceType.trim() !== '') {
+            selectedServices = serviceType;
+        }
 
-        // 2. Envío por Resend
+        // 2. Envío por Resend con todos los campos incluidos
         const { data, error } = await resend.emails.send({
             from: 'Expansis Pro Web <contacto@expansispro.com>',
             to: [process.env.CONTACT_RECEIVER_EMAIL || 'gonzalo@expansispro.com'],
@@ -46,7 +63,7 @@ export async function POST(request) {
                     
                     <table style="width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: 24px;">
                         <tr>
-                            <td style="padding: 8px 0; color: #9ca3af; width: 35%;">Nombre:</td>
+                            <td style="padding: 8px 0; color: #9ca3af; width: 40%;">Nombre:</td>
                             <td style="padding: 8px 0; font-weight: bold; color: #ffffff;">${name}</td>
                         </tr>
                         <tr>
@@ -62,9 +79,27 @@ export async function POST(request) {
                             <td style="padding: 8px 0;"><a href="tel:${phone}" style="color: #ffffff; text-decoration: none;">${phone}</a></td>
                         </tr>
                         <tr>
+                            <td style="padding: 8px 0; color: #9ca3af;">Sitio Web / Redes:</td>
+                            <td style="padding: 8px 0; color: #ffffff;">${websiteUrl ? `<a href="${websiteUrl.startsWith('http') ? websiteUrl : `https://${websiteUrl}`}" target="_blank" style="color: #ff5c00; text-decoration: none;">${websiteUrl}</a>` : 'No indicada'}</td>
+                        </tr>
+                        <tr>
                             <td style="padding: 8px 0; color: #9ca3af;">Programa de Interés:</td>
                             <td style="padding: 8px 0; color: #ff5c00; font-weight: bold;">${selectedServices}</td>
                         </tr>
+                        <tr>
+                            <td style="padding: 8px 0; color: #9ca3af;">Situación Actual:</td>
+                            <td style="padding: 8px 0; color: #ffffff;">${currentStatus || 'No indicada'}</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px 0; color: #9ca3af;">Inversión Estimada:</td>
+                            <td style="padding: 8px 0; color: #ffffff;">${budgetRange || 'A evaluar'}</td>
+                        </tr>
+                        ${timeline ? `
+                        <tr>
+                            <td style="padding: 8px 0; color: #9ca3af;">Plazo Estimado:</td>
+                            <td style="padding: 8px 0; color: #ffffff;">${timeline}</td>
+                        </tr>
+                        ` : ''}
                     </table>
 
                     <div style="background-color: #111827; border-left: 3px solid #ff5c00; padding: 16px; margin-bottom: 20px;">
@@ -73,7 +108,8 @@ export async function POST(request) {
                     </div>
 
                     <p style="font-size: 11px; color: #6b7280; font-family: monospace; text-align: center; margin: 0; border-top: 1px solid #1f2937; padding-top: 16px;">
-                        Expansis Pro // Telemetría y Captación Automatizada
+                        Expansis Pro // Agencia de Desarrollo Web y Marketing Digital en Chile //
+                        <a href="https://expansispro.com" target="_blank" style="color: #ff5c00; text-decoration: none;">expansispro.com</a>
                     </p>
                 </div>
             `
@@ -92,8 +128,11 @@ export async function POST(request) {
                 body: JSON.stringify({
                     name,
                     company: company || 'No especificada',
+                    websiteUrl: websiteUrl || 'No indicada',
                     email,
                     phone,
+                    currentStatus: currentStatus || 'No indicada',
+                    budgetRange: budgetRange || 'A evaluar',
                     serviceType: selectedServices,
                     message,
                     timestamp: new Date().toLocaleString('es-CL')
@@ -101,12 +140,13 @@ export async function POST(request) {
             }).catch(err => console.warn('Aviso: SheetDB falló pero el correo fue entregado', err));
         }
 
-        // 4. Establecer cookie de sesión (se borra automáticamente cuando el usuario cierra el navegador)
+        // 4. Establecer cookie con expiración de 60 segundos
         const response = NextResponse.json({ success: true, id: data.id });
         response.cookies.set({
             name: 'expansis_lead_session',
             value: 'true',
             httpOnly: true,
+            maxAge: 60,
             sameSite: 'strict',
             path: '/'
         });

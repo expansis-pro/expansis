@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import FaqItem from '@/components/FaqItem';
 import JsonLd from '@/components/SEO/JsonLd';
 import CallToAction from '@/components/CallToAction';
-import { faqsData } from '@/data/faqsData';
+import faqsData from '@/data/faqsData';
 
 const categories = [
     { label: "Todas", tag: "all" },
@@ -64,8 +64,8 @@ export default function FaqsPage() {
                                     setOpenIndex(null);
                                 }}
                                 className={`px-4 py-2 font-mono text-xs uppercase tracking-wider border transition-all cursor-pointer ${selectedTag === cat.tag
-                                        ? "bg-primario border-primario text-white font-medium"
-                                        : "bg-[#07090e] border-white/15 text-zinc-400 hover:border-white/40 hover:text-white"
+                                    ? "bg-primario border-primario text-white font-medium"
+                                    : "bg-[#07090e] border-white/15 text-zinc-400 hover:border-white/40 hover:text-white"
                                     }`}
                             >
                                 {cat.label}

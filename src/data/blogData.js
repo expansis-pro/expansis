@@ -1448,5 +1448,49 @@ export const blogPosts = [
             "<ul><li><strong>Para no alarmarte innecesariamente ante caídas temporales:</strong> Conocer el contexto estacional te permite entender por qué las ventas bajan en ciertos meses sin asumir de inmediato que el producto fracasó.</li><li><strong>Para auditar reportes externos con ojo crítico:</strong> Aplicar las 6 preguntas (Quién financió el estudio, Cómo se midió) te protege de tomar decisiones basadas en estadísticas sesgadas creadas por terceros con intereses comerciales.</li><li><strong>Para que tus presentaciones convenzan a socios e inversionistas:</strong> Presentar métricas acompañadas del 'Por qué' y el 'Cómo' genera credibilidad ejecutiva y demuestra madurez en la gestión de tu negocio.</li></ul>",
             "<strong>Conclusión:</strong> Los datos crudos son únicamente el punto de partida. Incorporar contexto en cada etapa del proceso analítico transforma números dispersos en respuestas estratégicas con impacto comercial duradero."
         ]
+    }, {
+        id: 39,
+        slug: "working-with-stakeholders-y-gestion-del-foco",
+        title: "Trabajar con Stakeholders y Enfocarnos en lo que Importa: Gestión de Expectativas y Enfoque en Proyectos de Datos",
+        category: "Estrategia & Datos",
+        excerpt: "Aprende a gestionar stakeholders primarios y secundarios, equilibrar las necesidades del equipo, aplicar comunicación efectiva, decir 'no' a tiempo y mantener el foco en los objetivos clave de tus proyectos.",
+        author: "Gonzalo Lobos",
+        authorRole: "Founder & Lead Engineer",
+        date: "22 Octubre 2026",
+        readTime: "11 min de lectura",
+        image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80",
+        status: "aprobado",
+        tags: ["Stakeholders", "Gestión de Proyectos", "Comunicación", "Metodología Google", "Estrategia de Datos", "Business Intelligence"],
+        sources: [
+            {
+                num: 1,
+                name: "Coursera / Google Data Analytics",
+                title: "Ask Questions to Make Data-Driven Decisions - Working with Stakeholders & Focus on what matters",
+                url: "https://www.coursera.org/learn/ask-questions-make-decisions/supplement/2MAkf/working-with-stakeholders"
+            }
+        ],
+        content: [
+            "<strong>El éxito de un proyecto analítico no solo depende de la precisión técnica de los modelos, sino de la capacidad para mantener el foco en los objetivos mientras se gestionan las expectativas y necesidades de los distintos involucrados.<sup><a href='#fuente-1' class='text-primario font-bold ml-1'>[1]</a></sup></strong>",
+            "Trabajar de forma transversal con múltiples personas exige aplicar preguntas clave desde el inicio para alinear intereses, optimizar recursos y evitar distracciones operativas.",
+
+            "<h3>1. Las 3 Preguntas Clave para Mantener el Foco</h3>",
+            "Para evitar el caos derivado de necesidades y opiniones competitivas, todo analista debe resolver tres interrogantes al arrancar un proyecto:",
+            "<ul><li><strong>¿Quiénes son los stakeholders primarios y secundarios?</strong> Identificar a quienes tienen influencia directa en los resultados (como directivos) y a quienes dependen del trabajo para sus propias tareas.</li><li><strong>¿Quién gestiona los datos?</strong> Coordinar con otros analistas para evitar duplicidad de esfuerzos y enriquecer la investigación con información previa.</li><li><strong>¿Dónde buscar ayuda?</strong> Conocer de antemano qué recursos de gestión o gerentes de proyecto pueden destrabar cronogramas y eliminar barreras operativas.</li></ul>",
+
+            "<h3>2. Los Tres Grupos Clave de Stakeholders</h3>",
+            "Comprender los intereses de cada grupo involucrado permite estructurar una comunicación precisa y adaptada a su nivel de decisión:",
+            "<ul><li><strong>Stakeholders Primarios:</strong> Tienen un interés o influencia directa en los resultados (por ejemplo, el Vicepresidente de Recursos Humanos que usará los hallazgos para definir políticas).</li><li><strong>Stakeholders Secundarios:</strong> Personas afectadas de forma indirecta o que dependen de tu entrega para realizar sus tareas (jefes de proyecto, compañeros y otros analistas).</li><li><strong>Equipo Ejecutivo y de Cara al Cliente:</strong> Proveen visión estratégica a gran escala o retroalimentación directa del mercado, requiriendo resúmenes directos centrados en las conclusiones principales.</li></ul>",
+            "<h3>3. Entendamos los Roles de los Stakeholders con un Ejemplo</h3>",
+            "Para ilustrar cómo influyen los diferentes roles en la práctica, consideremos el caso de Ning, una analista de datos de una compañía de bicicletas que trabaja en un reporte anual de ventas:",
+            "<ul><li><strong>Vicepresidente de Ventas:</strong> Proporciona dirección estratégica y operativa, aunque muestra menor interés en los detalles específicos. Ning prepara preguntas con anticipación para centrarse en los hallazgos clave que la empresa espera del reporte anual.</li><li><strong>Equipo de Ventas:</strong> Interactúa directamente con los clientes y conoce con precisión el rendimiento de la compañía durante el último año, aportando información detallada sobre los datos que más importan a los compradores.</li><li><strong>Equipo de Análisis de Datos:</strong> Cada analista se enfoca en un conjunto de datos particular y ayuda a extraer los tipos de información necesarios para satisfacer a los demás stakeholders, colaborando de manera conjunta.</li><li><strong>Gerentes de Ciencia de Datos:</strong> Supervisan todos los conjuntos de datos de la compañía y ayudan a priorizar las clases de información y análisis requeridos para el reporte anual, aconsejando también sobre la efectividad de las presentaciones.</li></ul>",
+            "<h3>4. Consejos Clave para una Comunicación y Colaboración Efectiva</h3>",
+            "Equilibrar las demandas del equipo y mantener relaciones constructivas requiere aplicar pautas rigurosas de interacción:",
+            "<ul><li><strong>Entender metas y establecer expectativas:</strong> Conoce qué busca lograr cada stakeholder y comunica con claridad los alcances y limitaciones reales del proyecto.</li><li><strong>Sentirse empoderado para decir 'no':</strong> Si un directivo solicita un encargo de última hora con plazos inviables, recházalo educadamente explicando el contexto operativo y ofreciendo alternativas.</li><li><strong>Evitar la 'ilusión de acuerdo':</strong> Presenta descripciones y bocetos visuales rápidos desde el inicio para asegurar que todos interpreten lo mismo.</li><li><strong>Actualizaciones constantes y escucha activa:</strong> Mantén informados a los involucrados sobre avances e imprevistos, atendiendo con prontitud sus comentarios.</li></ul>",
+
+            "<h3>💡 ¿Para qué te sirve esto como emprendedor?</h3>",
+            "<ul><li><strong>Para proteger la capacidad operativa:</strong> Saber decir 'no' con argumentos basados en datos evita sobrecargar a tu equipo con solicitudes improvisadas.</li><li><strong>Para optimizar recursos y alinear socios:</strong> Identificar prioridades y fuentes de datos desde el primer día impide perder tiempo analizando variables secundarias.</li><li><strong>Para acelerar decisiones directivas:</strong> Presentar conclusiones ejecutivas claras genera confianza absoluta y alinea rápidamente a la gerencia con los objetivos comerciales.</li></ul>",
+
+            "<strong>Conclusión:</strong> Integrar la gestión de stakeholders con un enfoque riguroso en lo importante transforma la colaboración transversal en el puente definitivo para alcanzar el éxito analítico y empresarial."
+        ]
     }
 ];

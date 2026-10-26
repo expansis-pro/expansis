@@ -49,35 +49,52 @@ const sendWhatsAppMessageBase = (servicio = "Información General", metadata = {
     window.open(whatsappLink, '_blank', 'noopener,noreferrer');
 };
 
-/**
- * Envía la conversión de formulario a GTM y Google Ads.
- */
+// src/utils/trackingUtils.js
+
 const trackFormConversionBase = (formName = "Formulario General", metadata = {}) => {
-    // Señal para Google Tag Manager
+    const isQualified = metadata.is_qualified ?? true; // Por defecto calificado si no se especifica
+    const qualificationReason = metadata.qualification_reason || 'cumple_criterios';
+
+    // 1. Google Tag Manager / GA4 (Recibe TODOS los envíos con su etiqueta de estado)
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
-        'event': 'disparo_formulario_manual',
+        'event': isQualified ? 'disparo_formulario_calificado' : 'disparo_formulario_descalificado',
         'form_name': formName,
+        'lead_status': isQualified ? 'qualified' : 'unqualified',
+        'qualification_reason': qualificationReason,
         ...metadata
     });
 
-    // Señal directa para Google Ads
-    if (typeof window.gtag === 'function') {
+    // 2. Google Ads (Solo se envía si el lead es calificado)
+    if (isQualified && typeof window.gtag === 'function') {
         window.gtag('event', 'conversion', {
             'send_to': 'AW-16965295721/mRlTCNr00sIbEOm815k_',
             ...metadata
         });
     }
 
-    // 3. NUEVO: Señal directa para el Píxel de Meta (Evento Cliente Potencial / Lead)
+    // 3. Meta Píxel
     if (typeof window.fbq === 'function') {
-        window.fbq('track', 'Lead', {
-            content_name: formName,
-            status: 'Formulario Enviado Exitosamente'
-        });
+        if (isQualified) {
+            // Evento Estándar: Alimenta el algoritmo de optimización de compras/leads
+            window.fbq('track', 'Lead', {
+                content_name: formName,
+                status: 'Calificado',
+                currency: 'CLP',
+                ...metadata
+            });
+        } else {
+            // Evento Personalizado: Solo para métricas y auditoría, NO afecta el algoritmo
+            window.fbq('trackCustom', 'UnqualifiedLead', {
+                content_name: formName,
+                status: 'Descalificado',
+                reason: qualificationReason,
+                ...metadata
+            });
+        }
     }
 
-    console.log(`🚀 Conversión de formulario [${formName}] enviada a Google y Meta`);
+    console.log(`📡 Formulario [${formName}] procesado. Estado: ${isQualified ? 'CALIFICADO' : 'DESCALIFICADO'} (${qualificationReason})`);
 };
 
 

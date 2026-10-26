@@ -33,8 +33,14 @@ export default function ContactForm() {
             const cachedData = sessionStorage.getItem('expansis_lead_summary');
             if (cachedData) {
                 try {
-                    setSavedSummary(JSON.parse(cachedData));
-                    setIsSuccess(true);
+                    const parsed = JSON.parse(cachedData);
+                    // Si ya pasaron más de 60 segundos, restaurar el formulario limpio
+                    if (parsed.savedAt && Date.now() - parsed.savedAt > 60000) {
+                        sessionStorage.removeItem('expansis_lead_summary');
+                    } else {
+                        setSavedSummary(parsed);
+                        setIsSuccess(true);
+                    }
                 } catch (e) {
                     sessionStorage.removeItem('expansis_lead_summary');
                 }
@@ -94,10 +100,10 @@ export default function ContactForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (typeof window !== 'undefined' && sessionStorage.getItem('expansis_lead_summary')) {
-            setStatusMessage("Ya recibimos una solicitud en esta sesión. Contáctanos vía WhatsApp para consultas adicionales.");
-            return;
-        }
+        // if (typeof window !== 'undefined' && sessionStorage.getItem('expansis_lead_summary')) {
+        //     setStatusMessage("Ya recibimos una solicitud en esta sesión. Contáctanos vía WhatsApp para consultas adicionales.");
+        //     return;
+        // }
 
         if (siteKey && !captchaVerified) {
             setStatusMessage("Por favor confirma la verificación de seguridad.");
@@ -131,7 +137,8 @@ export default function ContactForm() {
                 currentStatus: formData.currentStatus || "No indicado",
                 budgetRange: formData.budgetRange || "A evaluar",
                 serviceType: formData.serviceType || "Diagnóstico General",
-                message: formData.message
+                message: formData.message,
+                savedAt: Date.now() // 👈 Marca de tiempo
             };
 
             if (typeof window !== 'undefined') {
@@ -140,8 +147,15 @@ export default function ContactForm() {
 
             setSavedSummary(summaryData);
 
+            // Criterio de ejemplo: Descalificar si seleccionó un presupuesto inviable
+            const presupuestoInvalido = formData.budgetRange === "Menos de $150.000" || formData.budgetRange === "A evaluar";
+            const esCalificado = true;
+
+
             trackFormSubmit('contacto_main_form', {
-                'servicio_seleccionado': summaryData.serviceType
+                'servicio_seleccionado': summaryData.serviceType,
+                'is_qualified': esCalificado,
+                'qualification_reason': 'sin_filtro'
             });
 
             setIsSuccess(true);
@@ -209,8 +223,21 @@ Quedo atento a la evaluación técnica.`;
                     </a>
                 </div>
 
-                <div className="text-[11px] text-zinc-500 border-t border-white/10 pt-4">
-                    RESPUESTA ESTIMADA: &lt; 24 HORAS HÁBILES // EXPANSIS PRO
+                <div className="text-[11px] text-zinc-500 border-t border-white/10 pt-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                    <span>RESPUESTA ESTIMADA: &lt; 24 HORAS HÁBILES // EXPANSIS PRO</span>
+                    <button
+                        type="button"
+                        onClick={() => {
+                            if (typeof window !== 'undefined') {
+                                sessionStorage.removeItem('expansis_lead_summary');
+                            }
+                            setIsSuccess(false);
+                            setStatusMessage("");
+                        }}
+                        className="text-zinc-400 hover:text-primario text-xs font-mono underline text-left cursor-pointer"
+                    >
+                        ¿Deseas enviar otra consulta o corregir datos?
+                    </button>
                 </div>
             </div>
         );
