@@ -23,10 +23,23 @@ export const metadata = {
 export default function RootLayout({ children }) {
 
     const PIXEL_ID = '1489240472466043';
+    const GTM_ID = 'GTM-TQ3BF3B6';
+
     return (
         <html lang="es" className={montserrat.className}>
             <head>
-
+                {/* Google Tag Manager — lo más arriba posible en <head> */}
+                <Script
+                    id="google-tag-manager"
+                    strategy="beforeInteractive"
+                    dangerouslySetInnerHTML={{
+                        __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','${GTM_ID}');`,
+                    }}
+                />
 
                 <link
                     rel="stylesheet"
@@ -66,6 +79,15 @@ export default function RootLayout({ children }) {
 
             </head>
             <body className="bg-[#07090e] text-white min-h-screen flex flex-col antialiased selection:bg-primario selection:text-white">
+                <noscript>
+                    <iframe
+                        src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+                        height="0"
+                        width="0"
+                        style={{ display: 'none', visibility: 'hidden' }}
+                        title="Google Tag Manager"
+                    />
+                </noscript>
                 <AgencySchema />
                 <Navbar />
                 <main className="flex-grow flex flex-col bg-[#07090e]">

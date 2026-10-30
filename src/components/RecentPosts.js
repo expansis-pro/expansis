@@ -1,12 +1,19 @@
 // src/components/RecentPosts.js
 'use client';
-import React from 'react';
+import React, { useMemo } from 'react';
 import Link from 'next/link';
 import { blogPosts } from '@/data/blogData';
 import BlogImage from '@/components/BlogImage';
+import { parseBlogDate } from '@/utils/dateUtils';
 
 export default function RecentPosts() {
-    const recent = blogPosts.filter((post) => post.status === "aprobado").slice(0, 3);
+    // Filtra los artículos aprobados, los ordena de más reciente a más antiguo y toma los primeros 3
+    const recent = useMemo(() => {
+        return [...blogPosts]
+            .filter((post) => post && post.status === 'aprobado')
+            .sort((a, b) => parseBlogDate(b.date) - parseBlogDate(a.date))
+            .slice(0, 3);
+    }, []);
 
     return (
         <section id="recent-posts" className="py-24 bg-[#0a0d14] text-white border-b border-white/10">
@@ -55,7 +62,7 @@ export default function RecentPosts() {
                             <div className="p-6 flex-1 flex flex-col justify-between">
                                 <div>
                                     <div className="font-mono text-[10px] text-zinc-500 uppercase tracking-widest mb-3 flex items-center justify-between">
-                                        <span>[0{idx + 1}]</span>
+                                        <span>[0{idx + 1}] // {post.date}</span>
                                         <span>{post.readTime}</span>
                                     </div>
 
