@@ -154,8 +154,11 @@ export default function ContactForm() {
 
             trackFormSubmit('contacto_main_form', {
                 'servicio_seleccionado': summaryData.serviceType,
-                'is_qualified': esCalificado,
-                'qualification_reason': 'sin_filtro'
+                'situacion_actual': summaryData.currentStatus,
+                'rango_presupuesto': summaryData.budgetRange,
+                'empresa': summaryData.company,
+                'is_qualified': true,
+                'qualification_reason': 'formulario_web'
             });
 
             setIsSuccess(true);
