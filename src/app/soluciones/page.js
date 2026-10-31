@@ -7,7 +7,7 @@ import CallToAction from '@/components/CallToAction';
 
 const solutionImages = {
     'marca-personal-profesionales': '/assets/images/marca-personal.webp',
-    'empresas-b2b': '/assets/images/empresa-b2b.webp',
+    'empresas-b2b': '/assets/images/empresas-b2b.webp',
     'ecommerce': '/assets/images/ecommerce.webp',
 };
 

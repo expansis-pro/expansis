@@ -11,7 +11,7 @@ import SolutionFaqs from '@/components/SolutionFaqs'; // <-- Componente Acordeó
 
 const solutionImages = {
     'marca-personal-profesionales': '/assets/images/web-para-profesionales.webp',
-    'empresas-b2b': '/assets/images/desarrollo-web.webp',
+    'empresas-b2b': '/assets/images/empresas-b2b.webp',
     'ecommerce': '/assets/images/ecommerce.webp',
 };
 
@@ -91,7 +91,92 @@ export default async function SolutionDetailPage({ params }) {
                     </div>
                 </div>
             </section>
+            {/* 3. ALCANCE TÉCNICO Y FINANCIERO */}
+            <section id="alcance-tecnico" className="py-20 bg-[#0a0d14] border-b border-white/10 relative overflow-hidden">
+                <div className="container-pro max-w-6xl mx-auto px-4 relative z-10">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                        {/* Izquierda: Entregables */}
+                        <div className="lg:col-span-7">
+                            <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-primario block mb-2">
+                                [ COMPONENTES DEL PROGRAMA ]
+                            </span>
+                            <h2 className="text-2xl sm:text-3xl font-light text-white mb-8">
+                                Entregables Técnicos Incluidos
+                            </h2>
+                            <ul className="space-y-4 mb-8">
+                                {solution.deliverables.map((item, idx) => (
+                                    <li key={idx} className="flex items-start gap-4 text-sm font-light text-zinc-300">
+                                        <span className="font-mono text-primario text-xs shrink-0 select-none mt-0.5">
+                                            {(idx + 1).toString().padStart(2, '0')}.
+                                        </span>
+                                        <span className="leading-relaxed">{item}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                            <div className="p-4 border border-white/10 bg-[#0f1420] text-xs font-light text-zinc-400 flex items-start gap-3">
+                                <span className="text-primario font-mono text-sm leading-none shrink-0">■</span>
+                                <span>Propiedad total: Expansis Pro no retiene activos. El cliente mantiene la titularidad absoluta sobre repositorios de código, accesos a paneles y cuentas publicitarias.</span>
+                            </div>
+                        </div>
 
+
+                        {/* Derecha: Inversión */}
+                        <div className="lg:col-span-5">
+                            <div className="border border-white/15 bg-black/80 backdrop-blur-md p-6 sm:p-8 font-mono mb-6">
+                                <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
+                                    <span className="text-xs uppercase tracking-widest text-primario">Inversión Estimada</span>
+                                </div>
+
+                                <div className="mb-6 border-b border-white/10 pb-6">
+                                    <div className="flex items-center gap-2 mb-2">
+                                        <span className="text-[10px] uppercase text-zinc-500 block">Setup Inicial (Pago Único)</span>
+                                        {solution.pricing?.promoTag && (
+                                            <span className="font-mono text-[9px] uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2 py-0.5 border border-emerald-500/30">
+                                                {solution.pricing.promoTag}
+                                            </span>
+                                        )}
+                                    </div>
+                                    <div className="flex items-baseline gap-3 mt-1">
+                                        <span className="text-2xl text-white font-medium block">{solution.pricing.setup}</span>
+                                        {solution.pricing?.originalSetup && (
+                                            <span className="text-xs text-zinc-500 line-through font-mono">{solution.pricing.originalSetup}</span>
+                                        )}
+                                    </div>
+                                    <span className="text-[10px] text-zinc-500">{solution.pricing.setupNote}</span>
+                                </div>
+
+                                {/* Mantención mensual */}
+                                <div className="p-4 flex flex-col lg:flex-row items-start lg:items-center justify-between text-xs border-b border-white/5 gap-2 lg:gap-0">
+                                    <span className="text-zinc-400">Mantención mensual:</span>
+                                    <span className="text-white font-medium">{solution.pricing.maintenance}</span>
+                                </div>
+
+                                {/* Pauta sugerida - Con separación garantizada y sin choques */}
+                                <div className="p-4 flex flex-col lg:flex-row items-start lg:items-center justify-between text-xs border-b border-white/5 gap-2 lg:gap-0">
+                                    <span className="text-zinc-400 pl-1">
+                                        Pauta sugerida ({solution.pricing.adSpendPlatform}):
+                                    </span>
+                                    <span className="text-primario font-medium self-end lg:self-auto pl-1 lg:pl-0">
+                                        {solution.pricing.adSpendSuggested}
+                                    </span>
+                                </div>
+
+                                <div className="p-3 bg-white/[0.02] text-[10px] text-zinc-500 flex justify-between mt-2">
+                                    <span>Condición de inicio:</span>
+                                    <span className="text-zinc-400">{solution.pricing.commitment}</span>
+                                </div>
+                            </div>
+
+                            <ClientScrollButton
+                                action="openDrawer"
+                                className="w-full py-4 bg-primario text-white text-xs font-mono uppercase tracking-[0.2em] font-semibold hover:bg-primario/90 transition-all cursor-pointer flex items-center justify-center gap-2"
+                            >
+                                Iniciar Evaluación →
+                            </ClientScrollButton>
+                        </div>
+                    </div>
+                </div>
+            </section>
             {/* 2. DOLORES Y SOLUCIÓN */}
             <section className="py-20 bg-[#07090e] border-b border-white/10">
                 <div className="container-pro max-w-5xl mx-auto px-4">
@@ -124,90 +209,14 @@ export default async function SolutionDetailPage({ params }) {
                                 {solution.targetAudience}
                             </p>
                             <p className="text-sm text-zinc-400 font-light leading-relaxed">
-                                Abordamos el problema desde su raíz arquitectónica. Eliminamos el código inflado de constructores visuales lentos, diseñamos rutas de conversión claras y conectamos el ecosistema directamente a las plataformas publicitarias para medir el retorno de cada peso invertido.
+                                Abordamos el problema desde su raíz arquitectónica. <strong>Eliminamos el código inflado</strong> de constructores visuales lentos, <strong>diseñamos rutas de conversión</strong> claras e <strong>integramos plataformas publicitarias</strong> para traer nuevos prospectos y medir el retorno de cada peso invertido.
                             </p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* 3. ALCANCE TÉCNICO Y FINANCIERO */}
-            <section id="alcance-tecnico" className="py-20 bg-[#0a0d14] border-b border-white/10 relative overflow-hidden">
-                <div className="container-pro max-w-6xl mx-auto px-4 relative z-10">
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-                        {/* Izquierda: Entregables */}
-                        <div className="lg:col-span-7">
-                            <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-primario block mb-2">
-                                [ COMPONENTES DEL PROGRAMA ]
-                            </span>
-                            <h2 className="text-2xl sm:text-3xl font-light text-white mb-8">
-                                Entregables Técnicos Incluidos
-                            </h2>
-                            <ul className="space-y-4 mb-8">
-                                {solution.deliverables.map((item, idx) => (
-                                    <li key={idx} className="flex items-start gap-4 text-sm font-light text-zinc-300">
-                                        <span className="font-mono text-primario text-xs shrink-0 select-none mt-0.5">
-                                            {(idx + 1).toString().padStart(2, '0')}.
-                                        </span>
-                                        <span className="leading-relaxed">{item}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                            <div className="p-4 border border-white/10 bg-[#0f1420] text-xs font-light text-zinc-400 flex items-start gap-3">
-                                <span className="text-primario font-mono text-sm leading-none shrink-0">■</span>
-                                <span>Propiedad total: Expansis Pro no retiene activos. El cliente mantiene la titularidad absoluta sobre repositorios de código, accesos a paneles y cuentas publicitarias.</span>
-                            </div>
-                        </div>
 
-                        {/* Derecha: Inversión */}
-                        <div className="lg:col-span-5">
-                            <div className="border border-white/15 bg-black/80 backdrop-blur-md p-6 sm:p-8 font-mono mb-6">
-                                <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
-                                    <span className="text-xs uppercase tracking-widest text-primario">Inversión Estimada</span>
-                                    <span className="text-[10px] text-zinc-500 uppercase tracking-widest">Valores Netos</span>
-                                </div>
-
-                                <div className="mb-6 border-b border-white/10 pb-6">
-                                    <div className="flex items-center gap-2 mb-2">
-                                        <span className="text-[10px] uppercase text-zinc-500 block">Setup Inicial (Pago Único)</span>
-                                        {solution.pricing?.promoTag && (
-                                            <span className="font-mono text-[9px] uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2 py-0.5 border border-emerald-500/30">
-                                                {solution.pricing.promoTag}
-                                            </span>
-                                        )}
-                                    </div>
-                                    <div className="flex items-baseline gap-3 mt-1">
-                                        <span className="text-2xl text-white font-medium block">{solution.pricing.setup}</span>
-                                        {solution.pricing?.originalSetup && (
-                                            <span className="text-xs text-zinc-500 line-through font-mono">{solution.pricing.originalSetup}</span>
-                                        )}
-                                    </div>
-                                    <span className="text-[10px] text-zinc-500">{solution.pricing.setupNote}</span>
-                                </div>
-                                <div className="p-4 flex items-center justify-between text-xs">
-                                    <span className="text-zinc-400">Mantención mensual:</span>
-                                    <span className="text-white">{solution.pricing.maintenance}</span>
-                                </div>
-                                <div className="p-4 flex items-center justify-between text-xs">
-                                    <span className="text-zinc-400">Pauta sugerida ({solution.pricing.adSpendPlatform}):</span>
-                                    <span className="text-primario">{solution.pricing.adSpendSuggested}</span>
-                                </div>
-                                <div className="p-3 bg-white/[0.02] text-[10px] text-zinc-500 flex justify-between">
-                                    <span>Condición de inicio:</span>
-                                    <span className="text-zinc-400">{solution.pricing.commitment}</span>
-                                </div>
-                            </div>
-
-                            <ClientScrollButton
-                                action="openDrawer"
-                                className="w-full py-4 bg-primario text-white text-xs font-mono uppercase tracking-[0.2em] font-semibold hover:bg-primario/90 transition-all cursor-pointer flex items-center justify-center gap-2"
-                            >
-                                Iniciar Evaluación →
-                            </ClientScrollButton>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
 
             {/* 4. FASES DE IMPLEMENTACIÓN */}

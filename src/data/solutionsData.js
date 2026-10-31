@@ -7,7 +7,7 @@ export const solutionsData = [
         title: "Marca Personal & Profesionales",
         tagline: "Convierte tu trayectoria y reputación en consultas de alto valor",
         targetAudience: "Diseñado para médicos, psicólogos, abogados, peritos y consultores independientes que venden su conocimiento.",
-        heroText: "No necesitas un sitio web tradicional ni depender exclusivamente del boca a boca. Construimos tu oficina digital en React: velocidad instantánea, arquitectura de autoridad y un canal directo de adquisición para llenar tu agenda con pacientes y clientes calificados.",
+        heroText: "Orientado para profesionales y marcas personales. Vamos un paso más allá del boca en boca y construimos tu oficina digital: integramos desarrollo web optimizado, campañas en Meta y Google Ads, y seguimiento de leads para que puedas llenar tu agenda con clientes calificados.",
         seo: {
             title: "Canal Digital para Profesionales y Marcas Personales | Expansis Pro",
             description: "Ecosistema digital en React con Strapi CMS, captación en Meta Ads y medición de conversiones para médicos, abogados y consultores en Chile."
@@ -32,7 +32,7 @@ export const solutionsData = [
             maintenance: "$250.000 + IVA / mes",
             commitment: "Compromiso mínimo de 2 meses",
             adSpendSuggested: "$300.000 a $450.000 CLP / mes",
-            adSpendPlatform: "Meta Ads (Instagram & Facebook)",
+            adSpendPlatform: "Google Ads + Meta",
             adSpendNote: "Inversión pagada directamente por el cliente a Meta con tarjeta corporativa"
         },
         deliverables: [
@@ -101,7 +101,7 @@ export const solutionsData = [
             maintenance: "$250.000 + IVA / mes",
             commitment: "Compromiso mínimo de 2 meses",
             adSpendSuggested: "$300.000 a $450.000 CLP / mes",
-            adSpendPlatform: "Google Search Ads + Retargeting Meta",
+            adSpendPlatform: "Google Ads + Meta",
             adSpendNote: "Inversión pagada directamente por el cliente a Google y Meta"
         },
         deliverables: [
