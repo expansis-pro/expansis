@@ -14,7 +14,6 @@ export default function ContactForm() {
         email: "",
         phone: "",
         currentStatus: "",
-        budgetRange: "",
         serviceType: "",
         message: ""
     });
@@ -135,7 +134,6 @@ export default function ContactForm() {
                 email: formData.email,
                 phone: formData.phone,
                 currentStatus: formData.currentStatus || "No indicado",
-                budgetRange: formData.budgetRange || "A evaluar",
                 serviceType: formData.serviceType || "Diagnóstico General",
                 message: formData.message,
                 savedAt: Date.now() // 👈 Marca de tiempo
@@ -147,15 +145,12 @@ export default function ContactForm() {
 
             setSavedSummary(summaryData);
 
-            // Criterio de ejemplo: Descalificar si seleccionó un presupuesto inviable
-            const presupuestoInvalido = formData.budgetRange === "Menos de $150.000" || formData.budgetRange === "A evaluar";
-            const esCalificado = true;
+
 
 
             trackFormSubmit('contacto_main_form', {
                 'servicio_seleccionado': summaryData.serviceType,
                 'situacion_actual': summaryData.currentStatus,
-                'rango_presupuesto': summaryData.budgetRange,
                 'empresa': summaryData.company,
                 'is_qualified': true,
                 'qualification_reason': 'formulario_web'
@@ -178,7 +173,6 @@ export default function ContactForm() {
             email: formData.email || "No especificado",
             phone: formData.phone || "No especificado",
             currentStatus: formData.currentStatus || "No indicado",
-            budgetRange: formData.budgetRange || "A evaluar",
             serviceType: formData.serviceType.length > 0 ? formData.serviceType.join(", ") : "Diagnóstico General",
             message: formData.message || "Solicitud de contacto enviada desde la web"
         };
@@ -291,48 +285,29 @@ Quedo atento a la evaluación técnica.`;
                 />
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                    <label className="block font-mono text-[11px] uppercase tracking-wider text-zinc-400 mb-2">
-                        04. Situación Actual *
-                    </label>
-                    <select
-                        name="currentStatus"
-                        required
-                        value={formData.currentStatus}
-                        onChange={handleChange}
-                        className="w-full bg-[#07090e] border border-white/15 px-4 py-3 text-sm text-white focus:outline-none focus:border-primario rounded-none"
-                    >
-                        <option value="">Selecciona una opción...</option>
-                        <option value="Sin web (desde cero)">No tenemos web (desde cero)</option>
-                        <option value="Web activa que no convierte">Tenemos web activa pero no convierte</option>
-                        <option value="Rediseño / Migración">Buscamos rediseño / migración</option>
-                        <option value="Solo redes sociales">Solo operamos por redes sociales</option>
-                    </select>
-                </div>
-
-                <div>
-                    <label className="block font-mono text-[11px] uppercase tracking-wider text-zinc-400 mb-2">
-                        05. Inversión Estimada
-                    </label>
-                    <select
-                        name="budgetRange"
-                        value={formData.budgetRange}
-                        onChange={handleChange}
-                        className="w-full bg-[#07090e] border border-white/15 px-4 py-3 text-sm text-white focus:outline-none focus:border-primario rounded-none"
-                    >
-                        <option value="">A evaluar según propuesta</option>
-                        <option value="$350.000 - $600.000 CLP">$350.000 a $600.000 CLP</option>
-                        <option value="$600.000 - $1.200.000 CLP">$600.000 a $1.200.000 CLP</option>
-                        <option value="Más de $1.200.000 CLP">Más de $1.200.000 CLP</option>
-                    </select>
-                </div>
+            <div>
+                <label className="block font-mono text-[11px] uppercase tracking-wider text-zinc-400 mb-2">
+                    04. Situación Actual *
+                </label>
+                <select
+                    name="currentStatus"
+                    required
+                    value={formData.currentStatus}
+                    onChange={handleChange}
+                    className="w-full bg-[#07090e] border border-white/15 px-4 py-3 text-sm text-white focus:outline-none focus:border-primario rounded-none"
+                >
+                    <option value="">Selecciona una opción...</option>
+                    <option value="Sin web (desde cero)">No tenemos web (desde cero)</option>
+                    <option value="Web activa que no convierte">Tenemos web activa pero no convierte</option>
+                    <option value="Rediseño / Migración">Buscamos rediseño / migración</option>
+                    <option value="Solo redes sociales">Solo operamos por redes sociales</option>
+                </select>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                     <label className="block font-mono text-[11px] uppercase tracking-wider text-zinc-400 mb-2">
-                        06. Correo Electrónico *
+                        05. Correo Electrónico *
                     </label>
                     <input
                         type="email"
@@ -346,7 +321,7 @@ Quedo atento a la evaluación técnica.`;
                 </div>
                 <div>
                     <label className="block font-mono text-[11px] uppercase tracking-wider text-zinc-400 mb-2">
-                        07. Teléfono / WhatsApp *
+                        06. Teléfono / WhatsApp *
                     </label>
                     <input
                         type="tel"
@@ -362,11 +337,10 @@ Quedo atento a la evaluación técnica.`;
 
             <div>
                 <label className="block font-mono text-[11px] uppercase tracking-wider text-zinc-400 mb-3">
-                    08. Programa de Interés
+                    07. Programa de Interés
                 </label>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                     {solutionsData.map((solution) => {
-                        // Ahora comparamos Strings directamente
                         const isChecked = formData.serviceType === solution.title;
 
                         return (
@@ -378,11 +352,11 @@ Quedo atento a la evaluación técnica.`;
                                     }`}
                             >
                                 <input
-                                    type="radio" // 👈 Cambiado a radio
-                                    name="serviceType" // 👈 Obligatorio para agrupar radios
+                                    type="radio"
+                                    name="serviceType"
                                     value={solution.title}
                                     checked={isChecked}
-                                    onChange={handleChange} // 👈 Usa el manejador genérico
+                                    onChange={handleChange}
                                     className="mt-0.5 rounded-none accent-[#ff5c00]"
                                 />
                                 <span className="text-xs font-sans font-light leading-snug">
@@ -396,7 +370,7 @@ Quedo atento a la evaluación técnica.`;
 
             <div>
                 <label className="block font-mono text-[11px] uppercase tracking-wider text-zinc-400 mb-2">
-                    09. Detalles de la Consulta o Proyecto *
+                    08. Detalles de la Consulta o Proyecto *
                 </label>
                 <textarea
                     name="message"

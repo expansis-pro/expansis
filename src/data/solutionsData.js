@@ -137,7 +137,7 @@ export const solutionsData = [
             }
         ],
 
-        relatedProjects: ["2v-express", "lobos-miniexcavadoras", "estudio-brkovic"]
+        relatedProjects: ["2v-express", "gonzalo-lobos", "estudio-brkovic"]
     },
     {
         slug: "ecommerce",

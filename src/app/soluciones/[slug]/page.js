@@ -279,8 +279,8 @@ export default async function SolutionDetailPage({ params }) {
             {/* 7. CASOS DE ÉXITO RELACIONADOS */}
             {solution.relatedProjects && solution.relatedProjects.length > 0 && (
                 <ProjectSection
-                    title="Casos Relacionados"
-                    subtitle="Implementaciones similares desarrolladas bajo este estándar."
+                    title="Proyectos Realizados"
+                    subtitle=""
                     selectedIds={solution.relatedProjects}
                     showCta={false}
                 />

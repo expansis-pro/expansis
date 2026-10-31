@@ -29,21 +29,21 @@ export const projectsData = [
         tags: ["React", "Dirección de Arte", "Cine & Series", "Portafolio de Autor"],
         liveUrl: "https://claudiagallardo.com/"
     },
-    {
-        id: "lobos-miniexcavadoras",
-        category: "Desarrollo Web",
-        title: "Lobos Miniexcavadoras",
-        sector: "Movimiento de Tierra & Construcción",
-        image: "/assets/images/lobosMiniexcavadoras-web.webp",
-        description: "Desarrollo de una <strong>infraestructura digital de alto rendimiento</strong> para el sector industrial. Transformamos la presencia online en una máquina de <strong>generación de leads locales</strong>, priorizando la velocidad de carga en terreno y una arquitectura técnica que proyecta la solidez operativa de la marca.",
-        results: [
-            "Optimización de <strong>conversión estratégica</strong> para arriendo de maquinaria",
-            "Interfaz ultra-rápida (WPO) diseñada para uso en condiciones de baja señal",
-            "Posicionamiento de autoridad en el mercado del Valle del Aconcagua"
-        ],
-        tags: ["React", "Tailwind CSS", "SEO Local", "Servicios Industriales"],
-        liveUrl: "https://lobosminiexcavadoras.cl/"
-    },
+    // {
+    //     id: "lobos-miniexcavadoras",
+    //     category: "Desarrollo Web",
+    //     title: "Lobos Miniexcavadoras",
+    //     sector: "Movimiento de Tierra & Construcción",
+    //     image: "/assets/images/lobosMiniexcavadoras-web.webp",
+    //     description: "Desarrollo de una <strong>infraestructura digital de alto rendimiento</strong> para el sector industrial. Transformamos la presencia online en una máquina de <strong>generación de leads locales</strong>, priorizando la velocidad de carga en terreno y una arquitectura técnica que proyecta la solidez operativa de la marca.",
+    //     results: [
+    //         "Optimización de <strong>conversión estratégica</strong> para arriendo de maquinaria",
+    //         "Interfaz ultra-rápida (WPO) diseñada para uso en condiciones de baja señal",
+    //         "Posicionamiento de autoridad en el mercado del Valle del Aconcagua"
+    //     ],
+    //     tags: ["React", "Tailwind CSS", "SEO Local", "Servicios Industriales"],
+    //     liveUrl: "https://lobosminiexcavadoras.cl/"
+    // },
     {
         id: "gonzalo-lobos",
         category: "Consultoría & Branding",
