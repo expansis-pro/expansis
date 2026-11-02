@@ -70,6 +70,7 @@ export default function ContactForm() {
     };
 
     // Tracking de analítica sin abrir una ventana duplicada con texto genérico
+    // CÓDIGO CORREGIDO (Limpio y sin duplicados):
     const handleWhatsAppLeadClick = (serviceType) => {
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
@@ -78,14 +79,6 @@ export default function ContactForm() {
             click_location: 'form_success_post_submit',
             page_url: window.location.href,
         });
-
-        if (typeof window.gtag === 'function') {
-            window.gtag('event', 'conversion', {
-                'send_to': 'AW-16965295721/wff8CPWU1sIbEOm815k_',
-                click_location: 'form_success_post_submit',
-                page_url: window.location.href,
-            });
-        }
 
         if (typeof window.fbq === 'function') {
             window.fbq('track', 'Contact', {
