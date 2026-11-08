@@ -14,7 +14,6 @@ export default function SolutionFaqs({ faqs = [], solutionTitle = '' }) {
 	const initialFaqsToShow = 5;
 
 	// Determinar qué preguntas se muestran según el estado
-	const displayedFaqs = showAll ? faqs : faqs.slice(0, initialFaqsToShow);
 
 	return (
 		<section className='py-20 bg-[#07090e] border-b border-white/10'>
@@ -23,15 +22,16 @@ export default function SolutionFaqs({ faqs = [], solutionTitle = '' }) {
 				<h2 className='text-2xl sm:text-3xl font-light text-white mb-10'>Preguntas sobre este programa</h2>
 
 				<div className='space-y-3'>
-					{displayedFaqs.map((faq, idx) => (
-						<FaqItem
-							key={faq.id || idx}
-							index={idx}
-							question={faq.pregunta}
-							answer={faq.respuesta_web || faq.respuesta}
-							isOpen={openIndex === idx}
-							onToggle={() => setOpenIndex(openIndex === idx ? null : idx)}
-						/>
+					{faqs.map((faq, idx) => (
+						<div key={faq.id || idx} hidden={!showAll && idx >= initialFaqsToShow}>
+							<FaqItem
+								index={idx}
+								question={faq.pregunta}
+								answer={faq.respuesta_web || faq.respuesta}
+								isOpen={openIndex === idx}
+								onToggle={() => setOpenIndex(openIndex === idx ? null : idx)}
+							/>
+						</div>
 					))}
 				</div>
 

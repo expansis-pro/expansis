@@ -300,10 +300,3 @@ export const faqsData = FAQS;
 // Exportación por defecto para la página general /faq
 export default FAQS;
 
-// Compatibilidad con entornos CommonJS si aplica
-if (typeof module !== 'undefined' && module.exports) {
-        module.exports = FAQS;
-        module.exports.faqsData = FAQS;
-        module.exports.getFaqsBySolutionSlug = getFaqsBySolutionSlug;
-        module.exports.default = FAQS;
-}
