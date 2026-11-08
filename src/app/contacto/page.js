@@ -1,10 +1,20 @@
 // app/contacto/page.js
-'use client';
+
 
 import React from 'react';
 import SecondaryHero from '@/components/SecondaryHero';
 import ContactForm from '@/components/ContactForm';
 import { contactData } from '@/data/contactConfig';
+
+
+import { buildMetadata } from '@/lib/seo';
+
+export const metadata = buildMetadata({
+    title: 'Contacto y Diagnóstico de Proyecto Web | Expansis Pro',
+    description:
+        'Cuéntanos tu proyecto: revisamos tu caso en menos de 24 horas hábiles y te proponemos arquitectura, plazos e inversión. Santiago, Chile.',
+    path: '/contacto',
+});
 
 export default function ContactPage() {
     const email = contactData.email.address;
