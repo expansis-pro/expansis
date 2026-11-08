@@ -301,9 +301,3 @@ export const faqsData = FAQS;
 export default FAQS;
 
 // Compatibilidad con entornos CommonJS si aplica
-if (typeof module !== 'undefined' && module.exports) {
-        module.exports = FAQS;
-        module.exports.faqsData = FAQS;
-        module.exports.getFaqsBySolutionSlug = getFaqsBySolutionSlug;
-        module.exports.default = FAQS;
-}

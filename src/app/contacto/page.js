@@ -6,7 +6,7 @@ import SecondaryHero from '@/components/SecondaryHero';
 import ContactForm from '@/components/ContactForm';
 import { contactData } from '@/data/contactConfig';
 
-
+import { trackFormSubmit } from '@/utils/trackingUtils';
 import { buildMetadata } from '@/lib/seo';
 
 export const metadata = buildMetadata({

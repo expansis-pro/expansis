@@ -3,10 +3,12 @@
 
 import React, { useState, useEffect } from 'react';
 import ReCAPTCHA from "react-google-recaptcha";
-import { trackFormSubmit } from '@/utils/trackingUtils';
 import { solutionsData } from '@/data/solutionsData';
+import { trackFormSubmit } from '@/utils/trackingUtils';
 
-export default function ContactForm() {
+// formOrigin identifica desde dónde se envió el lead:
+// 'contacto_drawer' (panel lateral) o 'contacto_page' (/contacto)
+export default function ContactForm({ formOrigin = 'contacto_main_form' }) {
     const [formData, setFormData] = useState({
         name: "",
         company: "",
@@ -138,15 +140,14 @@ export default function ContactForm() {
 
             setSavedSummary(summaryData);
 
-
-
-
-            trackFormSubmit('contacto_main_form', {
-                'servicio_seleccionado': summaryData.serviceType,
-                'situacion_actual': summaryData.currentStatus,
-                'empresa': summaryData.company,
-                'is_qualified': true,
-                'qualification_reason': 'formulario_web'
+            // ✅ CONVERSIÓN: solo se ejecuta si el servidor respondió 2xx (response.ok).
+            // Empuja `generate_lead` al dataLayer → GTM dispara el evento estándar "Lead" del Meta Pixel.
+            trackFormSubmit(formOrigin, {
+                lead_id: result.id || `lead_${Date.now()}`, // ID único para deduplicar en Meta (eventID)
+                servicio_seleccionado: summaryData.serviceType,
+                situacion_actual: summaryData.currentStatus,
+                is_qualified: true,
+                qualification_reason: 'formulario_web',
             });
 
             setIsSuccess(true);
@@ -166,27 +167,26 @@ export default function ContactForm() {
             email: formData.email || "No especificado",
             phone: formData.phone || "No especificado",
             currentStatus: formData.currentStatus || "No indicado",
-            serviceType: formData.serviceType.length > 0 ? formData.serviceType.join(", ") : "Diagnóstico General",
+            serviceType: formData.serviceType || "Diagnóstico General",
             message: formData.message || "Solicitud de contacto enviada desde la web"
         };
 
         const waMessage =
             `¡Hola Expansis Pro! Acabo de enviar una solicitud de diagnóstico desde la web.
-
+ 
 *MIS DATOS DE CONTACTO:*
 • *Nombre:* ${summary.name}
 • *Empresa:* ${summary.company}
 • *Contacto:* ${summary.email} | ${summary.phone}
 • *Web / Redes:* ${summary.websiteUrl}
-
+ 
 *DIAGNÓSTICO TÉCNICO:*
 • *Programa:* ${summary.serviceType}
 • *Situación Actual:* ${summary.currentStatus}
-• *Inversión Estimada:* ${summary.budgetRange}
-
+ 
 *DETALLE DEL REQUERIMIENTO:*
 "${summary.message}"
-
+ 
 Quedo atento a la evaluación técnica.`;
 
         const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(waMessage)}`;

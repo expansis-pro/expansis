@@ -1,6 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /private/
-
-# Aquí es donde ocurre la magia:
-Sitemap: https://expansispro.com/sitemap.xml
