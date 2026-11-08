@@ -7,6 +7,8 @@ import ContactForm from '@/components/ContactForm';
 import { contactData } from '@/data/contactConfig';
 import { buildMetadata } from '@/lib/seo';
 
+import Icon from '@/components/Icon';
+
 
 
 export const metadata = buildMetadata({
@@ -94,7 +96,7 @@ export default function ContactPage() {
                             </h3>
                             <ul className="space-y-3 text-sm">
                                 <li className="flex items-center gap-3 text-zinc-400 font-light">
-                                    <i className="fa-solid fa-location-dot text-primario text-base shrink-0 w-5 text-center"></i>
+                                    <Icon name="fa-location-dot" className="text-primario text-base shrink-0 w-5" />
                                     <span>Santiago de Chile &bull; Cobertura nacional e internacional</span>
                                 </li>
                                 <li className="flex items-center gap-3 text-zinc-400 font-light">

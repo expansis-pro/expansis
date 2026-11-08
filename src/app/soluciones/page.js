@@ -5,6 +5,8 @@ import SecondaryHero from '@/components/SecondaryHero';
 import { solutionsData } from '@/data/solutionsData';
 import CallToAction from '@/components/CallToAction';
 import { buildMetadata } from '@/lib/seo';
+import Icon from '@/components/Icon';
+import Image from 'next/image';
 
 const solutionImages = {
     'marca-personal-profesionales': '/assets/images/marca-personal.webp',
@@ -40,10 +42,12 @@ export default function SolucionesHubPage() {
                                 href={`/soluciones/${solution.slug}`}
                                 className="group relative flex flex-col justify-between p-8 sm:p-10 overflow-hidden hover:border-primario/40 transition-colors"
                             >
-                                <img
+                                <Image
                                     src={solutionImages[solution.slug] || '/assets/images/expansisPro_target.webp'}
-                                    alt={solution.title}
-                                    className="absolute inset-0 z-0 w-full h-full object-cover opacity-15 grayscale contrast-125 group-hover:scale-105 transition-transform duration-500 pointer-events-none"
+                                    alt=""
+                                    fill
+                                    sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                                    className="z-0 object-cover opacity-15 grayscale contrast-125 group-hover:scale-105 transition-transform duration-500 pointer-events-none"
                                 />
                                 <div className="absolute inset-0 z-0 bg-gradient-to-t from-[#0f1420] via-[#0f1420]/90 to-[#0f1420]/70 pointer-events-none" />
 
@@ -53,7 +57,7 @@ export default function SolucionesHubPage() {
                                             [ MOD-0{idx + 1} ]
                                         </span>
                                         <span className="w-8 h-8 flex items-center justify-center border border-white/15 bg-black/60 text-primario group-hover:border-primario transition-colors">
-                                            <i className="fa-solid fa-arrow-right -rotate-45 group-hover:rotate-0 transition-transform duration-300" />
+                                            <Icon name="fa-arrow-right" className="-rotate-45 group-hover:rotate-0 transition-transform duration-300" />
                                         </span>
                                     </div>
 

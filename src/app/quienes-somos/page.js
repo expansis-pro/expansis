@@ -4,6 +4,8 @@ import Link from 'next/link';
 import SecondaryHero from '@/components/SecondaryHero';
 import ClientScrollButton from '@/components/ClientScrollButton';
 import CallToAction from '@/components/CallToAction';
+import Icon from '@/components/Icon';
+import Image from 'next/image';
 
 import { buildMetadata } from '@/lib/seo';
 
@@ -127,10 +129,12 @@ export default function QuienesSomosPage() {
                         </div>
 
                         <div className="lg:col-span-5 relative min-h-[360px] lg:min-h-full border-b lg:border-b-0 lg:border-l border-white/15 bg-[#090d15] order-1 lg:order-2">
-                            <img
+                            <Image
                                 src="/assets/images/Profile_Img_Expansis.webp"
                                 alt="Foto de perfil de Gonzalo Lobos, fundador de Expansis Pro"
-                                className="w-full h-full object-cover object-top"
+                                fill
+                                sizes="(min-width: 1024px) 40vw, 100vw"
+                                className="object-cover object-top"
                             />
                             <div className="absolute top-4 left-4 font-mono text-[10px] uppercase tracking-widest bg-black/85 text-primario px-3 py-1 border border-primario/30">
                                 GONZALO LOBOS // FOUNDER
@@ -172,7 +176,7 @@ export default function QuienesSomosPage() {
                                         [ MOD-01 // MISIÓN ]
                                     </span>
                                     <span className="font-mono text-xs text-zinc-500">
-                                        <i className="fa-solid fa-rocket" />
+                                        <Icon name="fa-rocket" />
                                     </span>
                                 </div>
 
@@ -198,7 +202,7 @@ export default function QuienesSomosPage() {
                                         [ MOD-02 // VISIÓN ]
                                     </span>
                                     <span className="font-mono text-xs text-zinc-500">
-                                        <i className="fa-solid fa-eye" />
+                                        <Icon name="fa-eye" />
                                     </span>
                                 </div>
 
@@ -228,10 +232,12 @@ export default function QuienesSomosPage() {
 
                         {/* Imagen de Contexto en Propósito */}
                         <div className="lg:col-span-5 relative min-h-[350px] lg:min-h-full border-b lg:border-b-0 lg:border-r border-white/15 bg-[#090d15]">
-                            <img
+                            <Image
                                 src="/assets/images/expansisPro_aboutus.webp"
                                 alt="Consultoría estratégica y diseño de ecosistemas digitales en Expansis Pro"
-                                className="w-full h-full object-cover"
+                                fill
+                                sizes="(min-width: 1024px) 40vw, 100vw"
+                                className="object-cover"
                             />
                             <div className="absolute top-4 left-4 font-mono text-[10px] uppercase tracking-widest bg-black/85 text-primario px-3 py-1 border border-primario/30">
                                 MANIFIESTO // PROPÓSITO

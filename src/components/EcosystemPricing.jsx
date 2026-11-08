@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { solutionsData } from '@/data/solutionsData';
+import Image from 'next/image';
 
 const tabMeta = {
 	'marca-personal-profesionales': {
@@ -78,7 +79,7 @@ export default function EcosystemPricing() {
 						exit={{ opacity: 0, y: -8 }}
 						transition={{ duration: 0.18 }}
 						className='relative border border-white/15 bg-[#0f1420] overflow-hidden'>
-						<img src={currentPlan.image} alt={currentPlan.title} className='absolute inset-0 z-0 w-full h-full object-cover opacity-15 contrast-125 pointer-events-none' />
+						<Image src={currentPlan.image} alt='' fill sizes='(min-width: 1024px) 70vw, 100vw' className='z-0 object-cover opacity-15 contrast-125 pointer-events-none' />
 						<div className='absolute inset-0 z-0 bg-gradient-to-r from-[#0f1420] via-[#0f1420]/90 to-[#0f1420]/75 pointer-events-none' />
 
 						<div className='relative z-10 grid grid-cols-1 lg:grid-cols-12 divide-y lg:divide-y-0 lg:divide-x divide-white/15'>

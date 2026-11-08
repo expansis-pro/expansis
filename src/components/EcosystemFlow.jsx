@@ -3,6 +3,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 
 const ecosystemSteps = [
 	{
@@ -133,7 +134,7 @@ export default function EcosystemFlow() {
 								transition={{ duration: 0.2 }}
 								className='relative border border-white/15 bg-[#0f1420] p-6 sm:p-10 flex flex-col justify-between min-h-[420px] sm:min-h-[460px] overflow-hidden'>
 								{/* Capa de Imagen de Fondo */}
-								<img src={currentStep.image} alt={currentStep.title} className='absolute inset-0 z-0 w-full h-full object-cover opacity-20 contrast-125 pointer-events-none' />
+								<Image src={currentStep.image} alt='' fill sizes='(min-width: 1024px) 60vw, 100vw' className='z-0 object-cover opacity-20 contrast-125 pointer-events-none' />
 								<div className='absolute inset-0 z-0 bg-gradient-to-t from-[#0f1420] via-[#0f1420]/90 to-[#0f1420]/60 pointer-events-none' />
 
 								{/* Contenido en Primer Plano */}

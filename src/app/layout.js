@@ -51,16 +51,7 @@ export const viewport = { themeColor: '#07090e' };
 export default function RootLayout({ children }) {
     return (
         <html lang="es-CL" className={montserrat.variable}>
-            <head>
-                {/* Temporal: se elimina en el Paso 11 al migrar a react-icons */}
-                <link
-                    rel="stylesheet"
-                    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-                    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-                    crossOrigin="anonymous"
-                    referrerPolicy="no-referrer"
-                />
-            </head>
+
             <GoogleTagManager gtmId={GTM_ID} />
             <body className="bg-[#07090e] text-white min-h-screen flex flex-col antialiased selection:bg-primario selection:text-white">
                 <noscript>

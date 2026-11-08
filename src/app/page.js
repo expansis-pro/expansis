@@ -1,9 +1,7 @@
 // app/page.js
 import React from 'react';
-import { servicesData } from '@/data/servicesData';
-import CarouselItem from '@/components/CarouselItem';
+
 import ProjectSection from '@/components/ProjectSection';
-import CardCarousel from '@/components/CardCarousel';
 import ImageTextCTA from '@/components/ImageTextCTA';
 import CtaButton from '@/components/CtaButton';
 import CallToAction from '@/components/CallToAction';
@@ -11,8 +9,8 @@ import RecentPosts from '@/components/RecentPosts';
 import HeroAnimation from '@/components/HeroAnimation';
 import EcosystemFlow from '@/components/EcosystemFlow';
 import EcosystemPricing from '@/components/EcosystemPricing';
-import HomeSolutionsFinder from '@/components/HomeSolutionsFinder';
 import { buildMetadata } from '@/lib/seo';
+import { preload } from 'react-dom';
 
 
 export const metadata = {
@@ -26,6 +24,7 @@ export const metadata = {
 };
 
 export default function Home() {
+    preload('/assets/images/hero-poster.webp', { as: 'image', fetchPriority: 'high' });
     return (
         <>
             {/* --- 1. HERO SECTION CON VIDEO DE FONDO --- */}
@@ -35,8 +34,8 @@ export default function Home() {
                     loop
                     muted
                     playsInline
+                    preload="metadata"
                     poster="/assets/images/hero-poster.webp"
-                    fetchPriority="high"
                     className="absolute inset-0 z-0 w-full h-full object-cover opacity-25 brightness-[0.6] grayscale"
                 >
                     <source src="/assets/videos/hero-expansis.mp4" type="video/mp4" />

@@ -4,6 +4,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { projectsData } from '@/data/projectsData';
+import Image from 'next/image';
 
 export default function ProjectSection({
     title,
@@ -61,10 +62,12 @@ export default function ProjectSection({
                         >
                             {/* Imagen a Color con Zoom Suave */}
                             <div className="relative aspect-[16/10] overflow-hidden border-b border-white/10 bg-black">
-                                <img
+                                <Image
                                     src={project.image}
-                                    alt={project.title}
-                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                                    alt={`Sitio web de ${project.title}`}
+                                    fill
+                                    sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                                    className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                                 />
                                 <div className="absolute top-3 left-3 bg-black/80 px-2 py-0.5 border border-white/20 font-mono text-[10px] uppercase tracking-wider text-zinc-300 backdrop-blur-sm">
                                     {(idx + 1).toString().padStart(2, '0')} // {project.sector}

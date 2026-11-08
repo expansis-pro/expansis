@@ -2,6 +2,7 @@
 'use client';
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function ImageTextCTA({
     title,
@@ -21,11 +22,7 @@ export default function ImageTextCTA({
 
                     {/* Columna Imagen */}
                     <div className="lg:col-span-5 relative min-h-[350px] lg:min-h-[480px] border-b lg:border-b-0 lg:border-r border-white/15 bg-black">
-                        <img
-                            src={imageDesktop}
-                            alt={alt}
-                            className="w-full h-full object-cover  contrast-125"
-                        />
+                        <Image src={imageDesktop} alt={alt} fill sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover contrast-125" />
                         <div className="absolute top-4 left-4 font-mono text-[10px] uppercase tracking-widest bg-black/80 text-primario px-3 py-1 border border-primario/30">
                             INGENIERÍA &amp; ESTRATEGIA
                         </div>
