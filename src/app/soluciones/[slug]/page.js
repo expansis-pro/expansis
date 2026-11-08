@@ -14,6 +14,7 @@ const solutionImages = {
     'empresas-b2b': '/assets/images/empresas-b2b.webp',
     'ecommerce': '/assets/images/ecommerce.webp',
 };
+export const dynamicParams = false;
 
 export async function generateStaticParams() {
     return getAllSolutionSlugs().map((slug) => ({ slug }));
@@ -22,7 +23,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }) {
     const resolvedParams = await params;
     const solution = getSolutionBySlug(resolvedParams.slug);
-    if (!solution) return {};
+    if (!solution) notFound();
     return {
         title: solution.seo?.title || `${solution.title} | Expansis Pro`,
         description: solution.seo?.description || solution.heroText,

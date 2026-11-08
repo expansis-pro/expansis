@@ -11,6 +11,7 @@ const solutionImages = {
     'ecommerce': '/assets/images/ecommerce.webp',
 };
 
+
 export const metadata = {
     title: "Programas de Ingeniería & Adquisición | Expansis Pro",
     description: "Ecosistemas digitales que combinan desarrollo en React, pauta en Google/Meta Ads y control de rentabilidad para empresas B2B y profesionales.",
