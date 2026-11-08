@@ -252,7 +252,7 @@ export const blogPosts = [
         date: "26 Septiembre 2026",
         readTime: "9 min de lectura",
         image: "https://images.unsplash.com/photo-1640158615573-cd28feb1bf4e?auto=format&fit=crop&w=1200&q=80",
-        status: "aprobado",
+        status: "archivado",
         tags: ["Ciclo de Vida de Datos", "Gobernanza de Datos", "Data Management", "Harvard Data Science", "Estrategia de Datos"],
         sources: [
             {

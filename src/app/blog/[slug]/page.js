@@ -1,81 +1,24 @@
 // src/app/blog/[slug]/page.js
 import React from 'react';
 import Link from 'next/link';
-import { blogPosts } from '@/data/blogData';
-import NotFound from '@/app/not-found';
+import { notFound } from 'next/navigation';
+import { getPublishedPosts, getPostBySlug } from '@/lib/blog';
+import { absoluteUrl } from '@/lib/seo';
+import { toISODate } from '@/lib/dates';
 import JsonLd from '@/components/SEO/JsonLd';
 import CallToAction from '@/components/CallToAction';
 import BlogContent from '@/components/BlogContent';
 
-export async function generateMetadata({ params }) {
-    const resolvedParams = await params;
-    const slug = resolvedParams.slug;
-    const post = blogPosts.find((p) => p.slug === slug && p.status === "aprobado");
 
-    if (!post) {
-        return {
-            title: 'Artículo no encontrado | Expansis Pro',
-            description: 'La publicación solicitada no existe en nuestro blog.',
-        };
-    }
-
-    const title = `${post.title} | Blog Expansis Pro`;
-    const canonicalUrl = `https://expansispro.com/blog/${slug}`;
-    const imageUrl = post.image?.startsWith('http')
-        ? post.image
-        : `https://expansispro.com${post.image}`;
-
-    return {
-        title: title,
-        description: post.excerpt,
-        alternates: {
-            canonical: canonicalUrl,
-        },
-        openGraph: {
-            title: title,
-            description: post.excerpt,
-            url: canonicalUrl,
-            siteName: 'Expansis Pro',
-            type: 'article',
-            publishedTime: post.date,
-            authors: [post.author],
-            images: [
-                {
-                    url: imageUrl,
-                    width: 1200,
-                    height: 630,
-                    alt: post.title,
-                }
-            ],
-        },
-        twitter: {
-            card: 'summary_large_image',
-            title: title,
-            description: post.excerpt,
-            images: [imageUrl],
-        }
-    };
-}
-
-export async function generateStaticParams() {
-    return blogPosts
-        .filter((post) => post.status === "aprobado")
-        .map((post) => ({ slug: post.slug }));
-}
 
 export default async function BlogPostPage({ params }) {
-    const resolvedParams = await params;
-    const slug = resolvedParams.slug;
-    const post = blogPosts.find((p) => p.slug === slug && p.status === "aprobado");
+    const { slug } = await params;
+    const post = getPostBySlug(slug);
+    if (!post) notFound();
 
-    if (!post) {
-        return <NotFound />;
-    }
-
-    const relatedPosts = blogPosts
-        .filter((p) => p.category === post.category && p.slug !== post.slug && p.status === "aprobado")
+    const relatedPosts = getPublishedPosts()
+        .filter((p) => p.category === post.category && p.slug !== post.slug)
         .slice(0, 3);
-
     return (
         <main className="min-h-screen bg-[#07090e] text-white scroll-smooth">
             <JsonLd
@@ -88,7 +31,7 @@ export default async function BlogPostPage({ params }) {
                         "@type": "Person",
                         "name": post.author,
                     },
-                    datePublished: post.date,
+                    datePublished: toISODate(post.date),
                     publisher: {
                         "@type": "Organization",
                         "name": "Expansis Pro",

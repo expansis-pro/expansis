@@ -89,3 +89,21 @@ strong {
 	font-weight: 600 !important;
 	@apply text-ghostWhite;
 }
+
+/* Animación de entrada sin ocultar contenido */
+@keyframes rise-in {
+	from {
+		transform: translateY(12px);
+	}
+	to {
+		transform: none;
+	}
+}
+.animate-rise-in {
+	animation: rise-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@media (prefers-reduced-motion: reduce) {
+	.animate-rise-in {
+		animation: none;
+	}
+}

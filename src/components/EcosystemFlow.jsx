@@ -124,7 +124,7 @@ export default function EcosystemFlow() {
 
 					{/* Detalle Dinámico de la Fase */}
 					<div className='lg:col-span-7 lg:sticky lg:top-28'>
-						<AnimatePresence mode='wait'>
+						<AnimatePresence mode='wait' initial={false}>
 							<motion.div
 								key={currentStep.id}
 								initial={{ opacity: 0, x: 10 }}
