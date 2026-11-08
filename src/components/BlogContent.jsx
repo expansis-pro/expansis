@@ -14,30 +14,34 @@ const slugify = (text) =>
 
 export default function BlogContent({ content = [], sources = [] }) {
 	// Procesa los párrafos: detecta <h3>, inyecta IDs y extrae la lista de títulos
+	// Normaliza el HTML de los posts: secciones como H2, sin <sup> vacíos
+	const normalize = (html) =>
+		html
+			.replace(/<h3(\s|>)/gi, '<h2$1')
+			.replace(/<\/h3>/gi, '</h2>')
+			.replace(/<sup>\s*<\/sup>/gi, '')
+			.replace(/<sup><a [^>]*>\s*<\/a><\/sup>/gi, '');
+
 	const { headings, processedContent, firstHeadingIndex } = useMemo(() => {
 		const list = [];
-		let firstH3Idx = -1;
+		let firstIdx = -1;
 
-		const processed = content.map((paragraph, idx) => {
-			if (typeof paragraph === 'string' && paragraph.includes('<h3')) {
-				if (firstH3Idx === -1) firstH3Idx = idx;
-
-				// Extrae el texto interior del <h3>
-				const match = paragraph.match(/<h3(?:\s+id=['"]([^'"]*)['"])?[^>]*>(.*?)<\/h3>/i);
+		const processed = content.map((raw, idx) => {
+			const paragraph = typeof raw === 'string' ? normalize(raw) : raw;
+			if (typeof paragraph === 'string' && paragraph.includes('<h2')) {
+				if (firstIdx === -1) firstIdx = idx;
+				const match = paragraph.match(/<h2(?:\s+id=['"]([^'"]*)['"])?[^>]*>(.*?)<\/h2>/i);
 				if (match) {
 					const rawText = match[2].replace(/<[^>]*>/g, '').trim();
 					const cleanId = match[1] || `sec-${slugify(rawText).slice(0, 35)}`;
-
 					list.push({ id: cleanId, text: rawText });
-
-					// Inyecta el ID en el elemento <h3>
-					return paragraph.replace(/<h3(?:\s+id=['"][^'"]*['"])?([^>]*)>/i, `<h3 id="${cleanId}"$1>`);
+					return paragraph.replace(/<h2(?:\s+id=['"][^'"]*['"])?([^>]*)>/i, `<h2 id="${cleanId}"$1>`);
 				}
 			}
 			return paragraph;
 		});
 
-		return { headings: list, processedContent: processed, firstHeadingIndex: firstH3Idx };
+		return { headings: list, processedContent: processed, firstHeadingIndex: firstIdx };
 	}, [content]);
 
 	// Delegación de eventos para scroll suave en citas y enlaces de índice
@@ -90,7 +94,7 @@ export default function BlogContent({ content = [], sources = [] }) {
             <strong class="text-white font-medium shrink-0">${source.name}</strong>
             <span class="text-zinc-400 font-light truncate">"${source.title}"</span>
             <a href="${source.url}" target="_blank" rel="noopener noreferrer" class="text-zinc-400 hover:text-primario ml-1 shrink-0">
-              <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+                         <span aria-hidden="true" class="text-[10px]">↗</span>
             </a>
             <span class="absolute top-full left-1/2 -translate-x-1/2 border-[5px] border-transparent border-t-[#0d121d] block h-0 w-0 z-20"></span>
             <span class="absolute top-[101%] left-1/2 -translate-x-1/2 border-[6px] border-transparent border-t-white/20 block h-0 w-0 z-10"></span>

@@ -107,3 +107,6 @@ strong {
 		animation: none;
 	}
 }
+.blog-content-wrapper h2 {
+	@apply text-xl sm:text-2xl font-medium text-white mt-10 mb-4 scroll-mt-28;
+}
