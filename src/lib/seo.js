@@ -13,14 +13,37 @@ export const absoluteUrl = (src) => {
     const clean = src.trim();
     return clean.startsWith('http') ? clean : `${SITE_URL}${clean}`;
 };
-
-export function buildMetadata({ title, description, path = '/', images, type = 'website', openGraph = {} }) {
+/** Construye metadata coherente por página (canonical + OG + Twitter). */
+export function buildMetadata({
+    title,
+    description,
+    path = '/',
+    images,
+    type = 'website',
+    noindex = false,
+    openGraph = {},
+}) {
     const ogImages = images?.length ? images : [DEFAULT_OG_IMAGE];
     return {
         title,
         description,
-        alternates: { canonical: `${SITE_URL}${path === '/' ? '' : path}` },
-        openGraph: { title, description, url: `${SITE_URL}${path}`, siteName: SITE_NAME, locale: 'es_CL', type, images: ogImages, ...openGraph },
-        twitter: { card: 'summary_large_image', title, description, images: ogImages.map((i) => i.url) },
+        alternates: { canonical: path },
+        openGraph: {
+            title,
+            description,
+            url: path,
+            siteName: SITE_NAME,
+            locale: 'es_CL',
+            type,
+            images: ogImages,
+            ...openGraph,
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title,
+            description,
+            images: ogImages.map((i) => i.url),
+        },
+        ...(noindex && { robots: { index: false, follow: true } }),
     };
 }

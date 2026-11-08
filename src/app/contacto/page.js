@@ -5,9 +5,9 @@ import React from 'react';
 import SecondaryHero from '@/components/SecondaryHero';
 import ContactForm from '@/components/ContactForm';
 import { contactData } from '@/data/contactConfig';
-
-
 import { buildMetadata } from '@/lib/seo';
+
+
 
 export const metadata = buildMetadata({
     title: 'Contacto y Diagnóstico de Proyecto Web | Expansis Pro',

@@ -4,6 +4,7 @@ const MESES = {
     julio: 7, agosto: 8, septiembre: 9, setiembre: 9, octubre: 10, noviembre: 11, diciembre: 12,
 };
 
+/** "22 Septiembre 2026" | "2026-09-22" → "2026-09-22" (ISO 8601) */
 export function toISODate(input) {
     if (!input) return undefined;
     const s = String(input).trim();
@@ -18,3 +19,10 @@ export const parseBlogDate = (s) => {
     const iso = toISODate(s);
     return iso ? Date.parse(`${iso}T00:00:00Z`) : 0;
 };
+
+/** "2026-09-22" → "22 de septiembre de 2026" */
+export const formatDateEs = (iso) =>
+    iso
+        ? new Intl.DateTimeFormat('es-CL', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' })
+            .format(new Date(`${iso}T00:00:00Z`))
+        : '';
