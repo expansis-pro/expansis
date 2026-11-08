@@ -1,41 +1,44 @@
+// src/app/sitemap.js
 import { solutionsData } from '@/data/solutionsData';
-import { blogPosts } from '@/data/blogData';
+import { getPublishedPosts } from '@/lib/blog';
+import { toISODate } from '@/lib/dates';
+import { SITE_URL } from '@/lib/seo';
 
-export default async function sitemap() {
-    const baseUrl = 'https://expansispro.com';
+// Cambia la fecha de una página solo cuando cambie su contenido
+const STATIC_PAGES = [
+    ['/', '2026-11-08'],
+    ['/soluciones', '2026-11-08'],
+    ['/proyectos', '2026-11-08'],
+    ['/quienes-somos', '2026-11-08'],
+    ['/contacto', '2026-11-08'],
+    ['/faq', '2026-11-08'],
+];
+const SOLUTIONS_UPDATED = '2026-11-08';
 
-    // Rutas estáticas principales
-    const routes = [
-        '',
-        '/soluciones',
-        '/proyectos',
-        '/quienes-somos',
-        '/contacto',
-        '/faq',
-        '/blog',
-    ].map((route) => ({
-        url: `${baseUrl}${route}`,
-        lastModified: new Date().toISOString(),
-        changeFrequency: 'monthly',
-        priority: route === '' ? 1.0 : 0.8,
-    }));
+export default function sitemap() {
+    const posts = getPublishedPosts();
+    const latestPost = posts
+        .map((p) => toISODate(p.updated || p.date))
+        .filter(Boolean)
+        .sort()
+        .at(-1);
 
-    // Rutas dinámicas de soluciones activas
-    const solutionRoutes = solutionsData.map((solution) => ({
-        url: `${baseUrl}/soluciones/${solution.slug}`,
-        lastModified: new Date().toISOString(),
-        changeFrequency: 'weekly',
-        priority: 0.9,
-    }));
+    const entries = [
+        ...STATIC_PAGES.map(([path, lastModified]) => ({
+            url: path === '/' ? SITE_URL : `${SITE_URL}${path}`,
+            lastModified,
+        })),
+        { url: `${SITE_URL}/blog`, lastModified: latestPost },
+        ...solutionsData.map((s) => ({
+            url: `${SITE_URL}/soluciones/${s.slug}`,
+            lastModified: s.updated || SOLUTIONS_UPDATED,
+        })),
+        ...posts.map((p) => ({
+            url: `${SITE_URL}/blog/${p.slug}`,
+            lastModified: toISODate(p.updated || p.date),
+        })),
+    ];
 
-    const blogRoutes = blogPosts
-        .filter((post) => post.status === "aprobado")
-        .map((post) => ({
-            url: `${baseUrl}/blog/${post.slug}`,
-            lastModified: new Date().toISOString(),
-            changeFrequency: 'monthly',
-            priority: 0.7,
-        }));
-
-    return [...routes, ...solutionRoutes, ...blogRoutes];
+    // Una URL por entrada aunque se vuelva a colar un slug repetido
+    return [...new Map(entries.map((e) => [e.url, e])).values()];
 }

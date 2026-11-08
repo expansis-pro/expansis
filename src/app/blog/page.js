@@ -1,72 +1,22 @@
-// app/blog/page.js
-'use client';
+// src/app/blog/page.js
+import React from 'react';
+import BlogExplorer from '@/components/BlogExplorer';
+import { getPublishedPosts, toPostSummary } from '@/lib/blog';
+import { buildMetadata } from '@/lib/seo';
 
-import React, { useState, useMemo } from 'react';
-import Link from 'next/link';
-import { blogPosts } from '@/data/blogData';
-import BlogImage from '@/components/BlogImage';
-
-// Mapeo para interpretar fechas en texto en español ("28 Octubre 2026")
-const MESES = {
-    enero: 0, febrero: 1, marzo: 2, abril: 3, mayo: 4, junio: 5,
-    julio: 6, agosto: 7, septiembre: 8, octubre: 9, noviembre: 10, diciembre: 11
-};
-
-const parseBlogDate = (dateStr) => {
-    if (!dateStr || typeof dateStr !== 'string') return 0;
-    const parts = dateStr.trim().split(/\s+/);
-    if (parts.length >= 3) {
-        const day = parseInt(parts[0], 10);
-        const monthClean = parts[1].toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-        const month = MESES[monthClean] ?? 0;
-        const year = parseInt(parts[2], 10);
-        return new Date(year, month, day).getTime();
-    }
-    return new Date(dateStr).getTime() || 0;
-};
+export const metadata = buildMetadata({
+    title: 'Blog de Analítica, GA4, Looker Studio y Meta Ads | Expansis Pro',
+    description:
+        'Guías prácticas sobre análisis de datos, Google Analytics 4, Looker Studio y Meta Ads para emprendedores y empresas en Chile.',
+    path: '/blog',
+});
 
 export default function BlogPage() {
-    const [selectedCategory, setSelectedCategory] = useState('Todas');
-    const [searchQuery, setSearchQuery] = useState('');
-    const [sortOrder, setSortOrder] = useState('recent'); // 'recent' | 'oldest'
-
-    const approvedPosts = useMemo(() => {
-        return blogPosts.filter((post) => post && post.status === 'aprobado');
-    }, []);
-
-    const categories = useMemo(() => {
-        const uniqueCategories = new Set(
-            approvedPosts.map((post) => post.category).filter(Boolean)
-        );
-        return ['Todas', ...Array.from(uniqueCategories)];
-    }, [approvedPosts]);
-
-    const filteredPosts = useMemo(() => {
-        return approvedPosts
-            .filter((post) => {
-                const matchesCategory =
-                    selectedCategory === 'Todas' || post.category === selectedCategory;
-
-                const query = searchQuery.toLowerCase().trim();
-                const matchesSearch =
-                    !query ||
-                    (post.title && post.title.toLowerCase().includes(query)) ||
-                    (post.excerpt && post.excerpt.toLowerCase().includes(query));
-
-                return matchesCategory && matchesSearch;
-            })
-            .sort((a, b) => {
-                const timeA = parseBlogDate(a.date);
-                const timeB = parseBlogDate(b.date);
-                return sortOrder === 'recent' ? timeB - timeA : timeA - timeB;
-            });
-    }, [approvedPosts, selectedCategory, searchQuery, sortOrder]);
+    const posts = getPublishedPosts().map(toPostSummary);
 
     return (
         <main className="min-h-screen bg-[#07090e] text-white pt-32 pb-24 border-b border-white/10">
             <div className="container-pro max-w-6xl mx-auto px-4">
-
-                {/* Cabecera Editorial Técnica */}
                 <div className="mb-16 pb-8 border-b border-white/10">
                     <span className="font-mono text-xs uppercase tracking-[0.25em] text-primario block mb-2">
                         [ BASE DE CONOCIMIENTO &amp; ANÁLISIS ]
@@ -78,117 +28,7 @@ export default function BlogPage() {
                         Publicaciones sobre ingeniería web, analítica en GA4, estrategias de adquisición pagada y marcos metodológicos de datos.
                     </p>
                 </div>
-
-                {/* Filtros Geométricos */}
-                <div className="border border-white/15 bg-[#0d121d] mb-12">
-
-                    {/* Fila superior: Buscador y Ordenamiento */}
-                    <div className="grid grid-cols-1 sm:grid-cols-12 divide-y sm:divide-y-0 sm:divide-x divide-white/15 items-center border-b border-white/15">
-
-                        {/* Buscador */}
-                        <div className="sm:col-span-7 lg:col-span-8 p-4 flex items-center gap-3">
-                            <span className="font-mono text-xs text-zinc-500">SEARCH:</span>
-                            <input
-                                type="text"
-                                value={searchQuery}
-                                onChange={(e) => setSearchQuery(e.target.value)}
-                                placeholder="Escribe un tema..."
-                                className="w-full bg-transparent font-mono text-xs text-white placeholder-zinc-600 focus:outline-none"
-                            />
-                        </div>
-
-                        {/* Selector de Orden */}
-                        <div className="sm:col-span-5 lg:col-span-4 p-3 flex items-center justify-between sm:justify-end gap-3 bg-black/20">
-                            <span className="font-mono text-[10px] sm:text-[11px] text-zinc-500 uppercase tracking-wider shrink-0">
-                                ORDENAR:
-                            </span>
-                            <div className="relative w-full sm:w-auto">
-                                <select
-                                    value={sortOrder}
-                                    onChange={(e) => setSortOrder(e.target.value)}
-                                    className="w-full sm:w-auto appearance-none bg-[#07090e] text-zinc-200 border border-white/15 px-3 py-1.5 pr-8 font-mono text-[11px] uppercase tracking-wider rounded-none focus:outline-none focus:border-primario cursor-pointer transition-colors"
-                                >
-                                    <option value="recent">Más recientes</option>
-                                    <option value="oldest">Más antiguos</option>
-                                </select>
-                                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-zinc-500 text-[9px]">
-                                    ▼
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Fila inferior: Selector de Categorías Horizontal */}
-                    <div className="p-3 flex flex-wrap gap-2 items-center">
-                        <span className="font-mono text-[10px] text-zinc-500 uppercase tracking-widest mr-1 hidden sm:inline-block">
-                            CATEGORÍA:
-                        </span>
-                        {categories.map((cat) => {
-                            const isActive = selectedCategory === cat;
-                            return (
-                                <button
-                                    key={cat}
-                                    onClick={() => setSelectedCategory(cat)}
-                                    className={`py-1.5 px-3 font-mono text-[11px] uppercase tracking-wider transition-all cursor-pointer border rounded-none ${isActive
-                                        ? 'bg-white text-black border-white'
-                                        : 'bg-black/30 text-zinc-400 border-white/10 hover:text-white hover:border-white/30'
-                                        }`}
-                                >
-                                    {cat}
-                                </button>
-                            );
-                        })}
-                    </div>
-                </div>
-
-                {/* Listado de Artículos */}
-                {filteredPosts.length === 0 ? (
-                    <div className="p-16 border border-white/15 bg-[#0d121d] text-center">
-                        <span className="font-mono text-xs text-zinc-500 block mb-2">[ 0 RESULTADOS ]</span>
-                        <p className="text-zinc-400 text-sm font-light">No encontramos artículos para los criterios especificados.</p>
-                    </div>
-                ) : (
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border border-white/15 divide-y md:divide-y-0 md:border-r-0 bg-[#0f1420]">
-                        {filteredPosts.map((post) => (
-                            <Link
-                                key={post.id}
-                                href={`/blog/${post.slug}`}
-                                className="group flex flex-col justify-between border-b md:border-r border-white/15 hover:bg-white/[0.02] transition-colors"
-                            >
-                                <div className="relative aspect-[16/10] overflow-hidden border-b border-white/10 bg-black">
-                                    <BlogImage
-                                        src={post.image}
-                                        alt={post.title}
-                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
-                                    />
-                                    <span className="absolute top-3 left-3 bg-black/90 px-2 py-0.5 border border-white/20 font-mono text-[9px] uppercase tracking-wider text-zinc-300">
-                                        {post.category}
-                                    </span>
-                                </div>
-
-                                <div className="p-6 flex-1 flex flex-col justify-between">
-                                    <div>
-                                        <div className="font-mono text-[10px] text-zinc-500 uppercase tracking-widest mb-3">
-                                            {post.date} // {post.readTime}
-                                        </div>
-                                        <h2 className="text-lg font-normal text-white group-hover:text-primario transition-colors mb-3 leading-snug">
-                                            {post.title}
-                                        </h2>
-                                        <p className="text-xs text-zinc-400 font-light leading-relaxed line-clamp-3 mb-6">
-                                            {post.excerpt}
-                                        </p>
-                                    </div>
-
-                                    <div className="pt-4 border-t border-white/10 flex items-center justify-between font-mono text-[11px] text-zinc-500 group-hover:text-white transition-colors">
-                                        <span>LEER COMPLETO</span>
-                                        <span>→</span>
-                                    </div>
-                                </div>
-                            </Link>
-                        ))}
-                    </div>
-                )}
-
+                <BlogExplorer posts={posts} />
             </div>
         </main>
     );

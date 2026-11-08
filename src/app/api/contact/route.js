@@ -3,10 +3,22 @@ import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+export const dynamic = 'force-dynamic';
 
 export async function POST(request) {
     try {
+        // Inicialización segura dentro de la petición
+        const resendKey = process.env.RESEND_API_KEY;
+        if (!resendKey) {
+            console.error('Falta la variable de entorno RESEND_API_KEY');
+            return NextResponse.json(
+                { error: 'Servicio de correo no configurado.' },
+                { status: 500 }
+            );
+        }
+
+        const resend = new Resend(resendKey);
+
         // 1. Bloqueo temporal (Cooldown solo en producción)
         if (process.env.NODE_ENV === 'production') {
             const cookieStore = await cookies();
@@ -50,7 +62,7 @@ export async function POST(request) {
             selectedServices = serviceType;
         }
 
-        // 2. Envío por Resend con todos los campos incluidos
+        // 2. Envío por Resend
         const { data, error } = await resend.emails.send({
             from: 'Expansis Pro Web <contacto@expansispro.com>',
             to: [process.env.CONTACT_RECEIVER_EMAIL || 'gonzalo@expansispro.com'],
@@ -140,7 +152,7 @@ export async function POST(request) {
             }).catch(err => console.warn('Aviso: SheetDB falló pero el correo fue entregado', err));
         }
 
-        // 4. Establecer cookie con expiración de 60 segundos
+        // 4. Cookie de cooldown
         const response = NextResponse.json({ success: true, id: data.id });
         response.cookies.set({
             name: 'expansis_lead_session',
