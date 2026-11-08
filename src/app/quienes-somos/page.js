@@ -5,21 +5,15 @@ import SecondaryHero from '@/components/SecondaryHero';
 import ClientScrollButton from '@/components/ClientScrollButton';
 import CallToAction from '@/components/CallToAction';
 
-export const metadata = {
-    title: "Sobre Expansis Pro | Nuestra Filosofía de Ingeniería",
-    description: "Conoce al equipo detrás de la estrategia. Un aliado dedicado a entender y potenciar tu negocio con integridad técnica.",
-    alternates: {
-        canonical: 'https://expansispro.com/quienes-somos',
-    },
-    openGraph: {
-        title: "Sobre Expansis Pro | Nuestra Filosofía de Ingeniería",
-        description: "Conoce al equipo detrás de la estrategia. Un aliado dedicado a entender y potenciar tu negocio con integridad técnica.",
-        url: 'https://expansispro.com/quienes-somos',
-        siteName: 'Expansis Pro',
-        locale: 'es_CL',
-        type: 'website',
-    },
-};
+import { buildMetadata } from '@/lib/seo';
+
+export const metadata = buildMetadata({
+    title: 'Sobre Nosotros: Nuestra Filosofía de Ingeniería',
+    description:
+        'Conoce al equipo detrás de la estrategia. Un aliado dedicado a entender y potenciar tu negocio con integridad técnica.',
+    path: '/quienes-somos',
+    images: [{ url: '/assets/images/Profile_Img_Expansis.webp', alt: 'Gonzalo Lobos, fundador de Expansis Pro' }],
+});
 
 export default function QuienesSomosPage() {
     const baseUrl = 'https://expansispro.com';

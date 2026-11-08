@@ -15,7 +15,7 @@ const tabMeta = {
 	'empresas-b2b': {
 		code: 'MOD-02',
 		tabLabel: 'Empresas B2B',
-		image: '/assets/images/empresa-b2b.webp',
+		image: '/assets/images/empresas-b2b.webp',
 	},
 	ecommerce: {
 		code: 'MOD-03',

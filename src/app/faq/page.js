@@ -7,7 +7,7 @@ import faqsData from '@/data/faqsData';
 import { buildMetadata } from '@/lib/seo';
 
 export const metadata = buildMetadata({
-    title: 'Preguntas Frecuentes: Precios, Pauta y Mantención | Expansis Pro',
+    title: 'Preguntas Frecuentes: Precios, Pauta y Mantención',
     description:
         'Quién paga la pauta, qué incluye la mantención, por qué el compromiso de 60 días y cómo funcionan nuestros programas web y de Ads.',
     path: '/faq',

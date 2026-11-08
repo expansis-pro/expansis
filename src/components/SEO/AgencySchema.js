@@ -1,46 +1,59 @@
 // src/components/SEO/AgencySchema.js
-import React from 'react';
 import JsonLd from './JsonLd';
 import { contactData } from '@/data/contactConfig';
-import { servicesData } from '@/data/servicesData';
+import { solutionsData } from '@/data/solutionsData';
+import { SITE_URL } from '@/lib/seo';
 
 export default function AgencySchema() {
-    const agencyData = {
+    const graph = {
         '@context': 'https://schema.org',
-        '@type': 'ProfessionalService',
-        '@id': 'https://expansispro.com/#agency',
-        'name': 'Expansis Pro',
-        'legalName': 'Expansis Pro Consultorías y Desarrollo Limitada',
-        'description': 'Agencia de desarrollo web y marketing digital de alto impacto. Especialistas en diseño UX/UI, aplicaciones web con React, SEO técnico y automatizaciones para empresas.',
-        'url': 'https://expansispro.com',
-        'logo': 'https://expansispro.com/logo.png',
-        'image': 'https://expansispro.com/assets/images/expansisPro_aboutus.webp',
-        'telephone': `${contactData.whatsapp.prefix} ${contactData.whatsapp.number}`,
-        'email': contactData.email.address,
-        'sameAs': [
-            contactData.socials.instagram,
-            contactData.socials.linkedin
+        '@graph': [
+            {
+                '@type': 'ProfessionalService',
+                '@id': `${SITE_URL}/#agency`,
+                name: 'Expansis Pro',
+                legalName: 'Expansis Pro SpA', // ← confirma la razón social real; debe coincidir con el footer
+                url: SITE_URL,
+                logo: {
+                    '@type': 'ImageObject',
+                    url: `${SITE_URL}/favicon/android-chrome-512x512.png`,
+                    width: 512,
+                    height: 512,
+                },
+                image: `${SITE_URL}/OGimage_1200x630_Expansis.jpg`,
+                description:
+                    'Agencia de desarrollo web en React y Shopify, gestión de Google y Meta Ads y analítica con GA4 y Looker Studio en Chile.',
+                email: contactData.email.address,
+                telephone: `+569${contactData.whatsapp.number}`,
+                address: {
+                    '@type': 'PostalAddress',
+                    addressLocality: 'Santiago',
+                    addressRegion: 'Región Metropolitana',
+                    addressCountry: 'CL',
+                },
+                areaServed: { '@type': 'Country', name: 'Chile' },
+                sameAs: [contactData.socials.linkedin, contactData.socials.instagram],
+                hasOfferCatalog: {
+                    '@type': 'OfferCatalog',
+                    name: 'Programas de canal digital',
+                    itemListElement: solutionsData.map((s) => ({
+                        '@type': 'Offer',
+                        url: `${SITE_URL}/soluciones/${s.slug}`,
+                        priceCurrency: 'CLP',
+                        itemOffered: { '@type': 'Service', name: s.title, description: s.tagline },
+                    })),
+                },
+            },
+            {
+                '@type': 'WebSite',
+                '@id': `${SITE_URL}/#website`,
+                url: SITE_URL,
+                name: 'Expansis Pro',
+                inLanguage: 'es-CL',
+                publisher: { '@id': `${SITE_URL}/#agency` },
+            },
         ],
-        'address': {
-            '@type': 'PostalAddress',
-            'addressLocality': 'Santiago',
-            'addressRegion': 'Metropolitana',
-            'addressCountry': 'CL'
-        },
-        // 🌟 CORREGIDO: El catálogo ahora se genera SOLO con tus servicios activos en la data
-        'hasOfferCatalog': {
-            '@type': 'OfferCatalog',
-            'name': 'Soluciones de Tecnología y Marketing Digital',
-            'itemListElement': servicesData.map((service) => ({
-                '@type': 'Offer',
-                'itemOffered': {
-                    '@type': 'Service',
-                    'name': service.title // Lee "Desarrollo Web", "E-commerce", etc.
-                }
-            }))
-        }
     };
 
-    // 2. Retorna usando el componente optimizado
-    return <JsonLd data={agencyData} id="agency-jsonld" />;
+    return <JsonLd id="agency-jsonld" data={graph} />;
 }

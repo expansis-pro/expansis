@@ -5,7 +5,7 @@ import { getPublishedPosts, toPostSummary } from '@/lib/blog';
 import { buildMetadata } from '@/lib/seo';
 
 export const metadata = buildMetadata({
-    title: 'Blog de Analítica, GA4, Looker Studio y Meta Ads | Expansis Pro',
+    title: 'Blog de Analítica, GA4, Looker Studio y Meta Ads',
     description:
         'Guías prácticas sobre análisis de datos, Google Analytics 4, Looker Studio y Meta Ads para emprendedores y empresas en Chile.',
     path: '/blog',

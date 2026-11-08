@@ -12,26 +12,17 @@ import HeroAnimation from '@/components/HeroAnimation';
 import EcosystemFlow from '@/components/EcosystemFlow';
 import EcosystemPricing from '@/components/EcosystemPricing';
 import HomeSolutionsFinder from '@/components/HomeSolutionsFinder';
+import { buildMetadata } from '@/lib/seo';
+
 
 export const metadata = {
-    title: "Expansis Pro | Canales Digitales y Performance en Chile",
-    description: "Infraestructuras digitales completas: desarrollo web en React, captación con Google/Meta Ads y telemetría avanzada para especialistas, empresas B2B y comercio electrónico.",
-    alternates: {
-        canonical: 'https://expansispro.com',
-    },
-    openGraph: {
-        title: "Expansis Pro | Ecosistemas Digitales para Empresas y Especialistas",
-        description: "Construimos canales digitales a medida donde tu infraestructura web y tus campañas publicitarias operan en conjunto para generar crecimiento predecible.",
-        url: 'https://expansispro.com',
-        siteName: 'Expansis Pro',
-        locale: 'es_CL',
-        type: 'website',
-    },
-    twitter: {
-        card: 'summary_large_image',
-        title: "Expansis Pro | Ecosistemas Digitales y Ads",
-        description: "Desarrollo web corporativo, adquisición pagada y analítica en tiempo real.",
-    },
+    ...buildMetadata({
+        title: 'Expansis Pro | Canales Digitales y Performance en Chile',
+        description:
+            'Infraestructuras digitales completas: desarrollo web en React, captación con Google/Meta Ads y telemetría avanzada para especialistas, empresas B2B y comercio electrónico.',
+        path: '/',
+    }),
+    title: { absolute: 'Expansis Pro | Canales Digitales y Performance en Chile' },
 };
 
 export default function Home() {

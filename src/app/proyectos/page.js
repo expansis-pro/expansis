@@ -5,13 +5,15 @@ import SecondaryHero from '@/components/SecondaryHero';
 import ProjectSection from '@/components/ProjectSection';
 import CallToAction from '@/components/CallToAction';
 
-export const metadata = {
-    title: "Casos de Éxito y Portafolio de Ingeniería Digital | Expansis Pro",
-    description: "Explora las plataformas web, e-commerce a medida y ecosistemas digitales que hemos diseñado y construido para marcas con autoridad en Chile.",
-    alternates: {
-        canonical: 'https://expansispro.com/proyectos',
-    },
-};
+import { buildMetadata } from '@/lib/seo';
+
+export const metadata = buildMetadata({
+    title: 'Casos de Éxito y Portafolio de Ingeniería Digital',
+    description:
+        'Explora las plataformas web, e-commerce a medida y ecosistemas digitales que hemos diseñado y construido para marcas con autoridad en Chile.',
+    path: '/proyectos',
+    images: [{ url: '/assets/images/hero-projects.webp', alt: 'Proyectos de Expansis Pro' }],
+});
 
 export default function ProjectsPage() {
     const baseUrl = 'https://expansispro.com';

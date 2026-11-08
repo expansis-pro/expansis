@@ -4,6 +4,7 @@ import Link from 'next/link';
 import SecondaryHero from '@/components/SecondaryHero';
 import { solutionsData } from '@/data/solutionsData';
 import CallToAction from '@/components/CallToAction';
+import { buildMetadata } from '@/lib/seo';
 
 const solutionImages = {
     'marca-personal-profesionales': '/assets/images/marca-personal.webp',
@@ -12,13 +13,13 @@ const solutionImages = {
 };
 
 
-export const metadata = {
-    title: "Programas de Ingeniería & Adquisición | Expansis Pro",
-    description: "Ecosistemas digitales que combinan desarrollo en React, pauta en Google/Meta Ads y control de rentabilidad para empresas B2B y profesionales.",
-    alternates: {
-        canonical: 'https://expansispro.com/soluciones',
-    },
-};
+
+export const metadata = buildMetadata({
+    title: 'Programas de Ingeniería y Adquisición Digital',
+    description:
+        'Ecosistemas digitales que combinan desarrollo en React, pauta en Google/Meta Ads y control de rentabilidad para empresas B2B y profesionales.',
+    path: '/soluciones',
+});
 
 export default function SolucionesHubPage() {
     return (

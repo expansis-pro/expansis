@@ -9,7 +9,7 @@ export const solutionsData = [
         targetAudience: "Diseñado para médicos, psicólogos, abogados, peritos y consultores independientes que venden su conocimiento.",
         heroText: "Orientado para profesionales y marcas personales. Vamos un paso más allá del boca en boca y construimos tu oficina digital: integramos desarrollo web optimizado, campañas en Meta y Google Ads, y seguimiento de leads para que puedas llenar tu agenda con clientes calificados.",
         seo: {
-            title: "Canal Digital para Profesionales y Marcas Personales | Expansis Pro",
+            title: "Canal Digital para Profesionales y Marcas Personales",
             description: "Ecosistema digital en React con Strapi CMS, captación en Meta Ads y medición de conversiones para médicos, abogados y consultores en Chile."
         },
         painPoints: [
@@ -78,7 +78,7 @@ export const solutionsData = [
         targetAudience: "Para constructoras, empresas de servicios industriales, logística, firmas legales corporativas y consultoras de negocios.",
         heroText: "Las empresas B2B necesitan una plataforma que valide su capacidad operativa ante directorios exigentes y capture demanda activa en Google Search combinada con retargeting institucional en Meta.",
         seo: {
-            title: "Canal Corporativo para Empresas y Servicios B2B | Expansis Pro",
+            title: "Canal Corporativo para Empresas y Servicios B2B",
             description: "Infraestructuras web B2B en React, gestión de Google Search Ads, retargeting en Meta, control de rentabilidad y dashboards Looker Studio en Chile."
         },
         painPoints: [
@@ -147,7 +147,7 @@ export const solutionsData = [
         targetAudience: "Para marcas comerciales, retail y distribuidores que comercializan productos físicos o digitales a escala.",
         heroText: "Vender en línea exige más que subir fotos a una tienda. Integramos Shopify con Webpay Plus, Mercado Pago, despacho automatizado y sincronización de inventario con Google y Meta Shopping para convertir visitas en transacciones rentables.",
         seo: {
-            title: "Desarrollo de Tiendas Online Shopify y E-commerce | Expansis Pro",
+            title: "Desarrollo de Tiendas Online Shopify y E-commerce",
             description: "Creación de tiendas online de alto rendimiento en Shopify. Integración de Webpay, couriers y sincronización con Google y Meta Shopping en Chile."
         },
         painPoints: [

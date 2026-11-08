@@ -10,7 +10,7 @@ import { buildMetadata } from '@/lib/seo';
 
 
 export const metadata = buildMetadata({
-    title: 'Contacto y Diagnóstico de Proyecto Web | Expansis Pro',
+    title: 'Contacto y Diagnóstico de Proyecto Web',
     description:
         'Cuéntanos tu proyecto: revisamos tu caso en menos de 24 horas hábiles y te proponemos arquitectura, plazos e inversión. Santiago, Chile.',
     path: '/contacto',
