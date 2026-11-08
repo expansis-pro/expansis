@@ -8,7 +8,7 @@ const MoveToUrlButton = ({ url = '/', name = 'Botón', category = 'General', lab
     const finalLabel = label || `${name} a ${url}`;
 
     const handleButtonClick = () => {
-        pushEvent('click_button', { button_name: name, button_category: category, button_label: finalLabel });
+        pushEvent('click_cta', { event_category: category, event_label: finalLabel });
     };
 
     return (
