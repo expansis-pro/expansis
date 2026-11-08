@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { solutionsData } from '@/data/solutionsData';
+import { pushEvent } from '@/utils/trackingUtils';
 
 export default function Navbar() {
 	const [menuOpen, setMenuOpen] = useState(false);
@@ -38,19 +39,14 @@ export default function Navbar() {
 	}, []);
 
 	const handleNavLinkClick = (linkName) => {
-		if (typeof window.gtag === 'function') {
-			window.gtag('event', 'click_navegacion', {
-				event_category: scrolled ? 'Navegacion Escritorio Scrolled' : 'Navegacion Escritorio Top',
-				event_label: linkName,
-			});
-		}
+		pushEvent('click_navegacion', { link_label: linkName, nav_state: scrolled ? 'scrolled' : 'top' });
 		setSolutionsMenuOpen(false);
 		setMenuOpen(false);
 	};
 
 	const navClasses = `fixed top-0 left-0 w-full z-50 transition-all duration-200 border-b ${scrolled || menuOpen
-			? 'bg-[#07090e]/95 backdrop-blur-md border-white/15 py-3'
-			: 'bg-transparent border-transparent py-5'
+		? 'bg-[#07090e]/95 backdrop-blur-md border-white/15 py-3'
+		: 'bg-transparent border-transparent py-5'
 		}`;
 
 	return (

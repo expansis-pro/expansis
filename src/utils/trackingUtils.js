@@ -111,3 +111,10 @@ export const trackFormSubmit = (formName, extras = {}) => {
     };
     trackFormConversionBase(formName, metadata);
 };
+
+/** Envía un evento a GTM (dataLayer). */
+export const pushEvent = (event, params = {}) => {
+    if (typeof window === 'undefined') return;
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event, ...params });
+};

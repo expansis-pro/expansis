@@ -2,17 +2,13 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { pushEvent } from '@/utils/trackingUtils';
 
 const MoveToUrlButton = ({ url = '/', name = 'Botón', category = 'General', label, className = "" }) => {
     const finalLabel = label || `${name} a ${url}`;
 
     const handleButtonClick = () => {
-        if (typeof window.gtag === 'function') {
-            window.gtag('event', 'click_cta', {
-                event_category: category,
-                event_label: finalLabel
-            });
-        }
+        pushEvent('click_button', { button_name: name, button_category: category, button_label: finalLabel });
     };
 
     return (
